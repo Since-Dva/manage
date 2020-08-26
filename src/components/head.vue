@@ -7,7 +7,8 @@ export default {};
 
 <style>
 .el-header{
-    height: 50px;
-    background:#1e1e1e ;
+    height: 100px;
+    background:#3498db;
+    margin-bottom: 20px;
 }
 </style>

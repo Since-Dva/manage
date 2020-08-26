@@ -1,9 +1,4 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+let rolepermission = {
   state: {
     tabs:[
       {title:'角色管理',path:'/jurisdiction/rolepermission'},
@@ -11,14 +6,10 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-    deleteTabMut(state,idx){
-      if(state.tabs.length>1){
-        state.tabs.splice(idx,1)
-      }
-    }
   },
   actions: {
   },
   modules: {
   }
-})
+}
+ export default rolepermission 
