@@ -18,7 +18,7 @@
     </div>
     <div class="tableBox">
       <xybTable :tableCol="tableCol" :tableData="tableData">
-        <el-table-column align="center" label="操作" width="200%">
+        <el-table-column align="center" label="操作" width="300%">
           <template slot-scope="scope">
             <a @click="showPowerModal(scope.row)">权限分配</a>
             <a @click="showEditModal(scope.row)">编辑</a>
@@ -28,7 +28,7 @@
       </xybTable>
     </div>
     <!-- 权限分配 -->
-    <el-dialog title="权限分配" :visible.sync="powerModal" width="581px">
+    <el-dialog title="权限分配" :visible.sync="powerModal" width="30.26vw">
       <div class="powerTitle">
         <span class="require">职位名称：{{tableData[dataIdx-1]&&tableData[dataIdx-1].name}}</span>
         <span>权限描述：{{tableData[dataIdx-1]&&tableData[dataIdx-1].describe}}</span>
@@ -40,7 +40,7 @@
       </span>
     </el-dialog>
     <!-- 编辑 -->
-    <el-dialog title="编辑职位权限" :visible.sync="editModal" width="435px">
+    <el-dialog title="编辑职位权限" :visible.sync="editModal" width="22.656vw">
       <div class="dyrow">
         <span class="require">职位名称：</span>
         <el-input type="text" v-model="postName" />
@@ -55,7 +55,7 @@
       </span>
     </el-dialog>
     <!-- 删除 -->
-    <el-dialog title="删除职位权限" :visible.sync="deleteModal" width="435px">
+    <el-dialog title="删除职位权限" :visible.sync="deleteModal" width="22.656vw">
       <span>是否确认删除当前职位权限？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="deleteModalOK">确 定</el-button>
@@ -63,7 +63,7 @@
       </span>
     </el-dialog>
     <!-- 新增 -->
-    <el-dialog title="新增职位权限" :visible.sync="addModal" width="435px">
+    <el-dialog title="新增职位权限" :visible.sync="addModal" width="22.656vw">
       <div class="dyrow">
         <span class="require">职位名称：</span>
         <el-input type="text" v-model="postName" />
@@ -106,13 +106,13 @@ export default {
         { key: 3, label: "备选项3" },
       ], //权限分配
       tableCol: [
-        { prop: "index", label: "序列号" },
-        { prop: "id", label: "ID" },
-        { prop: "name", label: "职位名称" },
-        { prop: "describe", label: "职位描述", width: "500%" },
-        { prop: "number", label: "现有职位数" },
-        { prop: "creater", label: "创建人" },
-        { prop: "time", label: "创建时间" },
+        { prop: "index", label: "序列号" ,width: "80%" },
+        { prop: "id", label: "ID" ,width: "80%"},
+        { prop: "name", label: "职位名称" ,width: "80%"},
+        { prop: "describe", label: "职位描述", width: "300%" },
+        { prop: "number", label: "现有职位数",width: "100%" },
+        { prop: "creater", label: "创建人" ,width: "80%"},
+        { prop: "time", label: "创建时间" ,width: "150%"},
       ],
       tableData: [
         {
@@ -282,35 +282,35 @@ export default {
   .searchBar {
     position: relative;
     div + div {
-      margin-left: 47px;
+      margin-left: 2.448vw;
     }
     .el-button:nth-of-type(1) {
-      margin-left: 73px;
+      margin-left: 3.802vw;
     }
     .deep {
       position: absolute;
-      right: 35px;
+      right: 1.823vw;
     }
   }
   .el-dialog__body {
-    padding-top: 20px;
+    padding-top: 1.042vw;
   }
   .el-dialog__body .dyrow:nth-of-type(2) {
     align-items: flex-start !important;
-    margin-top: 20px;
+    margin-top: 1.042vw;
   }
   .el-dialog__body .dyrow .el-input,
   .el-dialog__body .dyrow .el-input .el-input__inner,
   .el-dialog__body .dyrow .el-textarea,
   .el-dialog__body .dyrow .el-textarea .el-textarea__inner {
-    width: 220px !important;
+    width: 11.458vw !important;
   }
   .el-dialog:nth-of-type(1) .el-dialog__body {
-    padding: 20px 48px 35px 48px !important;
+    padding: 1.042vw 2.5vw 1.823vw 2.5vw !important;
   }
   .powerTitle {
-    line-height: 30px;
-    margin-bottom: 20px;
+    line-height: 1.563vw;
+    margin-bottom: 1.042vw;
     display: flex;
     justify-content: space-between;
   }

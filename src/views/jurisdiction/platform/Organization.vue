@@ -14,7 +14,7 @@
       </div>
     </div>
     <!-- 新增 -->
-    <el-dialog title="新增确认" :visible.sync="addModal" width="435px">
+    <el-dialog title="新增确认" :visible.sync="addModal" width="22.656vw">
       <div class="dyrow">
         <span class="require">父级主体：</span>
         <p>{{father}}</p>
@@ -29,16 +29,16 @@
       </span>
     </el-dialog>
     <!-- 删除 -->
-    <el-dialog title="删除确认" :visible.sync="deteleModal" width="435px">
+    <el-dialog title="删除确认" :visible.sync="deteleModal" width="22.656vw">
       <span class="dyrow">是否确认删除{{click>1000?'':this.father}}？</span>
-      <span class="dyrow" v-if="click<1000" :style="{fontSize:'10px'}">(若选择删除，对应部门所旗下所关联的所有{{click>1000?'':click>100?'个人':click>10?'小组':'部门'}}均会被删除)</span>
+      <span class="dyrow" v-if="click<1000" :style="{fontSize:'0.521vw'}">(若选择删除，对应部门所旗下所关联的所有{{click>1000?'':click>100?'个人':click>10?'小组':'部门'}}均会被删除)</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="deteleModalOK">确 定</el-button>
         <el-button class="cancel" @click="deteleModalcancel">取 消</el-button>
       </span>
     </el-dialog>
     <!-- 编辑 -->
-    <el-dialog title="编辑确认" :visible.sync="editModal" width="435px">
+    <el-dialog title="编辑确认" :visible.sync="editModal" width="22.656vw">
       <div class="dyrow">
         <span class="require">父级主体：</span>
         <p>{{fatherTitle}}</p>
@@ -181,31 +181,33 @@ export default {
 .organization {
   .content {
     width: 100%;
-    height: 580px;
+    height: 30.208vw;
     background: white;
     > div:nth-of-type(1) {
-      width: 252px;
+      width: 14vw;
+      height: 30.208vw;
+      overflow-y: scroll;
       box-sizing: border-box;
-      padding: 27px 33px;
-      border-right: 1px solid #d8d8d8;
+      padding: 1.406vw 1.719vw;
+      border-right: 0.052vw solid #d8d8d8;
       .el-tree {
         background: white;
         .el-tree-node + .el-tree-node {
-          margin-top: 18px;
+          margin-top: 0.8vw;
         }
         .el-tree-node {
           .el-tree-node__content {
-            margin-top: 20px;
+            margin-top: 0.8vw;
             &.is-current {
             }
           }
           .el-tree-node__content {
             .el-tree-node__label {
-              font-size: 16px;
+              font-size: 0.833vw;
             }
           }
           .el-tree-node__expand-icon {
-            font-size: 20px;
+            font-size: 1.042vw;
           }
           &.is-current {
             > .el-tree-node__content {
@@ -218,9 +220,9 @@ export default {
       }
     }
     > div:nth-of-type(2) {
-      padding: 30px 36px;
+      padding: 1.563vw 1.875vw;
       p {
-        margin-top: 24px;
+        margin-top: 1.25vw;
       }
     }
   }

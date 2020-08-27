@@ -52,14 +52,24 @@ export default {
 
 <style scoped lang="scss">
 .el-aside {
-  width: 225px;
-  height: 960px;
+  width: 11.719vw !important;
+  height: 43vw;
   background: #ffffff;
   overflow-y: scroll;
   overflow-x: hidden;
-  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+  border-radius: 0.208vw;
+  .el-menu{
+    width: 11.719vw;
+    .el-submenu{
+      .el-submenu__title{
+         padding: 0 1.042vw !important;
+      }
+    }
+  }
   .el-menu-item {
+    width: 11.719vw;
+    min-width: 0;
     &:hover {
       background-color: #3498db !important;
       color: #ffffff;
@@ -69,7 +79,7 @@ export default {
       color: #ffffff;
     }
     .el-submenu__icon-arrow {
-      font-size: 15px;
+      font-size: 0.781vw;
     }
   }
 }

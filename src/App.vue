@@ -31,48 +31,51 @@ export default {
 #app {
   width: 100vw;
   height: 100vh;
-  // overflow: hidden;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   background: #efefef;
   font-family: Microsoft YaHei;
-  font-size: 16px;
+  font-size: 0.833vw;
   color: rgba(102, 102, 102, 1);
   .content {
     display: flex;
     .el-main {
       box-sizing: border-box;
-      min-height: 738px;
-      overflow: scroll;
-      padding: 0px 35px 0px 20px;
+      padding: 0vw 1.823vw 0vw 1.042vw;
+      .tableBox{
+        margin-top: 1.042vw;
+        height: 38.438vw;
+        overflow: scroll;
+      }
       .el-input,
       .el-input__inner {
-        width: 150px;
-        height: 28px;
+        width: 7.813vw;
+        height: 1.458vw;
       }
       .select {
-        width: 92px;
-        height: 28px;
+        width: 4.792vw;
+        height: 1.458vw;
         position: relative;
         select {
-          border-radius: 4px;
-          border: 1px solid #dcdfe6;
+          border-radius: 0.208vw;
+          border: 0.052vw solid #dcdfe6;
           outline: none;
-          width: 92px;
-          height: 28px;
-          padding-left: 10px;
+          width: 4.792vw;
+          height: 1.458vw;
+          padding-left: 0.521vw;
           color: #666666;
           option {
-            border: 1px solid #dcdfe6 !important;
+            border: 0.052vw solid #dcdfe6 !important;
             background: white;
           }
         }
         &::after {
           content: "";
           display: block;
-          width: 28px;
-          height: 28px;
-          border-radius: 0 4px 4px 0;
+          width: 1.458vw;
+          height: 1.458vw;
+          border-radius: 0 0.208vw 0.208vw 0;
           background: #3498db url("./assets/img/bottomArr.png") center no-repeat;
           background-size: 100%;
           position: absolute;
@@ -83,12 +86,12 @@ export default {
       }
     }
     .searchBar {
-      padding: 28px 35px;
+      padding: 1.458vw 1.823vw;
       background: white;
-      box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
-      border-radius: 4px;
+      box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+      border-radius: 0.208vw;
       .row + .row {
-        margin-top: 35px;
+        margin-top: 1.823vw;
       }
       .row {
         display: flex;
@@ -101,13 +104,13 @@ export default {
       }
     }
     .el-button + .el-button {
-      margin: 0 0 0 24px;
+      margin: 0 0 0 1.25vw;
     }
     .el-button {
-      height: 36px;
-      line-height: 36px;
-      padding: 0 33px;
-      border-radius: 6px;
+      height: 1.875vw;
+      line-height: 1.875vw;
+      padding: 0 1.719vw;
+      border-radius: 0.313vw;
       background: #3498db;
       color: white;
       &.deep {
@@ -124,36 +127,36 @@ export default {
       &::before {
         content: "*";
         color: red;
-        margin-right: 2px;
+        margin-right: 0.104vw;
         position: absolute;
-        left: -8px;
-        top: 3px;
+        left: -0.417vw;
+        top: 0.156vw;
       }
     }
     .dyrow+.dyrow{
-      margin-top: 20px;
+      margin-top: 1.042vw;
     }
     .dyrow {
       display: flex;
       align-items: center;
       > span {
         flex-shrink: 0;
-        margin-right: 15px;
+        margin-right: 0.781vw;
       }
     }
   }
   .el-transfer {
     display: flex;
     .el-transfer-panel {
-      width: 185px;
+      width: 9.635vw;
       border: none;
       .el-transfer-panel__header {
-        height: 37px;
+        height: 1.927vw;
         background: rgba(238, 238, 238, 1);
-        border: 1px solid rgba(204, 204, 204, 1);
+        border: 0.052vw solid rgba(204, 204, 204, 1);
         .el-checkbox {
-          height: 37px;
-          padding-right: 36px;
+          height: 1.927vw;
+          padding-right: 1.875vw;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -163,24 +166,25 @@ export default {
         }
       }
       .el-transfer-panel__body {
-        border: 1px solid #cecece;
-        margin-top: 20px;
+        height: 15vw;
+        border: 0.052vw solid #cecece;
+        margin-top: 1.042vw;
       }
     }
     .el-transfer__buttons {
-      padding: 0 10px;
+      padding: 0 0.521vw;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       transform: rotate(180deg);
       .el-button + .el-button {
-        margin-top: 18px;
+        margin-top: 0.938vw;
       }
       .el-button {
-        width: 78px;
-        height: 32px;
-        line-height: 32px;
+        width: 4.063vw;
+        height: 1.667vw;
+        line-height: 1.667vw;
         margin: 0;
         border: none;
         background: white url("./assets/img/btns.png") center no-repeat;
@@ -198,37 +202,40 @@ export default {
   }
 }
 .el-dialog {
-  min-height: 300px;
-  border-radius: 4px;
+  min-height: 15.625vw;
+  border-radius: 0.208vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  margin-top: 30vh !important;
   .el-dialog__header {
-    height: 59px;
-    line-height: 59px;
-    padding: 0 30px;
+    height: 3.073vw;
+    line-height: 3.073vw;
+    padding: 0 1.563vw;
     background: #3498db;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     .el-dialog__title {
       color: white;
     }
+    .el-dialog__headerbtn{
+      position: static;
+    }
     .el-dialog__close {
-      width: 26px;
-      line-height: 26px;
+      width: 1.354vw;
+      line-height: 1.354vw;
       background: white;
       border-radius: 50%;
     }
   }
   .el-dialog__body {
-    padding: 47px 35px;
+    padding: 2.448vw 1.823vw;
     flex-grow: 1;
   }
   .el-dialog__footer {
-    padding: 20px 30px;
-    border-top: 1px solid #cccccc;
+    padding: 1.042vw 1.563vw;
+    border-top: 0.052vw solid #cccccc;
     display: flex;
     align-items: center;
     justify-content: flex-end;
