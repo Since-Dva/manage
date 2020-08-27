@@ -1,18 +1,20 @@
 <template>
-  <div>
+  <div class="rolepermission">
     <tabs :list="tabList"></tabs>
     <div class="searchBar">
-      <div>
-        <span>标题：</span>
-        <el-input v-model="title" placeholder="请输入内容"></el-input>
+      <div class="row">
+        <div>
+          <span>标题：</span>
+          <el-input v-model="title" placeholder="请输入内容"></el-input>
+        </div>
+        <div>
+          <span>创建人：</span>
+          <el-input v-model="createName" placeholder="请输入内容"></el-input>
+        </div>
+        <el-button>搜索</el-button>
+        <el-button @click="clearCondition">清除</el-button>
+        <el-button class="deep" @click="showAddModal">＋新增</el-button>
       </div>
-      <div>
-        <span>创建人：</span>
-        <el-input v-model="createName" placeholder="请输入内容"></el-input>
-      </div>
-      <el-button>搜索</el-button>
-      <el-button @click="clearCondition">清除</el-button>
-      <el-button class="deep" @click="showAddModal">＋新增</el-button>
     </div>
     <div class="tableBox">
       <xybTable :tableCol="tableCol" :tableData="tableData">
@@ -90,15 +92,19 @@ export default {
     return {
       title: null,
       createName: null,
-      dataIdx: null,//选中table序号
+      dataIdx: null, //选中table序号
       powerModal: false,
       editModal: false,
       deleteModal: false,
       addModal: false,
-      postName:null,//职位名称
-      descript:null,//职位描述
-      value:[],//权限分配
-      dataList:[{key: 1,label: '备选项1'},{key: 2,label: '备选项2'},{key: 3,label: '备选项3'},],//权限分配
+      postName: null, //职位名称
+      descript: null, //职位描述
+      value: [], //权限分配
+      dataList: [
+        { key: 1, label: "备选项1" },
+        { key: 2, label: "备选项2" },
+        { key: 3, label: "备选项3" },
+      ], //权限分配
       tableCol: [
         { prop: "index", label: "序列号" },
         { prop: "id", label: "ID" },
@@ -109,6 +115,96 @@ export default {
         { prop: "time", label: "创建时间" },
       ],
       tableData: [
+        {
+          index: 1,
+          id: 10001,
+          name: "运营主管",
+          describe: "业务相关菜单，查看，编辑，分配权限",
+          number: 2,
+          creater: "黄蓉",
+          time: "2020/7/30 15:59",
+        },
+        {
+          index: 1,
+          id: 10001,
+          name: "运营主管",
+          describe: "业务相关菜单，查看，编辑，分配权限",
+          number: 2,
+          creater: "黄蓉",
+          time: "2020/7/30 15:59",
+        },
+        {
+          index: 1,
+          id: 10001,
+          name: "运营主管",
+          describe: "业务相关菜单，查看，编辑，分配权限",
+          number: 2,
+          creater: "黄蓉",
+          time: "2020/7/30 15:59",
+        },
+        {
+          index: 1,
+          id: 10001,
+          name: "运营主管",
+          describe: "业务相关菜单，查看，编辑，分配权限",
+          number: 2,
+          creater: "黄蓉",
+          time: "2020/7/30 15:59",
+        },
+        {
+          index: 1,
+          id: 10001,
+          name: "运营主管",
+          describe: "业务相关菜单，查看，编辑，分配权限",
+          number: 2,
+          creater: "黄蓉",
+          time: "2020/7/30 15:59",
+        },
+        {
+          index: 1,
+          id: 10001,
+          name: "运营主管",
+          describe: "业务相关菜单，查看，编辑，分配权限",
+          number: 2,
+          creater: "黄蓉",
+          time: "2020/7/30 15:59",
+        },
+        {
+          index: 1,
+          id: 10001,
+          name: "运营主管",
+          describe: "业务相关菜单，查看，编辑，分配权限",
+          number: 2,
+          creater: "黄蓉",
+          time: "2020/7/30 15:59",
+        },
+        {
+          index: 1,
+          id: 10001,
+          name: "运营主管",
+          describe: "业务相关菜单，查看，编辑，分配权限",
+          number: 2,
+          creater: "黄蓉",
+          time: "2020/7/30 15:59",
+        },
+        {
+          index: 1,
+          id: 10001,
+          name: "运营主管",
+          describe: "业务相关菜单，查看，编辑，分配权限",
+          number: 2,
+          creater: "黄蓉",
+          time: "2020/7/30 15:59",
+        },
+        {
+          index: 1,
+          id: 10001,
+          name: "运营主管",
+          describe: "业务相关菜单，查看，编辑，分配权限",
+          number: 2,
+          creater: "黄蓉",
+          time: "2020/7/30 15:59",
+        },
         {
           index: 1,
           id: 10001,
@@ -159,19 +255,19 @@ export default {
       this.deleteModal = false;
     },
     //新增
-    showAddModal(){
-      this.addModal = true
-      this.postName=null
-      this.descript=null
+    showAddModal() {
+      this.addModal = true;
+      this.postName = null;
+      this.descript = null;
     },
     addModalOK() {
       this.addModal = false;
     },
-    addModalcancel(){
+    addModalcancel() {
       this.addModal = false;
-      this.postName=null
-      this.descript=null
-    }
+      this.postName = null;
+      this.descript = null;
+    },
   },
   computed: {
     tabList() {
@@ -182,39 +278,41 @@ export default {
 </script>
 
 <style lang='scss'>
-.searchBar {
-  position: relative;
-  div + div {
-    margin-left: 47px;
+.rolepermission {
+  .searchBar {
+    position: relative;
+    div + div {
+      margin-left: 47px;
+    }
+    .el-button:nth-of-type(1) {
+      margin-left: 73px;
+    }
+    .deep {
+      position: absolute;
+      right: 35px;
+    }
   }
-  .el-button:nth-of-type(1) {
-    margin-left: 73px;
+  .el-dialog__body {
+    padding-top: 20px;
   }
-  .deep {
-    position: absolute;
-    right: 35px;
+  .el-dialog__body .dyrow:nth-of-type(2) {
+    align-items: flex-start !important;
+    margin-top: 20px;
   }
-}
-.el-dialog__body{
-  padding-top: 20px;
-}
-.el-dialog__body .dyrow:nth-of-type(2){
-  align-items: flex-start !important;
-  margin-top: 20px;
-}
-.el-dialog__body .dyrow .el-input,
-.el-dialog__body .dyrow .el-input .el-input__inner,
-.el-dialog__body .dyrow .el-textarea,
-.el-dialog__body .dyrow .el-textarea .el-textarea__inner {
-  width: 220px !important;
-}
-.el-dialog:nth-of-type(1) .el-dialog__body{
-  padding: 20px 48px 35px 48px !important;
-}
-.powerTitle{
-  line-height: 30px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
+  .el-dialog__body .dyrow .el-input,
+  .el-dialog__body .dyrow .el-input .el-input__inner,
+  .el-dialog__body .dyrow .el-textarea,
+  .el-dialog__body .dyrow .el-textarea .el-textarea__inner {
+    width: 220px !important;
+  }
+  .el-dialog:nth-of-type(1) .el-dialog__body {
+    padding: 20px 48px 35px 48px !important;
+  }
+  .powerTitle {
+    line-height: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 </style>
