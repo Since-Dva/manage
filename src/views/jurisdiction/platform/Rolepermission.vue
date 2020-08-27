@@ -195,6 +195,9 @@ export default {
     right: 35px;
   }
 }
+.el-dialog__body{
+  padding-top: 20px;
+}
 .el-dialog__body .dyrow:nth-of-type(2){
   align-items: flex-start !important;
   margin-top: 20px;
@@ -206,10 +209,11 @@ export default {
   width: 220px !important;
 }
 .el-dialog:nth-of-type(1) .el-dialog__body{
-  padding: 0 48px 35px 48px !important;
+  padding: 20px 48px 35px 48px !important;
 }
 .powerTitle{
-  line-height: 70px;
+  line-height: 30px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
 }
