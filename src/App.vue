@@ -43,7 +43,7 @@ export default {
     .el-main {
       box-sizing: border-box;
       padding: 0vw 1.823vw 0vw 1.042vw;
-      .tableBox{
+      .tableBox {
         margin-top: 1.042vw;
         height: 38.438vw;
         overflow: scroll;
@@ -133,7 +133,7 @@ export default {
         top: 0.156vw;
       }
     }
-    .dyrow+.dyrow{
+    .dyrow + .dyrow {
       margin-top: 1.042vw;
     }
     .dyrow {
@@ -200,6 +200,72 @@ export default {
       }
     }
   }
+  .pagin {
+    box-sizing: border-box;
+    width: 85.2vw;
+    height: 3vw;
+    box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+    background: white;
+    position: fixed;
+    z-index: 800;
+    bottom: 0vw;
+    right: 2.05vw;
+    margin-top: 1.771vw;
+    padding-right: 0.938vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    > span {
+      color: #666666;
+    }
+  }
+  .el-pagination {
+    height: 1.563vw;
+    .el-pagination__sizes {
+      height: 1.563vw;
+      .el-select,
+      .el-select--mini {
+        height: 1.563vw;
+        .el-input,
+        .el-input__inner {
+          width: 5vw !important;
+          height: 1.563vw !important;
+          padding: 0;
+          .el-input__suffix {
+            display: none;
+          }
+        }
+      }
+    }
+    button {
+      padding: 0;
+      margin-right: 0.521vw;
+      width: 1.563vw;
+      height: 1.563vw;
+      border: 0.052vw solid #666666;
+      border-radius: 0.208vw;
+      i {
+        transform: scale(1.5);
+      }
+    }
+
+    .el-pager {
+      .number {
+        padding: 0;
+        width: 1.563vw;
+        height: 1.563vw;
+        line-height: 1.563vw;
+        border: 0.052vw solid #666666;
+        border-radius: 0.208vw;
+        margin-right: 0.521vw;
+        &.active {
+          color: white;
+          background: #3498db;
+          border: 0.052vw solid #3498db;
+        }
+      }
+    }
+  }
 }
 .el-dialog {
   min-height: 15.625vw;
@@ -219,7 +285,7 @@ export default {
     .el-dialog__title {
       color: white;
     }
-    .el-dialog__headerbtn{
+    .el-dialog__headerbtn {
       position: static;
     }
     .el-dialog__close {

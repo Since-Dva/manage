@@ -1,6 +1,6 @@
 <template>
   <div class="organization">
-    <tabs :list="tabList"></tabs>
+    <tabs></tabs>
     <div class="content">
       <div>
         <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
@@ -156,9 +156,6 @@ export default {
     },
   },
   computed: {
-    tabList() {
-      return this.$store.state.tabs;
-    },
     fatherTitle(){
       this.data
       let arr= String(this.click).split('')

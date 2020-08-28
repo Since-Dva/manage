@@ -1,42 +1,42 @@
 export default [
-    {icon:'el-icon-menu',title:'首页',path:'/'},
-    {icon:'el-icon-menu',title:'定损询价管理',
+    {icon:'home',title:'首页',path:'/'},
+    {icon:'ds',title:'定损询价管理',
         children:[
             {title:'询价工作台',path:'/inquiry/workbench'},
             {title:'定损询价单列表',path:'/inquiry/list'},
-            {title:'报价方案管理',path:'/inquiry/programme'},
+            {title:'报价方案管理',path:'/inquiry/programme'}
         ]
     },
-    {icon:'el-icon-menu',title:'保险友商管理',
+    {icon:'bx',title:'保险友商管理',
         children:[
-            {title:'保险友商列表',path:'/insurance'},
+            {title:'保险友商列表',path:'/insurance'}
         ]
     },
-    {icon:'el-icon-menu',title:'维修友商管理',
+    {icon:'wx',title:'维修友商管理',
         children:[
-            {title:'维修友商列表',path:'/repair'},
+            {title:'维修友商列表',path:'/repair'}
         ]
     },
-    {icon:'el-icon-menu',title:'汽配友商管理',
+    {icon:'qp',title:'汽配友商管理',
         children:[
-            {title:'汽配友商列表',path:'/autoParts'},
+            {title:'汽配友商列表',path:'/autoParts'}
         ]
     },
-    {icon:'el-icon-menu',title:'内容管理',
+    {icon:'nr',title:'内容管理',
         children:[
             {title:'系统公告管理',path:'/contentM/systemNotice'},
-            {title:'广告位管理',path:'/contentM/advert'},
+            {title:'广告位管理',path:'/contentM/advert'}
         ]
     },
-    {icon:'el-icon-menu',title:'账户权限管理',
+    {icon:'qx',title:'账户权限管理',
         children:[
             {title:'保险账户管理',path:'/jurisdiction/insuranceAccount'},
             {title:'汽配账户管理',path:'/jurisdiction/autoPartsAccount'},
             {title:'平台账户管理',children:[
                 {title:'组织架构',path:'/jurisdiction/organization'},
                 {title:'账号列表',path:'/jurisdiction/accountList'},
-                {title:'角色权限',path:'/jurisdiction/rolepermission'},
-            ]},
+                {title:'角色权限',path:'/jurisdiction/rolepermission'}
+            ]}
         ]
     },
 ]

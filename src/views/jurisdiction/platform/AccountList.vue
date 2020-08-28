@@ -1,6 +1,6 @@
 <template>
   <div class="accountList">
-    <tabs :list="tabList"></tabs>
+    <tabs></tabs>
     <div class="searchBar">
       <div class="row">
         <div>
@@ -58,7 +58,16 @@
       </div>
     </div>
     <div class="tableBox">
-      <xybTable :tableCol="tableCol" :tableData="tableData">
+      <xybTable 
+        :tableCol="tableCol" 
+        :tableData="tableData"
+        :sizeChange="sizeChange"
+        :pageChange="pageChange"
+        :size="size"
+        :count="count"
+        :total="total"
+        :rowheight='2.6'
+      >
         <el-table-column align="center" label="操作" width="220%">
           <template slot-scope="scope">
             <a @click="showReModal(scope.row)">重置密码</a>
@@ -165,6 +174,9 @@ export default {
       number: null,
       name: null,
       phone: null,
+      size:10,
+      count:1,
+      total:0,
       search: {
         value1: null,
         value2: null,
@@ -193,15 +205,15 @@ export default {
         { key: 3, label: "备选项3" },
       ], //权限分配
       tableCol: [
-        { prop: "index", label: "序列号" ,width:"70%"},
-        { prop: "id", label: "工号" ,width:"70%"},
-        { prop: "name", label: "姓名" ,width:"90%"},
-        { prop: "describe", label: "部门", width: "160%" },
-        { prop: "number", label: "职位",width:"90%" },
-        { prop: "num", label: "账号" ,width:"120%"},
-        { prop: "phone", label: "联系电话" ,width:"120%"},
-        { prop: "creater", label: "创建人",width:"70%" },
-        { prop: "time", label: "创建时间" ,width:"150%"},
+        { prop: "index", label: "序列号" },
+        { prop: "id", label: "工号" },
+        { prop: "name", label: "姓名" },
+        { prop: "describe", label: "部门"},
+        { prop: "number", label: "职位" },
+        { prop: "num", label: "账号" },
+        { prop: "phone", label: "联系电话" },
+        { prop: "creater", label: "创建人" },
+        { prop: "time", label: "创建时间"},
       ],
       tableData: [
         {
@@ -214,7 +226,7 @@ export default {
           phone: "17623888288",
           creater: "黄蓉",
           time: "2020/7/30 15:59",
-        },
+        }
       ],
     };
   },
@@ -273,12 +285,13 @@ export default {
       this.postName = null;
       this.descript = null;
     },
-  },
-  computed: {
-    tabList() {
-      return this.$store.state.tabs;
+    sizeChange(e){
+      this.size=e
     },
-  },
+    pageChange(e){
+      this.count=e
+    }
+  }
 };
 </script>
 

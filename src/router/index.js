@@ -5,72 +5,72 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: '首页',
     component: () => import('../views/Home.vue')
   },
   {
     path: '/inquiry/workbench',
-    name: 'Workbench',
+    name: '询价工作台',
     component: () => import('../views/inquiry/Workbench.vue')
   },
   {
     path: '/inquiry/list',
-    name: 'List',
+    name: '定损询价单列表',
     component: () => import('../views/inquiry/List.vue')
   },
   {
     path: '/inquiry/programme',
-    name: 'Programme',
+    name: '报价方案管理',
     component: () => import('../views/inquiry/Programme.vue')
   },
   {
     path: '/insurance',
-    name: 'InsuranceList',
+    name: '保险友商列表',
     component: () => import('../views/insurance/InsuranceList.vue')
   },
   {
     path: '/repair',
-    name: 'Repair',
+    name: '维修友商列表',
     component: () => import('../views/repair/RepairList.vue')
   },
   {
     path: '/autoParts',
-    name: 'AutoParts',
+    name: '汽配友商列表',
     component: () => import('../views/autoParts/AutoPartsList.vue')
   },
   {
     path: '/contentM/advert',
-    name: 'Advert',
+    name: '广告管理',
     component: () => import('../views/contentM/Advert.vue')
   },
   {
     path: '/contentM/systemNotice',
-    name: 'SystemNotice',
+    name: '系统公告管理',
     component: () => import('../views/contentM/SystemNotice.vue')
   },
   {
     path: '/jurisdiction/insuranceAccount',
-    name: 'InsuranceAccount',
+    name: '保险账户管理',
     component: () => import('../views/jurisdiction/InsuranceAccount.vue')
   },
   {
     path: '/jurisdiction/autoPartsAccount',
-    name: 'AutoPartsAccount',
+    name: '汽配账户管理',
     component: () => import('../views/jurisdiction/AutoPartsAccount.vue')
   },
   {
     path: '/jurisdiction/organization',
-    name: 'Organization',
+    name: '组织架构',
     component: () => import('../views/jurisdiction/platform/Organization.vue')
   },
   {
     path: '/jurisdiction/accountList',
-    name: 'AccountList',
+    name: '账号列表',
     component: () => import('../views/jurisdiction/platform/AccountList.vue')
   },
   {
     path: '/jurisdiction/rolepermission',
-    name: 'Rolepermission',
+    name: '角色权限',
     component: () => import('../views/jurisdiction/platform/Rolepermission.vue')
   },
 ]

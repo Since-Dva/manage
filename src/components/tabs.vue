@@ -2,31 +2,38 @@
   <ul class="container">
     <li 
         :class="[`item`, atcIdx===idx?'active':'']"
-        v-for="(item,idx) in list" 
+        v-for="(item,idx) in tabList" 
         :key="idx" 
-        @click="changeTab(idx)"
+        @click="changeTab(idx,item)"
     >
         {{item.title}}
-        <i @click="deleteTab(idx)">×</i>
+        <i @click.stop="closeTab(idx)">×</i>
     </li>
   </ul>
 </template>
 
 <script>
 export default {
-  props:["list"],
   data() {
       return {
           atcIdx:0
       }
   },
   methods: {
-      changeTab(idx){
+      changeTab(idx,item){
           this.atcIdx=idx
+          this.$router.push(item.path)
       },
-      deleteTab(idx){
+      closeTab(idx){
           this.$store.commit('deleteTabMut',idx)
+          this.atcIdx=idx-1
+          this.$router.push(this.tabList[this.atcIdx].path)
       }
+  },
+  computed: {
+    tabList() {
+      return this.$store.state.tabs;
+    },
   },
 };
 </script>

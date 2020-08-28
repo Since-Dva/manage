@@ -1,10 +1,10 @@
 <template>
   <div class="rolepermission">
-    <tabs :list="tabList"></tabs>
+    <tabs></tabs>
     <div class="searchBar">
       <div class="row">
         <div>
-          <span>标题：</span>
+          <span>职位名称：</span>
           <el-input v-model="title" placeholder="请输入内容"></el-input>
         </div>
         <div>
@@ -17,7 +17,15 @@
       </div>
     </div>
     <div class="tableBox">
-      <xybTable :tableCol="tableCol" :tableData="tableData">
+      <xybTable 
+        :tableCol="tableCol" 
+        :tableData="tableData"
+        :sizeChange="sizeChange"
+        :pageChange="pageChange"
+        :size="size"
+        :count="count"
+        :total="total"
+      >
         <el-table-column align="center" label="操作" width="300%">
           <template slot-scope="scope">
             <a @click="showPowerModal(scope.row)">权限分配</a>
@@ -28,7 +36,7 @@
       </xybTable>
     </div>
     <!-- 权限分配 -->
-    <el-dialog title="权限分配" :visible.sync="powerModal" width="30.26vw">
+    <el-dialog title="跟进管理" :visible.sync="powerModal" width="30.26vw">
       <div class="powerTitle">
         <span class="require">职位名称：{{tableData[dataIdx-1]&&tableData[dataIdx-1].name}}</span>
         <span>权限描述：{{tableData[dataIdx-1]&&tableData[dataIdx-1].describe}}</span>
@@ -100,19 +108,22 @@ export default {
       postName: null, //职位名称
       descript: null, //职位描述
       value: [], //权限分配
+      size:10,
+      count:1,
+      total:0,
       dataList: [
         { key: 1, label: "备选项1" },
         { key: 2, label: "备选项2" },
         { key: 3, label: "备选项3" },
       ], //权限分配
       tableCol: [
-        { prop: "index", label: "序列号" ,width: "80%" },
-        { prop: "id", label: "ID" ,width: "80%"},
-        { prop: "name", label: "职位名称" ,width: "80%"},
-        { prop: "describe", label: "职位描述", width: "300%" },
-        { prop: "number", label: "现有职位数",width: "100%" },
-        { prop: "creater", label: "创建人" ,width: "80%"},
-        { prop: "time", label: "创建时间" ,width: "150%"},
+        { prop: "index", label: "序列号"  },
+        { prop: "id", label: "ID" },
+        { prop: "name", label: "职位名称" },
+        { prop: "describe", label: "职位描述",width:'300%'},
+        { prop: "number", label: "现有职位数"},
+        { prop: "creater", label: "创建人" },
+        { prop: "time", label: "创建时间" },
       ],
       tableData: [
         {
@@ -125,7 +136,7 @@ export default {
           time: "2020/7/30 15:59",
         },
         {
-          index: 1,
+          index: 2,
           id: 10001,
           name: "运营主管",
           describe: "业务相关菜单，查看，编辑，分配权限",
@@ -134,7 +145,7 @@ export default {
           time: "2020/7/30 15:59",
         },
         {
-          index: 1,
+          index: 3,
           id: 10001,
           name: "运营主管",
           describe: "业务相关菜单，查看，编辑，分配权限",
@@ -143,7 +154,7 @@ export default {
           time: "2020/7/30 15:59",
         },
         {
-          index: 1,
+          index: 4,
           id: 10001,
           name: "运营主管",
           describe: "业务相关菜单，查看，编辑，分配权限",
@@ -152,7 +163,7 @@ export default {
           time: "2020/7/30 15:59",
         },
         {
-          index: 1,
+          index: 5,
           id: 10001,
           name: "运营主管",
           describe: "业务相关菜单，查看，编辑，分配权限",
@@ -161,7 +172,7 @@ export default {
           time: "2020/7/30 15:59",
         },
         {
-          index: 1,
+          index: 6,
           id: 10001,
           name: "运营主管",
           describe: "业务相关菜单，查看，编辑，分配权限",
@@ -170,7 +181,7 @@ export default {
           time: "2020/7/30 15:59",
         },
         {
-          index: 1,
+          index: 7,
           id: 10001,
           name: "运营主管",
           describe: "业务相关菜单，查看，编辑，分配权限",
@@ -179,7 +190,7 @@ export default {
           time: "2020/7/30 15:59",
         },
         {
-          index: 1,
+          index: 8,
           id: 10001,
           name: "运营主管",
           describe: "业务相关菜单，查看，编辑，分配权限",
@@ -188,7 +199,7 @@ export default {
           time: "2020/7/30 15:59",
         },
         {
-          index: 1,
+          index: 9,
           id: 10001,
           name: "运营主管",
           describe: "业务相关菜单，查看，编辑，分配权限",
@@ -197,7 +208,7 @@ export default {
           time: "2020/7/30 15:59",
         },
         {
-          index: 1,
+          index: 10,
           id: 10001,
           name: "运营主管",
           describe: "业务相关菜单，查看，编辑，分配权限",
@@ -206,7 +217,25 @@ export default {
           time: "2020/7/30 15:59",
         },
         {
-          index: 1,
+          index: 11,
+          id: 10001,
+          name: "运营主管",
+          describe: "业务相关菜单，查看，编辑，分配权限",
+          number: 2,
+          creater: "黄蓉",
+          time: "2020/7/30 15:59",
+        },
+        {
+          index: 12,
+          id: 10001,
+          name: "运营主管",
+          describe: "业务相关菜单，查看，编辑，分配权限",
+          number: 2,
+          creater: "黄蓉",
+          time: "2020/7/30 15:59",
+        },
+        {
+          index: 13,
           id: 10001,
           name: "运营主管",
           describe: "业务相关菜单，查看，编辑，分配权限",
@@ -268,11 +297,12 @@ export default {
       this.postName = null;
       this.descript = null;
     },
-  },
-  computed: {
-    tabList() {
-      return this.$store.state.tabs;
+    sizeChange(e){
+      this.size=e
     },
+    pageChange(e){
+      this.count=e
+    }
   },
 };
 </script>
