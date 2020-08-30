@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import home from './home'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    tabs:[]
+    tabs:[],
   },
   mutations: {
     addTabMut(state,data){
@@ -32,5 +33,6 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    home
   }
 })

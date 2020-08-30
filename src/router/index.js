@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+// import head from '../components/head'
+// import aside from '../components/aside'
 Vue.use(VueRouter)
 
   const routes = [
@@ -7,6 +9,11 @@ Vue.use(VueRouter)
     path: '/',
     name: '首页',
     component: () => import('../views/Home.vue')
+  },
+  {
+    path: '/login',
+    name: '登录',
+    component: () => import('../views/Login.vue')
   },
   {
     path: '/inquiry/workbench',

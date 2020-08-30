@@ -49,8 +49,8 @@ export default {
     };
   },
   methods: {
-    handleOpen(e) {
-      console.log(e);
+    handleOpen() {
+      // console.log(e);
     },
     handleClose() {},
     handleSelect(e) {
@@ -82,14 +82,14 @@ export default {
     width: 11.719vw;
     .titleicon {
       display: inline-block;
-      width: 24px;
-      height: 24px;
+      width: 1.25vw;
+      height: 1.25vw;
       background-size: 100%;
       position: relative;
-      margin-right: 10px;
+      margin-right: 0.521vw;
       img {
-        width: 24px;
-        height: 24px;
+        width: 1.25vw;
+        height: 1.25vw;
         position: absolute;
         top: 0;
         left: 0;
@@ -98,7 +98,7 @@ export default {
     .el-menu-item > span,
     .el-submenu__title > span {
       
-      font-size: 16px;
+      font-size: 0.833vw;
       font-family: Microsoft YaHei;
       font-weight: bold;
       color: rgba(51, 51, 51, 1);
@@ -112,7 +112,7 @@ export default {
   .el-menu-item {
     width: 11.719vw;
     min-width: 0;
-    font-size: 14px;
+    font-size: 0.729vw;
     font-family: Microsoft YaHei;
     font-weight: 400;
     color: rgba(102, 102, 102, 1);
@@ -123,6 +123,10 @@ export default {
     &.is-active {
       background-color: #3498db !important;
       color: #ffffff;
+      span{
+        background-color: #3498db !important;
+        color: #ffffff;
+      }
     }
     .el-submenu__icon-arrow {
       font-size: 0.781vw;

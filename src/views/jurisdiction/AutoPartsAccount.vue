@@ -302,7 +302,7 @@ export default {
         align-items: center;
         > span:nth-of-type(2) {
           color: #d2d2d2;
-          margin: 0 10px;
+          margin: 0 0.521vw;
         }
         .el-input__prefix {
           display: none;
@@ -310,7 +310,7 @@ export default {
       }
       .deep {
         position: relative;
-        right: -200px;
+        right: -10.417vw;
       }
     }
   }
@@ -324,20 +324,20 @@ export default {
     width: 10.417vw !important;
   }
   .addmodal {
-    width: 435px;
+    width: 22.656vw;
     .select,select{
-      width: 200px !important;
+      width: 10.417vw !important;
     }
     .dyrow {
       >div{
-        width: 90px;
+        width: 4.688vw;
         display: flex;
         justify-content: flex-end;
-        margin-right: 10px;
+        margin-right: 0.521vw;
       }
     }
     .el-dialog__body {
-      padding: 43px 49px !important;
+      padding: 2.24vw 2.552vw !important;
     }
   }
   .el-dialog:nth-of-type(3) {
