@@ -26,10 +26,10 @@
     },
     methods: {
       accountModal() {
-        this.$store.commit('openAccountModal')
+        this.$router.push('/accountInfo')
       },
       pwdModal() {
-        this.$store.commit('openPwdModal')
+        this.$router.push('/modifyPwd')
       },
       loginOut(){
         console.log(location);

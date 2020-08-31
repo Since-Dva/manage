@@ -16,6 +16,26 @@ Vue.use(VueRouter)
     component: () => import('../views/Login.vue')
   },
   {
+    path: '/accountInfo',
+    name: '账户信息',
+    component: () => import('../views/Account/AccountInfo.vue')
+  },
+  {
+    path: '/modifyPwd',
+    name: '修改密码',
+    component: () => import('../views/Account/ModifyPwd.vue')
+  },
+  {
+    path: '/articleDetail',
+    name: '公告详情',
+    component: () => import('../views/Account/ArticleDetail.vue')
+  },
+  {
+    path: '/login',
+    name: '登录',
+    component: () => import('../views/Login.vue')
+  },
+  {
     path: '/inquiry/workbench',
     name: '询价工作台',
     component: () => import('../views/inquiry/Workbench.vue')
@@ -31,17 +51,17 @@ Vue.use(VueRouter)
     component: () => import('../views/inquiry/Programme.vue')
   },
   {
-    path: '/insurance',
+    path: '/insurance/insuranceList',
     name: '保险友商列表',
     component: () => import('../views/insurance/InsuranceList.vue')
   },
   {
-    path: '/repair',
+    path: '/repair/repairList',
     name: '维修友商列表',
     component: () => import('../views/repair/RepairList.vue')
   },
   {
-    path: '/autoParts',
+    path: '/autoParts/autoPartsList',
     name: '汽配友商列表',
     component: () => import('../views/autoParts/AutoPartsList.vue')
   },

@@ -54,7 +54,7 @@ export default {
     },
     handleClose() {},
     handleSelect(e) {
-      // let arr=e.split('/')
+      let arr=e.split('/')
       let title;
       this.$router.options.routes.map((item) => {
         if (item.path === e) {
@@ -62,7 +62,7 @@ export default {
         }
       });
       if (e !== "/") {
-        this.$store.commit("addTabMut", { title, path: e });
+        this.$store.commit("addTabMut", { title, path: e,name:arr[1] });
       }
     },
   },
@@ -97,7 +97,6 @@ export default {
     }
     .el-menu-item > span,
     .el-submenu__title > span {
-      
       font-size: 0.833vw;
       font-family: Microsoft YaHei;
       font-weight: bold;
@@ -116,10 +115,6 @@ export default {
     font-family: Microsoft YaHei;
     font-weight: 400;
     color: rgba(102, 102, 102, 1);
-    &:hover {
-      background-color: #3498db !important;
-      color: #ffffff;
-    }
     &.is-active {
       background-color: #3498db !important;
       color: #ffffff;

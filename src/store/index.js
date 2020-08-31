@@ -1,28 +1,34 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import home from './home'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    tabs:[],
+    allTabs:[],
   },
   mutations: {
     addTabMut(state,data){
-      if(state.tabs.length){
-        let bool=true
-        state.tabs.map(item=>{
-          if(item.path==data.path){
-            bool=false
-          }
-        })
-        if(bool){
-          state.tabs.push(data)
-        }
+      console.log(state,data);
+      // let {name,path,title}=data
+      if(state.allTabs.length){
+        state
       }else{
-        state.tabs.push(data)
+        state.allTabs.push({name})
       }
+      // if(state.tabs.length){
+      //   let bool=true
+      //   state.tabs.map(item=>{
+      //     if(item.path==data.path){
+      //       bool=false
+      //     }
+      //   })
+      //   if(bool){
+      //     state.tabs.push(data)
+      //   }
+      // }else{
+      //   state.tabs.push(data)
+      // }
     },
     deleteTabMut(state,idx){
       if(state.tabs.length>1){
@@ -33,6 +39,5 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    home
   }
 })

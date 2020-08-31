@@ -9,17 +9,17 @@ export default [
     },
     {icon:'bx',title:'保险友商管理',
         children:[
-            {title:'保险友商列表',path:'/insurance'}
+            {title:'保险友商列表',path:'/insurance/insuranceList'}
         ]
     },
     {icon:'wx',title:'维修友商管理',
         children:[
-            {title:'维修友商列表',path:'/repair'}
+            {title:'维修友商列表',path:'/repair/repairList'}
         ]
     },
     {icon:'qp',title:'汽配友商管理',
         children:[
-            {title:'汽配友商列表',path:'/autoParts'}
+            {title:'汽配友商列表',path:'/autoParts/autoPartsList'}
         ]
     },
     {icon:'nr',title:'内容管理',
