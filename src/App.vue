@@ -49,37 +49,43 @@
           overflow: scroll;
         }
 
-        .select {
+        .el-select,
+        .el-input--suffix {
           width: 4.792vw;
           height: 1.458vw;
           position: relative;
-          select {
-            border-radius: 0.208vw;
-            border: 0.052vw solid #dcdfe6;
-            outline: none;
+          .el-input,
+          .el-input__inner {
             width: 4.792vw;
             height: 1.458vw;
-            padding-left: 0.521vw;
-            color: #666666;
-            option {
-              border: 0.052vw solid #dcdfe6 !important;
-              background: white;
-            }
           }
-          &::after {
-            content: "";
-            display: block;
-            width: 1.458vw;
-            height: 1.458vw;
-            border-radius: 0 0.208vw 0.208vw 0;
-            background: #3498db url("./assets/img/bottomArr.png") center no-repeat;
-            background-size: 100%;
-             pointer-events: none;
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: 999;
-          }
+          // .el-select {
+          //   border-radius: 0.208vw;
+          //   border: 0.052vw solid #dcdfe6;
+          //   outline: none;
+          //   width: 4.792vw;
+          //   height: 1.458vw;
+          //   padding-left: 0.521vw;
+          //   color: #666666;
+          //   option {
+          //     border: 0.052vw solid #dcdfe6 !important;
+          //     background: white;
+          //   }
+          // }
+          // &::after {
+          //   content: "";
+          //   display: block;
+          //   width: 1.458vw;
+          //   height: 1.458vw;
+          //   border-radius: 0 0.208vw 0.208vw 0;
+          //   background: #3498db url("./assets/img/bottomArr.png") center no-repeat;
+          //   background-size: 100%;
+          //    pointer-events: none;
+          //   position: absolute;
+          //   top: 0;
+          //   right: 0;
+          //   z-index: 999;
+          // }
         }
       }
       .searchBar {
@@ -117,7 +123,7 @@
           background: white;
           color: #666666;
         }
-        &:hover{
+        &:hover {
           background: #0f6baa;
           color: white;
         }

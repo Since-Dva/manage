@@ -28,14 +28,14 @@
         <div>
           <span>状态：</span>
           <div class="select">
-            <select v-model="state">
-              <option
+            <el-select v-model="state">
+              <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
-              ></option>
-            </select>
+              ></el-option>
+            </el-select>
           </div>
           <div>
             <span>创建人：</span>
@@ -104,14 +104,14 @@
           <span class="require">归属友商：</span>
         </div>
         <div class="select">
-          <select v-model="add.value1">
-            <option
+          <el-select v-model="add.value1">
+            <el-option
               v-for="item in options"
               :key="item.value"
               :label="item.label"
               :value="item.value"
-            ></option>
-          </select>
+            ></el-option>
+          </el-select>
         </div>
       </div>
       <div class="dyrow">
@@ -325,7 +325,7 @@ export default {
   }
   .addmodal {
     width: 22.656vw;
-    .select,select{
+    .select,.el-select{
       width: 10.417vw !important;
     }
     .dyrow {

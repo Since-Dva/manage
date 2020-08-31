@@ -18,14 +18,14 @@
         <div>
           <span>后台系统：</span>
           <div class="select">
-            <select v-model="system">
-              <option
+            <el-select v-model="system">
+              <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
-              ></option>
-            </select>
+              ></el-option>
+            </el-select>
           </div>
         </div>
         <el-button>搜索</el-button>
@@ -67,14 +67,14 @@
           <span class="require">后台系统：</span>
         </div>
         <div class="select">
-          <select v-model="system">
-            <option
+          <el-select v-model="system">
+            <el-option
               v-for="item in options"
               :key="item.value"
               :label="item.label"
               :value="item.value"
-            ></option>
-          </select>
+            ></el-option>
+          </el-select>
         </div>
       </div>
       <div class="dyrow">
@@ -87,7 +87,7 @@
         <div>
           <span class="require">内容：</span>
         </div>
-        <editor ref='editor'></editor>
+        <editor ref="editor"></editor>
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="addModalOK">确 定</el-button>
@@ -164,12 +164,13 @@
         this.dataIdx = info.index;
         this.postTitle = info.title;
         setTimeout(() => {
-          this.$refs.editor._data.editor.txt.html('c tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, <img src="http://img1.gtimg.com/rushidao/pics/hv1/20/108/1744/113431160.jpg">sed rhoncus pronin sapien nunc accuan eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sedrhoncus pronin sapien nunc accuan eget.')
+          this.$refs.editor._data.editor.txt.html(
+            'c tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, <img src="http://img1.gtimg.com/rushidao/pics/hv1/20/108/1744/113431160.jpg">sed rhoncus pronin sapien nunc accuan eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sedrhoncus pronin sapien nunc accuan eget.'
+          );
         }, 10);
-        this.addModal=true
+        this.addModal = true;
       },
-      editModalOK() {
-      },
+      editModalOK() {},
       //删除
       showDeleteModal(info) {
         this.dataIdx = info.index;
@@ -222,6 +223,22 @@
         position: absolute;
         right: 1.823vw;
       }
+      .row{
+        .select{
+          width: 9vw !important;
+          .el-select{
+            width: 9vw !important;
+            .el-input{
+              width: 9vw !important;
+            }
+          }
+        }
+      .select .el-select .el-input .el-input__inner,
+      .select .el-select .el-input--suffix .el-input__inner {
+        width: 9vw !important;
+      }
+
+      }
     }
     .el-dialog__body {
       padding-top: 1.042vw;
@@ -259,7 +276,7 @@
           margin-right: 0.781vw;
         }
         .select,
-        .select select {
+        .select .el-select {
           width: 11.458vw !important;
         }
         #editorElem {
@@ -268,8 +285,8 @@
           // overflow: scroll;
           transform: translateX(16.765vw);
           .w-e-text-container {
-          width: 20.729vw !important;
-          height:11.458vw !important;
+            width: 20.729vw !important;
+            height: 11.458vw !important;
           }
         }
       }

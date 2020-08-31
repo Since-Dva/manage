@@ -14,47 +14,47 @@
         <div>
           <span>地区：</span>
           <div class="select">
-            <select v-model="search.value1">
-              <option
+            <el-select v-model="search.value1">
+              <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
-              ></option>
-            </select>
+              ></el-option>
+            </el-select>
           </div>
           <div class="select">
-            <select v-model="search.value2">
-              <option
+            <el-select v-model="search.value2">
+              <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
-              ></option>
-            </select>
+              ></el-option>
+            </el-select>
           </div>
           <div class="select">
-            <select v-model="search.value3">
-              <option
+            <el-select v-model="search.value3">
+              <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
-              ></option>
-            </select>
+              ></el-option>
+            </el-select>
           </div>
         </div>
         <div>
           <span>合作状态：</span>
            <div class="select">
-            <select v-model="status">
-              <option
+            <el-select v-model="status">
+              <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
-              ></option>
-            </select>
+              ></el-option>
+            </el-select>
           </div>
         </div>
       </div>
@@ -114,14 +114,14 @@
           <span class="require">归属友商：</span>
         </div>
         <div class="select">
-          <select v-model="add.value1">
-            <option
+          <el-select v-model="add.value1">
+            <el-option
               v-for="item in options"
               :key="item.value"
               :label="item.label"
               :value="item.value"
-            ></option>
-          </select>
+            ></el-option>
+          </el-select>
         </div>
       </div>
       <div class="dyrow">
@@ -311,12 +311,21 @@ export default {
       .el-button:nth-of-type(1) {
         margin-left: 3.802vw;
       }
+      .select{
+        margin-left: 1vw;
+      }
     }
     .row:nth-of-type(2) {
       .time {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        .el-input{
+          width: 7.17vw !important;
+            .el-input__inner{
+               width: 7.17vw !important;
+            }
+        }
         > span:nth-of-type(2) {
           color: #d2d2d2;
           margin: 0 0.521vw;
@@ -342,7 +351,7 @@ export default {
   }
   .addmodal {
     width: 22.656vw;
-    .select,select{
+    .select,.el-select{
       width: 10.417vw !important;
     }
     .dyrow {

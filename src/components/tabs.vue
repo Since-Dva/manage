@@ -4,7 +4,7 @@
         :class="[`item`, atcIdx===idx?'active':'']"
         v-for="(item,idx) in tabList" 
         :key="idx" 
-        @click="changeTab(idx,item)"
+        @click="changeTab({idx,item})"
     >
         {{item.title}}
         <i @click.stop="closeTab(idx)">×</i>
@@ -14,26 +14,39 @@
 
 <script>
 export default {
-  data() {
-      return {
-          atcIdx:0
-      }
-  },
   methods: {
-      changeTab(idx,item){
-          this.atcIdx=idx
-          this.$router.push(item.path)
+      changeTab(data){
+          this.$store.commit('changeTab',data)
+          this.$router.push(data.item.path)
       },
       closeTab(idx){
           this.$store.commit('deleteTabMut',idx)
-          this.atcIdx=idx-1
-          this.$router.push(this.tabList[this.atcIdx].path)
+          if(this.tabList.length>1){
+            this.$router.push(this.tabList[idx-1]).path
+            // if(idx){
+            // }else{
+            //   this.$router.push(this.tabList[idx]).path
+            // }
+          }
       }
   },
   computed: {
     tabList() {
-      return this.$store.state.tabs;
+      let type=this.$route.path.split('/')[1]
+      if(type){
+        return this.$store.state.allTabs[type].tabs;
+      }else{
+        return []
+      }
     },
+    atcIdx(){
+      let type=this.$route.path.split('/')[1]
+      if(type){
+        return this.$store.state.allTabs[type].activeIdx;
+      }else{
+        return 0
+      }
+    }
   },
 };
 </script>

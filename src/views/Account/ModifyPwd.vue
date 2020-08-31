@@ -174,21 +174,6 @@ export default {
           background: white;
         }
       }
-      &::after {
-        content: "";
-        display: block;
-        width: 1.458vw;
-        height: 1.458vw;
-        border-radius: 0 0.208vw 0.208vw 0;
-        background: #3498db url("../../assets/img/bottomArr.png") center
-          no-repeat;
-        background-size: 100%;
-        position: absolute;
-        pointer-events: none;
-        top: 0;
-        right: -58px !important;
-        z-index: 999;
-      }
     }
   }
   ul:nth-of-type(2) {

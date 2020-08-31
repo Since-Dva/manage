@@ -39,21 +39,6 @@
       </xybTable>
     </div>
 
-    <!-- 编辑 -->
-    <!-- <el-dialog title="编辑职位权限" :visible.sync="editModal" width="22.656vw">
-      <div class="dyrow">
-        <span class="require">职位名称：</span>
-        <el-input type="text" v-model="postName" />
-      </div>
-      <div class="dyrow">
-        <span class="require">权限描述：</span>
-        <el-input type="textarea" :rows="5" placeholder="请输入内容" v-model="descript"></el-input>
-      </div>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="editModalOK">确 定</el-button>
-        <el-button class="cancel" @click="editModal=false">取 消</el-button>
-      </span>
-    </el-dialog>-->
     <!-- 启用/停用 -->
     <el-dialog title="启用确认" :visible.sync="offModal" width="22.656vw">
       <span>是否启用广告？</span>
@@ -90,14 +75,14 @@
           <span class="require">位置：</span>
         </div>
         <div class="select">
-          <select v-model="position">
-            <option
+          <el-select v-model="position">
+            <el-option
               v-for="item in options"
               :key="item.value"
               :label="item.label"
               :value="item.value"
-            ></option>
-          </select>
+            ></el-option>
+          </el-select>
         </div>
       </div>
       <div class="dyrow">
@@ -259,7 +244,7 @@
       width: 11.458vw !important;
     }
     .el-dialog:nth-of-type(1) .el-dialog__body {
-      padding: 1.042vw 2.5vw 1.823vw 2.5vw !important;
+      padding: 1.042vw 2.5vw 1.823vw 3.5vw !important;
     }
     .powerTitle {
       line-height: 1.563vw;
@@ -282,7 +267,7 @@
           margin-right: 0.781vw;
         }
         .select,
-        .select select {
+        .select .el-select {
           width: 200px !important;
         }
         .el-input{

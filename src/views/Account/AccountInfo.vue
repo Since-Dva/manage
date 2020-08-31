@@ -14,14 +14,14 @@
         <li>
           <span class="require">性别</span>
           <div class="select">
-            <select v-model="sex">
-              <option
+            <el-select v-model="sex">
+              <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
-              ></option>
-            </select>
+              ></el-option>
+            </el-select>
           </div>
         </li>
         <li>

@@ -62,7 +62,7 @@ export default {
         }
       });
       if (e !== "/") {
-        this.$store.commit("addTabMut", { title, path: e,name:arr[1] });
+        this.$store.commit("addTabMut", { title, path: e,type:arr[1] });
       }
     },
   },
