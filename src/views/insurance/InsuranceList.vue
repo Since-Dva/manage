@@ -46,7 +46,7 @@
         </div>
         <div>
           <span>合作状态：</span>
-           <div class="select">
+          <div class="select">
             <el-select v-model="status">
               <el-option
                 v-for="item in options"
@@ -77,7 +77,7 @@
         </div>
         <el-button>搜索</el-button>
         <el-button @click="clearCondition">清除</el-button>
-        <el-button class="deep" @click="showAddModal">跟进管理</el-button>
+        <el-button class="deep" @click="showOffModal">跟进管理</el-button>
         <el-button class="deep" @click="showAddModal">＋新增</el-button>
       </div>
     </div>
@@ -100,8 +100,49 @@
       </xybTable>
     </div>
     <!-- 跟进管理 -->
-    <el-dialog title="停用确认" :visible.sync="offModal" width="22.656vw">
-      <span>是否确认停用？</span>
+    <el-dialog title="跟进管理" :visible.sync="offModal" width="22.656vw">
+      <div class="top">
+        <div>
+          <span class="require">商务人员：</span>
+          <el-select v-model="status1">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </div>
+        <div>
+          <span class="require">商务人员：</span>
+          <el-select v-model="status2">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </div>
+      </div>
+      <div class="content">
+        <div>
+          <div>
+            <span>当前跟进中</span>
+            <div>
+              <el-input placeholder="输入友商名称查找" v-model="value1"></el-input>
+              <el-button>搜索</el-button>
+            </div>
+          </div>
+          <div>
+            <span>当前跟进中</span>
+            <div>
+              <el-input placeholder="输入友商名称查找" v-model="value2"></el-input>
+              <el-button>搜索</el-button>
+            </div>
+          </div>
+        </div>
+      </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="offModalOK">确 定</el-button>
         <el-button class="cancel" @click="offModal=false">取 消</el-button>
@@ -162,18 +203,20 @@ export default {
     return {
       accountId: null,
       name: null,
-      ascription: null,
       account: null,
       phone: null,
       createName: null,
       otherName: null,
-      state: null,
       status: null,
+      status1:null,
+      status2:null,
       startTime: null,
       endTime: null,
       size: 10,
       count: 1,
       total: 0,
+      value1:null,//跟进管理过滤
+      value2:null,
       search: {
         value1: null,
         value2: null,
@@ -204,9 +247,9 @@ export default {
       tableCol: [
         { prop: "index", label: "序列号" },
         { prop: "id", label: "ID" },
-        { prop: "name", label: "友商名称" },
+        { prop: "name", label: "友商名称", width: "300%" },
         { prop: "address", label: "地区" },
-        { prop: "number", label: "定损员数"},
+        { prop: "number", label: "定损员数" },
         { prop: "state", label: "合作状态" },
         { prop: "creater", label: "创建人" },
         { prop: "gjname", label: "跟进人" },
@@ -215,13 +258,13 @@ export default {
       tableData: [
         {
           index: 1,
-          id: 'BX00001',
-          name: "郭靖",
-          ascription: "中南汽配（重庆分公司）",
-          account: "17623888288",
-          phone: "17623888288",
-          state: "启用",
+          id: "BX00001",
+          name: "太平洋保险公司（重庆分公司）",
+          address: "重庆-重庆-渝北",
+          number: "36",
+          state: "合作中",
           creater: "黄蓉",
+          gjname: "李华",
           time: "2020/7/30 15:59",
         },
       ],
@@ -231,11 +274,9 @@ export default {
     clearCondition() {
       this.accountId = null;
       this.name = null;
-      this.ascription = null;
       this.account = null;
       this.phone = null;
       this.createName = null;
-      this.state = null;
       this.startTime = null;
       this.endTime = null;
     },
@@ -244,7 +285,7 @@ export default {
       this.reModal = true;
     },
     showOffModal() {
-      this.offModal=true
+      this.offModal = true;
     },
     reModalOK() {
       this.reModal = false;
@@ -287,8 +328,8 @@ export default {
       this.postName = null;
       this.descript = null;
     },
-    offModalOK(){
-      this.offModal=false
+    offModalOK() {
+      this.offModal = false;
     },
     sizeChange(e) {
       this.size = e;
@@ -311,7 +352,7 @@ export default {
       .el-button:nth-of-type(1) {
         margin-left: 3.802vw;
       }
-      .select{
+      .select {
         margin-left: 1vw;
       }
     }
@@ -320,11 +361,11 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .el-input{
+        .el-input {
           width: 7.17vw !important;
-            .el-input__inner{
-               width: 7.17vw !important;
-            }
+          .el-input__inner {
+            width: 7.17vw !important;
+          }
         }
         > span:nth-of-type(2) {
           color: #d2d2d2;
@@ -351,11 +392,12 @@ export default {
   }
   .addmodal {
     width: 22.656vw;
-    .select,.el-select{
+    .select,
+    .el-select {
       width: 10.417vw !important;
     }
     .dyrow {
-      >div{
+      > div {
         width: 4.688vw;
         display: flex;
         justify-content: flex-end;
@@ -364,6 +406,13 @@ export default {
     }
     .el-dialog__body {
       padding: 2.24vw 2.552vw !important;
+    }
+  }
+  .el-dialog {
+    .top{
+      >Div{
+        
+      }
     }
   }
   .el-dialog:nth-of-type(3) {

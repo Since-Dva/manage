@@ -306,16 +306,16 @@
       padding-bottom: 1vw;
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid #cbcbcb;
+      border-bottom: 0.052vw solid #cbcbcb;
     }
       .wl-transfer{
-        height: 350px !important;
+        height: 18.229vw !important;
       }
     .transfer {
-      margin-top: 23px;
-      height: 380px !important;
+      margin-top: 1.198vw;
+      height: 19.792vw !important;
       .el-tree-node__content{
-        padding: 5px 0;
+        padding: 0.26vw 0;
       }
     }
   }

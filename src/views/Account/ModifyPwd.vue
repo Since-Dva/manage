@@ -51,7 +51,7 @@ export default {
 
 <style lang='scss'>
 .modifyPwd {
-  height: 850px;
+  height: 44.271vw;
   background: #f1f1f1;
   display: flex;
   justify-content: center;

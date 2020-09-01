@@ -251,10 +251,10 @@
       padding-bottom: 1vw;
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid #cbcbcb;
+      border-bottom: 0.052vw solid #cbcbcb;
     }
     .addmodal {
-      width: 581px !important;
+      width: 30.26vw !important;
 
       .dyrow {
         display: flex;
@@ -268,23 +268,23 @@
         }
         .select,
         .select .el-select {
-          width: 200px !important;
+          width: 10.417vw !important;
         }
         .el-input{
-          width: 200px !important;
+          width: 10.417vw !important;
           .el-input__inner{
-            width: 200px !important;
+            width: 10.417vw !important;
           }
         }
         .avatar-uploader {
-          width: 200px;
-          height: 178px;
-          border: 1px solid #cbcbcb;
-          border-radius: 4px;
+          width: 10.417vw;
+          height: 9.271vw;
+          border: 0.052vw solid #cbcbcb;
+          border-radius: 0.208vw;
           position: relative;
           i{
-            width: 39px;
-            height: 39px;
+            width: 2.031vw;
+            height: 2.031vw;
             background: url('../../assets/img/upload.png') center no-repeat;
             background-size: 100%;
             position: absolute;

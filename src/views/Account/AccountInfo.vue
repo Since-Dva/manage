@@ -71,7 +71,7 @@ export default {
 
 <style lang='scss'>
 .accountInfo {
-  height: 850px;
+  height: 44.271vw;
   background: #f1f1f1;
   display: flex;
   justify-content: center;
@@ -206,7 +206,7 @@ export default {
         position: absolute;
         pointer-events: none;
         top: 0;
-        right: -58px !important;
+        right: -3.021vw !important;
         z-index: 999;
       }
     }
