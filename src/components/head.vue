@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <el-header>
-      <!-- <h1>信宜保BOSS管理系统</h1> -->
+      <h1>信宜保BOSS管理系统</h1>
       <div>
         <div @mouseenter="active=true" @mouseleave="active=false">
           <img src alt />

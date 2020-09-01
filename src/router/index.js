@@ -56,6 +56,11 @@ Vue.use(VueRouter)
     component: () => import('../views/insurance/InsuranceList.vue')
   },
   {
+    path: '/insurance/insuranceDetail',
+    name: '保险友商详情页',
+    component: () => import('../views/insurance/InsuranceDetail.vue')
+  },
+  {
     path: '/repair/repairList',
     name: '维修友商列表',
     component: () => import('../views/repair/RepairList.vue')
@@ -109,3 +114,7 @@ const router = new VueRouter({
 })
 
 export default router
+const originalPush = VueRouter.prototype.push
+   VueRouter.prototype.push = function push(location) {
+   return originalPush.call(this, location).catch(err => err)
+}

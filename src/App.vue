@@ -18,6 +18,11 @@
       dyheader,
       dyaside,
     },
+    created(){
+      if(localStorage.store){
+        this.$store.replaceState(JSON.parse(localStorage.store))
+      }
+    },
     computed: {
       tabs() {
         return this;
@@ -235,6 +240,7 @@
       height: 1.563vw;
       .el-pagination__sizes {
         height: 1.563vw;
+        margin-right: 20px;
         .el-select,
         .el-select--mini {
           height: 1.563vw;

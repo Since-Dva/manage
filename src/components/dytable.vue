@@ -18,14 +18,14 @@
       ></el-table-column>
       <slot></slot>
     </el-table>
-    <div class="pagin">
+    <div v-if="pagination" class="pagin">
       <span>共有{{total}}条记录</span>
       <el-pagination
         @size-change="sizeChange"
         @current-change="pageChange"
         :page-sizes="[10, 50, 100, 200]"
         :page-size="size"
-        :page-count='count'
+        :page-count="count"
         layout=" sizes, prev, pager, next"
         :total="total"
       ></el-pagination>
@@ -44,9 +44,15 @@
       },
       sizeChange: {
         type: Function,
+        sizeChange:()=>{
+
+        },
       },
       pageChange: {
         type: Function,
+        pageChange:()=>{
+
+        },
       },
       count: {
         type: Number,
@@ -56,27 +62,33 @@
         type: Number,
         default: 10,
       },
-      total:{
+      total: {
         type: Number,
         default: 0,
       },
-      maxHeight:{
+      maxHeight: {
         type: Number,
         default: 600,
       },
-      rowheight:{
+      rowheight: {
         type: Number,
         default: 2.86,
       },
-
+      pagination:{
+        type: Boolean,
+        default: true,
+      }
     },
     data() {
       return {};
     },
     computed: {
-      filterData(){
-        return this.tableData.slice((this.count-1)*this.size,(this.count)*this.size)
-      }
+      filterData() {
+        return this.tableData.slice(
+          (this.count - 1) * this.size,
+          this.count * this.size
+        );
+      },
     },
   };
 </script>
@@ -100,6 +112,13 @@
         &::before {
           content: "|";
           margin-right: 0.521vw;
+        }
+      }
+      .el-table__row{
+        &:hover{
+          td{
+            background: #d6eaf8;
+          }
         }
       }
     }

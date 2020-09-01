@@ -1,80 +1,82 @@
 <template>
   <ul class="container">
-    <li 
-        :class="[`item`, atcIdx===idx?'active':'']"
-        v-for="(item,idx) in tabList" 
-        :key="idx" 
-        @click="changeTab({idx,item})"
+    <li
+      :class="[`item`, atcIdx===idx?'active':'']"
+      v-for="(item,idx) in tabList"
+      :key="idx"
+      @click="changeTab({idx,item})"
     >
-        {{item.title}}
-        <i @click.stop="closeTab(idx)">×</i>
+      {{item.title}}
+      <i @click.stop="closeTab(idx)">×</i>
     </li>
   </ul>
 </template>
 
 <script>
-export default {
-  methods: {
-      changeTab(data){
-          this.$store.commit('changeTab',data)
-          this.$router.push(data.item.path)
+  export default {
+    methods: {
+      changeTab(data) {
+        this.$store.commit("changeTab", data);
+        this.$router.push(data.item.path);
       },
-      closeTab(idx){
-          this.$store.commit('deleteTabMut',idx)
-          if(this.tabList.length>1){
-            this.$router.push(this.tabList[idx-1]).path
-            // if(idx){
-            // }else{
-            //   this.$router.push(this.tabList[idx]).path
-            // }
-          }
-      }
-  },
-  computed: {
-    tabList() {
-      let type=this.$route.path.split('/')[1]
-      if(type){
-        return this.$store.state.allTabs[type].tabs;
-      }else{
-        return []
-      }
+      closeTab(idx) {
+        if (this.tabList.length > 1) {
+          this.$store.commit("deleteTabMut", idx);
+          this.tabList.map((item,idx)=>{
+            if(this.atcIdx===idx){
+              this.$router.push(item.path);
+            }
+          })
+        }
+      },
     },
-    atcIdx(){
-      let type=this.$route.path.split('/')[1]
-      if(type){
-        return this.$store.state.allTabs[type].activeIdx;
-      }else{
-        return 0
-      }
-    }
-  },
-};
+    computed: {
+      tabList() {
+        let type = this.$route.path.split("/")[1];
+        console.log('type',type);
+        console.log('this.$store.state.allTabs',this.$store.state.allTabs);
+        if (type) {
+          return this.$store.state.allTabs[type].tabs;
+        } else {
+          return [];
+        }
+      },
+      atcIdx() {
+        let type = this.$route.path.split("/")[1];
+        if (type) {
+          return this.$store.state.allTabs[type].activeIdx;
+        } else {
+          return 0;
+        }
+      },
+    },
+  };
 </script>
 
 <style lang="scss">
-.container {
-    .item +.item {
-        margin-left: 0.521vw;
+  .container {
+    .item + .item {
+      margin-left: 0.521vw;
     }
-  .item {
-    display: inline-block;
-    line-height: 2.396vw;
-    padding: 0 1.927vw;
-    text-align: center;
-    color: white;
-    font-family:Microsoft YaHei;
-    background: #3497da;
-    border-radius: 0.313vw 0.313vw 0vw 0vw;
-    position: relative;
-    cursor: pointer;
-    &.active{
+    .item {
+      display: inline-block;
+      line-height: 2.396vw;
+      padding: 0 1.927vw;
+      text-align: center;
+      color: white;
+      font-family: Microsoft YaHei;
+      background: #3497da;
+      border-radius: 0.313vw 0.313vw 0vw 0vw;
+      position: relative;
+      cursor: pointer;
+      &.active {
         background: #0f6baa;
-    }
-    &:hover i{
+      }
+      &:hover i {
         z-index: 1;
         opacity: 1;
-    }
-    i{
+      }
+      i {
         width: 0.833vw;
         line-height: 0.833vw;
         border-radius: 50%;
@@ -87,7 +89,7 @@ export default {
         z-index: -1;
         opacity: 0;
         transition: all 0.4s;
+      }
     }
   }
-}
 </style>
