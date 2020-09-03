@@ -33,8 +33,6 @@
     computed: {
       tabList() {
         let type = this.$route.path.split("/")[1];
-        console.log('type',type);
-        console.log('this.$store.state.allTabs',this.$store.state.allTabs);
         if (type) {
           return this.$store.state.allTabs[type].tabs;
         } else {
@@ -56,17 +54,17 @@
 <style lang="scss">
   .container {
     .item + .item {
-      margin-left: 0.521vw;
+      margin-left: 10.003px;
     }
     .item {
       display: inline-block;
-      line-height: 2.396vw;
-      padding: 0 1.927vw;
+      line-height: 46.003px;
+      padding: 0 36.998px;
       text-align: center;
       color: white;
       font-family: Microsoft YaHei;
       background: #3497da;
-      border-radius: 0.313vw 0.313vw 0vw 0vw;
+      border-radius: 6.01px 6.01px 0px 0px;
       position: relative;
       cursor: pointer;
       &.active {
@@ -77,15 +75,15 @@
         opacity: 1;
       }
       i {
-        width: 0.833vw;
-        line-height: 0.833vw;
+        width: 15.994px;
+        line-height: 15.994px;
         border-radius: 50%;
         color: #0f6baa;
         background: white;
         cursor: pointer;
         position: absolute;
-        right: 0.104vw;
-        top: 0.104vw;
+        right: 1.997px;
+        top: 1.997px;
         z-index: -1;
         opacity: 0;
         transition: all 0.4s;

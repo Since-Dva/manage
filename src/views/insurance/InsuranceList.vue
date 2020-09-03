@@ -70,9 +70,9 @@
           </div>
           <div class="time">
             <span>创建时间：</span>
-            <el-date-picker v-model="startTime" type="date" placeholder="选择开始日期"></el-date-picker>
+            <el-date-picker v-model="startTime" type="date" placeholder="开始日期"></el-date-picker>
             <span>—</span>
-            <el-date-picker v-model="endTime" type="date" placeholder="选择结束日期"></el-date-picker>
+            <el-date-picker v-model="endTime" type="date" placeholder="结束日期"></el-date-picker>
           </div>
         </div>
         <el-button>搜索</el-button>
@@ -152,7 +152,7 @@
       </span>
     </el-dialog>
     <!-- 新增 -->
-    <el-dialog custom-class="addmodal" title="新增友商" :visible.sync="addModal" width="27vw">
+    <el-dialog custom-class="addmodal" title="新增友商" :visible.sync="addModal" width="581px">
       <div>
         <div class="modaltitle">基本信息</div>
         <div class="dyrow">
@@ -171,7 +171,7 @@
           <el-input type="text" v-model="add.value1" />
         </div>
         <div class="dyrow address">
-          <span class="require">地区：</span>
+          <div><span class="require">地区：</span></div>
           <div class="select">
             <el-select v-model="add.value2">
               <el-option
@@ -231,11 +231,11 @@
           <el-input type="text" v-model="add.value8" />
         </div>
         <div class="dyrow address">
-          <span class="require">性别：</span>
+          <div><span class="require">性别：</span></div>
           <div class="select">
             <el-select v-model="add.value9">
               <el-option
-                v-for="item in options"
+                v-for="item in sexs"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
@@ -392,6 +392,10 @@
           { label: "全部", value: 1 },
           { label: "部门一", value: 2 },
         ],
+        sexs: [
+          { label: "男", value: 1 },
+          { label: "女", value: 2 },
+        ],
         dataIdx: null, //选中table序号
         addModal: false,
         reModal: false,
@@ -409,12 +413,12 @@
           { prop: "index", label: "序列号" },
           { prop: "id", label: "ID" },
           { prop: "name", label: "友商名称", width: "300%" },
-          { prop: "address", label: "地区" },
+          { prop: "address", label: "地区", width: "150%" },
           { prop: "number", label: "定损员数" },
           { prop: "state", label: "合作状态" },
           { prop: "creater", label: "创建人" },
           { prop: "gjname", label: "跟进人" },
-          { prop: "time", label: "创建时间" },
+          { prop: "time", label: "创建时间", width: "200%" },
         ],
         tableData: [
           {
@@ -478,8 +482,12 @@
       handlePreview(){
 
       },
-      handleRemove(){
-
+      handleRemove(e) {
+        this.fileList1.map((item,idx)=>{
+          if(item.name===e.name){
+            this.fileList1.splice(idx,1)
+          }
+        })
       },
       beforeRemove(){
 
@@ -497,13 +505,13 @@
       position: relative;
       .row {
         div + div {
-          margin-left: 2.448vw;
+          margin-left: 47.002px;
         }
         .el-button:nth-of-type(1) {
-          margin-left: 3.802vw;
+          margin-left: 72.998px;
         }
         .select {
-          margin-left: 1vw;
+          margin-left: 19.2px;
         }
       }
       .row:nth-of-type(2) {
@@ -512,14 +520,14 @@
           justify-content: space-between;
           align-items: center;
           .el-input {
-            width: 7.17vw !important;
+            width: 137.664px !important;
             .el-input__inner {
-              width: 7.17vw !important;
+              width: 137.664px !important;
             }
           }
           > span:nth-of-type(2) {
             color: #d2d2d2;
-            margin: 0 0.521vw;
+            margin: 0 10.003px;
           }
           .el-input__prefix {
             display: none;
@@ -527,19 +535,22 @@
         }
         .deep {
           position: relative;
-          right: -3.8vw;
+          right: -72.96px;
         }
       }
     }
     .el-dialog__body {
-      padding-top: 1.042vw;
+      padding-top: 20.006px;
     }
     .el-dialog {
       .top {
-        padding-bottom: 1.302vw;
+        padding-bottom: 24.998px;
         display: flex;
         justify-content: space-between;
-        border-bottom: 0.052vw solid #f1f1f1;
+        border-bottom: 0.998px solid #f1f1f1;
+        >div{
+          width: 271px;
+        }
       }
       .content1 {
         > div:nth-of-type(1) {
@@ -547,44 +558,44 @@
           display: flex;
           justify-content: space-between;
           > div {
+            width: 271px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            >div{
+              width: 271px;
+              display: flex;
+              justify-content: space-between;
+            }
             > span {
               color: #666666;
-              margin: 1.146vw 0;
+              margin: 22.003px 0;
             }
             .el-input,
             .el-input__inner {
-              width: 5.7vw !important;
+              width: 170px !important;
             }
             .el-button {
               padding: 0 !important;
               text-align: center;
-              width: 3vw !important;
-              height: 1.45vw !important;
-              line-height: 1.45vw !important;
-              margin-left: 1.042vw;
+              width: 80px !important;
+              height: 27.84px !important;
+              line-height: 27.84px !important;
+              margin-left: 20.006px;
             }
           }
         }
         .transfer {
           width: 100%;
-          margin-top: 1.042vw;
+          margin-top: 20.006px;
           .el-transfer {
             display: flex;
             justify-content: space-between;
           }
           .el-transfer-panel__header {
             .el-checkbox {
-              padding-right: 6.25vw !important;
+              padding-right: 120px !important;
               color: #333333;
-            }
-          }
-          .el-transfer-panel__body {
-            height: 12.813vw !important;
-            .el-transfer-panel__item {
-              margin: 0.521vw;
             }
           }
         }
@@ -593,9 +604,9 @@
     .addmodal {
       .el-dialog__body {
         > div {
-          padding-bottom: 1.302vw;
-          border-bottom: 0.052vw solid #cbcbcb;
-          margin-bottom: 1.042vw;
+          padding-bottom: 24.998px;
+          border-bottom: 0.998px solid #cbcbcb;
+          margin-bottom: 20.006px;
         }
         > div:nth-of-type(3){
           border: none;
@@ -604,26 +615,26 @@
       .modaltitle {
         font-weight: bold;
         color: #666666;
-        margin-bottom: 1.042vw;
+        margin-bottom: 20.006px;
       }
-      width: 22.656vw;
+      width: 434.995px;
       .el-dialog__body {
-        height: 24.479vw;
+        height: 469.997px;
         overflow: scroll;
       }
       .select,
       .el-select {
-        width: 10.417vw !important;
+        width: 200.006px !important;
       }
       .upload {
         .upload-demo{
-          width: 11vw;
+          width: 211.2px;
           display: flex;
           justify-content: flex-start;
           .el-upload,.el-button{
-            width: 3vw;
-            height: 1.4vw !important;
-            line-height: 1.4vw !important;
+            width: 57.6px;
+            height: 26.88px !important;
+            line-height: 26.88px !important;
             padding: 0 !important;
             text-align: center;
           }
@@ -638,21 +649,21 @@
       }
       .dyrow {
         > div {
-          width: 4.688vw;
+          width: 90.01px;
           display: flex;
           justify-content: flex-end;
-          margin-right: 0.521vw;
+          margin-right: 10.003px;
         }
 
         .avatar-uploader {
-          width: 6.823vw;
-          height: 6.823vw;
-          border: 0.052vw solid #cbcbcb;
-          border-radius: 0.208vw;
+          width: 131.002px;
+          height: 131.002px;
+          border: 0.998px solid #cbcbcb;
+          border-radius: 3.994px;
           position: relative;
           i {
-            width: 1.231vw;
-            height: 1.231vw;
+            width: 23.635px;
+            height: 23.635px;
             background: url("../../assets/img/upload.png") center no-repeat;
             background-size: 100%;
             position: absolute;
@@ -666,17 +677,15 @@
         }
       }
       .address {
-        position: relative;
-        left: 2.6vw;
         .select,
         .el-select,
         .el-input,
         .el-input__inner {
-          width: 5.208vw !important;
+          width: 99.994px !important;
         }
       }
       .el-dialog__body {
-        padding: 2.24vw 2.552vw 0!important;
+        padding: 43.008px 48.998px 0!important;
       }
     }
     .el-dialog {
@@ -684,11 +693,11 @@
       }
     }
     .el-dialog:nth-of-type(3) {
-      padding: 2.24vw 5.729vw;
+      padding: 43.008px 109.997px;
     }
     .powerTitle {
-      line-height: 1.563vw;
-      margin-bottom: 1.042vw;
+      line-height: 30.01px;
+      margin-bottom: 20.006px;
       display: flex;
       justify-content: space-between;
     }

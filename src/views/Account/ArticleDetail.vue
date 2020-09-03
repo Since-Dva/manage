@@ -17,25 +17,24 @@ export default {};
 
 <style lang='scss'>
 .detail {
-  height: 25.625vw;
   background: rgba(255, 255, 255, 1);
-  box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
-  border-radius: 0.208vw;
+  box-shadow: 0px 0px 12.998px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 3.994px;
   .articleDetail {
-    height: 46.406vw !important;
-    padding: 1.771vw 2.292vw;
+    height: 710.4px !important;
+    padding: 34.003px 44.006px;
     overflow: scroll;
   }
   .content {
-    padding: 0 3.438vw 0 3.958vw;
+    padding: 0 66.01px 0 75.994px;
     display: flex;
     flex-direction: column;
     background: rgba(255, 255, 255, 1);
     .con {
       width: 100%;
-      height: 0.938vw;
-      padding: 1.771vw 0;
-      border-bottom: 0.052vw solid #cccccc;
+      height: 18.01px;
+      padding: 34.003px 0;
+      border-bottom: 0.998px solid #cccccc;
       position: relative;
       p {
         flex-grow: 0;
@@ -46,14 +45,14 @@ export default {};
       width: 100% !important;
       position: static !important;
       box-shadow: none !important;
-      margin-bottom: 1.042vw;
+      margin-bottom: 20.006px;
     }
   }
   .title {
-      padding: 0 1.823vw;
-      line-height: 3.594vw;
-      border-bottom: 0.052vw solid #e2e2e2;
-      font-size: 0.938vw;
+      padding: 0 35.002px;
+      line-height: 65.28px;
+      border-bottom: 0.998px solid #e2e2e2;
+      font-size: 18.01px;
       font-family: Microsoft YaHei;
       font-weight: bold;
       color: rgba(51, 51, 51, 1);
@@ -61,8 +60,8 @@ export default {};
       &::before {
         content: "";
         display: block;
-        width: 0.26vw;
-        height: 1.667vw;
+        width: 4.992px;
+        height: 32.006px;
         background: rgba(52, 152, 219, 1);
         position: absolute;
         left: 0;
@@ -72,30 +71,29 @@ export default {};
     }
 }
 .article {
-  height: 56.25vw !important;
   h3 {
-    font-size: 0.938vw;
+    font-size: 18.01px;
     color: #333333;
     text-align: center;
   }
   .time {
-    font-size: 0.729vw;
+    font-size: 13.997px;
     color: #333333;
     text-align: right;
-    margin: 1.406vw 0vw 1.094vw 0;
+    margin: 9.6px 0px;
   }
   p {
-    font-size: 0.833vw;
+    font-size: 15.994px;
     color: #333333;
-    line-height: 1.667vw;
+    line-height: 31.68px;
     text-indent: 2em;
   }
   img {
     display: block;
     width: 100%;
-    height: 13.958vw;
-    margin: 1.927vw 0;
-    border: 0.052vw solid #000;
+    height: 267.994px;
+    margin: 36.998px 0;
+    border: 0.998px solid #000;
   }
 }
 </style>

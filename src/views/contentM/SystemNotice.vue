@@ -53,7 +53,7 @@
     </div>
 
     <!-- 删除 -->
-    <el-dialog title="删除确认" :visible.sync="deleteModal" width="22.656vw">
+    <el-dialog title="删除确认" :visible.sync="deleteModal" width="434.995px">
       <span>是否确认删除？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="deleteModalOK">确 定</el-button>
@@ -61,7 +61,7 @@
       </span>
     </el-dialog>
     <!-- 新增/编辑 -->
-    <el-dialog custom-class="addmodal" title="新增公告" :visible.sync="addModal">
+    <el-dialog custom-class="addmodal" :title="type+'公告'" :visible.sync="addModal">
       <div class="dyrow">
         <div>
           <span class="require">后台系统：</span>
@@ -123,6 +123,7 @@
         powerModal: false,
         deleteModal: false,
         addModal: false,
+        type:'新增',
         size: 10,
         count: 1,
         total: 0,
@@ -161,6 +162,7 @@
       },
       //编辑
       showEditModal(info) {
+        this.type='编辑'
         this.dataIdx = info.index;
         this.postTitle = info.title;
         setTimeout(() => {
@@ -187,8 +189,12 @@
       },
       //新增
       showAddModal() {
+        this.type='新增'
+        setTimeout(() => {
+          this.$refs.editor._data.editor.txt.html('');
+        }, 10);
         this.addModal = true;
-        this.postName = null;
+        this.postTitle = null;
         this.descript = null;
       },
       addModalOK() {
@@ -196,7 +202,7 @@
       },
       addModalcancel() {
         this.addModal = false;
-        this.postName = null;
+        this.postTitle = null;
         this.descript = null;
       },
       sizeChange(e) {
@@ -214,84 +220,84 @@
     .searchBar {
       position: relative;
       div + div {
-        margin-left: 2.448vw;
+        margin-left: 47.002px;
       }
       .el-button:nth-of-type(1) {
-        margin-left: 3.802vw;
+        margin-left: 72.998px;
       }
       .deep {
         position: absolute;
-        right: 1.823vw;
+        right: 35.002px;
       }
       .row{
         .select{
-          width: 9vw !important;
+          width: 172.8px !important;
           .el-select{
-            width: 9vw !important;
+            width: 172.8px !important;
             .el-input{
-              width: 9vw !important;
+              width: 172.8px !important;
             }
           }
         }
       .select .el-select .el-input .el-input__inner,
       .select .el-select .el-input--suffix .el-input__inner {
-        width: 9vw !important;
+        width: 172.8px !important;
       }
 
       }
     }
     .el-dialog__body {
-      padding-top: 1.042vw;
+      padding-top: 20.006px;
     }
     .el-dialog__body .dyrow:nth-of-type(2) {
       align-items: flex-start !important;
-      margin-top: 1.042vw;
+      margin-top: 20.006px;
     }
     .el-dialog__body .dyrow .el-input,
     .el-dialog__body .dyrow .el-input .el-input__inner,
     .el-dialog__body .dyrow .el-textarea,
     .el-dialog__body .dyrow .el-textarea .el-textarea__inner {
-      width: 11.458vw !important;
+      width: 219.994px !important;
     }
     .el-dialog:nth-of-type(1) .el-dialog__body {
-      padding: 1.042vw 2.5vw 1.823vw 2.5vw !important;
+      padding: 20.006px 48px 35.002px 48px !important;
     }
     .powerTitle {
-      line-height: 1.563vw;
-      padding-bottom: 1vw;
+      line-height: 30.01px;
+      padding-bottom: 19.2px;
       display: flex;
       justify-content: space-between;
-      border-bottom: 0.052vw solid #cbcbcb;
+      border-bottom: 0.998px solid #cbcbcb;
     }
     .addmodal {
-      width: 30.26vw !important;
+      width: 580.992px !important;
       .dyrow {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         > div {
-          width: 4vw;
+          width: 76.8px;
           display: flex;
           justify-content: flex-end;
-          margin-right: 0.781vw;
+          margin-right: 14.995px;
         }
         .select,
         .select .el-select {
-          width: 11.458vw !important;
+          width: 219.994px !important;
         }
         #editorElem {
-          width: 20.729vw !important;
-          height: 12.76vw;
+          width: 397.997px !important;
+          height: 244.992px;
           // overflow: scroll;
-          transform: translateX(16.765vw);
+          transform: translateX(321.888px);
           .w-e-text-container {
-            width: 20.729vw !important;
-            height: 11.458vw !important;
+            width: 397.997px !important;
+            height: 219.994px !important;
           }
         }
       }
       .el-dialog__body {
-        padding: 2.76vw 5.208vw !important;
+        padding: 52.992px 99.994px !important;
       }
     }
   }

@@ -51,7 +51,7 @@
 
 <style lang='scss'>
   .login {
-    width: 100vw;
+    width: 1920px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -63,26 +63,26 @@
     top: 0;
     > div {
       box-sizing: border-box;
-      width: 29.896vw;
-      height: 34.479vw;
-      padding: 5.104vw 5.313vw;
+      width: 574.003px;
+      height: 661.997px;
+      padding: 97.997px 102.01px;
       background: #ffffff;
-      border-radius: 0.521vw;
+      border-radius: 10.003px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       h1 {
-        font-size: 2.396vw;
+        font-size: 46.003px;
         font-weight: bold;
         color: #3498db;
       }
       h2 {
-        font-size: 1.25vw;
+        font-size: 24px;
         font-weight: bold;
         color: #3498db;
-        margin-top: 1.406vw;
-        margin-bottom: 3.802vw;
+        margin-top: 26.995px;
+        margin-bottom: 72.998px;
       }
       label {
         display: flex;
@@ -91,38 +91,38 @@
       .inputbox {
         position: relative;
         img {
-          width: 1.198vw;
-          height: 1.094vw;
+          width: 23.002px;
+          height: 21.005px;
           position: absolute;
-          left: 1.042vw;
-          top: 0.521vw;
+          left: 20.006px;
+          top: 10.003px;
           z-index: 600;
         }
       }
       .el-input:nth-of-type(1) {
-        margin-bottom: 1.302vw;
+        margin-bottom: 24.998px;
       }
       .el-input,
       .el-input__inner {
-        width: 16.927vw !important;
-        height: 2.083vw !important;
-        border-radius: 0.208vw;
+        width: 324.998px !important;
+        height: 39.994px !important;
+        border-radius: 3.994px;
         background: #eaf4fb;
         color: #9a9a9a;
-        font-size: 0.938vw;
+        font-size: 18.01px;
       }
       .el-input__inner {
-        padding-left: 3.021vw;
+        padding-left: 58.003px;
       }
       input[type="checkbox"] {
-        width: 1.042vw;
-        height: 1.042vw;
-        border: 0.052vw solid #666666;
-        border-radius: 0vw 0.104vw 0.104vw 0.104vw;
-        margin-right: 0.26vw;
+        width: 20.006px;
+        height: 20.006px;
+        border: 0.998px solid #666666;
+        border-radius: 0px 1.997px 1.997px 1.997px;
+        margin-right: 4.992px;
       }
       .forget {
-        width: 16.927vw;
+        width: 324.998px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -138,27 +138,27 @@
       }
       .free {
         align-self: flex-start;
-        margin-top: 1.198vw;
-        margin-bottom: 2.604vw;
+        margin-top: 23.002px;
+        margin-bottom: 49.997px;
         position: relative;
-        left: 1.198vw;
+        left: 23.002px;
       }
       .el-button {
-        width: 16.927vw;
-        height: 2.083vw;
+        width: 324.998px;
+        height: 39.994px;
         background: #3498dc;
-        border-radius: 0.104vw;
-        font-size: 0.938vw;
-        letter-spacing: 2.813vw;
-        text-indent: 2.969vw;
+        border-radius: 1.997px;
+        font-size: 18.01px;
+        letter-spacing: 54.01px;
+        text-indent: 57.005px;
         &:hover {
           background: #106caa !important;
           color: white;
         }
       }
       .tip {
-        margin-top: 1.302vw;
-        font-size: 0.938vw;
+        margin-top: 24.998px;
+        font-size: 18.01px;
         color: #fb665c;
       }
     }

@@ -74,7 +74,7 @@
       </xybTable>
     </div>
     <!-- 重置 -->
-    <el-dialog title="重置确认" :visible.sync="reModal" width="22.656vw">
+    <el-dialog title="重置确认" :visible.sync="reModal" width="434.995px">
       <span>是否确认重置？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="reModalOK">确 定</el-button>
@@ -82,7 +82,7 @@
       </span>
     </el-dialog>
     <!-- 删除 -->
-    <el-dialog title="删除确认" :visible.sync="deleteModal" width="22.656vw">
+    <el-dialog title="删除确认" :visible.sync="deleteModal" width="434.995px">
       <span>是否确认删除当前账号？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="deleteModalOK">确 定</el-button>
@@ -90,7 +90,7 @@
       </span>
     </el-dialog>
     <!-- 启用/停用 -->
-    <el-dialog title="停用确认" :visible.sync="offModal" width="22.656vw">
+    <el-dialog title="停用确认" :visible.sync="offModal" width="434.995px">
       <span>是否确认停用？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="offModalOK">确 定</el-button>
@@ -289,20 +289,23 @@ export default {
     position: relative;
     .row {
       div + div {
-        margin-left: 2.448vw;
+        margin-left: 47.002px;
       }
       .el-button:nth-of-type(1) {
-        margin-left: 3.802vw;
+        margin-left: 72.998px;
       }
     }
     .row:nth-of-type(2) {
       .time {
+        .el-input,.el-input__inner{
+          width: 150px !important;
+        }
         display: flex;
         justify-content: space-between;
         align-items: center;
         > span:nth-of-type(2) {
           color: #d2d2d2;
-          margin: 0 0.521vw;
+          margin: 0 10.003px;
         }
         .el-input__prefix {
           display: none;
@@ -310,42 +313,42 @@ export default {
       }
       .deep {
         position: relative;
-        right: -10.417vw;
+        right: -200.006px;
       }
     }
   }
   .el-dialog__body {
-    padding-top: 1.042vw;
+    padding-top: 20.006px;
   }
   .el-dialog__body .dyrow .el-input,
   .el-dialog__body .dyrow .el-input .el-input__inner,
   .el-dialog__body .dyrow .el-textarea,
   .el-dialog__body .dyrow .el-textarea .el-textarea__inner {
-    width: 10.417vw !important;
+    width: 200.006px !important;
   }
   .addmodal {
-    width: 22.656vw;
+    width: 434.995px;
     .select,.el-select{
-      width: 10.417vw !important;
+      width: 200.006px !important;
     }
     .dyrow {
       >div{
-        width: 4.688vw;
+        width: 90.01px;
         display: flex;
         justify-content: flex-end;
-        margin-right: 0.521vw;
+        margin-right: 10.003px;
       }
     }
     .el-dialog__body {
-      padding: 2.24vw 2.552vw !important;
+      padding: 43.008px 48.998px !important;
     }
   }
   .el-dialog:nth-of-type(3) {
-    padding: 2.24vw 5.729vw;
+    padding: 43.008px 109.997px;
   }
   .powerTitle {
-    line-height: 1.563vw;
-    margin-bottom: 1.042vw;
+    line-height: 30.01px;
+    margin-bottom: 20.006px;
     display: flex;
     justify-content: space-between;
   }

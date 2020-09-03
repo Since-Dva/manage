@@ -77,7 +77,7 @@
       </xybTable>
     </div>
     <!-- 重置 -->
-    <el-dialog title="重置确认" :visible.sync="reModal" width="22.656vw">
+    <el-dialog title="重置确认" :visible.sync="reModal" width="434.995px">
       <span>是否确认重置？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="reModalOK">确 定</el-button>
@@ -85,7 +85,7 @@
       </span>
     </el-dialog>
     <!-- 删除 -->
-    <el-dialog title="删除确认" :visible.sync="deleteModal" width="22.656vw">
+    <el-dialog title="删除确认" :visible.sync="deleteModal" width="434.995px">
       <span>是否确认删除当前账号？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="deleteModalOK">确 定</el-button>
@@ -93,7 +93,7 @@
       </span>
     </el-dialog>
     <!-- 新增 -->
-    <el-dialog custom-class="addmodal" title="新增账号" :visible.sync="addModal" width="30.26vw">
+    <el-dialog custom-class="addmodal" title="新增账号" :visible.sync="addModal" width="580.992px">
       <div class="dyrow">
         <div>
           <span class="require">姓名：</span>
@@ -301,20 +301,20 @@
       position: relative;
       .row {
         div + div {
-          margin-left: 2.448vw;
+          margin-left: 47.002px;
         }
         .select{
-          margin-left: 1vw;
+          margin-left: 19.2px;
         }
         .el-button:nth-of-type(1) {
-          margin-left: 3.802vw;
+          margin-left: 72.998px;
         }
       }
       .row:nth-of-type(2) {
         display: flex;
         justify-content: space-between;
         > div {
-          width: 11.458vw;
+          width: 219.994px;
           > button:nth-of-type(1) {
             margin-left: 0;
           }
@@ -322,47 +322,46 @@
       }
     }
     .el-dialog__body {
-      padding-top: 1.042vw;
+      padding-top: 20.006px;
     }
     .el-dialog__body .dyrow .el-input,
     .el-dialog__body .dyrow .el-input .el-input__inner,
     .el-dialog__body .dyrow .el-textarea,
     .el-dialog__body .dyrow .el-textarea .el-textarea__inner {
-      width: 10.417vw !important;
+      width: 200.006px !important;
     }
     .dyrow .select .el-select .el-input,
     .dyrow .select .el-select .el-input--suffix,
     .dyrow .select .el-select .el-input .el-input__inner {
-      width: 5vw !important;
+      width: 96px !important;
     }
     .addmodal {
-      width: 30.26vw;
-      .dyrow:nth-of-type(2) {
-        position: relative;
-        left: 1.4vw;
-      }
+      width: 580.992px;
       .dyrow {
-        width: 21vw;
+        width: 403.2px;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        > div {
-          width: 5vw;
-          display: flex;
-          justify-content: flex-end;
-          margin-right: 0.781vw;
+        > div:nth-of-type(1){
+          width: 96px !important;
+          span{
+            float: right;
+          }
+        }
+        .select{
+          margin-right: 10px;
         }
       }
       .el-dialog__body {
-        padding: 2.76vw 5.208vw !important;
+        padding: 52.992px 99.994px !important;
       }
     }
     .el-dialog:nth-of-type(3) {
-      padding: 2.24vw 5.729vw;
+      padding: 43.008px 109.997px;
     }
     .powerTitle {
-      line-height: 1.563vw;
-      margin-bottom: 1.042vw;
+      line-height: 30.01px;
+      margin-bottom: 20.006px;
       display: flex;
       justify-content: space-between;
     }

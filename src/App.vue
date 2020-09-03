@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <dyheader v-if="$route.path!=='/login'"></dyheader>
+    <router-view name="Head"></router-view>
     <div class="content">
-      <dyaside v-if="$route.path!=='/login'"></dyaside>
+      <router-view name="Aside" />
       <el-main>
         <router-view />
       </el-main>
@@ -11,16 +11,10 @@
 </template>
 
 <script>
-  import dyheader from "./components/head.vue";
-  import dyaside from "./components/aside.vue";
   export default {
-    components: {
-      dyheader,
-      dyaside,
-    },
-    created(){
-      if(localStorage.store){
-        this.$store.replaceState(JSON.parse(localStorage.store))
+    created() {
+      if (localStorage.store) {
+        this.$store.replaceState(JSON.parse(localStorage.store));
       }
     },
     computed: {
@@ -32,74 +26,50 @@
 </script>
 <style lang="scss">
   @import url("./assets/css/reset.css");
-
   #app {
-    width: 100vw;
+    width: 1920px;
     height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     background: #efefef;
     font-family: Microsoft YaHei;
-    font-size: 0.833vw;
+    font-size: 15.994px;
     color: rgba(102, 102, 102, 1);
     .content {
       display: flex;
       .el-main {
         box-sizing: border-box;
-        padding: 0vw 1.823vw 0vw 1.042vw;
+        padding: 0px 35.002px 0px 20.006px;
         .tableBox {
-          margin-top: 1.042vw;
-          height: 38.438vw;
+          margin-top: 20.006px;
+          height: 738.01px;
           overflow: scroll;
         }
-
+        .el-input .el-input__icon {
+          transform: translateX(5px);
+          border-radius: 0 4px 4px 0;
+          background: #3498db url("./assets/img/bottomArr.png") center no-repeat;
+        }
         .el-select,
         .el-input--suffix {
-          width: 4.792vw;
-          height: 1.458vw;
+          width: 92.006px;
+          height: 27.994px;
           position: relative;
           .el-input,
           .el-input__inner {
-            width: 4.792vw;
-            height: 1.458vw;
+            width: 92.006px;
+            height: 27.994px;
           }
-          // .el-select {
-          //   border-radius: 0.208vw;
-          //   border: 0.052vw solid #dcdfe6;
-          //   outline: none;
-          //   width: 4.792vw;
-          //   height: 1.458vw;
-          //   padding-left: 0.521vw;
-          //   color: #666666;
-          //   option {
-          //     border: 0.052vw solid #dcdfe6 !important;
-          //     background: white;
-          //   }
-          // }
-          // &::after {
-          //   content: "";
-          //   display: block;
-          //   width: 1.458vw;
-          //   height: 1.458vw;
-          //   border-radius: 0 0.208vw 0.208vw 0;
-          //   background: #3498db url("./assets/img/bottomArr.png") center no-repeat;
-          //   background-size: 100%;
-          //    pointer-events: none;
-          //   position: absolute;
-          //   top: 0;
-          //   right: 0;
-          //   z-index: 999;
-          // }
         }
       }
       .searchBar {
-        padding: 1.458vw 1.823vw;
+        padding: 27.994px 35.002px;
         background: white;
-        box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
-        border-radius: 0.208vw;
+        box-shadow: 0px 0px 12.998px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 3.994px;
         .row + .row {
-          margin-top: 1.823vw;
+          margin-top: 35.002px;
         }
         .row {
           display: flex;
@@ -112,13 +82,13 @@
         }
       }
       .el-button + .el-button {
-        margin: 0 0 0 1.25vw;
+        margin: 0 0 0 24px;
       }
       .el-button {
-        height: 1.875vw;
-        line-height: 1.875vw;
-        padding: 0 1.719vw;
-        border-radius: 0.313vw;
+        height: 36px;
+        line-height: 36px;
+        padding: 0 33.005px;
+        border-radius: 6.01px;
         background: #3498db;
         color: white;
         &.deep {
@@ -136,33 +106,38 @@
 
       .el-input,
       .el-input__inner {
-        width: 7.813vw;
-        height: 1.458vw;
+        width: 150.01px;
+        height: 27.994px;
       }
       .dyrow + .dyrow {
-        margin-top: 1.042vw;
+        margin-top: 20.006px;
       }
       .dyrow {
         display: flex;
         align-items: center;
+        > div:nth-of-type(1) {
+          flex-shrink: 0;
+          padding-top: 6px;
+          align-self: start;
+        }
         > span {
           flex-shrink: 0;
-          margin-right: 0.781vw;
+          margin-right: 14.995px;
         }
       }
     }
     .el-transfer {
       display: flex;
       .el-transfer-panel {
-        width: 9.635vw;
+        width: 271px;
         border: none;
         .el-transfer-panel__header {
-          height: 1.927vw;
+          height: 36.998px;
           background: rgba(238, 238, 238, 1);
-          border: 0.052vw solid rgba(204, 204, 204, 1);
+          border: 0.998px solid rgba(204, 204, 204, 1);
           .el-checkbox {
-            height: 1.927vw;
-            padding-right: 1.875vw;
+            height: 36.998px;
+            padding-right: 36px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -172,25 +147,24 @@
           }
         }
         .el-transfer-panel__body {
-          height: 15vw;
-          border: 0.052vw solid #cecece;
-          margin-top: 1.042vw;
+          height: 288px;
+          border: 0.998px solid #cecece;
         }
       }
       .el-transfer__buttons {
-        padding: 0 0.521vw;
+        padding: 0 10.003px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         transform: rotate(180deg);
         .el-button + .el-button {
-          margin-top: 0.938vw;
+          margin-top: 18.01px;
         }
         .el-button {
-          width: 4.063vw;
-          height: 1.667vw;
-          line-height: 1.667vw;
+          width: 78.01px;
+          height: 32.006px;
+          line-height: 32.006px;
           margin: 0;
           border: none;
           background: white url("./assets/img/btns.png") center no-repeat;
@@ -211,24 +185,24 @@
       &::before {
         content: "*";
         color: red;
-        margin-right: 0.104vw;
+        margin-right: 1.997px;
         position: absolute;
-        left: -0.417vw;
-        top: 0.156vw;
+        left: -8.006px;
+        top: 2.995px;
       }
     }
     .pagin {
       box-sizing: border-box;
-      width: 85.2vw;
-      height: 3vw;
-      box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+      width: 1635.84px;
+      height: 57.6px;
+      box-shadow: 0px 0px 12.998px 0px rgba(0, 0, 0, 0.1);
       background: white;
       position: fixed;
       z-index: 800;
-      bottom: 0vw;
-      right: 2.05vw;
-      margin-top: 1.771vw;
-      padding-right: 0.938vw;
+      bottom: 0px;
+      right: 39.36px;
+      margin-top: 34.003px;
+      padding-right: 18.01px;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -237,17 +211,17 @@
       }
     }
     .el-pagination {
-      height: 1.563vw;
+      height: 30.01px;
       .el-pagination__sizes {
-        height: 1.563vw;
+        height: 30.01px;
         margin-right: 20px;
         .el-select,
         .el-select--mini {
-          height: 1.563vw;
+          height: 30.01px;
           .el-input,
           .el-input__inner {
-            width: 5vw !important;
-            height: 1.563vw !important;
+            width: 96px !important;
+            height: 30.01px !important;
             padding: 0;
             .el-input__suffix {
               display: none;
@@ -257,11 +231,11 @@
       }
       button {
         padding: 0;
-        margin-right: 0.521vw;
-        width: 1.563vw;
-        height: 1.563vw;
-        border: 0.052vw solid #666666;
-        border-radius: 0.208vw;
+        margin-right: 10.003px;
+        width: 30.01px;
+        height: 30.01px;
+        border: 0.998px solid #666666;
+        border-radius: 3.994px;
         i {
           transform: scale(1.5);
         }
@@ -270,32 +244,32 @@
       .el-pager {
         .number {
           padding: 0;
-          width: 1.563vw;
-          height: 1.563vw;
-          line-height: 1.563vw;
-          border: 0.052vw solid #666666;
-          border-radius: 0.208vw;
-          margin-right: 0.521vw;
+          width: 30.01px;
+          height: 30.01px;
+          line-height: 30.01px;
+          border: 0.998px solid #666666;
+          border-radius: 3.994px;
+          margin-right: 10.003px;
           &.active {
             color: white;
             background: #3498db;
-            border: 0.052vw solid #3498db;
+            border: 0.998px solid #3498db;
           }
         }
       }
     }
   }
   .el-dialog {
-    min-height: 15.625vw;
-    border-radius: 0.208vw;
+    min-height: 300px;
+    border-radius: 3.994px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
     .el-dialog__header {
-      height: 3.073vw;
-      line-height: 3.073vw;
-      padding: 0 1.563vw;
+      height: 59.002px;
+      line-height: 59.002px;
+      padding: 0 30.01px;
       background: #3498db;
       display: flex;
       align-items: center;
@@ -307,22 +281,50 @@
         position: static;
       }
       .el-dialog__close {
-        width: 1.354vw;
-        line-height: 1.354vw;
+        width: 25.997px;
+        line-height: 25.997px;
         background: white;
         border-radius: 50%;
       }
     }
     .el-dialog__body {
-      padding: 2.448vw 1.823vw;
+      padding: 47.002px 35.002px;
       flex-grow: 1;
     }
     .el-dialog__footer {
-      padding: 1.042vw 1.563vw;
-      border-top: 0.052vw solid #cccccc;
+      padding: 20.006px 30.01px;
+      border-top: 0.998px solid #cccccc;
       display: flex;
       align-items: center;
       justify-content: flex-end;
+    }
+  }
+  .input-150 {
+    .el-input,
+    .el-input__inner {
+      width: 150px !important;
+    }
+  }
+  .input-300{
+    .el-input,
+    .el-input__inner {
+      width: 300px !important;
+    }
+  }
+  .sel-150 {
+    .select,
+    .el-select,
+    .el-input,
+    .el-input__inner {
+      width: 150px !important;
+    }
+  }
+  .sel-200 {
+    .select,
+    .el-select,
+    .el-input,
+    .el-input__inner {
+      width: 200px !important;
     }
   }
 </style>

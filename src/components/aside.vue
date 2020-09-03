@@ -1,7 +1,7 @@
 <template>
   <el-aside>
     <el-menu
-      default-active="2"
+      :default-active="active"
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
@@ -66,52 +66,60 @@ export default {
       }
     },
   },
+  computed: {
+    active(){
+      let path
+        path=this.$route.path
+      return path
+    }
+  },
 };
 </script>
 
 <style scoped lang="scss">
 .el-aside {
-  width: 11.719vw !important;
-  height: 50vw;
+  width: 225.005px !important;
+  height: 960px;
   background: #ffffff;
   overflow-y: scroll;
   overflow-x: hidden;
-  box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
-  border-radius: 0.208vw;
+  box-shadow: 0px 0px 12.998px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 3.994px;
   .el-menu {
-    width: 11.719vw;
+    width: 225.005px;
     .titleicon {
       display: inline-block;
-      width: 1.25vw;
-      height: 1.25vw;
+      width: 24px;
+      height: 24px;
       background-size: 100%;
       position: relative;
-      margin-right: 0.521vw;
+      margin-right: 10.003px;
       img {
-        width: 1.25vw;
-        height: 1.25vw;
+        width: 24px;
+        height: 24px;
         position: absolute;
         top: 0;
         left: 0;
+        overflow: hidden;
       }
     }
     .el-menu-item > span,
     .el-submenu__title > span {
-      font-size: 0.833vw;
+      font-size: 15.994px;
       font-family: Microsoft YaHei;
       font-weight: bold;
       color: rgba(51, 51, 51, 1);
     }
     .el-submenu {
       .el-submenu__title {
-        padding: 0 1.042vw !important;
+        padding: 0 20.006px !important;
       }
     }
   }
   .el-menu-item {
-    width: 11.719vw;
+    width: 225.005px;
     min-width: 0;
-    font-size: 0.729vw;
+    font-size: 13.997px;
     font-family: Microsoft YaHei;
     font-weight: 400;
     color: rgba(102, 102, 102, 1);
@@ -124,7 +132,7 @@ export default {
       }
     }
     .el-submenu__icon-arrow {
-      font-size: 0.781vw;
+      font-size: 14.995px;
     }
   }
 }

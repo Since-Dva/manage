@@ -30,7 +30,7 @@
         :count="count"
         :total="total"
       >
-        <el-table-column align="center" label="操作" width="320%">
+        <el-table-column align="center" label="操作">
           <template slot-scope="scope">
             <a @click="showEditModal(scope.row)">编辑</a>
             <a @click="showoffModal(scope.row)">启用</a>
@@ -40,7 +40,7 @@
     </div>
 
     <!-- 启用/停用 -->
-    <el-dialog title="启用确认" :visible.sync="offModal" width="22.656vw">
+    <el-dialog title="启用确认" :visible.sync="offModal" width="434.995px">
       <span>是否启用广告？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="offModalOK">确 定</el-button>
@@ -135,7 +135,7 @@
           { prop: "id", label: "ID" },
           { prop: "theme", label: "主题" },
           { prop: "img", label: "图片" },
-          { prop: "link", labidxel: "链接" },
+          { prop: "link", label: "链接" },
           { prop: "position", label: "位置" },
           { prop: "idx", label: "排序" },
           { prop: "status", label: "停用中" },
@@ -177,7 +177,6 @@
       },
       //编辑
       showEditModal(info) {
-        console.log(info);
         this.dataIdx=info.index
         this.theme= info.theme
         this.imageUrl= info.imageUrl
@@ -220,71 +219,71 @@
     .searchBar {
       position: relative;
       div + div {
-        margin-left: 2.448vw;
+        margin-left: 47.002px;
       }
       .el-button:nth-of-type(1) {
-        margin-left: 3.802vw;
+        margin-left: 72.998px;
       }
       .deep {
         position: absolute;
-        right: 1.823vw;
+        right: 35.002px;
       }
     }
     .el-dialog__body {
-      padding-top: 1.042vw;
+      padding-top: 20.006px;
     }
     .el-dialog__body .dyrow:nth-of-type(2) {
       align-items: flex-start !important;
-      margin-top: 1.042vw;
+      margin-top: 20.006px;
     }
     .el-dialog__body .dyrow .el-input,
     .el-dialog__body .dyrow .el-input .el-input__inner,
     .el-dialog__body .dyrow .el-textarea,
     .el-dialog__body .dyrow .el-textarea .el-textarea__inner {
-      width: 11.458vw !important;
+      width: 219.994px !important;
     }
     .el-dialog:nth-of-type(1) .el-dialog__body {
-      padding: 1.042vw 2.5vw 1.823vw 3.5vw !important;
+      padding: 20.006px 48px 35.002px 67.2px !important;
     }
     .powerTitle {
-      line-height: 1.563vw;
-      padding-bottom: 1vw;
+      line-height: 30.01px;
+      padding-bottom: 19.2px;
       display: flex;
       justify-content: space-between;
-      border-bottom: 0.052vw solid #cbcbcb;
+      border-bottom: 0.998px solid #cbcbcb;
     }
     .addmodal {
-      width: 30.26vw !important;
+      width: 580.992px !important;
 
       .dyrow {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         > div {
-          width: 3vw;
+          width: 57.6px;
           display: flex;
           justify-content: flex-end;
-          margin-right: 0.781vw;
+          margin-right: 14.995px;
         }
         .select,
         .select .el-select {
-          width: 10.417vw !important;
+          width: 200.006px !important;
         }
         .el-input{
-          width: 10.417vw !important;
+          width: 200.006px !important;
           .el-input__inner{
-            width: 10.417vw !important;
+            width: 200.006px !important;
           }
         }
         .avatar-uploader {
-          width: 10.417vw;
-          height: 9.271vw;
-          border: 0.052vw solid #cbcbcb;
-          border-radius: 0.208vw;
+          width: 200.006px;
+          height: 178.003px;
+          border: 0.998px solid #cbcbcb;
+          border-radius: 3.994px;
           position: relative;
           i{
-            width: 2.031vw;
-            height: 2.031vw;
+            width: 38.995px;
+            height: 38.995px;
             background: url('../../assets/img/upload.png') center no-repeat;
             background-size: 100%;
             position: absolute;
@@ -298,7 +297,7 @@
         }
       }
       .el-dialog__body {
-        padding: 2.76vw 5.208vw !important;
+        padding: 52.992px 99.994px !important;
       }
     }
   }
