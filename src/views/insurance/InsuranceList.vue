@@ -131,7 +131,7 @@
             <span>当前跟进中</span>
             <div>
               <el-input placeholder="输入友商名称" v-model="value1"></el-input>
-              <el-button>搜索</el-button>
+              <el-button @click="search1">搜索</el-button>
             </div>
           </div>
           <div>
@@ -171,8 +171,9 @@
           <el-input type="text" v-model="add.value1" />
         </div>
         <div class="dyrow address">
-          <span class="require">地区：</span>
-          <div class="select">
+          <div><span class="require">地区：</span></div>
+          <div class="selectBox">
+            <div class="select">
             <el-select v-model="add.value2">
               <el-option
                 v-for="item in options"
@@ -201,6 +202,7 @@
                 :value="item.value"
               ></el-option>
             </el-select>
+          </div>
           </div>
         </div>
         <div class="dyrow">
@@ -231,7 +233,7 @@
           <el-input type="text" v-model="add.value8" />
         </div>
         <div class="dyrow address">
-          <span class="require">性别：</span>
+          <div><span class="require">性别：</span></div>
           <div class="select">
             <el-select v-model="add.value9">
               <el-option
@@ -431,6 +433,9 @@
         ],
       };
     },
+    mounted() {
+      
+    },
     methods: {
       clearCondition() {
         this.accountId = null;
@@ -486,7 +491,13 @@
       },
       handleExceed(){
 
-      }
+      },
+      search1(){
+
+      },
+      search2(){
+
+      },
     },
   };
 </script>
@@ -502,7 +513,7 @@
         .el-button:nth-of-type(1) {
           margin-left: 3.802vw;
         }
-        .select {
+        .select+.select {
           margin-left: 1vw;
         }
       }
@@ -637,11 +648,13 @@
         }
       }
       .dyrow {
-        > div {
+        > div:nth-of-type(1) {
           width: 4.688vw;
-          display: flex;
-          justify-content: flex-end;
           margin-right: 0.521vw;
+          flex-shrink: 0;
+          >span{
+            float: right;
+          }
         }
 
         .avatar-uploader {
@@ -666,8 +679,12 @@
         }
       }
       .address {
-        position: relative;
-        left: 2.6vw;
+        .selectBox{
+          display: flex;
+          .select{
+            margin-right: 10px;
+          }
+        }
         .select,
         .el-select,
         .el-input,

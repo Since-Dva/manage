@@ -8,11 +8,11 @@
             <div>
               <img src alt />
               <div>
-                <h2>大地保险公司(重庆分公司)</h2>
+                <h2>{{base.name}}</h2>
                 <h3>ID号：BX00001</h3>
               </div>
             </div>
-            <a>编辑</a>
+            <a @click="basicModal=true">编辑</a>
           </div>
           <div class="left1_2">
             <div class="left1_2_1">
@@ -30,23 +30,23 @@
               </div>
               <div>
                 <span>合作状态：</span>
-                <span>合作中</span>
+                <span>{{base.state}}</span>
               </div>
             </div>
             <div>
               <span>所在地区</span>
-              <span>重庆 - 重庆 - 渝北</span>
+              <span>{{base.address}}</span>
             </div>
             <div>
               <span>详细地址</span>
-              <span>重庆市渝北区仙桃数据谷C16-A2-2层</span>
+              <span>{{base.detail}}</span>
             </div>
           </div>
         </div>
         <div class="left2">
           <div class="title">
             <span>联系人信息</span>
-            <el-button>＋新增</el-button>
+            <el-button @click="addconcatModal=true">＋新增</el-button>
           </div>
           <el-table
             :border="true"
@@ -70,8 +70,8 @@
             <el-table-column align="center" label="操作" width="280%">
               <template slot-scope="scope">
                 <div>
-                  <a @click="todedail(scope.row)">编辑</a>
-                  <a v-if="!scope.row.ismain" @click="todedail(scope.row)">删除</a>
+                  <a @click="showMainPer(scope.row)">编辑</a>
+                  <a v-if="!scope.row.ismain" @click="showdelete(scope.row)">删除</a>
                 </div>
               </template>
             </el-table-column>
@@ -95,9 +95,9 @@
             <el-table-column align="center" label="操作" width="280%">
               <template slot-scope="scope">
                 <div>
-                  <a v-if="scope.row.show" @click="todedail(scope.row)">查看</a>
-                  <a v-if="scope.row.show" @click="todedail(scope.row)">下载</a>
-                  <a @click="todedail(scope.row)">编辑</a>
+                  <a v-if="scope.row.show" @click="showAgreement(scope.row)">查看</a>
+                  <a v-if="scope.row.show" @click="showDownload(scope.row)">下载</a>
+                  <a @click="showcontract(scope.row)">编辑</a>
                 </div>
               </template>
             </el-table-column>
@@ -143,24 +143,260 @@
           </div>
           <div class="con">
             <div>
-              <span>2020/7/30/  16:43</span>
-              <p>商务部黄蓉  刚查看了该详情 页</p>
+              <span>2020/7/30/ 16:43</span>
+              <p>商务部黄蓉 刚查看了该详情 页</p>
             </div>
             <div>
-              <span>2020/7/30/  16:43</span>
-              <p>商务部黄蓉  刚新增了联系人 信息</p>
+              <span>2020/7/30/ 16:43</span>
+              <p>商务部黄蓉 刚新增了联系人 信息</p>
             </div>
             <div>
-              <span>2020/7/30/  16:43</span>
-              <p>商务部黄蓉  刚下载合同</p>
+              <span>2020/7/30/ 16:43</span>
+              <p>商务部黄蓉 刚下载合同</p>
             </div>
           </div>
-           <div class="pagina">
+          <div class="pagina">
             <el-pagination background layout="prev, pager, next" :page-size="3" :total="3"></el-pagination>
           </div>
         </div>
       </div>
     </div>
+    <!-- 编辑基本信息 -->
+    <el-dialog custom-class="basic" title="修改基本信息" :visible.sync="basicModal" width="30.26vw">
+      <div class="dyrow dyrow1">
+        <div>
+          <span class="require">名称：</span>
+        </div>
+        <el-input v-model="base.name"></el-input>
+      </div>
+      <div class="dyrow">
+        <div>
+          <span class="require">地区：</span>
+        </div>
+        <div class="select">
+          <el-select v-model="base.select1">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </div>
+        <div class="select">
+          <el-select v-model="base.select2">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </div>
+        <div class="select">
+          <el-select v-model="base.select3">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </div>
+      </div>
+      <div class="dyrow dyrow3">
+        <div>
+          <span>详细地址：</span>
+        </div>
+        <el-input v-model="base.detail"></el-input>
+      </div>
+      <div class="dyrow">
+        <div>
+          <span>合作状态：</span>
+        </div>
+        <el-radio v-model="base.radio" label="1">合作中</el-radio>
+        <el-radio v-model="base.radio" label="2">已暂停</el-radio>
+        <el-radio v-model="base.radio" label="3">已取消</el-radio>
+      </div>
+      <p>注：合作状态修改为已暂停或已取消，保险友商对应旗下的所有定损员账号全部停用</p>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="basicModalOK">确 定</el-button>
+        <el-button class="cancel" @click="basicModal=false">取 消</el-button>
+      </span>
+    </el-dialog>
+
+    <!-- 新增联系人信息 -->
+    <el-dialog
+      custom-class="addconcat"
+      title="新增联系人"
+      :visible.sync="addconcatModal"
+      width="30.26vw"
+    >
+      <div class="dyrow">
+        <div>
+          <span class="require">联系人：</span>
+        </div>
+        <el-input v-model="addconcat.name"></el-input>
+      </div>
+      <div class="dyrow sex">
+        <div>
+          <span class="require">性别：</span>
+        </div>
+        <div class="select">
+          <el-select v-model="addconcat.sex">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </div>
+      </div>
+      <div class="dyrow">
+        <div>
+          <span class="require">职位：</span>
+        </div>
+        <el-input v-model="addconcat.job"></el-input>
+      </div>
+      <div class="dyrow">
+        <div>
+          <span class="require">联系电话：</span>
+        </div>
+        <el-input v-model="addconcat.phone"></el-input>
+      </div>
+      <div class="dyrow">
+        <div>
+          <span>微信：</span>
+        </div>
+        <el-input v-model="addconcat.wx"></el-input>
+      </div>
+      <div class="dyrow">
+        <div>
+          <span>邮箱：</span>
+        </div>
+        <el-input v-model="addconcat.email"></el-input>
+      </div>
+      <div class="dyrow">
+        <div>
+          <span class="require">是否为主要联系人：</span>
+        </div>
+        <el-radio v-model="addconcat.radio" label="1">是</el-radio>
+        <el-radio v-model="addconcat.radio" label="2">否</el-radio>
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="addconcatModalOK">确 定</el-button>
+        <el-button class="cancel" @click="addconcatModal=false">取 消</el-button>
+      </span>
+    </el-dialog>
+
+    <!-- 下载合作信息 -->
+    <el-dialog title="下载" :visible.sync="download" width="22.656vw">
+      <span>是否下载当前合作信息内容？</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="downloadOK">确 定</el-button>
+        <el-button class="cancel" @click="download=false">取 消</el-button>
+      </span>
+    </el-dialog>
+    <!-- 删除联系人 -->
+    <el-dialog title="删除联系人" :visible.sync="deleteModal" width="22.656vw">
+      <span>是否删除当前联系人？</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="deleteModalOK">确 定</el-button>
+        <el-button class="cancel" @click="deleteModal=false">取 消</el-button>
+      </span>
+    </el-dialog>
+    <!-- 权限提示 -->
+    <el-dialog title="权限提示" :visible.sync="powerModal" width="22.656vw">
+      <span>您当前没有操作权限，请联系产品管理员</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="powerModal=false">确 定</el-button>
+      </span>
+    </el-dialog>
+    <!-- 查看合作信息 -->
+    <el-dialog title="协议相关" custom-class="agreement" :visible.sync="agreement" width="30vw">
+      <img :src="require('../../assets/img/xieyi.png')" alt />
+      <span slot="footer" class="dialog-footer"></span>
+    </el-dialog>
+    <!-- 修改主要联系人 -->
+    <el-dialog
+      custom-class="addconcat"
+      title="修改主要联系人"
+      :visible.sync="mainPerModal"
+      width="30.26vw"
+    >
+      <div class="dyrow">
+        <div>
+          <span class="require">联系人：</span>
+        </div>
+        <el-input v-model="mainPer.name"></el-input>
+      </div>
+      <div class="dyrow sex">
+        <div>
+          <span class="require">性别：</span>
+        </div>
+        <div class="select">
+          <el-select v-model="mainPer.sex">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </div>
+      </div>
+      <div class="dyrow">
+        <div>
+          <span class="require">职位：</span>
+        </div>
+        <el-input v-model="mainPer.job"></el-input>
+      </div>
+      <div class="dyrow">
+        <div>
+          <span class="require">联系电话：</span>
+        </div>
+        <el-input v-model="mainPer.phone"></el-input>
+      </div>
+      <div class="dyrow">
+        <div>
+          <span>微信：</span>
+        </div>
+        <el-input v-model="mainPer.wx"></el-input>
+      </div>
+      <div class="dyrow">
+        <div>
+          <span>邮箱：</span>
+        </div>
+        <el-input v-model="mainPer.email"></el-input>
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="mainPerOK">确 定</el-button>
+        <el-button class="cancel" @click="mainPerModal=false">取 消</el-button>
+      </span>
+    </el-dialog>
+    <!-- 编辑合同信息 -->
+    <el-dialog title="编辑合同信息" custom-class="contract" :visible.sync="contractModal" width="30.26vw">
+      <span>合同：</span>
+      <el-upload
+        class="upload-demo"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        :on-preview="handlePreview"
+        :on-remove="handleRemove"
+        :before-remove="beforeRemove"
+        multiple
+        :limit="1"
+        :on-exceed="handleExceed"
+        :file-list="fileList"
+      >
+        <el-button size="small" type="primary">{{fileList.length?'重新上传':'上传'}}</el-button>
+        <div slot="tip" class="el-upload__tip">（仅支持 .pnf / .jpg 格式）</div>
+      </el-upload>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="contractOK">确 定</el-button>
+        <el-button class="cancel" @click="contractModal=false">取 消</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -172,7 +408,53 @@ export default {
   },
   data() {
     return {
-      addgj:false,
+      basicModal: false,
+      addconcatModal: false,
+      download: false,
+      deleteModal: false,
+      powerModal: false,
+      agreement: false,
+      mainPerModal: false,
+      contractModal: false,
+      fileList: [
+        {
+          name: "太平洋保险（重庆分公司）战略合作合同.pdf",
+          url: "https://fuss10.elemecdn.com/3/63/",
+        },
+      ],
+      base: {
+        name: "大地保险公司(重庆分公司)",
+        select1: null,
+        select2: null,
+        select3: null,
+        state: "合作中",
+        address: "重庆 - 重庆 - 渝北",
+        detail: "重庆市渝北区仙桃数据谷C16-A2-2层",
+        radio: "1",
+      },
+      addconcat: {
+        name: null,
+        sex: null,
+        job: null,
+        phone: null,
+        wx: null,
+        email: null,
+        radio: 2,
+      },
+      mainPer: {
+        name: null,
+        sex: null,
+        job: null,
+        phone: null,
+        wx: null,
+        email: null,
+        radio: 2,
+      },
+      options: [
+        { label: "全部", value: 1 },
+        { label: "部门一", value: 2 },
+      ],
+      addgj: false,
       tableData1: [
         {
           name: "郭靖",
@@ -214,9 +496,49 @@ export default {
     };
   },
   methods: {
-    addfollowup(){
-      this.addgj=!this.addgj
-    }
+    addfollowup() {
+      this.addgj = !this.addgj;
+    },
+    basicModalOK() {
+      this.basicModal = false;
+    },
+    addconcatModalOK() {
+      this.addconcatModal = false;
+    },
+    showDownload() {
+      this.download = true;
+    },
+    showdelete() {
+      this.deleteModal = true;
+    },
+    showAgreement() {
+      this.agreement = true;
+    },
+    showMainPer(info) {
+      this.mainPer = info;
+      this.mainPerModal = true;
+    },
+    showcontract() {
+      this.contractModal = true;
+    },
+    downloadOK() {
+      this.download = false;
+    },
+    deleteModalOK() {
+      this.deleteModal = false;
+    },
+    contractOK() {
+      this.contractModal = false;
+    },
+    mainPerOK() {
+      this.mainPerModal = false;
+    },
+    handlePreview() {},
+    handleRemove() {
+      this.fileList = [];
+    },
+    beforeRemove() {},
+    handleExceed() {},
   },
 };
 </script>
@@ -272,12 +594,12 @@ export default {
             }
           }
         }
-        .left1_2 {
-          > div {
-            padding: 0 2.813vw;
-            margin: 2.083vw 0;
-          }
-          .left1_2_1 {
+        .left2,
+        .left3 {
+          box-sizing: border-box;
+          padding: 1.094vw 1.823vw;
+          .title {
+            height: 1.5vw;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -421,7 +743,7 @@ export default {
             left: -0vw;
             top: 1vw;
           }
-          .el-button{
+          .el-button {
             padding: 0 10px !important;
           }
         }
@@ -443,7 +765,7 @@ export default {
           p {
             line-height: 1.042vw;
           }
-          p:nth-of-type(2){
+          p:nth-of-type(2) {
             text-align: right;
           }
         }
@@ -479,16 +801,16 @@ export default {
             top: 1vw;
           }
         }
-        .con{
+        .con {
           padding: 0 26px;
-          >div{
+          > div {
             display: flex;
             margin-bottom: 10px;
-            span{
+            span {
               flex-shrink: 0;
               margin-right: 10px;
             }
-            p{
+            p {
               line-height: 20px;
               margin-top: -3px;
             }
@@ -498,6 +820,112 @@ export default {
           display: inline-block;
           transform: scale(0.7);
           float: right;
+        }
+      }
+    }
+
+    .basic {
+      .el-dialog__body {
+        padding: 1.823vw 3.542vw;
+      }
+      .dyrow {
+        > div:nth-of-type(1) {
+          width: 3.646vw;
+          text-align: right;
+        }
+        .select {
+          margin-right: 0.521vw;
+        }
+      }
+      .dyrow1 {
+        .el-input,
+        .el-input__inner {
+          width: 10.417vw !important;
+        }
+      }
+      .dyrow3 {
+        .el-input,
+        .el-input__inner {
+          width: 15.5vw !important;
+        }
+      }
+      p {
+        width: 600px;
+        margin-top: 10px;
+        padding-left: 55px;
+        transform: scale(0.85);
+      }
+    }
+
+    .addconcat {
+      .el-dialog__body {
+        padding: 35px 96px;
+      }
+
+      .el-input,
+      .el-input__inner {
+        width: 10.417vw !important;
+      }
+      .sex {
+        .el-input,
+        .el-input__inner {
+          width: 5vw !important;
+        }
+      }
+      .dyrow {
+        > div:nth-of-type(1) {
+          width: 7vw;
+          text-align: right;
+        }
+        .select {
+          margin-right: 0.521vw;
+        }
+      }
+    }
+
+    .agreement {
+      .el-dialog__body {
+        height: 700px;
+        overflow: scroll;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .contract {
+      .el-dialog__body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4vw 0;
+        height: 5.208vw;
+        .upload-demo {
+          position: relative;
+          display: flex;
+          .el-upload {
+            width: 3.646vw;
+            height: 1.458vw !important;
+            .el-button {
+              padding: 0 !important;
+              width: 3.646vw;
+              height: 1.458vw !important;
+              line-height: 1.458vw !important;
+            }
+          }
+          .el-upload__tip {
+            color: #999999;
+          }
+          .el-upload-list {
+            width: 400px;
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translate(-50%);
+            text-align: center;
+            .el-upload-list__item-name {
+              color: #006cff;
+            }
+          }
         }
       }
     }
