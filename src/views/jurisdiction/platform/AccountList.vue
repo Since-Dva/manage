@@ -158,6 +158,7 @@
         <el-button class="cancel" @click="addModalcancel">取 消</el-button>
       </span>
     </el-dialog>
+    <div :class="['tip',tip?'active':'' ]">重置成功</div>
   </div>
 </template>
 
@@ -171,6 +172,7 @@
     },
     data() {
       return {
+        tip:false,
         number: null,
         name: null,
         phone: null,
@@ -246,6 +248,10 @@
       },
       reModalOK() {
         this.reModal = false;
+        this.tip=true
+        setTimeout(() => {
+          this.tip=false
+        }, 2000);
       },
       //编辑
       showEditModal(info) {
@@ -364,6 +370,24 @@
       margin-bottom: 1.042vw;
       display: flex;
       justify-content: space-between;
+    }
+    .tip {
+      text-align: center;
+      width: 189px;
+      height: 42px;
+      line-height: 42px;
+      background: #cbcbcb;
+      border-radius: 4px;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      opacity: 0;
+      &.active {
+        z-index: 99;
+        opacity: 1;
+      }
     }
   }
 </style>

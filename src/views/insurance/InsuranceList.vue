@@ -5,7 +5,7 @@
       <div class="row">
         <div>
           <span>友商ID：</span>
-          <el-input v-model="accountId" placeholder="请输入内容"></el-input>
+          <el-input v-model="accountId" @blur="check" placeholder="ID为字母和数字"></el-input>
         </div>
         <div>
           <span>友商名称：</span>
@@ -436,6 +436,13 @@
       };
     },
     methods: {
+      check(){
+        let reg=/^[0-9a-zA-Z]*$/g
+        if(!reg.test(this.accountId)){
+            this.accountId=''
+            this.$message.error('ID只能为数字或字母')
+        }
+      },
       clearCondition() {
         this.accountId = null;
         this.name = null;

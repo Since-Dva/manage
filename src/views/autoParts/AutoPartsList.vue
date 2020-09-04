@@ -5,7 +5,7 @@
       <div class="row">
         <div>
           <span>友商ID：</span>
-          <el-input v-model="accountId" placeholder="请输入内容"></el-input>
+          <el-input v-model="accountId" @blur="check" placeholder="请输入内容"></el-input>
         </div>
         <div>
           <span>入驻品牌：</span>
@@ -189,17 +189,6 @@
             </el-select>
           </div>
         </div>
-        <div class="dyrow list1">
-          <div>
-            <span class="require">已添加列表：</span>
-          </div>
-          <div>
-            <div v-for="(item,index) in list1" :key="index">
-              <span>{{item}}</span>
-              <i @click="deletelist(index)">×</i>
-            </div>
-          </div>
-        </div>
         <div class="dyrow list1 list2">
           <div>
             <span class="require">添加入驻类型：</span>
@@ -208,6 +197,18 @@
             <div v-for="(item,index) in list2" :key="index">
               <span>{{item.name}}</span>
               <b v-show="item.tit"></b>
+            </div>
+            <el-button>确认添加</el-button>
+          </div>
+        </div>
+        <div class="dyrow list1">
+          <div>
+            <span class="require">已添加列表：</span>
+          </div>
+          <div>
+            <div v-for="(item,index) in list1" :key="index">
+              <span>{{item}}</span>
+              <i @click="deletelist(index)">×</i>
             </div>
           </div>
         </div>
@@ -428,7 +429,7 @@
           value14: null,
           radio: null,
         },
-        list1: ["奥迪", "宝马", "奔驰", "大众", "奔驰", "大众"],
+        list1: ["奥迪-外观件、底盘件、发动机件", "奥迪-外观件", "奔驰", "大众", "奔驰", "大众"],
         list2: [
           { name: "外观件", tit: true },
           { name: "外观件", tit: true },
@@ -525,6 +526,13 @@
       };
     },
     methods: {
+      check() {
+        let reg = /^[0-9a-zA-Z]*$/g;
+        if (!reg.test(this.accountId)) {
+          this.accountId = "";
+          this.$message.error("ID只能为数字或字母");
+        }
+      },
       clearCondition() {
         this.accountId = null;
         this.name = null;
@@ -705,6 +713,13 @@
         > div:nth-of-type(2) > div {
           overflow: hidden;
         }
+        .el-button {
+          width: 70px;
+          height: 28px !important;
+          line-height: 28px !important;
+          padding: 0 8px !important;
+          font-size: 12px;
+        }
       }
       .list1 {
         display: flex;
@@ -719,7 +734,8 @@
           justify-content: flex-start;
           flex-wrap: wrap;
           > div {
-            width: 5.208vw;
+            // width: 5.208vw;
+            padding: 0 29px;
             height: 1.458vw;
             flex-shrink: 0;
             line-height: 1.458vw;

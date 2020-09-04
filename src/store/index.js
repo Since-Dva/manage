@@ -67,7 +67,7 @@ export default new Vuex.Store({
         })
         state.allTabs[type].activeIdx = 0
       }
-      localStorage.store=JSON.stringify(state)
+      sessionStorage.store=JSON.stringify(state)
     },
     changeTab(state, data) {
       let arr = router.currentRoute.path.split('/')
@@ -76,7 +76,7 @@ export default new Vuex.Store({
         idx
       } = data
       state.allTabs[type].activeIdx = idx
-      localStorage.store=JSON.stringify(state)
+      sessionStorage.store=JSON.stringify(state)
     },
     deleteTabMut(state, idx) {
       let arr = router.currentRoute.path.split('/')
@@ -92,7 +92,7 @@ export default new Vuex.Store({
         }
         state.allTabs[type].tabs.splice(idx, 1)
       }
-      localStorage.store=JSON.stringify(state)
+      sessionStorage.store=JSON.stringify(state)
     },
     clearTab(state){
       state.allTabs={
@@ -125,7 +125,7 @@ export default new Vuex.Store({
           activeIdx: 0
         },
       }
-      localStorage.store=JSON.stringify(state)
+      sessionStorage.store=JSON.stringify(state)
     }
   },
   actions: {},

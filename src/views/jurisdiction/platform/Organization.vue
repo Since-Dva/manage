@@ -6,11 +6,11 @@
         <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
       </div>
       <div>
-        <el-button v-if="click>10" @click="showEditModal">编辑</el-button>
-        <el-button v-if="click>10" @click="showDeteleModal">删除</el-button>
-        <el-button class="deep" v-if="click<1000" @click="showAddModal">＋新增</el-button>
+        <el-button v-if="(checkInfo.id>10&&checkInfo.id<1000)" @click="showEditModal">编辑{{checkInfo.id>1000?'':checkInfo.id>100?'小组':checkInfo.id>10?'部门':''}}</el-button>
+        <el-button v-if="(checkInfo.id>10&&checkInfo.id<1000)" @click="showDeteleModal">删除{{checkInfo.id>1000?'':checkInfo.id>100?'小组':checkInfo.id>10?'部门':'1'}}</el-button>
+        <el-button class="deep" v-if="checkInfo.id<100" @click="showAddModal">＋新增{{checkInfo.id>1000?'':checkInfo.id>100?'人员':checkInfo.id>10?'小组':'部门'}}</el-button>
         <p>{{title}}</p>
-        <p>{{click>1000?'':click>100?'共5人':click>10?'共2个小组 8个账号':'共7个部门 45个账号'}}</p>
+        <p>{{checkInfo.id>1000?'':checkInfo.id>100?'共5人':checkInfo.id>10?'共2个小组 8个账号':'共7个部门 45个账号'}}</p>
       </div>
     </div>
     <!-- 新增 -->
@@ -20,7 +20,7 @@
         <p>{{father}}</p>
       </div>
       <div class="dyrow">
-        <span class="require">{{click>1000?'':click>100?'个人':click>10?'小组':'部门'}}名称：</span>
+        <span class="require">{{checkInfo.id>1000?'':checkInfo.id>100?'个人':checkInfo.id>10?'小组':'部门'}}名称：</span>
         <el-input type="text" v-model="name" placeholder="（8个字以内）" />
       </div>
       <span slot="footer" class="dialog-footer">
@@ -30,8 +30,8 @@
     </el-dialog>
     <!-- 删除 -->
     <el-dialog title="删除确认" :visible.sync="deteleModal" width="22.656vw">
-      <span class="dyrow">是否确认删除{{click>1000?'':this.father}}？</span>
-      <span class="dyrow" v-if="click<1000" :style="{fontSize:'0.521vw'}">(若选择删除，对应部门所旗下所关联的所有{{click>1000?'':click>100?'个人':click>10?'小组':'部门'}}均会被删除)</span>
+      <span class="dyrow">是否确认删除{{checkInfo.id>1000?'':this.father}}？</span>
+      <span class="dyrow" v-if="checkInfo.id<1000" :style="{fontSize:'0.521vw'}">(若选择删除，对应部门所旗下所关联的所有{{checkInfo.id>1000?'':checkInfo.id>100?'个人':checkInfo.id>10?'小组':'部门'}}均会被删除)</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="deteleModalOK">确 定</el-button>
         <el-button class="cancel" @click="deteleModalcancel">取 消</el-button>
@@ -44,7 +44,7 @@
         <p>{{fatherTitle}}</p>
       </div>
       <div class="dyrow">
-        <span class="require">{{click>1000?'个人':click>100?'小组':click>10?'部门':''}}名称：</span>
+        <span class="require">{{checkInfo.id>1000?'个人':checkInfo.id>100?'小组':checkInfo.id>10?'部门':''}}名称：</span>
         <el-input type="text" v-model="father" placeholder="（8个字以内）" />
       </div>
       <span slot="footer" class="dialog-footer">
@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       title: "量子信云",
-      click: 0,
+      checkInfo:{id:0,label:''},
       father: "量子信云",
       addtitle: "部门",
       name: null,
@@ -123,8 +123,8 @@ export default {
   },
   methods: {
     handleNodeClick(data) {
+      this.checkInfo={id:data.id,label:data.label}
       this.father = data.label.split("（")[0];
-      this.click = data.id;
       this.title = data.label;
     },
     showAddModal() {
@@ -158,7 +158,7 @@ export default {
   computed: {
     fatherTitle(){
       this.data
-      let arr= String(this.click).split('')
+      let arr= String(this.checkInfo.id).split('')
       arr.pop()
       if(arr.length>=3){
         return this.data[(arr[0]-1)*1].children[(arr[1]-1)*1].children[(arr[2]-1)*1].label

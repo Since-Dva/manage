@@ -13,8 +13,8 @@
 <script>
   export default {
     created() {
-      if (localStorage.store) {
-        this.$store.replaceState(JSON.parse(localStorage.store));
+      if (sessionStorage.store) {
+        this.$store.replaceState(JSON.parse(sessionStorage.store));
       }
     },
     computed: {
@@ -55,11 +55,17 @@
         .el-input--suffix {
           width: 4.792vw;
           height: 1.458vw;
+          .el-icon-arrow-up{
+              &::before{
+                content: '';
+              }
+            }
           position: relative;
           .el-input,
           .el-input__inner {
             width: 4.792vw;
             height: 1.458vw;
+            
           }
         }
       }
