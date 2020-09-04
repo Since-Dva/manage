@@ -4,7 +4,7 @@
       :data="filterData"
       :border="true"
       :max-height="maxHeight"
-      :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'15.994px',background:'#eeeeee'}"
+      :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'0.833vw',background:'#eeeeee'}"
       :row-style="{height:rowheight+'vw'}"
       style="width: 100%"
     >
@@ -95,23 +95,23 @@
 
 <style lang="scss">
   .box {
-    box-shadow: 0px 0px 12.998px 0px rgba(0, 0, 0, 0.1);
-    padding: 36px;
-    border-radius: 3.994px;
+    box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+    padding: 1.875vw;
+    border-radius: 0.208vw;
     position: relative;
     background: white;
     .el-table {
-      // margin-bottom: 49.997px;
+      // margin-bottom: 2.604vw;
       a {
         cursor: pointer;
       }
       a + a {
-        margin-left: 10.003px;
+        margin-left: 0.521vw;
       }
       a:nth-of-type(n + 2) {
         &::before {
           content: "|";
-          margin-right: 10.003px;
+          margin-right: 0.521vw;
         }
       }
       .el-table__row{

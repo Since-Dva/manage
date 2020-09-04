@@ -34,11 +34,11 @@
               </div>
             </div>
             <div>
-              <span>所在地区</span>
+              <span>所在地区：</span>
               <span>{{base.address}}</span>
             </div>
             <div>
-              <span>详细地址</span>
+              <span>详细地址：</span>
               <span>{{base.detail}}</span>
             </div>
           </div>
@@ -51,7 +51,7 @@
           <div class="tablebox">
             <el-table
               :border="true"
-              :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'15.994px',background:'#eeeeee'}"
+              :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'0.833vw',background:'#eeeeee'}"
               :data="tableData1"
               style="width: 100%"
             >
@@ -86,7 +86,7 @@
           <div class="tablebox">
             <el-table
               :border="true"
-              :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'15.994px',background:'#eeeeee'}"
+              :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'0.833vw',background:'#eeeeee'}"
               :data="tableData2"
               style="width: 100%"
             >
@@ -167,7 +167,7 @@
     </div>
 
     <!-- 修改基本信息 -->
-    <el-dialog custom-class="basic" title="修改基本信息" :visible.sync="basicModal" width="580.992px">
+    <el-dialog custom-class="basic" title="修改基本信息" :visible.sync="basicModal" width="30.26vw">
       <div class="dyrow dyrow1">
         <div>
           <span class="require">名称：</span>
@@ -238,7 +238,7 @@
       custom-class="addconcat"
       title="新增联系人"
       :visible.sync="addconcatModal"
-      width="580.992px"
+      width="30.26vw"
     >
       <div class="dyrow">
         <div>
@@ -299,7 +299,7 @@
     </el-dialog>
 
     <!-- 下载合作信息 -->
-    <el-dialog title="下载" :visible.sync="download" width="434.995px">
+    <el-dialog title="下载" :visible.sync="download" width="22.656vw">
       <span>是否下载当前合作信息内容？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="downloadOK">确 定</el-button>
@@ -307,7 +307,7 @@
       </span>
     </el-dialog>
     <!-- 删除联系人 -->
-    <el-dialog title="删除联系人" :visible.sync="deleteModal" width="434.995px">
+    <el-dialog title="删除联系人" :visible.sync="deleteModal" width="22.656vw">
       <span>是否删除当前联系人？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="deleteModalOK">确 定</el-button>
@@ -315,14 +315,14 @@
       </span>
     </el-dialog>
     <!-- 权限提示 -->
-    <el-dialog title="权限提示" :visible.sync="powerModal" width="434.995px">
+    <el-dialog title="权限提示" :visible.sync="powerModal" width="22.656vw">
       <span>您当前没有操作权限，请联系产品管理员</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="powerModal=false">确 定</el-button>
       </span>
     </el-dialog>
     <!-- 查看合作信息 -->
-    <el-dialog title="协议相关" custom-class="agreement" :visible.sync="agreement" width="576px">
+    <el-dialog title="协议相关" custom-class="agreement" :visible.sync="agreement" width="30vw">
       <img :src="require('../../assets/img/xieyi.png')" alt />
       <span slot="footer" class="dialog-footer"></span>
     </el-dialog>
@@ -331,7 +331,7 @@
       custom-class="addconcat"
       :title="'修改'+(this.mainPer.ismain?'':'非') +'主要联系人'"
       :visible.sync="mainPerModal"
-      width="580.992px"
+      width="30.26vw"
     >
       <div class="dyrow">
         <div>
@@ -395,7 +395,7 @@
       title="编辑合同信息"
       custom-class="contract"
       :visible.sync="contractModal"
-      width="580.992px"
+      width="30.26vw"
     >
       <span>合同：</span>
       <el-upload
@@ -577,21 +577,21 @@
       display: flex;
       justify-content: space-between;
       .left {
-        width: 1252.992px;
-        height: 854px;
+        width: 65.26vw;
+        height: 44.479vw;
         overflow: scroll;
         > div {
           background: #ffffff;
-          box-shadow: 0px 0px 12.998px 0px rgba(0, 0, 0, 0.1);
-          border-radius: 0px 3.994px 3.994px 3.994px;
-          margin-bottom: 20.006px;
+          box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+          border-radius: 0vw 0.208vw 0.208vw 0.208vw;
+          margin-bottom: 1.042vw;
         }
         .left1 {
           box-sizing: border-box;
-          padding: 20px 32.006px 5px 32px;
+          padding: 1.042vw 1.667vw 0.26vw 1.667vw;
           .left1_1 {
             box-sizing: border-box;
-            padding: 12.998px 50.995px 12.998px 12.998px;
+            padding: 0.677vw 2.656vw 0.677vw 0.677vw;
             background: #eeeeee;
             display: flex;
             justify-content: space-between;
@@ -606,25 +606,25 @@
               h2 {
                 font-weight: bold;
                 color: #333333;
-                margin: 16.992px 0;
+                margin: 0.885vw 0;
               }
               h3 {
-                margin-top: 23.002px;
+                margin-top: 1.198vw;
               }
               img {
-                width: 88.992px;
-                height: 88.992px;
+                width: 4.635vw;
+                height: 4.635vw;
                 display: block;
-                border: 0.998px solid rgb(160, 160, 160);
-                margin-right: 39.994px;
+                border: 0.052vw solid rgb(160, 160, 160);
+                margin-right: 2.083vw;
                 overflow: hidden;
               }
             }
           }
           .left1_2 {
             > div {
-              padding: 0 54.01px;
-              margin: 28px 0;
+              padding: 0 2.813vw;
+              margin: 1.458vw 0;
             }
             .left1_2_1 {
               display: flex;
@@ -634,7 +634,7 @@
             .left1_2_2 {
               display: flex;
               > div {
-                margin-right: 300px;
+                margin-right: 15.625vw;
               }
             }
           }
@@ -642,32 +642,32 @@
         .left2,
         .left3 {
           box-sizing: border-box;
-          padding: 19px 35.002px 19px 0;
+          padding: 0.99vw 1.823vw 0.99vw 0;
           .title {
-            height: 20px;
+            height: 1.042vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
-            margin-bottom: 24.998px;
-            padding-left: 35.002px;
+            margin-bottom: 1.302vw;
+            padding-left: 1.823vw;
             ::after {
               content: "";
               display: block;
-              width: 3.994px;
-              height: 32.006px;
+              width: 0.208vw;
+              height: 1.667vw;
               background: #3498db;
               position: absolute;
-              left: -0px;
-              top: -5px;
+              left: -0vw;
+              top: -0.26vw;
             }
           }
           .tablebox {
-            padding-left: 35.002px;
+            padding-left: 1.823vw;
           }
           td {
             a {
-              padding: 0 12px;
+              padding: 0 0.625vw;
               cursor: pointer;
             }
             a:nth-of-type(2),
@@ -676,129 +676,129 @@
               &::after {
                 content: "";
                 display: block;
-                width: 0.998px;
-                height: 18.01px;
+                width: 0.052vw;
+                height: 0.938vw;
                 background: #aeaeae;
                 position: absolute;
                 left: 0;
-                top: 1.997px;
+                top: 0.104vw;
               }
             }
           }
           .main {
             display: block;
-            width: 21.12px;
-            height: 21.12px;
-            line-height: 21.12px;
+            width: 1.1vw;
+            height: 1.1vw;
+            line-height: 1.1vw;
             background: #3498db;
             color: white;
             text-align: center;
-            border-radius: 3.994px;
+            border-radius: 0.208vw;
             position: absolute;
-            left: 22.003px;
-            top: 12px;
+            left: 1.146vw;
+            top: 0.625vw;
           }
         }
       }
       .right {
-        width: 367.008px;
-        height: 806.4px;
+        width: 19.115vw;
+        height: 42vw;
         overflow: scroll;
         > div + div {
-          margin-top: 20.006px;
+          margin-top: 1.042vw;
         }
         > div {
           background: #ffffff;
-          box-shadow: 0px 0px 12.998px 0px rgba(0, 0, 0, 0.1);
-          border-radius: 3.994px;
+          box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+          border-radius: 0.208vw;
         }
         .right1 {
           box-sizing: border-box;
-          height: 100px;
-          padding: 26.995px;
+          height: 5.208vw;
+          padding: 1.406vw;
           position: relative;
           .triangle {
             width: 0;
             height: 0;
-            border-top: 100px solid #3498db;
-            border-left: 100px solid transparent;
+            border-top: 5.208vw solid #3498db;
+            border-left: 5.208vw solid transparent;
             position: absolute;
             right: 0;
             top: 0;
             &::after {
               content: "跟进人";
               display: block;
-              width: 60px;
+              width: 3.125vw;
               color: white;
               position: absolute;
-              right: -1.997px;
-              top: -83.002px;
+              right: -0.104vw;
+              top: -4.323vw;
             }
           }
           .right1_1 {
             display: flex;
             img {
-              width: 51.994px;
-              height: 51.994px;
+              width: 2.708vw;
+              height: 2.708vw;
               border-radius: 50%;
-              margin-right: 26.995px;
+              margin-right: 1.406vw;
               display: block;
-              border: 0.998px solid #000;
+              border: 0.052vw solid #000;
               overflow: hidden;
             }
             div {
               p:nth-of-type(1) {
                 font-weight: bolder;
-                margin-bottom: 12px;
+                margin-bottom: 0.625vw;
               }
             }
           }
         }
         .right2 {
-          height: 450px;
+          height: 23.438vw;
           overflow: scroll;
-          font-size: 14px;
+          font-size: 0.729vw;
           .title {
             box-sizing: border-box;
-            height: 50px;
+            height: 2.604vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
-            margin-bottom: 24.998px;
-            padding: 19.008px;
-            border-bottom: 0.998px solid #eeeeee;
+            margin-bottom: 1.302vw;
+            padding: 0.99vw;
+            border-bottom: 0.052vw solid #eeeeee;
             ::after {
               content: "";
               display: block;
-              width: 3.994px;
-              height: 32.006px;
+              width: 0.208vw;
+              height: 1.667vw;
               background: #3498db;
               position: absolute;
-              left: -0px;
-              top: 10px;
+              left: -0vw;
+              top: 0.521vw;
             }
             .el-button {
-              padding: 0 10.003px !important;
+              padding: 0 0.521vw !important;
             }
           }
           .el-textarea {
             display: block;
-            width: 326.995px;
+            width: 17.031vw;
             margin: 0 auto;
           }
           .gjcontent {
             box-sizing: border-box;
-            width: 326.995px;
-            height: 98px;
+            width: 17.031vw;
+            height: 5.104vw;
             overflow-x: hidden;
             overflow-y: scroll;
             background: #eeeeee;
-            padding: 12px 21.005px;
-            margin: 10.003px auto;
-            font-size: 13.997px;
+            padding: 0.625vw 1.094vw;
+            margin: 0.521vw auto;
+            font-size: 0.729vw;
             p {
-              line-height: 20.006px;
+              line-height: 1.042vw;
             }
             p:nth-of-type(2) {
               text-align: right;
@@ -812,43 +812,43 @@
         }
         .right3 {
           box-sizing: border-box;
-          height: 210px;
+          height: 10.938vw;
           overflow-x: hidden;
           overflow-y: scroll;
-          font-size: 14px;
+          font-size: 0.729vw;
           .title {
             box-sizing: border-box;
-            height: 50px;
+            height: 2.604vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
-            margin-bottom: 24.998px;
-            padding: 19.008px;
-            border-bottom: 0.998px solid #eeeeee;
+            margin-bottom: 1.302vw;
+            padding: 0.99vw;
+            border-bottom: 0.052vw solid #eeeeee;
             ::after {
               content: "";
               display: block;
-              width: 3.994px;
-              height: 32.006px;
+              width: 0.208vw;
+              height: 1.667vw;
               background: #3498db;
               position: absolute;
-              left: -0px;
-              top: 10px;
+              left: -0vw;
+              top: 0.521vw;
             }
           }
           .con {
-            padding: 0px 25.997px;
+            padding: 0vw 1.354vw;
             > div {
               display: flex;
-              margin-bottom: 5px;
+              margin-bottom: 0.26vw;
               span {
                 flex-shrink: 0;
-                margin-right: 10.003px;
+                margin-right: 0.521vw;
               }
               p {
-                line-height: 18px;
-                margin-top: -2.995px;
+                line-height: 0.938vw;
+                margin-top: -0.156vw;
               }
             }
           }
@@ -862,63 +862,63 @@
     }
     .basic {
       .el-dialog__body {
-        padding: 35.002px 68.006px;
+        padding: 1.823vw 3.542vw;
       }
       .dyrow {
         > div:nth-of-type(1) {
-          width: 70.003px;
+          width: 3.646vw;
           text-align: right;
         }
         .select {
-          margin-right: 10.003px;
+          margin-right: 0.521vw;
         }
       }
       .dyrow1 {
         .el-input,
         .el-input__inner {
-          width: 200.006px !important;
+          width: 10.417vw !important;
         }
       }
       .dyrow3 {
         .el-input,
         .el-input__inner {
-          width: 297.6px !important;
+          width: 15.5vw !important;
         }
       }
       p {
-        font-size: 12px;
+        font-size: 0.625vw;
       }
     }
 
     .addconcat {
       .el-dialog__body {
-        padding: 35.002px 96px;
+        padding: 1.823vw 5vw;
       }
 
       .el-input,
       .el-input__inner {
-        width: 200.006px !important;
+        width: 10.417vw !important;
       }
       .sex {
         .el-input,
         .el-input__inner {
-          width: 96px !important;
+          width: 5vw !important;
         }
       }
       .dyrow {
         > div:nth-of-type(1) {
-          width: 134.4px;
+          width: 7vw;
           text-align: right;
         }
         .select {
-          margin-right: 10.003px;
+          margin-right: 0.521vw;
         }
       }
     }
 
     .agreement {
       .el-dialog__body {
-        height: 576px;
+        height: 30vw;
         overflow: scroll;
         img {
           width: 100%;
@@ -930,28 +930,28 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 76.8px 0;
-        height: 99.994px;
+        padding: 4vw 0;
+        height: 5.208vw;
         .upload-demo {
           position: relative;
           display: flex;
           .el-upload {
-            width: 70.003px;
-            height: 27.994px !important;
+            width: 3.646vw;
+            height: 1.458vw !important;
             .el-button {
               padding: 0 !important;
-              width: 70.003px;
-              height: 27.994px !important;
-              line-height: 27.994px !important;
+              width: 3.646vw;
+              height: 1.458vw !important;
+              line-height: 1.458vw !important;
             }
           }
           .el-upload__tip {
             color: #999999;
           }
           .el-upload-list {
-            width: 399.994px;
+            width: 20.833vw;
             position: absolute;
-            top: -49.997px;
+            top: -2.604vw;
             left: 50%;
             transform: translate(-50%);
             text-align: center;

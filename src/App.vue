@@ -27,49 +27,49 @@
 <style lang="scss">
   @import url("./assets/css/reset.css");
   #app {
-    width: 1920px;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     background: #efefef;
     font-family: Microsoft YaHei;
-    font-size: 15.994px;
+    font-size: 0.833vw;
     color: rgba(102, 102, 102, 1);
     .content {
       display: flex;
       .el-main {
         box-sizing: border-box;
-        padding: 0px 35.002px 0px 20.006px;
+        padding: 0vw 1.823vw 0vw 1.042vw;
         .tableBox {
-          margin-top: 20.006px;
-          height: 738.01px;
+          margin-top: 1.042vw;
+          height: 38.438vw;
           overflow: scroll;
         }
         .el-input .el-input__icon {
-          transform: translateX(5px);
-          border-radius: 0 4px 4px 0;
+          transform: translateX(0.26vw);
+          border-radius: 0 0.208vw 0.208vw 0;
           background: #3498db url("./assets/img/bottomArr.png") center no-repeat;
         }
         .el-select,
         .el-input--suffix {
-          width: 92.006px;
-          height: 27.994px;
+          width: 4.792vw;
+          height: 1.458vw;
           position: relative;
           .el-input,
           .el-input__inner {
-            width: 92.006px;
-            height: 27.994px;
+            width: 4.792vw;
+            height: 1.458vw;
           }
         }
       }
       .searchBar {
-        padding: 27.994px 35.002px;
+        padding: 1.458vw 1.823vw;
         background: white;
-        box-shadow: 0px 0px 12.998px 0px rgba(0, 0, 0, 0.1);
-        border-radius: 3.994px;
+        box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+        border-radius: 0.208vw;
         .row + .row {
-          margin-top: 35.002px;
+          margin-top: 1.823vw;
         }
         .row {
           display: flex;
@@ -82,13 +82,13 @@
         }
       }
       .el-button + .el-button {
-        margin: 0 0 0 24px;
+        margin: 0 0 0 1.25vw;
       }
       .el-button {
-        height: 36px;
-        line-height: 36px;
-        padding: 0 33.005px;
-        border-radius: 6.01px;
+        height: 1.875vw;
+        line-height: 1.875vw;
+        padding: 0 1.719vw;
+        border-radius: 0.313vw;
         background: #3498db;
         color: white;
         &.deep {
@@ -106,38 +106,38 @@
 
       .el-input,
       .el-input__inner {
-        width: 150.01px;
-        height: 27.994px;
+        width: 7.813vw;
+        height: 1.458vw;
       }
       .dyrow + .dyrow {
-        margin-top: 20.006px;
+        margin-top: 1.042vw;
       }
       .dyrow {
         display: flex;
         align-items: center;
         > div:nth-of-type(1) {
           flex-shrink: 0;
-          padding-top: 6px;
+          padding-top: 0.313vw;
           align-self: start;
         }
         > span {
           flex-shrink: 0;
-          margin-right: 14.995px;
+          margin-right: 0.781vw;
         }
       }
     }
     .el-transfer {
       display: flex;
       .el-transfer-panel {
-        width: 271px;
+        width: 14.115vw;
         border: none;
         .el-transfer-panel__header {
-          height: 36.998px;
+          height: 1.927vw;
           background: rgba(238, 238, 238, 1);
-          border: 0.998px solid rgba(204, 204, 204, 1);
+          border: 0.052vw solid rgba(204, 204, 204, 1);
           .el-checkbox {
-            height: 36.998px;
-            padding-right: 36px;
+            height: 1.927vw;
+            padding-right: 1.875vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -147,24 +147,24 @@
           }
         }
         .el-transfer-panel__body {
-          height: 288px;
-          border: 0.998px solid #cecece;
+          height: 15vw;
+          border: 0.052vw solid #cecece;
         }
       }
       .el-transfer__buttons {
-        padding: 0 10.003px;
+        padding: 0 0.521vw;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         transform: rotate(180deg);
         .el-button + .el-button {
-          margin-top: 18.01px;
+          margin-top: 0.938vw;
         }
         .el-button {
-          width: 78.01px;
-          height: 32.006px;
-          line-height: 32.006px;
+          width: 4.063vw;
+          height: 1.667vw;
+          line-height: 1.667vw;
           margin: 0;
           border: none;
           background: white url("./assets/img/btns.png") center no-repeat;
@@ -185,24 +185,24 @@
       &::before {
         content: "*";
         color: red;
-        margin-right: 1.997px;
+        margin-right: 0.104vw;
         position: absolute;
-        left: -8.006px;
-        top: 2.995px;
+        left: -0.417vw;
+        top: 0.156vw;
       }
     }
     .pagin {
       box-sizing: border-box;
-      width: 1635.84px;
-      height: 57.6px;
-      box-shadow: 0px 0px 12.998px 0px rgba(0, 0, 0, 0.1);
+      width: 85.2vw;
+      height: 3vw;
+      box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
       background: white;
       position: fixed;
       z-index: 800;
-      bottom: 0px;
-      right: 39.36px;
-      margin-top: 34.003px;
-      padding-right: 18.01px;
+      bottom: 0vw;
+      right: 2.05vw;
+      margin-top: 1.771vw;
+      padding-right: 0.938vw;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -211,17 +211,17 @@
       }
     }
     .el-pagination {
-      height: 30.01px;
+      height: 1.563vw;
       .el-pagination__sizes {
-        height: 30.01px;
-        margin-right: 20px;
+        height: 1.563vw;
+        margin-right: 1.042vw;
         .el-select,
         .el-select--mini {
-          height: 30.01px;
+          height: 1.563vw;
           .el-input,
           .el-input__inner {
-            width: 96px !important;
-            height: 30.01px !important;
+            width: 5vw !important;
+            height: 1.563vw !important;
             padding: 0;
             .el-input__suffix {
               display: none;
@@ -231,11 +231,11 @@
       }
       button {
         padding: 0;
-        margin-right: 10.003px;
-        width: 30.01px;
-        height: 30.01px;
-        border: 0.998px solid #666666;
-        border-radius: 3.994px;
+        margin-right: 0.521vw;
+        width: 1.563vw;
+        height: 1.563vw;
+        border: 0.052vw solid #666666;
+        border-radius: 0.208vw;
         i {
           transform: scale(1.5);
         }
@@ -244,32 +244,32 @@
       .el-pager {
         .number {
           padding: 0;
-          width: 30.01px;
-          height: 30.01px;
-          line-height: 30.01px;
-          border: 0.998px solid #666666;
-          border-radius: 3.994px;
-          margin-right: 10.003px;
+          width: 1.563vw;
+          height: 1.563vw;
+          line-height: 1.563vw;
+          border: 0.052vw solid #666666;
+          border-radius: 0.208vw;
+          margin-right: 0.521vw;
           &.active {
             color: white;
             background: #3498db;
-            border: 0.998px solid #3498db;
+            border: 0.052vw solid #3498db;
           }
         }
       }
     }
   }
   .el-dialog {
-    min-height: 300px;
-    border-radius: 3.994px;
+    min-height: 15.625vw;
+    border-radius: 0.208vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
     .el-dialog__header {
-      height: 59.002px;
-      line-height: 59.002px;
-      padding: 0 30.01px;
+      height: 3.073vw;
+      line-height: 3.073vw;
+      padding: 0 1.563vw;
       background: #3498db;
       display: flex;
       align-items: center;
@@ -281,19 +281,19 @@
         position: static;
       }
       .el-dialog__close {
-        width: 25.997px;
-        line-height: 25.997px;
+        width: 1.354vw;
+        line-height: 1.354vw;
         background: white;
         border-radius: 50%;
       }
     }
     .el-dialog__body {
-      padding: 47.002px 35.002px;
+      padding: 2.448vw 1.823vw;
       flex-grow: 1;
     }
     .el-dialog__footer {
-      padding: 20.006px 30.01px;
-      border-top: 0.998px solid #cccccc;
+      padding: 1.042vw 1.563vw;
+      border-top: 0.052vw solid #cccccc;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -302,13 +302,13 @@
   .input-150 {
     .el-input,
     .el-input__inner {
-      width: 150px !important;
+      width: 7.813vw !important;
     }
   }
   .input-300{
     .el-input,
     .el-input__inner {
-      width: 300px !important;
+      width: 15.625vw !important;
     }
   }
   .sel-150 {
@@ -316,7 +316,7 @@
     .el-select,
     .el-input,
     .el-input__inner {
-      width: 150px !important;
+      width: 7.813vw !important;
     }
   }
   .sel-200 {
@@ -324,7 +324,7 @@
     .el-select,
     .el-input,
     .el-input__inner {
-      width: 200px !important;
+      width: 10.417vw !important;
     }
   }
 </style>

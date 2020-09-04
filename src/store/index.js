@@ -93,6 +93,39 @@ export default new Vuex.Store({
         state.allTabs[type].tabs.splice(idx, 1)
       }
       localStorage.store=JSON.stringify(state)
+    },
+    clearTab(state){
+      state.allTabs={
+        jurisdiction: {
+          tabs: [],
+          activeIdx: 0
+        },
+        account: {
+          tabs: [],
+          activeIdx: 0
+        },
+        repair: {
+          tabs: [],
+          activeIdx: 0
+        },
+        inquiry: {
+          tabs: [],
+          activeIdx: 0
+        },
+        insurance: {
+          tabs: [],
+          activeIdx: 0
+        },
+        contentM: {
+          tabs: [],
+          activeIdx: 0
+        },
+        autoParts: {
+          tabs: [],
+          activeIdx: 0
+        },
+      }
+      localStorage.store=JSON.stringify(state)
     }
   },
   actions: {},

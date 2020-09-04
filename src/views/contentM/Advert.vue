@@ -40,7 +40,7 @@
     </div>
 
     <!-- 启用/停用 -->
-    <el-dialog title="启用确认" :visible.sync="offModal" width="434.995px">
+    <el-dialog title="启用确认" :visible.sync="offModal" width="22.656vw">
       <span>是否启用广告？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="offModalOK">确 定</el-button>
@@ -219,71 +219,71 @@
     .searchBar {
       position: relative;
       div + div {
-        margin-left: 47.002px;
+        margin-left: 2.448vw;
       }
       .el-button:nth-of-type(1) {
-        margin-left: 72.998px;
+        margin-left: 3.802vw;
       }
       .deep {
         position: absolute;
-        right: 35.002px;
+        right: 1.823vw;
       }
     }
     .el-dialog__body {
-      padding-top: 20.006px;
+      padding-top: 1.042vw;
     }
     .el-dialog__body .dyrow:nth-of-type(2) {
       align-items: flex-start !important;
-      margin-top: 20.006px;
+      margin-top: 1.042vw;
     }
     .el-dialog__body .dyrow .el-input,
     .el-dialog__body .dyrow .el-input .el-input__inner,
     .el-dialog__body .dyrow .el-textarea,
     .el-dialog__body .dyrow .el-textarea .el-textarea__inner {
-      width: 219.994px !important;
+      width: 11.458vw !important;
     }
     .el-dialog:nth-of-type(1) .el-dialog__body {
-      padding: 20.006px 48px 35.002px 67.2px !important;
+      padding: 1.042vw 2.5vw 1.823vw 3.5vw !important;
     }
     .powerTitle {
-      line-height: 30.01px;
-      padding-bottom: 19.2px;
+      line-height: 1.563vw;
+      padding-bottom: 1vw;
       display: flex;
       justify-content: space-between;
-      border-bottom: 0.998px solid #cbcbcb;
+      border-bottom: 0.052vw solid #cbcbcb;
     }
     .addmodal {
-      width: 580.992px !important;
+      width: 30.26vw !important;
 
       .dyrow {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         > div {
-          width: 57.6px;
+          width: 3vw;
           display: flex;
           justify-content: flex-end;
-          margin-right: 14.995px;
+          margin-right: 0.781vw;
         }
         .select,
         .select .el-select {
-          width: 200.006px !important;
+          width: 10.417vw !important;
         }
         .el-input{
-          width: 200.006px !important;
+          width: 10.417vw !important;
           .el-input__inner{
-            width: 200.006px !important;
+            width: 10.417vw !important;
           }
         }
         .avatar-uploader {
-          width: 200.006px;
-          height: 178.003px;
-          border: 0.998px solid #cbcbcb;
-          border-radius: 3.994px;
+          width: 10.417vw;
+          height: 9.271vw;
+          border: 0.052vw solid #cbcbcb;
+          border-radius: 0.208vw;
           position: relative;
           i{
-            width: 38.995px;
-            height: 38.995px;
+            width: 2.031vw;
+            height: 2.031vw;
             background: url('../../assets/img/upload.png') center no-repeat;
             background-size: 100%;
             position: absolute;
@@ -297,7 +297,7 @@
         }
       }
       .el-dialog__body {
-        padding: 52.992px 99.994px !important;
+        padding: 2.76vw 5.208vw !important;
       }
     }
   }

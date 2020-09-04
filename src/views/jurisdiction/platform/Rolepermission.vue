@@ -36,7 +36,7 @@
       </xybTable>
     </div>
     <!-- 权限分配 -->
-    <el-dialog title="跟进管理" :visible.sync="powerModal" width="781px">
+    <el-dialog title="跟进管理" :visible.sync="powerModal" width="40.677vw">
       <div class="powerTitle">
         <span class="require">职位名称：{{tableData[dataIdx-1]&&tableData[dataIdx-1].name}}</span>
         <span>权限描述：{{tableData[dataIdx-1]&&tableData[dataIdx-1].describe}}</span>
@@ -57,7 +57,7 @@
       </span>
     </el-dialog>
     <!-- 编辑 -->
-    <el-dialog title="编辑职位权限" :visible.sync="editModal" width="434.995px">
+    <el-dialog title="编辑职位权限" :visible.sync="editModal" width="22.656vw">
       <div class="dyrow">
         <span class="require">职位名称：</span>
         <el-input type="text" v-model="postName" />
@@ -72,7 +72,7 @@
       </span>
     </el-dialog>
     <!-- 删除 -->
-    <el-dialog title="删除职位权限" :visible.sync="deleteModal" width="434.995px">
+    <el-dialog title="删除职位权限" :visible.sync="deleteModal" width="22.656vw">
       <span>是否确认删除当前职位权限？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="deleteModalOK">确 定</el-button>
@@ -80,7 +80,7 @@
       </span>
     </el-dialog>
     <!-- 新增 -->
-    <el-dialog title="新增职位权限" :visible.sync="addModal" width="434.995px">
+    <el-dialog title="新增职位权限" :visible.sync="addModal" width="22.656vw">
       <div class="dyrow">
         <span class="require">职位名称：</span>
         <el-input type="text" v-model="postName" />
@@ -273,51 +273,51 @@
     .searchBar {
       position: relative;
       div + div {
-        margin-left: 47.002px;
+        margin-left: 2.448vw;
       }
       .el-button:nth-of-type(1) {
-        margin-left: 72.998px;
+        margin-left: 3.802vw;
       }
       .deep {
         position: absolute;
-        right: 35.002px;
+        right: 1.823vw;
       }
     }
     .el-dialog__body {
-      padding-top: 20.006px;
+      padding-top: 1.042vw;
     }
     .el-dialog__body .dyrow:nth-of-type(2) {
       align-items: flex-start !important;
-      margin-top: 20.006px;
+      margin-top: 1.042vw;
     }
     .el-dialog__body .dyrow .el-input,
     .el-dialog__body .dyrow .el-input .el-input__inner,
     .el-dialog__body .dyrow .el-textarea,
     .el-dialog__body .dyrow .el-textarea .el-textarea__inner {
-      width: 219.994px !important;
+      width: 11.458vw !important;
     }
     .el-dialog:nth-of-type(1) .el-dialog__body {
-      padding: 20.006px 48px 35.002px 48px !important;
+      padding: 1.042vw 2.5vw 1.823vw 2.5vw !important;
     }
     .powerTitle {
-      line-height: 30.01px;
-      padding-bottom: 19.2px;
+      line-height: 1.563vw;
+      padding-bottom: 1vw;
       display: flex;
       justify-content: space-between;
-      border-bottom: 0.998px solid #cbcbcb;
+      border-bottom: 0.052vw solid #cbcbcb;
     }
       .wl-transfer{
-        height: 349.997px !important;
+        height: 18.229vw !important;
       }
     .transfer {
-      width: 683px !important;
-      margin-top: 23.002px;
-      height: 380.006px !important;
+      width: 35.573vw !important;
+      margin-top: 1.198vw;
+      height: 19.792vw !important;
       .el-tree-node__content{
-        padding: 4.992px 0;
+        padding: 0.26vw 0;
       }
       .transfer-left,.transfer-right{
-        width: 271px;
+        width: 14.115vw;
       }
     }
   }

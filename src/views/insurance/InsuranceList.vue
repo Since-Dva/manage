@@ -70,9 +70,9 @@
           </div>
           <div class="time">
             <span>创建时间：</span>
-            <el-date-picker v-model="startTime" type="date" placeholder="开始日期"></el-date-picker>
+            <el-date-picker :clearable="false" v-model="startTime" type="date" placeholder="开始日期"></el-date-picker>
             <span>—</span>
-            <el-date-picker v-model="endTime" type="date" placeholder="结束日期"></el-date-picker>
+            <el-date-picker :clearable="false" v-model="endTime" type="date" placeholder="结束日期"></el-date-picker>
           </div>
         </div>
         <el-button>搜索</el-button>
@@ -100,7 +100,7 @@
       </xybTable>
     </div>
     <!-- 跟进管理 -->
-    <el-dialog title="跟进管理" :visible.sync="offModal" width="780.998px">
+    <el-dialog title="跟进管理" :visible.sync="offModal" width="40.677vw">
       <div class="top">
         <div>
           <span class="require">商务人员：</span>
@@ -152,7 +152,7 @@
       </span>
     </el-dialog>
     <!-- 新增 -->
-    <el-dialog custom-class="addmodal" title="新增友商" :visible.sync="addModal" width="581px">
+    <el-dialog custom-class="addmodal" title="新增友商" :visible.sync="addModal" width="30.26vw">
       <div>
         <div class="modaltitle">基本信息</div>
         <div class="dyrow">
@@ -474,7 +474,8 @@
       pageChange(e) {
         this.count = e;
       },
-      todedail(){
+      todedail(info){
+        console.log(info)
         this.$store.commit("addTabMut", { title:'保险友商详情页', path:'/insurance/insuranceDetail',type:'insurance' });
         this.$router.push('/insurance/insuranceDetail')
       },
@@ -505,13 +506,13 @@
       position: relative;
       .row {
         div + div {
-          margin-left: 47.002px;
+          margin-left: 2.448vw;
         }
         .el-button:nth-of-type(1) {
-          margin-left: 72.998px;
+          margin-left: 3.802vw;
         }
         .select {
-          margin-left: 19.2px;
+          margin-left: 1vw;
         }
       }
       .row:nth-of-type(2) {
@@ -520,14 +521,14 @@
           justify-content: space-between;
           align-items: center;
           .el-input {
-            width: 137.664px !important;
+            width: 7.17vw !important;
             .el-input__inner {
-              width: 137.664px !important;
+              width: 7.17vw !important;
             }
           }
           > span:nth-of-type(2) {
             color: #d2d2d2;
-            margin: 0 10.003px;
+            margin: 0 0.521vw;
           }
           .el-input__prefix {
             display: none;
@@ -535,21 +536,21 @@
         }
         .deep {
           position: relative;
-          right: -72.96px;
+          right: -3.8vw;
         }
       }
     }
     .el-dialog__body {
-      padding-top: 20.006px;
+      padding-top: 1.042vw;
     }
     .el-dialog {
       .top {
-        padding-bottom: 24.998px;
+        padding-bottom: 1.302vw;
         display: flex;
         justify-content: space-between;
-        border-bottom: 0.998px solid #f1f1f1;
+        border-bottom: 0.052vw solid #f1f1f1;
         >div{
-          width: 271px;
+          width: 14.115vw;
         }
       }
       .content1 {
@@ -558,43 +559,43 @@
           display: flex;
           justify-content: space-between;
           > div {
-            width: 271px;
+            width: 14.115vw;
             display: flex;
             flex-direction: column;
             align-items: center;
             >div{
-              width: 271px;
+              width: 14.115vw;
               display: flex;
               justify-content: space-between;
             }
             > span {
               color: #666666;
-              margin: 22.003px 0;
+              margin: 1.146vw 0;
             }
             .el-input,
             .el-input__inner {
-              width: 170px !important;
+              width: 8.854vw !important;
             }
             .el-button {
               padding: 0 !important;
               text-align: center;
-              width: 80px !important;
-              height: 27.84px !important;
-              line-height: 27.84px !important;
-              margin-left: 20.006px;
+              width: 4.167vw !important;
+              height: 1.45vw !important;
+              line-height: 1.45vw !important;
+              margin-left: 1.042vw;
             }
           }
         }
         .transfer {
           width: 100%;
-          margin-top: 20.006px;
+          margin-top: 1.042vw;
           .el-transfer {
             display: flex;
             justify-content: space-between;
           }
           .el-transfer-panel__header {
             .el-checkbox {
-              padding-right: 120px !important;
+              padding-right: 6.25vw !important;
               color: #333333;
             }
           }
@@ -604,9 +605,9 @@
     .addmodal {
       .el-dialog__body {
         > div {
-          padding-bottom: 24.998px;
-          border-bottom: 0.998px solid #cbcbcb;
-          margin-bottom: 20.006px;
+          padding-bottom: 1.302vw;
+          border-bottom: 0.052vw solid #cbcbcb;
+          margin-bottom: 1.042vw;
         }
         > div:nth-of-type(3){
           border: none;
@@ -615,26 +616,26 @@
       .modaltitle {
         font-weight: bold;
         color: #666666;
-        margin-bottom: 20.006px;
+        margin-bottom: 1.042vw;
       }
-      width: 434.995px;
+      width: 22.656vw;
       .el-dialog__body {
-        height: 469.997px;
+        height: 24.479vw;
         overflow: scroll;
       }
       .select,
       .el-select {
-        width: 200.006px !important;
+        width: 10.417vw !important;
       }
       .upload {
         .upload-demo{
-          width: 211.2px;
+          width: 11vw;
           display: flex;
           justify-content: flex-start;
           .el-upload,.el-button{
-            width: 57.6px;
-            height: 26.88px !important;
-            line-height: 26.88px !important;
+            width: 3vw;
+            height: 1.4vw !important;
+            line-height: 1.4vw !important;
             padding: 0 !important;
             text-align: center;
           }
@@ -649,21 +650,21 @@
       }
       .dyrow {
         > div {
-          width: 90.01px;
+          width: 4.688vw;
           display: flex;
           justify-content: flex-end;
-          margin-right: 10.003px;
+          margin-right: 0.521vw;
         }
 
         .avatar-uploader {
-          width: 131.002px;
-          height: 131.002px;
-          border: 0.998px solid #cbcbcb;
-          border-radius: 3.994px;
+          width: 6.823vw;
+          height: 6.823vw;
+          border: 0.052vw solid #cbcbcb;
+          border-radius: 0.208vw;
           position: relative;
           i {
-            width: 23.635px;
-            height: 23.635px;
+            width: 1.231vw;
+            height: 1.231vw;
             background: url("../../assets/img/upload.png") center no-repeat;
             background-size: 100%;
             position: absolute;
@@ -681,11 +682,11 @@
         .el-select,
         .el-input,
         .el-input__inner {
-          width: 99.994px !important;
+          width: 5.208vw !important;
         }
       }
       .el-dialog__body {
-        padding: 43.008px 48.998px 0!important;
+        padding: 2.24vw 2.552vw 0!important;
       }
     }
     .el-dialog {
@@ -693,11 +694,11 @@
       }
     }
     .el-dialog:nth-of-type(3) {
-      padding: 43.008px 109.997px;
+      padding: 2.24vw 5.729vw;
     }
     .powerTitle {
-      line-height: 30.01px;
-      margin-bottom: 20.006px;
+      line-height: 1.563vw;
+      margin-bottom: 1.042vw;
       display: flex;
       justify-content: space-between;
     }

@@ -53,7 +53,7 @@
     </div>
 
     <!-- 删除 -->
-    <el-dialog title="删除确认" :visible.sync="deleteModal" width="434.995px">
+    <el-dialog title="删除确认" :visible.sync="deleteModal" width="22.656vw">
       <span>是否确认删除？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="deleteModalOK">确 定</el-button>
@@ -220,84 +220,84 @@
     .searchBar {
       position: relative;
       div + div {
-        margin-left: 47.002px;
+        margin-left: 2.448vw;
       }
       .el-button:nth-of-type(1) {
-        margin-left: 72.998px;
+        margin-left: 3.802vw;
       }
       .deep {
         position: absolute;
-        right: 35.002px;
+        right: 1.823vw;
       }
       .row{
         .select{
-          width: 172.8px !important;
+          width: 9vw !important;
           .el-select{
-            width: 172.8px !important;
+            width: 9vw !important;
             .el-input{
-              width: 172.8px !important;
+              width: 9vw !important;
             }
           }
         }
       .select .el-select .el-input .el-input__inner,
       .select .el-select .el-input--suffix .el-input__inner {
-        width: 172.8px !important;
+        width: 9vw !important;
       }
 
       }
     }
     .el-dialog__body {
-      padding-top: 20.006px;
+      padding-top: 1.042vw;
     }
     .el-dialog__body .dyrow:nth-of-type(2) {
       align-items: flex-start !important;
-      margin-top: 20.006px;
+      margin-top: 1.042vw;
     }
     .el-dialog__body .dyrow .el-input,
     .el-dialog__body .dyrow .el-input .el-input__inner,
     .el-dialog__body .dyrow .el-textarea,
     .el-dialog__body .dyrow .el-textarea .el-textarea__inner {
-      width: 219.994px !important;
+      width: 11.458vw !important;
     }
     .el-dialog:nth-of-type(1) .el-dialog__body {
-      padding: 20.006px 48px 35.002px 48px !important;
+      padding: 1.042vw 2.5vw 1.823vw 2.5vw !important;
     }
     .powerTitle {
-      line-height: 30.01px;
-      padding-bottom: 19.2px;
+      line-height: 1.563vw;
+      padding-bottom: 1vw;
       display: flex;
       justify-content: space-between;
-      border-bottom: 0.998px solid #cbcbcb;
+      border-bottom: 0.052vw solid #cbcbcb;
     }
     .addmodal {
-      width: 580.992px !important;
+      width: 30.26vw !important;
       .dyrow {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         > div {
-          width: 76.8px;
+          width: 4vw;
           display: flex;
           justify-content: flex-end;
-          margin-right: 14.995px;
+          margin-right: 0.781vw;
         }
         .select,
         .select .el-select {
-          width: 219.994px !important;
+          width: 11.458vw !important;
         }
         #editorElem {
-          width: 397.997px !important;
-          height: 244.992px;
+          width: 20.729vw !important;
+          height: 12.76vw;
           // overflow: scroll;
-          transform: translateX(321.888px);
+          transform: translateX(16.765vw);
           .w-e-text-container {
-            width: 397.997px !important;
-            height: 219.994px !important;
+            width: 20.729vw !important;
+            height: 11.458vw !important;
           }
         }
       }
       .el-dialog__body {
-        padding: 52.992px 99.994px !important;
+        padding: 2.76vw 5.208vw !important;
       }
     }
   }

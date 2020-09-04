@@ -54,17 +54,17 @@
 <style lang="scss">
   .container {
     .item + .item {
-      margin-left: 10.003px;
+      margin-left: 0.521vw;
     }
     .item {
       display: inline-block;
-      line-height: 46.003px;
-      padding: 0 36.998px;
+      line-height: 2.396vw;
+      padding: 0 1.927vw;
       text-align: center;
       color: white;
       font-family: Microsoft YaHei;
       background: #3497da;
-      border-radius: 6.01px 6.01px 0px 0px;
+      border-radius: 0.313vw 0.313vw 0vw 0vw;
       position: relative;
       cursor: pointer;
       &.active {
@@ -75,15 +75,15 @@
         opacity: 1;
       }
       i {
-        width: 15.994px;
-        line-height: 15.994px;
+        width: 0.833vw;
+        line-height: 0.833vw;
         border-radius: 50%;
         color: #0f6baa;
         background: white;
         cursor: pointer;
         position: absolute;
-        right: 1.997px;
-        top: 1.997px;
+        right: 0.104vw;
+        top: 0.104vw;
         z-index: -1;
         opacity: 0;
         transition: all 0.4s;

@@ -1,7 +1,7 @@
 <template>
   <div class="accountInfo">
     <div>
-      <button class="save" @click="saveAccountModal">保存</button>
+      <button class="save" @click="saveAccountModal">确认修改</button>
       <ul>
         <li>
           <span>员工工号</span>
@@ -9,7 +9,7 @@
         </li>
         <li>
           <span class="require">员工姓名</span>
-          <el-input v-model="name"></el-input>
+          <el-input v-model="name" :maxlength='8'></el-input>
         </li>
         <li>
           <span class="require">性别</span>
@@ -32,11 +32,11 @@
       <ul>
         <li>
           <span class="require">手机号码</span>
-          <el-input v-model="phone"></el-input>
+          <el-input v-model="phone" :maxlength='11'></el-input>
         </li>
         <li>
           <span class="require">微信</span>
-          <el-input></el-input>
+          <el-input disabled></el-input>
         </li>
         <li>
           <span>邮箱</span>
@@ -71,29 +71,29 @@ export default {
 
 <style lang='scss'>
 .accountInfo {
-  height: 850.003px;
+  height: 44.271vw;
   background: #f1f1f1;
   display: flex;
   justify-content: center;
   align-items: center;
   .save {
     position: relative;
-    left: 570.01px;
+    left: 29.688vw;
   }
   > div {
     box-sizing: border-box;
-    width: 812.006px;
-    height: 409.997px;
-    padding: 39.994px 60.998px 66.01px 60.998px;
+    width: 42.292vw;
+    height: 21.354vw;
+    padding: 2.083vw 3.177vw 3.438vw 3.177vw;
     background: #ffffff;
-    box-shadow: 0px 0px 12.998px 0px rgba(0, 0, 0, 0.1);
-    border-radius: 3.994px;
+    box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+    border-radius: 0.208vw;
     position: relative;
     > .tip {
-      font-size: 15.994px;
+      font-size: 0.833vw;
       color: #fb665c;
       position: absolute;
-      bottom: 24.998px;
+      bottom: 1.302vw;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -103,50 +103,50 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 225.005px;
+    height: 11.719vw;
     .pwd + .pwd {
-      margin-top: 30.01px;
+      margin-top: 1.563vw;
     }
     .pwd {
-      width: 289.997px;
+      width: 15.104vw;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       span {
-        font-size: 15.994px;
+        font-size: 0.833vw;
         color: #666666;
-        margin-bottom: 18.01px;
+        margin-bottom: 0.938vw;
         .tip {
-          width: 300px;
-          font-size: 15.994px;
+          width: 15.625vw;
+          font-size: 0.833vw;
           color: #fb665c;
           position: absolute;
-          left: 55.008px;
+          left: 2.865vw;
         }
       }
 
       input {
-        padding: 0 14.995px;
-        width: 289.997px;
-        height: 27.994px;
-        border: 0.998px solid #cccccc;
-        border-radius: 3.994px;
+        padding: 0 0.781vw;
+        width: 15.104vw;
+        height: 1.458vw;
+        border: 0.052vw solid #cccccc;
+        border-radius: 0.208vw;
         outline: none;
-        font-size: 13.997px;
+        font-size: 0.729vw;
         color: #999999;
       }
     }
     .pwd:nth-of-type(3) .tip {
-      left: 70.003px;
+      left: 3.646vw;
     }
   }
   button {
-    height: 36px;
-    line-height: 36px;
-    padding: 0 33.005px;
+    height: 1.875vw;
+    line-height: 1.875vw;
+    padding: 0 1.719vw;
     border: none;
     outline: none;
-    border-radius: 6.01px;
+    border-radius: 0.313vw;
     background: #3498db;
     color: white;
 
@@ -159,62 +159,54 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 49.997px;
+    margin-top: 2.604vw;
     li {
-      width: 150.01px !important;
+      width: 7.813vw !important;
       span {
         display: block;
         color: #666666;
-        margin-bottom: 19.008px;
+        margin-bottom: 0.99vw;
       }
       .el-input,
       .el-input__inner {
-        height: 30.01px;
-        width: 150.01px !important;
+        height: 1.563vw;
+        width: 7.813vw !important;
       }
       .el-input.is-disabled .el-input__inner {
         background-color: #cccccc !important;
       }
     }
     .select {
-      width: 92.006px;
-      height: 30.01px !important;
+      width: 4.792vw;
+      height: 1.563vw !important;
       position: relative;
-      select {
-        width: 150.01px !important;
-        border-radius: 3.994px;
-        border: 0.998px solid #dcdfe6;
+      .el-select {
+        border-radius: 0.208vw;
         outline: none;
-        width: 92.006px;
-        height: 30.01px;
-        padding-left: 10.003px;
+        width: 4.792vw;
+        height: 1.563vw;
         color: #666666;
+        .el-input__suffix,.el-input__suffix-inner {
+             width: 28px;
+              height: 28px;
+              transform: translateX(0.04vw);
+        }
         option {
-          border: 0.998px solid #dcdfe6 !important;
+          border: 0.052vw solid #dcdfe6 !important;
           background: white;
         }
-      }
-      &::after {
-        content: "";
-        display: block;
-        width: 27.994px;
-        height: 27.994px;
-        border-radius: 0 3.994px 3.994px 0;
-        background: #3498db url("../../assets/img/bottomArr.png") center
-          no-repeat;
-        background-size: 100%;
-        position: absolute;
-        pointer-events: none;
-        top: 0;
-        right: -58.003px !important;
-        z-index: 999;
+        .el-input .el-input__icon {
+          transform: translateX(0.26vw);
+          border-radius: 0 0.208vw 0.208vw 0;
+          background: #3498db url("../../assets/img/bottomArr.png") center no-repeat;
+        }
       }
     }
   }
   ul:nth-of-type(2) {
     justify-content: flex-start;
     li {
-      margin-right: 31.008px;
+      margin-right: 1.615vw;
     }
   }
 }
