@@ -607,6 +607,9 @@
         }
       }
       .row:nth-of-type(2) {
+        .el-button:nth-of-type(3){
+          margin-left: 7vw !important;
+        }
         .time {
           display: flex;
           justify-content: space-between;
@@ -624,10 +627,6 @@
           .el-input__prefix {
             display: none;
           }
-        }
-        .deep {
-          position: relative;
-          right: -3.8vw;
         }
       }
     }
@@ -776,6 +775,7 @@
       .el-dialog__body {
         height: 24.479vw;
         overflow: scroll;
+        scrollbar-width: none;
       }
       .select,
       .el-select {

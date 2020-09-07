@@ -45,6 +45,7 @@
           margin-top: 1.042vw;
           height: 38.438vw;
           overflow: scroll;
+          scrollbar-width: none;
         }
         .el-input .el-input__icon {
           transform: translateX(0.26vw);
@@ -147,6 +148,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            pointer-events: none; 
+            .el-checkbox__input{
+              pointer-events: auto;
+            }
             .el-checkbox__label span {
               display: none;
             }
@@ -199,15 +204,10 @@
     }
     .pagin {
       box-sizing: border-box;
-      width: 85.2vw;
-      height: 3vw;
-      box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+      width: 100%;
       background: white;
-      position: fixed;
       z-index: 800;
-      bottom: 0vw;
-      right: 2.05vw;
-      margin-top: 1.771vw;
+      margin-top: 1.6vw;
       padding-right: 0.938vw;
       display: flex;
       align-items: center;
@@ -264,6 +264,24 @@
         }
       }
     }
+    .time {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .el-input {
+            width: 7.17vw !important;
+            .el-input__inner {
+              width: 7.17vw !important;
+            }
+          }
+          > span:nth-of-type(2) {
+            color: #d2d2d2;
+            margin: 0 0.521vw;
+          }
+          .el-input__prefix {
+            display: none;
+          }
+        }
   }
   .el-dialog {
     min-height: 15.625vw;
@@ -294,7 +312,7 @@
       }
     }
     .el-dialog__body {
-      padding: 2.448vw 1.823vw;
+      padding: 1.5vw 1.823vw;
       flex-grow: 1;
     }
     .el-dialog__footer {
@@ -309,6 +327,12 @@
     .el-input,
     .el-input__inner {
       width: 7.813vw !important;
+    }
+  }
+  .input-200{
+    .el-input,
+    .el-input__inner {
+      width: 10.417vw !important;
     }
   }
   .input-300{

@@ -1,5 +1,5 @@
 <template>
-  <h1>Workbench</h1>
+  <h1>管理</h1>
 </template>
 
 <script>

@@ -12,8 +12,9 @@ import AutoPartsList from '../views/autoParts/AutoPartsList'
 import Advert from '../views/contentM/Advert'
 import SystemNotice from '../views/contentM/SystemNotice'
 import List from '../views/inquiry/List'
-import Programme from '../views/inquiry/Programme'
-import Workbench from '../views/inquiry/Workbench'
+import Programme from '../views/inquiry/programme/Programme'
+import PrograDetail from '../views/inquiry/programme/PrograDetail'
+import Workbench from '../views/inquiry/workbench/Workbench'
 import InsuranceDetail from '../views/insurance/InsuranceDetail'
 import InsuranceList from '../views/insurance/InsuranceList'
 import AccountList from '../views/jurisdiction/platform/AccountList'
@@ -23,6 +24,8 @@ import AutoPartsAccount from '../views/jurisdiction/AutoPartsAccount'
 import InsuranceAccount from '../views/jurisdiction/InsuranceAccount'
 import RepairDetail from '../views/repair/RepairDetail'
 import RepairList from '../views/repair/RepairList'
+import Manage from '../views/supply/Manage'
+import SupplyList from '../views/supply/SupplyList'
 
 Vue.use(VueRouter)
 
@@ -94,6 +97,15 @@ const routes = [{
       Head,
       Aside,
       default: Programme
+    }
+  },
+  {
+    path: '/inquiry/prograDetail',
+    name: '报价方案详情',
+    components: {
+      Head,
+      Aside,
+      default: PrograDetail
     }
   },
   {
@@ -213,10 +225,28 @@ const routes = [{
       default: Rolepermission
     }
   },
+  {
+    path: '/supply/supplyList',
+    name: '零部件列表',
+    components: {
+      Head,
+      Aside,
+      default: SupplyList
+    }
+  },
+  {
+    path: '/supply/manage',
+    name: '零部件分类管理',
+    components: {
+      Head,
+      Aside,
+      default: Manage
+    }
+  },
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   base: process.env.BASE_URL,
   routes
 })

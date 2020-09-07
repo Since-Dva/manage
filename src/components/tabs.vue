@@ -1,5 +1,5 @@
 <template>
-  <ul class="container">
+  <ul class="mytab">
     <li
       :class="[`item`, atcIdx===idx?'active':'']"
       v-for="(item,idx) in tabList"
@@ -52,7 +52,7 @@
 </script>
 
 <style lang="scss">
-  .container {
+  .mytab {
     .item + .item {
       margin-left: 0.521vw;
     }

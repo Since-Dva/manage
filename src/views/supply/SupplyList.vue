@@ -1,5 +1,5 @@
 <template>
-  <h1>programme</h1>
+  <h1>列表</h1>
 </template>
 
 <script>

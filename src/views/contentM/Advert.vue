@@ -48,7 +48,12 @@
       </span>
     </el-dialog>
     <!-- 新增 -->
-    <el-dialog custom-class="addmodal" title="新增广告" :visible.sync="addModal">
+    <el-dialog
+      custom-class="addmodal"
+      :title="modaltitle+'广告'"
+      width="550px"
+      :visible.sync="addModal"
+    >
       <div class="dyrow">
         <div>
           <span class="require">主题：</span>
@@ -63,6 +68,7 @@
           <img v-if="imageUrl" :src="imageUrl" class="avatar" />
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
+        <span class="tip">（建议尺寸：750*189）</span>
       </div>
       <div class="dyrow">
         <div>
@@ -113,6 +119,7 @@
         id: null,
         title: null,
         createName: null,
+        modaltitle: "新增",
         dataIdx: null, //选中table序号
         powerModal: false,
         editModal: false,
@@ -177,11 +184,12 @@
       },
       //编辑
       showEditModal(info) {
-        this.dataIdx=info.index
-        this.theme= info.theme
-        this.imageUrl= info.imageUrl
-        this.link= info.link
-        this.idx= info.idx
+        this.modaltitle = "编辑";
+        this.dataIdx = info.index;
+        this.theme = info.theme;
+        this.imageUrl = info.imageUrl;
+        this.link = info.link;
+        this.idx = info.idx;
         this.addModal = true;
       },
       //删除
@@ -194,8 +202,12 @@
       },
       //新增
       showAddModal() {
+        this.modaltitle = "新增";
         this.addModal = true;
         this.descript = null;
+        this.theme = null;
+        this.link = null;
+        this.idx = null;
       },
       addModalOK() {
         this.addModal = false;
@@ -236,15 +248,6 @@
       align-items: flex-start !important;
       margin-top: 1.042vw;
     }
-    .el-dialog__body .dyrow .el-input,
-    .el-dialog__body .dyrow .el-input .el-input__inner,
-    .el-dialog__body .dyrow .el-textarea,
-    .el-dialog__body .dyrow .el-textarea .el-textarea__inner {
-      width: 11.458vw !important;
-    }
-    .el-dialog:nth-of-type(1) .el-dialog__body {
-      padding: 1.042vw 2.5vw 1.823vw 3.5vw !important;
-    }
     .powerTitle {
       line-height: 1.563vw;
       padding-bottom: 1vw;
@@ -253,12 +256,18 @@
       border-bottom: 0.052vw solid #cbcbcb;
     }
     .addmodal {
-      width: 30.26vw !important;
-
       .dyrow {
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        position: relative;
+        .tip {
+          position: absolute;
+          bottom: 0;
+          right: 40px;
+          font-size: 12px;
+          color: #999999;
+        }
         > div {
           width: 3vw;
           display: flex;
@@ -269,9 +278,9 @@
         .select .el-select {
           width: 10.417vw !important;
         }
-        .el-input{
+        .el-input {
           width: 10.417vw !important;
-          .el-input__inner{
+          .el-input__inner {
             width: 10.417vw !important;
           }
         }
@@ -281,23 +290,20 @@
           border: 0.052vw solid #cbcbcb;
           border-radius: 0.208vw;
           position: relative;
-          i{
+          i {
             width: 2.031vw;
             height: 2.031vw;
-            background: url('../../assets/img/upload.png') center no-repeat;
+            background: url("../../assets/img/upload.png") center no-repeat;
             background-size: 100%;
             position: absolute;
             left: 50%;
             top: 50%;
-            transform: translate(-50%,-50%);
-            &::before{
-              content: '';
+            transform: translate(-50%, -50%);
+            &::before {
+              content: "";
             }
           }
         }
-      }
-      .el-dialog__body {
-        padding: 2.76vw 5.208vw !important;
       }
     }
   }

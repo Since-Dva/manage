@@ -578,8 +578,9 @@
       justify-content: space-between;
       .left {
         width: 65.26vw;
-        height: 44.479vw;
+        height: 40vw;
         overflow: scroll;
+        scrollbar-width: none;
         > div {
           background: #ffffff;
           box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
@@ -588,7 +589,7 @@
         }
         .left1 {
           box-sizing: border-box;
-          padding: 1.042vw 1.667vw 0.26vw 1.667vw;
+          padding: 1vw 1.667vw 0.26vw 1.667vw;
           .left1_1 {
             box-sizing: border-box;
             padding: 0.677vw 2.656vw 0.677vw 0.677vw;
@@ -606,14 +607,14 @@
               h2 {
                 font-weight: bold;
                 color: #333333;
-                margin: 0.885vw 0;
+                margin: 0.5vw 0;
               }
               h3 {
-                margin-top: 1.198vw;
+                margin-top: 0.8vw;
               }
               img {
-                width: 4.635vw;
-                height: 4.635vw;
+                width: 4vw;
+                height: 4vw;
                 display: block;
                 border: 0.052vw solid rgb(160, 160, 160);
                 margin-right: 2.083vw;
@@ -624,17 +625,17 @@
           .left1_2 {
             > div {
               padding: 0 2.813vw;
-              margin: 1.458vw 0;
+              margin: 1.2vw 0;
             }
             .left1_2_1 {
               display: flex;
               align-items: center;
               justify-content: space-between;
             }
-            .left1_2_2 {
+            .left1_2_2{
               display: flex;
-              > div {
-                margin-right: 15.625vw;
+              >div:nth-of-type(1){
+                margin-right: 3.2vw;
               }
             }
           }
@@ -699,13 +700,17 @@
             top: 0.625vw;
           }
         }
+        .left3{
+          margin: 0;
+        }
       }
       .right {
         width: 19.115vw;
-        height: 42vw;
+        height: 40vw;
         overflow: scroll;
+        scrollbar-width: none;
         > div + div {
-          margin-top: 1.042vw;
+          margin-top: 0.9vw;
         }
         > div {
           background: #ffffff;
@@ -717,11 +722,12 @@
           height: 5.208vw;
           padding: 1.406vw;
           position: relative;
+          overflow: hidden;
           .triangle {
             width: 0;
             height: 0;
-            border-top: 5.208vw solid #3498db;
-            border-left: 5.208vw solid transparent;
+            border-top: 5.3vw solid #3498db;
+            border-left: 5.3vw solid transparent;
             position: absolute;
             right: 0;
             top: 0;
@@ -755,9 +761,10 @@
           }
         }
         .right2 {
-          height: 23.438vw;
+          height: 21.5vw;
           overflow: scroll;
           font-size: 0.729vw;
+          scrollbar-width: none;
           .title {
             box-sizing: border-box;
             height: 2.604vw;
@@ -765,7 +772,7 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
-            margin-bottom: 1.302vw;
+            margin-bottom: 1vw;
             padding: 0.99vw;
             border-bottom: 0.052vw solid #eeeeee;
             ::after {
@@ -790,15 +797,16 @@
           .gjcontent {
             box-sizing: border-box;
             width: 17.031vw;
-            height: 5.104vw;
+            height: 4.6vw;
             overflow-x: hidden;
             overflow-y: scroll;
+            scrollbar-width: none;
             background: #eeeeee;
-            padding: 0.625vw 1.094vw;
+            padding: 0.5vw 1.094vw;
             margin: 0.521vw auto;
             font-size: 0.729vw;
             p {
-              line-height: 1.042vw;
+              line-height: 0.95vw;
             }
             p:nth-of-type(2) {
               text-align: right;
@@ -812,18 +820,19 @@
         }
         .right3 {
           box-sizing: border-box;
-          height: 10.938vw;
+          height: 11.3vw;
           overflow-x: hidden;
           overflow-y: scroll;
+          scrollbar-width: none;
           font-size: 0.729vw;
           .title {
             box-sizing: border-box;
-            height: 2.604vw;
+            height: 2.5vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
-            margin-bottom: 1.302vw;
+            margin-bottom: 0.9vw;
             padding: 0.99vw;
             border-bottom: 0.052vw solid #eeeeee;
             ::after {
@@ -848,7 +857,6 @@
               }
               p {
                 line-height: 0.938vw;
-                margin-top: -0.156vw;
               }
             }
           }
@@ -920,6 +928,7 @@
       .el-dialog__body {
         height: 30vw;
         overflow: scroll;
+        scrollbar-width: none;
         img {
           width: 100%;
         }

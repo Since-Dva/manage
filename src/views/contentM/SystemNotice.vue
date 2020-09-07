@@ -77,7 +77,7 @@
           </el-select>
         </div>
       </div>
-      <div class="dyrow">
+      <div class="dyrow input-300">
         <div>
           <span class="require">标题：</span>
         </div>
@@ -253,13 +253,7 @@
       align-items: flex-start !important;
       margin-top: 1.042vw;
     }
-    .el-dialog__body .dyrow .el-input,
-    .el-dialog__body .dyrow .el-input .el-input__inner,
-    .el-dialog__body .dyrow .el-textarea,
-    .el-dialog__body .dyrow .el-textarea .el-textarea__inner {
-      width: 11.458vw !important;
-    }
-    .el-dialog:nth-of-type(1) .el-dialog__body {
+    .addmodal .el-dialog__body {
       padding: 1.042vw 2.5vw 1.823vw 2.5vw !important;
     }
     .powerTitle {
@@ -295,9 +289,6 @@
             height: 11.458vw !important;
           }
         }
-      }
-      .el-dialog__body {
-        padding: 2.76vw 5.208vw !important;
       }
     }
   }

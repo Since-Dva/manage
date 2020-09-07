@@ -184,6 +184,7 @@ export default {
       width: 14vw;
       height: 30.208vw;
       overflow-y: scroll;
+      scrollbar-width: none;
       box-sizing: border-box;
       padding: 1.406vw 1.719vw;
       border-right: 0.052vw solid #d8d8d8;

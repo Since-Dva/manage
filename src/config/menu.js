@@ -28,7 +28,13 @@ export default [
             {title:'广告位管理',path:'/contentM/advert'}
         ]
     },
-    {icon:'qx',title:'账户权限管理',
+    {icon:'nr',title:'供应链管理',
+        children:[
+            {title:'零部件列表',path:'/supply/supplyList'},
+            {title:'零部件分类管理',path:'/supply/manage'}
+        ]
+    },
+    {icon:'qx',title:'权限管理',
         children:[
             {title:'保险账户管理',path:'/jurisdiction/insuranceAccount'},
             {title:'汽配账户管理',path:'/jurisdiction/autoPartsAccount'},

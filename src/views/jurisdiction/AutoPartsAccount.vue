@@ -43,9 +43,9 @@
           </div>
           <div class="time">
             <span>创建时间：</span>
-            <el-date-picker v-model="startTime" type="date" placeholder="选择开始日期"></el-date-picker>
+            <el-date-picker v-model="startTime" type="date" placeholder="开始日期"></el-date-picker>
             <span>—</span>
-            <el-date-picker v-model="endTime" type="date" placeholder="选择结束日期"></el-date-picker>
+            <el-date-picker v-model="endTime" type="date" placeholder="结束日期"></el-date-picker>
           </div>
         </div>
         <el-button>搜索</el-button>

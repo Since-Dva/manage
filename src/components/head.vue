@@ -3,15 +3,16 @@
     <el-header>
       <h1 @click.stop="toHome">信宜保BOSS管理系统</h1>
       <div>
-        <div @mouseenter="active=true" @mouseleave="active=false">
+        <div>
           <img src alt @click.stop='accountModal' />
           <span @click.stop='accountModal'>李华</span>
-          <span></span>
-          <ul :class="active?'active':''">
+          <span @mouseenter="active=true" @mouseleave="active=false">
+            <ul :class="active?'active':''">
             <li @click.stop="accountModal">账号资料</li>
             <li @click.stop="pwdModal">修改密码</li>
             <li @click.stop="loginOut">退出系统</li>
           </ul>
+          </span>
         </div>
       </div>
     </el-header>
@@ -32,7 +33,7 @@
         this.$router.push('/modifyPwd')
       },
       loginOut(){
-        location.replace('/login')
+        this.$router.replace('/login')
       },
       toHome(){
         this.$router.push('/')
@@ -65,6 +66,7 @@
         height: 4.167vw;
         display: flex;
         align-items: center;
+        padding-right: 14px;
           cursor: pointer;
         img {
           display: block;
@@ -87,14 +89,15 @@
           height: 0.729vw;
           background: url("../assets/img/more.png") center no-repeat;
           background-size: 100%;
+          position: relative;
         }
       }
       ul {
         position: absolute;
         width: 4.896vw;
         height: 5.521vw;
-        top: 4.479vw;
-        right: 1.5vw;
+        top: 1.2vw;
+        right: 0vw;
         background: #ffffff;
         box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
         border-radius: 0.208vw;
@@ -104,6 +107,7 @@
         transition: all 0.3s;
         z-index: -1;
         opacity: 0;
+        overflow: hidden;
         &.active {
           z-index: 100;
           opacity: 1;
@@ -119,7 +123,7 @@
           cursor: pointer;
           &:hover {
             background: #106caa;
-            border-radius: 0.208vw;
+            
             color: white;
           }
         }

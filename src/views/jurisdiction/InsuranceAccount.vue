@@ -43,9 +43,9 @@
           </div>
           <div class="time">
             <span>创建时间：</span>
-            <el-date-picker v-model="startTime" type="date" placeholder="选择开始日期"></el-date-picker>
+            <el-date-picker v-model="startTime" type="date" placeholder="开始日期"></el-date-picker>
             <span>—</span>
-            <el-date-picker v-model="endTime" type="date" placeholder="选择结束日期"></el-date-picker>
+            <el-date-picker v-model="endTime" type="date" placeholder="结束日期"></el-date-picker>
           </div>
         </div>
         <el-button>搜索</el-button>
@@ -189,7 +189,7 @@ export default {
       tableCol: [
         { prop: "index", label: "序列号" },
         { prop: "id", label: "ID" },
-        { prop: "name", label: "联系人" },
+        { prop: "name", label: "定损员名称" },
         { prop: "ascription", label: "归属友商", width: "230%" },
         { prop: "account", label: "账号" },
         { prop: "phone", label: "联系电话" },

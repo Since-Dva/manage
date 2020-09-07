@@ -150,14 +150,15 @@
     }
     
     .detail {
-      height: 25.625vw;
       background: rgba(255, 255, 255, 1);
       box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
       border-radius: 0.208vw;
+      overflow: hidden;
       .articleDetail {
         height: 46.406vw !important;
         padding: 1.771vw 2.292vw;
         overflow: scroll;
+        scrollbar-width: none;
       }
       .content {
         padding: 0 3.438vw 0 3.958vw;
@@ -167,7 +168,7 @@
         .con {
           width: 100%;
           height: 0.938vw;
-          padding: 1.771vw 0;
+          padding: 1.65vw 0;
           border-bottom: 0.052vw solid #cccccc;
           position: relative;
           p {
