@@ -3,255 +3,210 @@
     <tabs></tabs>
     <div class="content">
       <div class="left">
+        <div class="arr">
+          <div>解析需求</div>
+          <div>汽配商报价</div>
+          <div>生成报价方案</div>
+          <div>审核定损</div>
+        </div>
         <div class="left1">
-          <div class="left1_1">
-            <div>
-              <img src alt />
+          <div class="left1_2">
+            <div class="title">
+              <span>基本信息</span>
               <div>
-                <h2>{{base.name}}</h2>
-                <h3>ID号：BX00001</h3>
+                <span>订单状态</span>
+                <span>未发布</span>
+                <a @click="changeIsEdit">{{isEdit?'编辑':'保存'}}</a>
+              </div>
+            </div>
+            <div class="left1_2_1">
+              <div>
+                <span>保险机构：</span>
+                <el-input v-model="base.value1">大地保险（重庆分公司）</el-input>
+              </div>
+              <div :class="!isEdit?'blue':''">
+                <span>VIN码：</span>
+                <el-input :disabled="isEdit" v-model="base.value2">CQTPY20200721000001</el-input>
+                <a>复制</a>
+              </div>
+              <div :class="!isEdit?'blue':''">
+                <span>车牌号：</span>
+                <el-input :disabled="isEdit" v-model="base.value3">渝DN7688</el-input>
+              </div>
+            </div>
+            <div class="left1_2_1">
+              <div>
+                <span>报案号：</span>
+                <el-input v-model="base.value4">大地保险（重庆分公司）</el-input>
+              </div>
+              <div :class="!isEdit?'blue':''">
+                <span>车型：</span>
+                <el-input :disabled="isEdit" v-model="base.value5">CQTPY20200721000001</el-input>
+                <a>复制</a>
+              </div>
+              <div>
+                <span>承修单位：</span>
+                <el-input v-model="base.value6">渝DN7688</el-input>
+              </div>
+            </div>
+            <div class="left1_2_1">
+              <div>
+                <span>定损员：</span>
+                <el-input v-model="base.value7">大地保险（重庆分公司）</el-input>
+              </div>
+              <div :class="!isEdit?'blue':''">
+                <span>年龄：</span>
+                <el-input v-model="base.value8"></el-input>
+              </div>
+              <div>
+                <span>承修电话：</span>
+                <el-input v-model="base.value9">渝DN7688</el-input>
+              </div>
+            </div>
+            <div class="left1_2_1">
+              <div>
+                <span>询价单号：</span>
+                <el-input v-model="base.value10"></el-input>
+                <a>复制</a>
+              </div>
+            </div>
+            <div class="left1_2_1">
+              <div>
+                <span>提交时间：</span>
+                <el-input v-model="base.value11"></el-input>
               </div>
             </div>
           </div>
         </div>
         <div class="left2">
           <div class="title">
-            <span>方案信息</span>
-            <el-button @click="addconcatModal=true">保存</el-button>
+            <span>受损信息</span>
           </div>
-          <div class="left3">
-            <div>
-              <div class="modaltitle">1.模型</div>
-              <div class="item1">
-                <div class="item1_1">
-                  <p class="title">模型一</p>
-                  <div>
-                    <div>
-                      <span>年限：</span>
-                      <span>不限</span>
-                    </div>
-                    <div>
-                      <span>包含：</span>
-                      <span>（3年以内、3-6 年、6-10年及10年以上）</span>
-                    </div>
-                    <div>
-                      <span>对关重件有要求：</span>
-                      <span>品牌件</span>
-                    </div>
-                    <div>
-                      <span>对关重件无要求：</span>
-                      <span>品牌件 注：（关注件包含动力车 身及底盘主体件）</span>
-                    </div>
-                  </div>
-                  <div class="use">使用中</div>
+          <div class="left2main">
+            <div class="left2_1">
+              <div class="select">
+                受损面：
+                <el-select v-model="shousun">
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  ></el-option>
+                </el-select>
+              </div>
+              <div>
+                <span>备注：</span>
+                <span>具体零部件详情需要电话沟通</span>
+              </div>
+            </div>
+            <div class="left2_2">
+              <div>受损照片</div>
+              <div>
+                <div class="imgbox">
+                  <img src alt />
+                  <span>本地上传</span>
                 </div>
-                <div class="item1_1">
-                  <p class="title">模型一</p>
-                  <div>
-                    <div>
-                      <span>年限：</span>
-                      <span>不限</span>
-                    </div>
-                    <div>
-                      <span>包含：</span>
-                      <span>（3年以内、3-6 年、6-10年及10年以上）</span>
-                    </div>
-                    <div>
-                      <span>对关重件有要求：</span>
-                      <span>品牌件</span>
-                    </div>
-                    <div>
-                      <span>对关重件无要求：</span>
-                      <span>品牌件 注：（关注件包含动力车 身及底盘主体件）</span>
-                    </div>
-                  </div>
+                <div class="imgbox">
+                  <img src alt />
+                  <span>本地上传</span>
                 </div>
-                <div class="item1_1">
-                  <p class="title">自定义一</p>
-                  <div class="addicon">
-                    <i @click="show=true"></i>
-                    新增
-                  </div>
+                <div class="imgbox">
+                  <img src alt />
+                  <span>本地上传</span>
+                </div>
+                <div class="imgbox">
+                  <img src alt />
+                  <span>本地上传</span>
                 </div>
               </div>
-              <div class="dyrow">
+            </div>
+            <div class="left2_2box">
+              <div class="left2_2">
+                <div>维修清单</div>
                 <div>
-                  <span class="title">方案说明：</span>
-                </div>
-              </div>
-              <div class="table1">
-                <div class="head">
-                  <div>关重件</div>
-                  <div>关重件</div>
-                </div>
-                <div class="tbody">
-                  <div>动力车、身及底盘主体件 电子控制单元</div>
-                  <div>
-                    发动机:缸体,气江盖曲轴、凸轮轴,连杆.飞轮、凸轮轴支擰盖，摇臂轴。C轮轴正时
-                    婚轮、进排气岐管。变速器:箱体铺入轴(MT)，输出转MT),主减遗齿轮。倒车档齿
-                    轮。线束总成(AT) ，变炬器总成。车身：前緘梁。后纵梁、前防檀梁。后防撞梁
-                    底盘:前桥圍车鄹)总成后桥总成。前转向节、燃油镇。平衡开。副车架。后轴焊接
-                    总成后镇支架总成发动机悬置支架、发动机罩锁体、身(包括车身骨架、车身钢饭.
-                    门:不含漆面)。电子控制单元ECU.传感出。
+                  <div class="imgbox">
+                    <img src alt />
+                    <span>本地上传</span>
                   </div>
                 </div>
               </div>
-
-              <!-- 动态展示部分 -->
-              <div class="dyrow" v-if="show">
+              <div class="left2_2 left2_2xs">
+                <div>行驶证</div>
                 <div>
-                  <span class="title">自定义询价方案：</span>
-                  <span class="titTip">注：多个分组组合后需满足自定义模型需求</span>
-                </div>
-              </div>
-              <div class="item4">
-                <div>分组一</div>
-                <div>
-                  <div>
-                    <div>
-                      <span>年限：</span>
-                      <span>（支持多选）</span>
-                    </div>
-                    <div class="checkbox">
-                      <el-checkbox-group v-model="checkList">
-                        <el-checkbox label="3年以内" disabled></el-checkbox>
-                        <el-checkbox label="3年~6年"></el-checkbox>
-                        <el-checkbox label="6年~10年"></el-checkbox>
-                        <el-checkbox label="10年以上"></el-checkbox>
-                      </el-checkbox-group>
-                    </div>
-                  </div>
-                  <div>
-                    <div>
-                      <span>对关重件有要求：</span>
-                      <span>（单选）</span>
-                    </div>
-                    <div class="checkbox">
-                      <el-radio v-model="add.radio" label="1">原厂件</el-radio>
-                      <el-radio v-model="add.radio" label="2">原厂件</el-radio>
-                      <el-radio v-model="add.radio" label="3">配套件</el-radio>
-                      <el-radio v-model="add.radio" label="4">认证件</el-radio>
-                      <el-radio v-model="add.radio" label="4">品牌件</el-radio>
-                    </div>
-                  </div>
-                  <div>
-                    <div>
-                      <span>对关重件有要求：</span>
-                      <span>（单选）</span>
-                    </div>
-                    <div class="checkbox">
-                      <el-radio v-model="add.radio1" label="1">原厂件</el-radio>
-                      <el-radio v-model="add.radio1" label="2">原厂件</el-radio>
-                      <el-radio v-model="add.radio1" label="3">配套件</el-radio>
-                      <el-radio v-model="add.radio1" label="4">认证件</el-radio>
-                      <el-radio v-model="add.radio1" label="4">品牌件</el-radio>
-                    </div>
+                  <div class="imgbox">
+                    <img src alt />
+                    <span>本地上传</span>
                   </div>
                 </div>
               </div>
-
-              <div class="item4" v-if="show">
-                <div>分组二</div>
-                <div>
-                  <div>
-                    <div>
-                      <span>年限：</span>
-                      <span>（支持多选）</span>
-                    </div>
-                    <div class="checkbox">
-                      <el-checkbox-group v-model="checkList1">
-                        <el-checkbox label="3年以内" disabled></el-checkbox>
-                        <el-checkbox label="3年~6年"></el-checkbox>
-                        <el-checkbox label="6年~10年"></el-checkbox>
-                        <el-checkbox label="10年以上"></el-checkbox>
-                      </el-checkbox-group>
-                    </div>
+            </div>
+          </div>
+        </div>
+        <div class="left3">
+          <div class="title">
+            <span>配件清单</span>
+            <el-button>新增</el-button>
+          </div>
+          <div class="tablebox">
+            <span class="gth">
+              <span class="tip">OE码与自有库零部件【右大灯】重合请重新选择该零部件</span>
+            </span>
+            <el-table
+              :border="true"
+              :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'0.833vw',background:'#eeeeee'}"
+              :data="tableData"
+              style="width: 100%"
+            >
+              <el-table-column align="center" prop="value1" label="排序">
+                <template slot-scope="scope">
+                  <span :class="scope.row.red?'red':''">{{scope.row.value1}}</span>
+                </template>
+              </el-table-column>
+              <el-table-column align="center" prop="value2" label="零部件名称">
+                <template slot-scope="scope">
+                  <span :class="scope.row.red?'red':''">{{scope.row.value2}}</span>
+                </template>
+              </el-table-column>
+              <el-table-column align="center" prop="value3" label="数量">
+                <template slot-scope="scope">
+                  <span :class="scope.row.red?'red':''">{{scope.row.value3}}</span>
+                </template>
+              </el-table-column>
+              <el-table-column align="center" prop="value4" label="品牌车型" width="200%">
+                <template slot-scope="scope">
+                  <span :class="scope.row.red?'red':''">{{scope.row.value4}}</span>
+                </template>
+              </el-table-column>
+              <el-table-column align="center" prop="value5" label="OE码">
+                <template slot-scope="scope">
+                  <div :class="scope.row.red?'red':''">
+                    <span v-if="scope.row.value5">
+                      
+                      {{scope.row.value5}}
+                    </span>
+                    <a v-else>请填写OE码</a>
                   </div>
-                  <div>
-                    <div>
-                      <span>对关重件有要求：</span>
-                      <span>（单选）</span>
-                    </div>
-                    <div class="checkbox">
-                      <el-radio v-model="add.radio3" label="1">原厂件</el-radio>
-                      <el-radio v-model="add.radio3" label="2">原厂件</el-radio>
-                      <el-radio v-model="add.radio3" label="3">配套件</el-radio>
-                      <el-radio v-model="add.radio3" label="4">认证件</el-radio>
-                      <el-radio v-model="add.radio3" label="4">品牌件</el-radio>
-                    </div>
+                </template>
+              </el-table-column>
+              <el-table-column align="center" prop="value6" label="4S价" width="200%">
+                <template slot-scope="scope">
+                  <div :class="scope.row.red?'red':''">
+                    <span v-if="scope.row.value6">{{scope.row.value6}}</span>
+                    <a v-else>请填写4S价</a>
                   </div>
+                </template>
+              </el-table-column>
+              <el-table-column align="center" label="操作">
+                <template>
                   <div>
-                    <div>
-                      <span>对关重件有要求：</span>
-                      <span>（单选）</span>
-                    </div>
-                    <div class="checkbox">
-                      <el-radio v-model="add.radio4" label="1">原厂件</el-radio>
-                      <el-radio v-model="add.radio4" label="2">原厂件</el-radio>
-                      <el-radio v-model="add.radio4" label="3">配套件</el-radio>
-                      <el-radio v-model="add.radio4" label="4">认证件</el-radio>
-                      <el-radio v-model="add.radio4" label="4">品牌件</el-radio>
-                    </div>
+                    <a @click="deleteModal=true">删除</a>
                   </div>
-                </div>
-              </div>
-              <div class="item4 kong" v-if="show">
-                <i></i>
-              </div>
-              <!-- 动态展示部分 -->
-
-              <div class="modaltitle">2、定损价浮动设置</div>
-              <div class="listbox">
-                <div class="title">利润增幅管控设置</div>
-                <div class="item2">
-                  <span>原厂件利润比：</span>
-                  <el-input></el-input>%
-                  <span>（注：原厂件的利润比为x）</span>
-                </div>
-                <div class="item2">
-                  <span>配套件利润增幅：</span>
-                  <el-input></el-input>%
-                  <span>（注：配套件的利润增幅为y1）</span>
-                </div>
-                <div class="item2">
-                  <span>认证件利润增幅：</span>
-                  <el-input></el-input>%
-                  <span>（注：配套件的利润增幅为y2）</span>
-                </div>
-                <div class="item2">
-                  <span>品牌件利润增幅：</span>
-                  <el-input></el-input>%
-                  <span>（注：配套件的利润增幅为y3）</span>
-                </div>
-              </div>
-              <!-- <div class="dyrow">
-                <div>
-                  <span class="title">配件价格参考设置</span>
-                  <span class="titTip">(实际汽配商报价要小于4s价的比例参考区间）</span>
-                </div>
-              </div>-->
-              <div class="listbox">
-                <div class="title">
-                  配件价格参考设置
-                  <span>(实际汽配商报价要小于4s价的比例参考区间）</span>
-                </div>
-                <div class="item2 item3">
-                  <span>原厂件价格参考区间：</span>
-                  <el-input></el-input>%
-                </div>
-                <div class="item2 item3">
-                  <span>配套件价格参考区间：</span>
-                  <el-input></el-input>%
-                </div>
-                <div class="item2 item3">
-                  <span>认证件价格参考区间：</span>
-                  <el-input></el-input>%
-                </div>
-                <div class="item2 item3">
-                  <span>品牌件价格参考区间：</span>
-                  <el-input></el-input>%
-                </div>
-              </div>
+                </template>
+              </el-table-column>
+            </el-table>
+            <div class="bth">
+              <el-button>发布询价</el-button>
             </div>
           </div>
         </div>
@@ -265,6 +220,37 @@
               <p>郭靖</p>
               <p>所属部门：商务部</p>
             </div>
+          </div>
+        </div>
+        <div class="right4">
+          <div class="title">
+            <span>订单跟进</span>
+          </div>
+          <div>
+            <el-button @click="changegenjin">{{!genjin?'添加跟进':'保存跟进'}}</el-button>
+            <el-button class="gray">开启订单</el-button>
+            <el-button @click="xiezhu=true">完成协助</el-button>
+            <el-input v-if="genjin" type="textarea" v-model="textarea2" :rows="4"></el-input>
+          </div>
+        </div>
+        <div class="right2">
+          <div class="title">
+            <span>跟进记录</span>
+          </div>
+          <div class="gjcontent">
+            <p>周一去和大地保险公司王总进行了沟通，确认合作签约时间在下周三，去的时候准备好需要提前准备好相关资料。</p>
+            <p>2020/7/30/ 16:43</p>
+          </div>
+          <div class="gjcontent">
+            <p>周一去和大地保险公司王总进行了沟通，确认合作签约时间在下周三，去的时候准备好需要提前准备好相关资料。</p>
+            <p>2020/7/30/ 16:43</p>
+          </div>
+          <div class="gjcontent">
+            <p>周一去和大地保险公司王总进行了沟通，确认合作签约时间在下周三，去的时候准备好需要提前准备好相关资料。</p>
+            <p>2020/7/30/ 16:43</p>
+          </div>
+          <div class="pagina">
+            <el-pagination background layout="prev, pager, next" :page-size="3" :total="3"></el-pagination>
           </div>
         </div>
         <div class="right3">
@@ -291,6 +277,59 @@
         </div>
       </div>
     </div>
+
+    <!-- 未保存提示 -->
+    <el-dialog title="保存确认" :visible.sync="saveModal" width="22.656vw">
+      <span>当前页面未保存，请确认是否保存信息</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="saveModalOK">确 定</el-button>
+        <el-button class="cancel" @click="saveModal=false">取 消</el-button>
+      </span>
+    </el-dialog>
+    <!-- 无权限提示 -->
+    <el-dialog title="权限提示" :visible.sync="nopower" width="22.656vw">
+      <span>您暂无权限操作该定损询价单</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="nopowerOK">确 定</el-button>
+      </span>
+    </el-dialog>
+    <!-- 订单关闭提示 -->
+    <el-dialog title="操作提示" :visible.sync="dingdan" width="22.656vw">
+      <span>当前订单已关闭，您的操作无效</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dingdanOK">确 定</el-button>
+      </span>
+    </el-dialog>
+    <!-- 删除提示 -->
+    <el-dialog title="删除确认" :visible.sync="deleteModal" width="22.656vw">
+      <span>是否删除该零配件？</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="deleteModalOK">确 定</el-button>
+        <el-button class="cancel" @click="deleteModal=false">取 消</el-button>
+      </span>
+    </el-dialog>
+    <!-- 关闭订单原因 -->
+    <el-dialog title="关闭订单" :visible.sync="closedingdan" width="22.656vw">
+      <el-input type="textarea"
+      :rows="4"
+      placeholder="请填写订单关闭原因  （必填）"
+      v-model="textarea"></el-input>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="closedingdanOK">确 定</el-button>
+        <el-button class="cancel" @click="closedingdan=false">取 消</el-button>
+      </span>
+    </el-dialog>
+    <!-- 完成协助 -->
+    <el-dialog title="完成协助确认" :visible.sync="xiezhu" width="22.656vw">
+      <el-input type="textarea"
+      :rows="4"
+      placeholder="请描述此次协助的过程  （必填）"
+      v-model="textarea1"></el-input>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="xiezhuOK">确 定</el-button>
+        <el-button class="cancel" @click="xiezhu=false">取 消</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -305,37 +344,39 @@
     },
     data() {
       return {
+        saveModal: false,
+        nopower:false,
+        dingdan:false,
+        closedingdan:false,
+        deleteModal:false,
+        xiezhu:false,
+        shousun: null,
+        textarea:null,
+        textarea1:null,
+        textarea2:null,
+        options: [
+          { label: "全部", value: 1 },
+          { label: "部门一", value: 2 },
+        ],
         fileList: [
           {
             name: "太平洋保险（重庆分公司）战略合作合同.pdf",
             url: "https://fuss10.elemecdn.com/3/63/",
           },
         ],
+        isEdit: false,
         base: {
-          name: "大地保险公司(重庆分公司)",
-          select1: null,
-          select2: null,
-          select3: null,
-          state: "合作中",
-          address: "重庆 - 重庆 - 渝北",
-          detail: "重庆市渝北区仙桃数据谷C16-A2-2层",
-          radio: "1",
-        },
-        show: true,
-        checkList: [],
-        checkList1: [],
-        add: {
-          value1: null,
-          value2: null,
-          value3: null,
-          value4: null,
-          value5: null,
-          value6: null,
-          value7: null,
-          value8: null,
-          value9: null,
-          value10: null,
-          value11: null,
+          value1: "大地保险（重庆分公司）",
+          value2: "CQTPY20200721000001",
+          value3: "渝DN7688",
+          value4: "1186581481643CQ",
+          value5: "大众汽车SVW71810BU",
+          value6: "途虎养车（空港新城店）",
+          value7: "郭靖",
+          value8: "三年",
+          value9: "17623888288",
+          value10: "CQTPY20200721000001",
+          value11: "2020年8月3日16:06:14",
         },
         addconcat: {
           name: null,
@@ -355,80 +396,69 @@
           email: null,
           radio: 2,
         },
-        options: [
-          { label: "全部", value: 1 },
-          { label: "部门一", value: 2 },
-        ],
         sexs: [
           { label: "男", value: 1 },
           { label: "女", value: 2 },
         ],
         addgj: false,
-        genjin: null,
-        tableData1: [
+        genjin: false,
+        tableData: [
           {
-            name: "郭靖",
-            sex: "男",
-            job: "总经理",
-            phone: "176****8288",
-            wx: "176****8288",
-            email: "664017710@qq.com",
-            ismain: true,
+            value1: "1",
+            value2: "左大灯",
+            value3: "X1",
+            value4: "大众汽车SVW71810BU",
+            value5: "2151252141234",
+            value6: "¥ 4689",
+            red: false,
           },
           {
-            name: "郭靖",
-            sex: "男",
-            job: "总经理",
-            phone: "176****8288",
-            wx: "176****8288",
-            email: "664017710@qq.com",
-            ismain: false,
-          },
-        ],
-        tableData2: [
-          {
-            type: "合同",
-            creater: "郭靖",
-            createTime: "2020/7/30/   16:43",
-            modify: "郭靖",
-            time: "2020/7/30/   16:43",
-            show: true,
+            value1: "1",
+            value2: "左大灯",
+            value3: "X1",
+            value4: "大众汽车SVW71810BU",
+            value5: null,
+            value6: null,
+            red: false,
           },
           {
-            type: "合同",
-            creater: "郭靖",
-            createTime: "2020/7/30/   16:43",
-            modify: "/",
-            time: "/",
-            show: false,
+            value1: "1",
+            value2: "左大灯",
+            value3: "X1",
+            value4: "大众汽车SVW71810BU",
+            value5: "2151252141234",
+            value6: 4689,
+            red: true,
           },
         ],
       };
     },
     methods: {
-      addconcatModalOK() {
-        this.addconcatModal = false;
+      changeIsEdit(){
+        this.isEdit=!this.isEdit
       },
-      showDownload() {
-        this.download = true;
+      saveModalOK(){
+        this.isEdit=false
+        this.saveModal=false
       },
-      addModalOK() {},
-      addModalcancel() {},
-      showdelete() {
-        this.deleteModal = true;
+      nopowerOK(){
+        this.nopower=false
       },
-      showAgreement() {
-        this.agreement = true;
+      dingdanOK(){
+        this.dingdan=false
       },
-
-      downloadOK() {
-        this.download = false;
+      closedingdanOK(){
+        this.closedingdan=false
       },
-      deleteModalOK() {
-        this.deleteModal = false;
+      deleteModalOK(){
+        this.deleteModal=false
       },
-      addfollowup() {
-        this.addgj = !this.addgj;
+      xiezhuOK(){
+        this.xiezhu=false
+      },
+      changegenjin(){
+        this.genjin=!this.genjin
+        this.textarea2=null
       },
     },
   };
@@ -439,9 +469,63 @@
     .content {
       display: flex;
       justify-content: space-between;
+      .arr {
+        width: 1253px;
+        height: 90px;
+        background: #ffffff;
+        box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 0px 4px 4px 4px;
+        display: flex;
+        align-items: center;
+        > div {
+          width: 336px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          color: #656565;
+        }
+        > div:nth-of-type(1) {
+          background: url("../../../assets/img/arratc.png") center no-repeat;
+          background-size: 100%;
+          color: white;
+        }
+        > div:nth-of-type(2),
+        div:nth-of-type(3) {
+          background: url("../../../assets/img/arr.png") center no-repeat;
+          background-size: 100%;
+        }
+        > div:nth-of-type(4) {
+          background: url("../../../assets/img/arrlast.png") center no-repeat;
+          background-size: 100%;
+        }
+      }
+      .title {
+        height: 1.042vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        padding-bottom: 1.1vw;
+        padding-left: 1.823vw;
+        border-bottom: 1px solid #cbcbcb;
+        > span:nth-of-type(1) {
+          font-weight: bolder;
+        }
+        ::after {
+          content: "";
+          display: block;
+          width: 0.208vw;
+          height: 1.667vw;
+          background: #3498db;
+          position: absolute;
+          left: -0vw;
+          top: -0.26vw;
+        }
+      }
       .left {
         width: 65.26vw;
-        height: 44.479vw;
+        height: 40vw;
+        border-radius: 4px;
         overflow: scroll;
         scrollbar-width: none;
         > div {
@@ -452,73 +536,76 @@
         }
         .left1 {
           box-sizing: border-box;
-          padding: 1.042vw 1.667vw;
-          .left1_1 {
-            box-sizing: border-box;
-            padding: 0.677vw 2.656vw 0.677vw 0.677vw;
-            background: #eeeeee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            > a {
-              flex-shrink: 0;
-              cursor: pointer;
-            }
-            > div {
-              width: 100%;
-              display: flex;
-              h2 {
-                font-weight: bold;
-                color: #333333;
-                margin: 0.885vw 0;
-              }
-              h3 {
-                margin-top: 1.198vw;
-              }
-              img {
-                width: 4.635vw;
-                height: 4.635vw;
-                display: block;
-                border: 0.052vw solid rgb(160, 160, 160);
-                margin-right: 2.083vw;
-                overflow: hidden;
-              }
-            }
-          }
+          border-radius: 4px;
+          padding: 20px 0 10px 0;
           .left1_2 {
-            > div {
-              padding: 0 2.813vw;
-              margin: 1.458vw 0;
+            .title {
+              > div {
+                margin-right: 36px;
+                span:nth-of-type(1) {
+                  font-size: 16px;
+                  color: #999999;
+                }
+                span:nth-of-type(2) {
+                  font-size: 16px;
+                  color: #333333;
+                  margin: 0 20px;
+                }
+                a {
+                  cursor: pointer;
+                }
+              }
             }
             .left1_2_1 {
               display: flex;
               align-items: center;
               justify-content: space-between;
+              padding: 0 30px;
+              > div {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                margin: 10px 0;
+                .el-input,
+                .el-input__inner {
+                  width: 190px !important;
+                  border: none;
+                }
+                .el-input.is-disabled .el-input__inner {
+                  background: white;
+                  color: #6a6a6a;
+                  cursor: default;
+                }
+                > span {
+                  display: block;
+                  width: 80px;
+                  text-align: right;
+                }
+                a {
+                  cursor: pointer;
+                }
+              }
+              .blue {
+                .el-input,
+                .el-input__inner {
+                  color: #006cff !important;
+                }
+              }
             }
             .left1_2_2 {
               display: flex;
-              > div {
-                margin-right: 15.625vw;
+              > div:nth-of-type(1) {
+                margin-right: 3.2vw;
               }
             }
           }
         }
         .left2 {
-          box-sizing: border-box;
-          padding: 0.99vw 1.823vw 0.99vw 0;
-          > .title {
-            height: 1.042vw;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            padding-bottom: 1.302vw;
-            padding-left: 1.823vw;
-            border-bottom: 1px solid #f2f2f2;
-            margin-bottom: 20px;
-            span {
-              font-weight: 1000;
-            }
+          .left2main {
+            padding: 20px 30px;
+          }
+          .title {
+            padding-top: 20px;
             ::after {
               content: "";
               display: block;
@@ -527,51 +614,138 @@
               background: #3498db;
               position: absolute;
               left: -0vw;
-              top: -0.26vw;
+              top: 13px;
             }
           }
-          td {
-            a {
-              padding: 0 0.625vw;
-              cursor: pointer;
-            }
-            a:nth-of-type(2),
-            a:nth-of-type(3) {
-              position: relative;
-              &::after {
-                content: "";
-                display: block;
-                width: 0.052vw;
-                height: 0.938vw;
-                background: #aeaeae;
-                position: absolute;
-                left: 0;
-                top: 0.104vw;
+          .left2_1 {
+            display: flex;
+            align-items: center;
+            > div:nth-of-type(2) {
+              margin-left: 180px;
+              span:nth-of-type(2) {
+                margin-left: 10px;
+                color: #006bff;
               }
             }
           }
-          .main {
-            display: block;
-            width: 1.1vw;
-            height: 1.1vw;
-            line-height: 1.1vw;
-            background: #3498db;
-            color: white;
-            text-align: center;
-            border-radius: 0.208vw;
-            position: absolute;
-            left: 1.146vw;
-            top: 0.625vw;
+          .left2_2 {
+            margin-top: 20px;
+            div:nth-of-type(2) {
+              display: flex;
+              .imgbox {
+                width: 200px;
+                height: 178px;
+                border: 1px solid #000;
+                border-radius: 4px;
+                margin-right: 20px;
+                margin-top: 15px;
+                position: relative;
+                img {
+                  width: 100%;
+                }
+                span {
+                  width: 100%;
+                  text-align: center;
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  line-height: 40px;
+                  background: #000000;
+                  opacity: 0.4;
+                  color: white;
+                  border-radius: 0px 0px 4px 4px;
+                }
+              }
+            }
+          }
+          .left2_2box {
+            display: flex;
+          }
+          .left2_2xs {
+            div:nth-of-type(2) .imgbox {
+              width: 362px;
+              height: 178px;
+              border-radius: 4px;
+            }
+          }
+        }
+        .left3 {
+          .title {
+            padding: 20px 30px;
+            ::after {
+              content: "";
+              display: block;
+              width: 0.208vw;
+              height: 1.667vw;
+              background: #3498db;
+              position: absolute;
+              left: -0vw;
+              top: 13px;
+            }
+          }
+          .tablebox {
+            padding: 34px 30px;
+            position: relative;
+              .gth {
+                display: block;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background: url("../../../assets/img/gth.png") center no-repeat;
+                background-size: 100%;
+                position: absolute;
+                left: 714px;
+                bottom: 107px;
+                z-index: 999;
+              }
+              .tip {
+                padding: 1px 3px;
+                line-height: 12px;
+                position: absolute;
+                bottom: 0;
+                width: 310px;
+                font-size: 10px;
+                color: #999999;
+                bottom: -25px;
+                left: 0px;
+                background: #ededed;
+                border-radius: 2px;
+                &::before{
+                  content: '';
+                  position:absolute;
+                  top: -10px;
+                  width: 0;
+                  height: 0;
+                  border-width: 0 5px 10px;
+                  border-style: solid;
+                  border-color: transparent transparent #ededed;
+                }
+              }
+            .el-table .cell,.el-table__body-wrapper {
+              overflow: visible !important;
+            }
+            a {
+              cursor: pointer;
+            }
+            .red {
+              color: red !important;
+            }
+            .bth{
+              margin-top: 20px;
+              display: flex;
+              justify-content: center;
+            }
           }
         }
       }
       .right {
         width: 19.115vw;
-        height: 42vw;
+        height: 40vw;
         overflow: scroll;
+        border-radius: 4px;
         scrollbar-width: none;
         > div + div {
-          margin-top: 1.042vw;
+          margin-top: 0.9vw;
         }
         > div {
           background: #ffffff;
@@ -583,11 +757,12 @@
           height: 5.208vw;
           padding: 1.406vw;
           position: relative;
+          overflow: hidden;
           .triangle {
             width: 0;
             height: 0;
-            border-top: 5.208vw solid #3498db;
-            border-left: 5.208vw solid transparent;
+            border-top: 5.3vw solid #3498db;
+            border-left: 5.3vw solid transparent;
             position: absolute;
             right: 0;
             top: 0;
@@ -620,14 +795,11 @@
             }
           }
         }
-        .right3 {
-          box-sizing: border-box;
-          height: 14vw;
-          overflow-x: hidden;
-          overflow-y: scroll;
-          scrollbar-width: none;
+        .right2 {
+          height: 21.5vw;
+          overflow: scroll;
           font-size: 0.729vw;
-          position: relative;
+          scrollbar-width: none;
           .title {
             box-sizing: border-box;
             height: 2.604vw;
@@ -635,7 +807,67 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
-            margin-bottom: 1.302vw;
+            margin-bottom: 1vw;
+            padding: 0.99vw;
+            border-bottom: 0.052vw solid #eeeeee;
+            ::after {
+              content: "";
+              display: block;
+              width: 0.208vw;
+              height: 1.667vw;
+              background: #3498db;
+              position: absolute;
+              left: -0vw;
+              top: 0.521vw;
+            }
+            .el-button {
+              padding: 0 0.521vw !important;
+            }
+          }
+          .el-textarea {
+            display: block;
+            width: 17.031vw;
+            margin: 0 auto;
+          }
+          .gjcontent {
+            box-sizing: border-box;
+            width: 17.031vw;
+            height: 4.6vw;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            scrollbar-width: none;
+            background: #eeeeee;
+            padding: 0.5vw 1.094vw;
+            margin: 0.521vw auto;
+            font-size: 0.729vw;
+            p {
+              line-height: 0.95vw;
+            }
+            p:nth-of-type(2) {
+              text-align: right;
+            }
+          }
+          .pagina {
+            display: inline-block;
+            transform: scale(0.7);
+            float: right;
+          }
+        }
+        .right3 {
+          box-sizing: border-box;
+          height: 11.3vw;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          scrollbar-width: none;
+          font-size: 0.729vw;
+          .title {
+            box-sizing: border-box;
+            height: 2.5vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin-bottom: 0.9vw;
             padding: 0.99vw;
             border-bottom: 0.052vw solid #eeeeee;
             ::after {
@@ -649,7 +881,6 @@
               top: 0.521vw;
             }
           }
-
           .con {
             padding: 0vw 1.354vw;
             > div {
@@ -660,8 +891,7 @@
                 margin-right: 0.521vw;
               }
               p {
-                line-height: 1.1vw;
-                margin-top: -0.156vw;
+                line-height: 0.938vw;
               }
             }
           }
@@ -669,9 +899,42 @@
             display: inline-block;
             transform: scale(0.7);
             float: right;
-            position: absolute;
-            bottom: 10px;
-            right: 0px;
+          }
+        }
+        .right4{
+          border-radius: 4px;
+          >div:nth-of-type(2){
+            padding: 20px 30px;
+          }
+          .el-button{
+            padding: 0 17px !important;
+            margin-right: 7px !important;
+            &.gray{
+              background: #cccccc !important;
+              color:white !important;
+              cursor: not-allowed;
+              outline: none !important;
+              border: transparent !important;
+              pointer-events: none;
+            }
+          }
+          .el-button:nth-of-type(3){
+            margin-left: 0 !important;
+            margin-top: 10px !important;
+            margin-bottom: 15px !important;
+          }
+          .title {
+            padding: 20px 30px;
+            ::after {
+              content: "";
+              display: block;
+              width: 0.208vw;
+              height: 1.667vw;
+              background: #3498db;
+              position: absolute;
+              left: -0vw;
+              top: 13px;
+            }
           }
         }
       }
@@ -775,252 +1038,6 @@
             .el-upload-list__item-name {
               color: #006cff;
             }
-          }
-        }
-      }
-    }
-    .left3 {
-      > div {
-        padding: 0 32px;
-      }
-      .modaltitle {
-        font-size: 14px;
-        font-weight: bold;
-        color: #656565;
-        margin-bottom: 24px;
-      }
-      .dyrow {
-        margin-bottom: 20px;
-        > div:nth-of-type(1) {
-          display: flex;
-          flex-direction: column;
-          > .title {
-            font-size: 14px;
-            color: #656565;
-          }
-          .titTip {
-            font-size: 12px;
-            color: #999999;
-            margin-top: 9px;
-          }
-        }
-      }
-      .item1 {
-        display: flex;
-        .item1_1 + .item1_1 {
-          margin-left: 10px;
-        }
-        .item1_1 {
-          width: 171px;
-          height: 233px;
-          background: #ededed;
-          border-radius: 4px;
-          margin-bottom: 30px;
-          > .title {
-            box-sizing: border-box;
-            padding: 12px 20px;
-            height: 39px;
-            background: #cbcbcb;
-            border-radius: 4px 4px 0px 0px;
-            font-size: 14px;
-            color: #656565;
-          }
-          > div {
-            box-sizing: border-box;
-            padding: 10px 20px;
-            line-height: 18px;
-            font-size: 12px;
-            div {
-              > span:nth-of-type(1) {
-                font-weight: bolder;
-              }
-            }
-          }
-          .addicon {
-            height: 193px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            i {
-              height: 37px;
-              width: 37px;
-              display: block;
-              background: url("../../../assets/img/upload.png") center no-repeat;
-              background-size: 100%;
-              margin-bottom: 15px;
-              cursor: pointer;
-            }
-          }
-          .use {
-            font-size: 14px;
-            font-weight: bold;
-            color: #0f6baa;
-            text-align: center;
-            margin: 10px 0;
-          }
-        }
-      }
-      .table1 {
-        .head {
-          width: 532px;
-          display: flex;
-          justify-content: space-between;
-          > div {
-            font-size: 14px;
-            color: white;
-            background: #3397db;
-            border: 1px solid #d9d9d9;
-            width: 100%;
-            height: 45px;
-            line-height: 45px;
-            text-align: center;
-          }
-          > div:nth-of-type(1) {
-            width: 151px;
-            flex-shrink: 0;
-          }
-          > div:nth-of-type(2) {
-            flex-grow: 1;
-          }
-        }
-        .tbody {
-          width: 532px;
-          display: flex;
-          color: #999999;
-          line-height: 20px;
-          font-size: 10px;
-          margin-bottom: 20px;
-          div:nth-of-type(1) {
-            border: 1px solid #d9d9d9;
-            box-sizing: border-box;
-            padding: 0 20px;
-            width: 153px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-          }
-          div:nth-of-type(2) {
-            padding: 8px;
-            flex-grow: 1;
-            border: 1px solid #d9d9d9;
-            border-left: none;
-            border-top: none;
-          }
-        }
-      }
-      .listbox {
-        width: 532px;
-        height: 255px;
-        background: #eeeeee;
-        border-radius: 4px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-bottom: 20px;
-        .title {
-          padding-left: 33px;
-          margin-bottom: 20px;
-          > span {
-            font-size: 12px;
-            color: #999999;
-          }
-        }
-        .item2 {
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          margin-bottom: 20px;
-          .el-input,
-          .el-input__inner {
-            width: 53px !important;
-            height: 28px !important;
-          }
-          .el-input {
-            margin: 0 8px 0 12px;
-          }
-          span:nth-of-type(1) {
-            width: 140px;
-            flex-shrink: 0;
-            text-align: right;
-            margin-left: 30px;
-          }
-          span:nth-of-type(2) {
-            font-size: 12px;
-            color: #999999;
-            text-align: left;
-          }
-        }
-        .item2:nth-last-child(1) {
-          margin-bottom: 0;
-        }
-      }
-      .item3 {
-        span:nth-of-type(1) {
-          width: 160px !important;
-          flex-shrink: 0;
-          text-align: right;
-        }
-      }
-      .item4 {
-        margin-bottom: 20px;
-        > div:nth-of-type(1) {
-          width: 88px;
-          height: 37px;
-          line-height: 37px;
-          text-align: center;
-          background: #0f6ba9;
-          border-radius: 4px 4px 0px 0px;
-          color: white;
-        }
-        > div:nth-of-type(2) {
-          box-sizing: border-box;
-          width: 530px;
-          height: 169px;
-          padding: 20px;
-          background: #ededed;
-          border-radius: 0px 4px 4px 4px;
-          > div {
-            display: flex;
-            margin-bottom: 20px;
-            > div:nth-of-type(1) {
-              display: flex;
-              flex-direction: column;
-              flex-shrink: 0;
-              > span:nth-of-type(1) {
-                padding-left: 7px;
-              }
-              > span:nth-of-type(2) {
-                font-size: 10px;
-                color: #999999;
-              }
-            }
-          }
-          .checkbox {
-            .el-checkbox {
-              margin-right: 10px;
-            }
-            .el-radio {
-              margin-right: 4px;
-            }
-          }
-        }
-        &.kong {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 530px;
-          height: 169px;
-          background: #ededed;
-          border-radius: 4px;
-
-          i {
-            display: block;
-            width: 37px;
-            height: 37px;
-            background: url("../../../assets/img/upload.png") center no-repeat;
-            background-size: 100%;
-            cursor: pointer;
           }
         }
       }

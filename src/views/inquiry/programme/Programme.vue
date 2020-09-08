@@ -423,7 +423,7 @@
       },
       showReModal(info) {
         this.dataIdx = info.index;
-        this.$store.commit("addTabMut", { title:'报价方案详情', path:'/inquiry/prograDetail',type:'inquiry' });
+        this.$store.commit("addTabMut", { title:'定损询价单详情', path:'/inquiry/prograDetail',type:'inquiry' });
         this.$router.push('/inquiry/prograDetail')
       },
       reModalOK() {
