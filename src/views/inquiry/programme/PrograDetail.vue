@@ -181,10 +181,7 @@
               <el-table-column align="center" prop="value5" label="OE码">
                 <template slot-scope="scope">
                   <div :class="scope.row.red?'red':''">
-                    <span v-if="scope.row.value5">
-                      
-                      {{scope.row.value5}}
-                    </span>
+                    <span v-if="scope.row.value5">{{scope.row.value5}}</span>
                     <a v-else>请填写OE码</a>
                   </div>
                 </template>
@@ -207,6 +204,348 @@
             </el-table>
             <div class="bth">
               <el-button>发布询价</el-button>
+            </div>
+          </div>
+        </div>
+        <div class="left4">
+          <div class="title">
+            <span>新增零部件</span>
+            <div>
+              <img src="../../../assets/img/left.png" alt />
+              <img src="../../../assets/img/cha.png" alt />
+            </div>
+          </div>
+          <div class="left4_1 active">
+            <div class="_left">
+              <span>维修清单</span>
+              <div>
+                <img src alt />
+                <img src alt class="carme" />
+              </div>
+            </div>
+            <div class="_right">
+              <div class="_top">
+                <el-input v-model="input1"></el-input>
+                <el-button>搜索</el-button>
+              </div>
+              <div class="middle">
+                <div class="_left">
+                  <p>已添加配件（3）</p>
+                  <div class="_left1">
+                    <span>左大灯</span>
+                    <i>×</i>
+                  </div>
+                  <div class="_left1">
+                    <span>左前大灯*2</span>
+                    <i>×</i>
+                  </div>
+                </div>
+                <div class="_right">
+                  <p>配件搜索结果</p>
+                  <div class="_right1">
+                    <span>左大灯</span>
+                    <b></b>
+                  </div>
+                  <div class="_right1">
+                    <span>右大灯</span>
+                  </div>
+                  <div class="_right1">
+                    <span>左前大灯</span>
+                    <b></b>
+                  </div>
+                  <div class="_right1">
+                    <span>右前大灯</span>
+                  </div>
+                  <div class="_right1">
+                    <span>大灯</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bottom">
+                <el-button>刷新</el-button>
+                <el-button>确认添加</el-button>
+              </div>
+            </div>
+          </div>
+          <div class="left4_2">
+            <div class="_left">
+              <p>维修清单</p>
+              <div>
+                <img src alt />
+                <img src alt class="carme" />
+              </div>
+            </div>
+            <div class="_right">
+              <div class="_right1">
+                <p>一级类目</p>
+                <div>
+                  <div>
+                    <img src alt />
+                    <span>外观件</span>
+                  </div>
+                  <div>
+                    <img src alt />
+                    <span>外观件</span>
+                  </div>
+                  <div>
+                    <img src alt />
+                    <span>外观件</span>
+                  </div>
+                  <div>
+                    <img src alt />
+                    <span>外观件</span>
+                  </div>
+                  <div>
+                    <img src alt />
+                    <span>外观件</span>
+                  </div>
+                  <div>
+                    <img src alt />
+                    <span>外观件</span>
+                  </div>
+                </div>
+              </div>
+              <div class="_right2">
+                <p>二级类目</p>
+                <div>
+                  <div class="blue">正前</div>
+                  <div>正前</div>
+                  <div>正前</div>
+                  <div>正前</div>
+                  <div>正前</div>
+                  <div>正前</div>
+                  <div>正前</div>
+                </div>
+              </div>
+              <div class="_right3">
+                <p>三级类目</p>
+                <div>
+                  <div>
+                    <span>前保险杠</span>
+                    <b></b>
+                  </div>
+                  <div>
+                    <span>前保险杠</span>
+                    <b></b>
+                  </div>
+                  <div>
+                    <span>前保险杠</span>
+                  </div>
+                  <div>
+                    <span>前保险杠</span>
+                  </div>
+                  <div>
+                    <span>前保险杠</span>
+                  </div>
+                  <div>
+                    <span>前保险杠</span>
+                  </div>
+                  <div>
+                    <span>前保险杠</span>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <span>雨刮连动杆</span>
+                  </div>
+                  <div>
+                    <span>雨刮连动杆</span>
+                  </div>
+                  <div>
+                    <span>雨刮连动杆</span>
+                  </div>
+                  <div>
+                    <span>雨刮连动杆</span>
+                  </div>
+                  <div>
+                    <span>雨刮连动杆</span>
+                  </div>
+                  <div>
+                    <span>雨刮连动杆</span>
+                  </div>
+                  <div>
+                    <span>雨刮连动杆</span>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <span>雨刮连动杆</span>
+                  </div>
+                  <div>
+                    <span>雨刮连动杆</span>
+                  </div>
+                  <div>
+                    <span>雨刮连动杆</span>
+                  </div>
+                </div>
+              </div>
+              <div class="_right3">
+                <p>已添加零部件</p>
+                <div>
+                  <div>
+                    <span>前保险杠</span>
+                  </div>
+                  <div>
+                    <span>前保险杠</span>
+                  </div>
+                  <div>
+                    <span>前保险杠</span>
+                  </div>
+                  <div>
+                    <span>前保险杠</span>
+                  </div>
+                </div>
+              </div>
+              <div class="_right4">
+                <el-button>刷新</el-button>
+                <el-button>确认添加</el-button>
+              </div>
+            </div>
+          </div>
+          <div class="left4_1 left4_3">
+            <div class="_left">
+              <span>维修清单</span>
+              <div>
+                <img src alt />
+                <img src alt class="carme" />
+              </div>
+            </div>
+            <div class="_right">
+              <div class="_top">
+                <el-input v-model="input1"></el-input>
+                <el-button>搜索</el-button>
+              </div>
+              <div class="middle">
+                <div class="_left">
+                  <p>已添加配件（0）</p>
+                </div>
+                <div class="_right">
+                  <img src="../../../assets/img/none.png" alt />
+                  <p>搜索无结果，请更换关键词重新搜索</p>
+                  <p>注：查无此零部件，请联系供应链管理人员新增</p>
+                </div>
+              </div>
+              <div class="bottom">
+                <el-button class="gray">确认添加</el-button>
+              </div>
+            </div>
+          </div>
+          <div class="left4_1 left4_4">
+            <div class="_left">
+              <span>维修清单</span>
+              <div>
+                <img src alt />
+                <img src alt class="carme" />
+              </div>
+            </div>
+            <div class="_right">
+              <div class="_top">
+                <el-input v-model="input1"></el-input>
+                <el-button>搜索</el-button>
+              </div>
+              <div class="middle">
+                <div class="_left">
+                  <p>已添加配件（0）</p>
+                </div>
+                <div class="_right">
+                  <p>配件搜索结果</p>
+                  <div class="_right1">
+                    <span>左大灯</span>
+                  </div>
+                  <div class="_right1">
+                    <span>右大灯</span>
+                  </div>
+                  <div class="_right1">
+                    <span>左前大灯</span>
+                  </div>
+                  <div class="_right1">
+                    <span>右前大灯</span>
+                  </div>
+                  <div class="_right1">
+                    <span>大灯</span>
+                  </div>
+                  <div class="_right1">
+                    <span>左大灯</span>
+                  </div>
+                  <div class="_right1">
+                    <span>右大灯</span>
+                  </div>
+                  <div class="_right1">
+                    <span>左前大灯</span>
+                  </div>
+                  <div class="_right1">
+                    <span>右前大灯</span>
+                  </div>
+                  <div class="_right1">
+                    <span>大灯</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bottom">
+                <el-button class="gray">确认添加</el-button>
+              </div>
+            </div>
+          </div>
+          <div class="left4_2 left4_5">
+            <div class="_left">
+              <p>维修清单</p>
+              <div>
+                <img src alt />
+                <img src alt class="carme" />
+              </div>
+            </div>
+            <div class="_right">
+              <div class="sel-150">
+                <span>品牌：</span>
+                <el-select v-model="select1">
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  ></el-option>
+                </el-select>
+              </div>
+              <div>
+                品牌车型：
+                <span class="gray">大众汽车SVW71810BU</span>
+              </div>
+              <div>
+                <p>根据搜索添加零部件</p>
+                <el-input v-model="input2" placeholder="输入配件名称"></el-input>
+                <el-button>搜索</el-button>
+              </div>
+              <div>
+                <p>根据类型选择添加零配件</p>
+                <div>
+                  <div>
+                    <img src alt />
+                    <span>外观件</span>
+                  </div>
+                  <div>
+                    <img src alt />
+                    <span>外观件</span>
+                  </div>
+                  <div>
+                    <img src alt />
+                    <span>外观件</span>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <img src alt />
+                    <span>外观件</span>
+                  </div>
+                  <div>
+                    <img src alt />
+                    <span>外观件</span>
+                  </div>
+                  <div>
+                    <img src alt />
+                    <span>外观件</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -310,10 +649,7 @@
     </el-dialog>
     <!-- 关闭订单原因 -->
     <el-dialog title="关闭订单" :visible.sync="closedingdan" width="22.656vw">
-      <el-input type="textarea"
-      :rows="4"
-      placeholder="请填写订单关闭原因  （必填）"
-      v-model="textarea"></el-input>
+      <el-input type="textarea" :rows="4" placeholder="请填写订单关闭原因  （必填）" v-model="textarea"></el-input>
       <span slot="footer" class="dialog-footer">
         <el-button @click="closedingdanOK">确 定</el-button>
         <el-button class="cancel" @click="closedingdan=false">取 消</el-button>
@@ -321,10 +657,7 @@
     </el-dialog>
     <!-- 完成协助 -->
     <el-dialog title="完成协助确认" :visible.sync="xiezhu" width="22.656vw">
-      <el-input type="textarea"
-      :rows="4"
-      placeholder="请描述此次协助的过程  （必填）"
-      v-model="textarea1"></el-input>
+      <el-input type="textarea" :rows="4" placeholder="请描述此次协助的过程  （必填）" v-model="textarea1"></el-input>
       <span slot="footer" class="dialog-footer">
         <el-button @click="xiezhuOK">确 定</el-button>
         <el-button class="cancel" @click="xiezhu=false">取 消</el-button>
@@ -345,26 +678,25 @@
     data() {
       return {
         saveModal: false,
-        nopower:false,
-        dingdan:false,
-        closedingdan:false,
-        deleteModal:false,
-        xiezhu:false,
+        nopower: false,
+        dingdan: false,
+        closedingdan: false,
+        deleteModal: false,
+        xiezhu: false,
         shousun: null,
-        textarea:null,
-        textarea1:null,
-        textarea2:null,
-        options: [
-          { label: "全部", value: 1 },
-          { label: "部门一", value: 2 },
-        ],
+        textarea: null,
+        textarea1: null,
+        textarea2: null,
+        input1: null,
+        input2: null,
+        select1: null,
         fileList: [
           {
             name: "太平洋保险（重庆分公司）战略合作合同.pdf",
             url: "https://fuss10.elemecdn.com/3/63/",
           },
         ],
-        isEdit: false,
+        isEdit: true,
         base: {
           value1: "大地保险（重庆分公司）",
           value2: "CQTPY20200721000001",
@@ -396,9 +728,9 @@
           email: null,
           radio: 2,
         },
-        sexs: [
-          { label: "男", value: 1 },
-          { label: "女", value: 2 },
+        options: [
+          { label: "大众", value: 1 },
+          { label: "奥迪", value: 2 },
         ],
         addgj: false,
         genjin: false,
@@ -434,31 +766,31 @@
       };
     },
     methods: {
-      changeIsEdit(){
-        this.isEdit=!this.isEdit
+      changeIsEdit() {
+        this.isEdit = !this.isEdit;
       },
-      saveModalOK(){
-        this.isEdit=false
-        this.saveModal=false
+      saveModalOK() {
+        this.isEdit = false;
+        this.saveModal = false;
       },
-      nopowerOK(){
-        this.nopower=false
+      nopowerOK() {
+        this.nopower = false;
       },
-      dingdanOK(){
-        this.dingdan=false
+      dingdanOK() {
+        this.dingdan = false;
       },
-      closedingdanOK(){
-        this.closedingdan=false
+      closedingdanOK() {
+        this.closedingdan = false;
       },
-      deleteModalOK(){
-        this.deleteModal=false
+      deleteModalOK() {
+        this.deleteModal = false;
       },
-      xiezhuOK(){
-        this.xiezhu=false
+      xiezhuOK() {
+        this.xiezhu = false;
       },
-      changegenjin(){
-        this.genjin=!this.genjin
-        this.textarea2=null
+      changegenjin() {
+        this.genjin = !this.genjin;
+        this.textarea2 = null;
       },
     },
   };
@@ -601,6 +933,7 @@
           }
         }
         .left2 {
+          border-radius: 4px;
           .left2main {
             padding: 20px 30px;
           }
@@ -620,13 +953,6 @@
           .left2_1 {
             display: flex;
             align-items: center;
-            position: relative;
-            padding-bottom: 1.302vw;
-            padding-left: 1.823vw;
-            border-bottom: 0.052vw solid #f2f2f2;
-            margin-bottom: 1.042vw;
-            span {
-              font-weight: 1000;
             > div:nth-of-type(2) {
               margin-left: 180px;
               span:nth-of-type(2) {
@@ -642,7 +968,7 @@
               .imgbox {
                 width: 200px;
                 height: 178px;
-                border: 1px solid #000;
+                border: 1px solid #cbcbcb;
                 border-radius: 4px;
                 margin-right: 20px;
                 margin-top: 15px;
@@ -657,7 +983,7 @@
                   bottom: 0;
                   left: 0;
                   line-height: 40px;
-                  background: #000000;
+                  background: #cbcbcb;
                   opacity: 0.4;
                   color: white;
                   border-radius: 0px 0px 4px 4px;
@@ -677,6 +1003,7 @@
           }
         }
         .left3 {
+          border-radius: 4px;
           .title {
             padding: 20px 30px;
             ::after {
@@ -693,42 +1020,43 @@
           .tablebox {
             padding: 34px 30px;
             position: relative;
-              .gth {
-                display: block;
-                width: 15px;
-                height: 15px;
-                border-radius: 50%;
-                background: url("../../../assets/img/gth.png") center no-repeat;
-                background-size: 100%;
+            .gth {
+              display: block;
+              width: 15px;
+              height: 15px;
+              border-radius: 50%;
+              background: url("../../../assets/img/gth.png") center no-repeat;
+              background-size: 100%;
+              position: absolute;
+              left: 714px;
+              bottom: 107px;
+              z-index: 999;
+            .tip {
+              padding: 1px 3px;
+              line-height: 12px;
+              position: absolute;
+              bottom: 0;
+              width: 310px;
+              font-size: 10px;
+              color: #999999;
+              bottom: -25px;
+              left: 0px;
+              background: #ededed;
+              border-radius: 2px;
+              &::before {
+                content: "";
                 position: absolute;
-                left: 714px;
-                bottom: 107px;
-                z-index: 999;
+                top: -10px;
+                width: 0;
+                height: 0;
+                border-width: 0 5px 10px;
+                border-style: solid;
+                border-color: transparent transparent #ededed;
               }
-              .tip {
-                padding: 1px 3px;
-                line-height: 12px;
-                position: absolute;
-                bottom: 0;
-                width: 310px;
-                font-size: 10px;
-                color: #999999;
-                bottom: -25px;
-                left: 0px;
-                background: #ededed;
-                border-radius: 2px;
-                &::before{
-                  content: '';
-                  position:absolute;
-                  top: -10px;
-                  width: 0;
-                  height: 0;
-                  border-width: 0 5px 10px;
-                  border-style: solid;
-                  border-color: transparent transparent #ededed;
-                }
-              }
-            .el-table .cell,.el-table__body-wrapper {
+            }
+            }
+            .el-table .cell,
+            .el-table__body-wrapper {
               overflow: visible !important;
             }
             a {
@@ -737,10 +1065,431 @@
             .red {
               color: red !important;
             }
-            .bth{
+            .bth {
               margin-top: 20px;
               display: flex;
               justify-content: center;
+            }
+          }
+        }
+        .left4 {
+          border-radius: 4px;
+          .title {
+            padding-top: 20px;
+            ::after {
+              content: "";
+              display: block;
+              width: 0.208vw;
+              height: 1.667vw;
+              background: #3498db;
+              position: absolute;
+              left: -0vw;
+              top: 13px;
+            }
+          }
+          > div {
+            padding-right: 20px;
+            img {
+              margin: 0 5px;
+              cursor: pointer;
+            }
+          }
+          .left4_1 {
+            display: flex;
+            width: 1253px;
+            height: 0;
+            overflow: hidden;
+            &.active {
+              height: 676px;
+            }
+            > ._left {
+              width: 499px;
+              height: 676px;
+              border-right: 1px solid #cbcbcb;
+              span {
+                display: block;
+                width: 499px;
+                margin-top: 34px;
+                margin-bottom: 21px;
+                font-size: 16px;
+                color: #656565;
+                text-align: center;
+              }
+              > div {
+                position: relative;
+                img:nth-of-type(1) {
+                  display: block;
+                  width: 429px;
+                  height: 569px;
+                  border-radius: 4px;
+                  margin: 0 auto;
+                }
+                .carme {
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  border: 1px solid #000;
+                  overflow: hidden;
+                  position: absolute;
+                  right: 50px;
+                  bottom: 20px;
+                }
+              }
+            }
+            > ._right {
+              width: 716px;
+              border-right: 1px solid #cbcbcb;
+              ._top {
+                width: 716px;
+                height: 97px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .el-button {
+                  margin-left: 10px;
+                  height: 28px !important;
+                  line-height: 28px !important;
+                }
+                border-bottom: 1px solid #cbcbcb;
+              }
+            }
+            .middle {
+              height: 485px;
+              display: flex;
+              > ._left {
+                height: 485px;
+                width: 200px;
+                overflow: scroll;
+                box-sizing: border-box;
+                text-align: center;
+                border-right: 1px solid #cbcbcb;
+                > p {
+                  padding: 32px 0 22px 0;
+                }
+                ._left1 {
+                  width: 111px;
+                  height: 1.458vw;
+                  flex-shrink: 0;
+                  line-height: 1.458vw;
+                  background: #ededed;
+                  border-radius: 0.208vw;
+                  text-align: center;
+                  position: relative;
+                  margin-bottom: 0.521vw;
+                  margin-right: 0.313vw;
+                  margin: 10px auto;
+                  i {
+                    position: absolute;
+                    width: 0.781vw;
+                    height: 0.781vw;
+                    text-align: center;
+                    line-height: 0.677vw;
+                    border-radius: 50%;
+                    background: #3498db;
+                    color: white;
+                    transform: scale(0.8);
+                    position: absolute;
+                    right: -0.26vw;
+                    top: -0.26vw;
+                    cursor: pointer;
+                  }
+                  b {
+                    width: 0;
+                    height: 0;
+                    border-top: 1.042vw solid #3498db;
+                    border-left: 1.042vw solid transparent;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                  }
+                }
+              }
+              > ._right {
+                width: 508px;
+                box-sizing: border-box;
+                padding: 32px 195px 32px 40px;
+                p {
+                  margin-bottom: 31px;
+                }
+                ._right1 {
+                  // width: 5.208vw;
+                  float: left;
+                  width: 111px;
+                  height: 1.458vw;
+                  flex-shrink: 0;
+                  line-height: 1.458vw;
+                  background: #ededed;
+                  border-radius: 0.208vw;
+                  text-align: center;
+                  position: relative;
+                  margin-bottom: 0.521vw;
+                  margin-right: 20px;
+                  overflow: hidden;
+                  i {
+                    position: absolute;
+                    width: 0.781vw;
+                    height: 0.781vw;
+                    text-align: center;
+                    line-height: 0.677vw;
+                    border-radius: 50%;
+                    background: #3498db;
+                    color: white;
+                    transform: scale(0.8);
+                    position: absolute;
+                    right: -0.26vw;
+                    top: -0.26vw;
+                    cursor: pointer;
+                  }
+                  b {
+                    width: 0;
+                    height: 0;
+                    border-top: 1.042vw solid #3498db;
+                    border-left: 1.042vw solid transparent;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                  }
+                }
+              }
+            }
+            .bottom {
+              height: 92px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-top: 1px solid #cbcbcb;
+              .el-button:nth-of-type(1) {
+                margin-right: 15px;
+              }
+            }
+          }
+          .left4_2 {
+            display: flex;
+            height: 0;
+            overflow: hidden;
+            &.active {
+              height: 727px;
+            }
+            ._left {
+              box-sizing: border-box;
+              width: 557px;
+              height: 676px;
+              padding: 34px 93px 86px 35px;
+              p {
+                text-align: center;
+              }
+              > div {
+                position: relative;
+                img:nth-of-type(1) {
+                  display: block;
+                  width: 429px;
+                  height: 569px;
+                  border-radius: 4px;
+                  margin: 0 auto;
+                }
+                .carme {
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  border: 1px solid #000;
+                  overflow: hidden;
+                  position: absolute;
+                  right: 50px;
+                  bottom: 20px;
+                }
+              }
+            }
+            > ._right {
+              width: 618px;
+              p {
+                margin: 31px 0;
+                display: block;
+              }
+              ._right1 {
+                display: block !important;
+                > div {
+                  display: flex;
+                  > div + div {
+                    margin-left: 5px;
+                  }
+                  > div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    img {
+                      display: block;
+                      border: 1px solid #000;
+                      width: 99px;
+                      height: 71px;
+                      border-radius: 4px;
+                      margin-bottom: 10px;
+                    }
+                  }
+                }
+              }
+              ._right2 {
+                margin-bottom: 15px;
+                > div {
+                  display: flex;
+                  > div + div {
+                    margin-left: 15px;
+                  }
+                  > div {
+                    width: 70px;
+                    height: 28px;
+                    line-height: 28px;
+                    background: #ededed;
+                    border-radius: 4px;
+                    text-align: center;
+                    &.blue {
+                      background: #3397db;
+                      color: white;
+                    }
+                  }
+                }
+              }
+              ._right3 {
+                border-top: 1px solid #cbcbcb;
+                p {
+                  margin: 20px 0;
+                }
+                > div {
+                  overflow: hidden;
+                  > div + div {
+                    margin-left: 5px;
+                  }
+                  > div {
+                    width: 74px !important;
+                    height: 38px !important;
+                    padding: 5px;
+                    float: left;
+                    display: flex;
+                    line-height: 18px;
+                    justify-content: center;
+                    align-items: center;
+                    width: 111px;
+                    flex-shrink: 0;
+                    background: #ededed;
+                    border-radius: 0.208vw;
+                    text-align: center;
+                    position: relative;
+                    margin-bottom: 0.521vw;
+                    overflow: hidden;
+                    b {
+                      width: 0;
+                      height: 0;
+                      border-top: 1.042vw solid #3498db;
+                      border-left: 1.042vw solid transparent;
+                      position: absolute;
+                      top: 0;
+                      right: 0;
+                    }
+                  }
+                }
+              }
+              ._right4 {
+                margin-top: 12px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .el-button {
+                  width: 100px;
+                  height: 36px;
+                  padding: 0px !important;
+                }
+              }
+            }
+          }
+          .left4_3 {
+            > ._right ._right {
+              padding: 0;
+              img {
+                display: block;
+                margin: 0 auto;
+                margin-top: 94px;
+              }
+              p {
+                color: #999999;
+                text-align: center;
+              }
+              p:nth-of-type(1) {
+                margin-top: 23px;
+              }
+              p:nth-of-type(2) {
+                margin-top: 83px;
+              }
+            }
+            .bottom {
+              .gray {
+                background: #cbcbcb !important;
+                pointer-events: none;
+              }
+            }
+          }
+          .left4_4 {
+            ._right .middle ._right ._right1 {
+              margin-top: 15px;
+            }
+            .bottom {
+              .gray {
+                background: #cbcbcb !important;
+                pointer-events: none;
+              }
+            }
+          }
+          .left4_5 {
+             height: 0;
+              overflow: hidden;
+              &.active {
+                height: 675px;
+              }
+            > ._left {
+              p {
+                margin-bottom: 21px;
+              }
+              > div {
+                img:nth-of-type(2) {
+                  right: 20px;
+                }
+              }
+            }
+            ._right {
+              padding: 29px 76px 0 0;
+              > div .gray {
+                color: #656565;
+              }
+              > div:nth-of-type(2) {
+                margin-top: 20px;
+              }
+              > div:nth-of-type(3) {
+                p{
+                  margin: 40px 0 20px 0;
+                }
+                .el-button {
+                  height: 30px !important;
+                  line-height: 30px !important;
+                  margin-left: 15px;
+                }
+              }
+              > div:nth-of-type(4) {
+                > div {
+                  display: flex;
+                  margin-bottom: 20px;
+                  div{
+                    display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  img {
+                    display: block;
+                    width: 190px;
+                    height: 140px;
+                    border-radius: 4px;
+                    border: 1px solid #000;
+                    margin-bottom: 10px;
+                  }
+                  }
+                }
+              }
             }
           }
         }
@@ -791,7 +1540,7 @@
               border-radius: 50%;
               margin-right: 1.406vw;
               display: block;
-              border: 0.052vw solid #000;
+              border: 0.052vw solid #cbcbcb;
               overflow: hidden;
             }
             div {
@@ -906,29 +1655,26 @@
             display: inline-block;
             transform: scale(0.7);
             float: right;
-            position: absolute;
-            bottom: 0.521vw;
-            right: 0vw;
           }
         }
-        .right4{
+        .right4 {
           border-radius: 4px;
-          >div:nth-of-type(2){
+          > div:nth-of-type(2) {
             padding: 20px 30px;
           }
-          .el-button{
+          .el-button {
             padding: 0 17px !important;
             margin-right: 7px !important;
-            &.gray{
+            &.gray {
               background: #cccccc !important;
-              color:white !important;
+              color: white !important;
               cursor: not-allowed;
               outline: none !important;
               border: transparent !important;
               pointer-events: none;
             }
           }
-          .el-button:nth-of-type(3){
+          .el-button:nth-of-type(3) {
             margin-left: 0 !important;
             margin-top: 10px !important;
             margin-bottom: 15px !important;
@@ -1053,5 +1799,4 @@
       }
     }
   }
-}
 </style>

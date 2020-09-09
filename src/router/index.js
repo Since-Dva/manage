@@ -14,6 +14,7 @@ import SystemNotice from '../views/contentM/SystemNotice'
 import List from '../views/inquiry/List'
 import Programme from '../views/inquiry/programme/Programme'
 import PrograDetail from '../views/inquiry/programme/PrograDetail'
+import PrograDetailAuto from '../views/inquiry/programme/PrograDetailAuto'
 import Workbench from '../views/inquiry/workbench/Workbench'
 import InsuranceDetail from '../views/insurance/InsuranceDetail'
 import InsuranceList from '../views/insurance/InsuranceList'
@@ -106,6 +107,15 @@ const routes = [{
       Head,
       Aside,
       default: PrograDetail
+    }
+  },
+  {
+    path: '/inquiry/prograDetailAuto',
+    name: '报价方案详情',
+    components: {
+      Head,
+      Aside,
+      default: PrograDetailAuto
     }
   },
   {
