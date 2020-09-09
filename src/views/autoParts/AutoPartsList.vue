@@ -713,11 +713,11 @@
           overflow: hidden;
         }
         .el-button {
-          width: 70px;
-          height: 28px !important;
-          line-height: 28px !important;
-          padding: 0 8px !important;
-          font-size: 12px;
+          width: 3.646vw;
+          height: 1.458vw !important;
+          line-height: 1.458vw !important;
+          padding: 0 0.417vw !important;
+          font-size: 0.625vw;
         }
       }
       .list1 {
@@ -734,7 +734,7 @@
           flex-wrap: wrap;
           > div {
             // width: 5.208vw;
-            padding: 0 29px;
+            padding: 0 1.51vw;
             height: 1.458vw;
             flex-shrink: 0;
             line-height: 1.458vw;

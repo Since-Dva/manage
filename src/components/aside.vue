@@ -6,13 +6,13 @@
       @open="handleOpen"
       @close="handleClose"
       @select="handleSelect"
-      :unique-opened="true"
+      :unique-opened="false"
       router
     >
       <div v-for="(item1,idx1) in menues" :key="idx1">
         <el-menu-item v-if="!item1.children" :index="item1.path">
           <i class="titleicon">
-            <img :src="require(`../assets/img/${item1.icon}.png`)" alt />
+            <img :src="require(`../assets/img/${atc==='/'?item1.iconatc:item1.icon}.png`)" alt />
           </i>
           <span slot="title">{{item1.title}}</span>
         </el-menu-item>
@@ -46,6 +46,7 @@
     data() {
       return {
         menues,
+        atc:'/',
       };
     },
     methods: {
@@ -54,6 +55,7 @@
       },
       handleClose() {},
       handleSelect(e) {
+        this.atc=e
         let arr = e.split("/");
         let title;
         this.$router.options.routes.map((item) => {
@@ -80,13 +82,14 @@
 <style scoped lang="scss">
   .el-aside {
     width: 11.719vw !important;
-    height: 50vw;
+    height: 44.531vw;
     background: #ffffff;
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-width: none;
     box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
     margin-top: -1.042vw;
+    padding-top: 1.042vw;
     .el-menu {
       width: 11.719vw;
       .titleicon {

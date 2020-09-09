@@ -66,7 +66,7 @@
         height: 4.167vw;
         display: flex;
         align-items: center;
-        padding-right: 14px;
+        padding-right: 0.729vw;
           cursor: pointer;
         img {
           display: block;

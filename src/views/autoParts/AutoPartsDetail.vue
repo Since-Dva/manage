@@ -678,6 +678,7 @@
         .left3 {
           box-sizing: border-box;
           padding: 0.99vw 1.823vw 0.99vw 0;
+          border-radius: 0.208vw;
           .title {
             height: 1.042vw;
             display: flex;

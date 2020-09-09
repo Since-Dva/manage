@@ -360,11 +360,11 @@ export default {
   }
   .tip {
       text-align: center;
-      width: 189px;
-      height: 42px;
-      line-height: 42px;
+      width: 9.844vw;
+      height: 2.188vw;
+      line-height: 2.188vw;
       background: #cbcbcb;
-      border-radius: 4px;
+      border-radius: 0.208vw;
       position: fixed;
       left: 50%;
       top: 50%;

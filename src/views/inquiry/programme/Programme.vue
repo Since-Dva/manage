@@ -514,57 +514,57 @@
     }
     .addmodal {
       .el-dialog__body{
-        height: 500px;
+        height: 26.042vw;
         overflow: scroll;
         scrollbar-width: none;
       }
       .modaltitle {
-        font-size: 14px;
+        font-size: 0.729vw;
         font-weight: bold;
         color: #656565;
-        margin-bottom: 24px;
+        margin-bottom: 1.25vw;
       }
       .dyrow {
-        margin-bottom: 20px;
+        margin-bottom: 1.042vw;
         > div:nth-of-type(1) {
           display: flex;
           flex-direction: column;
           > .title {
-            font-size: 14px;
+            font-size: 0.729vw;
             color: #656565;
           }
           .titTip {
-            font-size: 12px;
+            font-size: 0.625vw;
             color: #999999;
-            margin-top: 9px;
+            margin-top: 0.469vw;
           }
         }
       }
       .item1 {
         display: flex;
         .item1_1 + .item1_1 {
-          margin-left: 10px;
+          margin-left: 0.521vw;
         }
         .item1_1 {
-          width: 171px;
-          height: 233px;
+          width: 8.906vw;
+          height: 12.135vw;
           background: #ededed;
-          border-radius: 4px;
-          margin-bottom: 20px;
+          border-radius: 0.208vw;
+          margin-bottom: 1.042vw;
           > .title {
             box-sizing: border-box;
-            padding: 12px 20px;
-            height: 39px;
+            padding: 0.625vw 1.042vw;
+            height: 2.031vw;
             background: #cbcbcb;
-            border-radius: 4px 4px 0px 0px;
-            font-size: 14px;
+            border-radius: 0.208vw 0.208vw 0vw 0vw;
+            font-size: 0.729vw;
             color: #656565;
           }
           > div {
             box-sizing: border-box;
-            padding: 10px 20px;
-            line-height: 18px;
-            font-size: 12px;
+            padding: 0.521vw 1.042vw;
+            line-height: 0.938vw;
+            font-size: 0.625vw;
             div {
               > span:nth-of-type(1) {
                 font-weight: bolder;
@@ -572,18 +572,18 @@
             }
           }
           .addicon {
-            height: 193px;
+            height: 10.052vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             i {
-              height: 37px;
-              width: 37px;
+              height: 1.927vw;
+              width: 1.927vw;
               display: block;
               background: url("../../../assets/img/upload.png") center no-repeat;
               background-size: 100%;
-              margin-bottom: 15px;
+              margin-bottom: 0.781vw;
               cursor: pointer;
             }
           }
@@ -591,21 +591,21 @@
       }
       .table1 {
         .head {
-          width: 532px;
+          width: 27.708vw;
           display: flex;
           justify-content: space-between;
           > div {
-            font-size: 14px;
+            font-size: 0.729vw;
             color: white;
             background: #3397db;
-            border: 1px solid #d9d9d9;
+            border: 0.052vw solid #d9d9d9;
             width: 100%;
-            height: 45px;
-            line-height: 45px;
+            height: 2.344vw;
+            line-height: 2.344vw;
             text-align: center;
           }
           > div:nth-of-type(1) {
-            width: 151px;
+            width: 7.865vw;
             flex-shrink: 0;
           }
           > div:nth-of-type(2) {
@@ -613,25 +613,25 @@
           }
         }
         .tbody {
-          width: 532px;
+          width: 27.708vw;
           display: flex;
           color: #999999;
-          line-height: 20px;
-          font-size: 10px;
-          margin-bottom: 20px;
+          line-height: 1.042vw;
+          font-size: 0.521vw;
+          margin-bottom: 1.042vw;
           div:nth-of-type(1) {
-            border: 1px solid #d9d9d9;
+            border: 0.052vw solid #d9d9d9;
             box-sizing: border-box;
-            padding: 0 20px;
-            width: 153px;
+            padding: 0 1.042vw;
+            width: 7.969vw;
             flex-shrink: 0;
             display: flex;
             align-items: center;
           }
           div:nth-of-type(2) {
-            padding: 8px;
+            padding: 0.417vw;
             flex-grow: 1;
-            border: 1px solid #d9d9d9;
+            border: 0.052vw solid #d9d9d9;
             border-left: none;
             border-top: none;
           }
@@ -641,75 +641,75 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 1.042vw;
         .el-input,
         .el-input__inner {
-          width: 53px !important;
-          height: 28px !important;
+          width: 2.76vw !important;
+          height: 1.458vw !important;
         }
         .el-input {
-          margin: 0 8px 0 12px;
+          margin: 0 0.417vw 0 0.625vw;
         }
         span:nth-of-type(1) {
-          width: 115px;
+          width: 5.99vw;
           flex-shrink: 0;
           text-align: right;
-          margin-left: 95px;
+          margin-left: 4.948vw;
         }
         span:nth-of-type(2) {
-          font-size: 12px;
+          font-size: 0.625vw;
           color: #999999;
           text-align: left;
         }
       }
       .item3 {
         span:nth-of-type(1) {
-          width: 140px;
+          width: 7.292vw;
           flex-shrink: 0;
           text-align: right;
-          margin-left: 95px;
+          margin-left: 4.948vw;
         }
       }
       .item4 {
-        margin-bottom: 20px;
+        margin-bottom: 1.042vw;
         > div:nth-of-type(1) {
-          width: 88px;
-          height: 37px;
-          line-height: 37px;
+          width: 4.583vw;
+          height: 1.927vw;
+          line-height: 1.927vw;
           text-align: center;
           background: #0f6ba9;
-          border-radius: 4px 4px 0px 0px;
+          border-radius: 0.208vw 0.208vw 0vw 0vw;
           color: white;
         }
         > div:nth-of-type(2) {
           box-sizing: border-box;
-          width: 530px;
-          height: 169px;
-          padding: 20px;
+          width: 27.604vw;
+          height: 8.802vw;
+          padding: 1.042vw;
           background: #ededed;
-          border-radius: 0px 4px 4px 4px;
+          border-radius: 0vw 0.208vw 0.208vw 0.208vw;
           > div {
             display: flex;
-            margin-bottom: 20px;
+            margin-bottom: 1.042vw;
             > div:nth-of-type(1) {
               display: flex;
               flex-direction: column;
               flex-shrink: 0;
               > span:nth-of-type(1) {
-                padding-left: 7px;
+                padding-left: 0.365vw;
               }
               > span:nth-of-type(2) {
-                font-size: 10px;
+                font-size: 0.521vw;
                 color: #999999;
               }
             }
           }
           .checkbox {
             .el-checkbox {
-              margin-right: 10px;
+              margin-right: 0.521vw;
             }
             .el-radio {
-              margin-right: 6px;
+              margin-right: 0.313vw;
             }
           }
         }
@@ -717,15 +717,15 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 530px;
-          height: 169px;
+          width: 27.604vw;
+          height: 8.802vw;
           background: #ededed;
-          border-radius: 4px;
+          border-radius: 0.208vw;
 
           i {
             display: block;
-            width: 37px;
-            height: 37px;
+            width: 1.927vw;
+            height: 1.927vw;
             background: url("../../../assets/img/upload.png") center no-repeat;
             background-size: 100%;
             cursor: pointer;
@@ -735,12 +735,12 @@
       .line {
         display: block;
         width: 100%;
-        height: 1px;
+        height: 0.052vw;
         background: #e5e5e5;
-        margin-bottom: 20px;
+        margin-bottom: 1.042vw;
       }
       .el-dialog__body {
-        padding: 25px !important;
+        padding: 1.302vw !important;
       }
     }
     .powerTitle {

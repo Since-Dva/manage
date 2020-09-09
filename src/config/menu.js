@@ -1,5 +1,5 @@
 export default [
-    {icon:'home',title:'首页',path:'/'},
+    {icon:'home',iconatc:'homeatc',title:'首页',path:'/'},
     {icon:'ds',title:'定损询价管理',
         children:[
             {title:'询价工作台',path:'/inquiry/workbench'},
@@ -28,7 +28,7 @@ export default [
             {title:'广告位管理',path:'/contentM/advert'}
         ]
     },
-    {icon:'nr',title:'供应链管理',
+    {icon:'gyl',title:'供应链管理',
         children:[
             {title:'零部件列表',path:'/supply/supplyList'},
             {title:'零部件分类管理',path:'/supply/manage'}

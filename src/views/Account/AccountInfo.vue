@@ -187,8 +187,8 @@ export default {
         height: 1.563vw;
         color: #666666;
         .el-input__suffix,.el-input__suffix-inner {
-             width: 28px;
-              height: 28px;
+             width: 1.458vw;
+              height: 1.458vw;
               transform: translateX(0.04vw);
         }
         option {

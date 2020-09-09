@@ -51,7 +51,7 @@
     <el-dialog
       custom-class="addmodal"
       :title="modaltitle+'广告'"
-      width="550px"
+      width="28.646vw"
       :visible.sync="addModal"
     >
       <div class="dyrow">
@@ -264,8 +264,8 @@
         .tip {
           position: absolute;
           bottom: 0;
-          right: 40px;
-          font-size: 12px;
+          right: 2.083vw;
+          font-size: 0.625vw;
           color: #999999;
         }
         > div {

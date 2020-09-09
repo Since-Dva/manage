@@ -279,7 +279,7 @@
       .row {
         >div{
           .el-input,.el-input__inner{
-            width: 110px !important;
+            width: 5.729vw !important;
           }
         }
         div + div {
