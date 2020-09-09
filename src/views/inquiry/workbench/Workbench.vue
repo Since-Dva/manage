@@ -4,7 +4,10 @@
       <h2>我的工作台</h2>
       <div>
         <span>订单分配：</span>
-        <el-switch v-model="switch1" active-color="#3498db" inactive-color="#cccccc"></el-switch>
+        <div class="_switch">
+          <el-switch v-model="switch1" @change="changeSwitch" active-color="#3498db" inactive-color="#cccccc"></el-switch>
+          <span :class="switch1?'':'active'">{{switch1?'上线':'下线'}}</span>
+        </div>
       </div>
     </div>
     <div class="container">
@@ -131,12 +134,114 @@
       <div class="right">
         <div class="right1">
           <div class="title">工作进度</div>
+          <div>
+            <div class="subTit">
+              今日汇总
+            </div>
+            <div>
+              <div>
+                <span>39</span>
+                <span>今日受理</span>
+              </div>
+              <div>
+                <span>39</span>
+                <span>今日发布</span>
+              </div>
+              <div>
+                <span>39</span>
+                <span>今日定损</span>
+              </div>
+              <div>
+                <span>39</span>
+                <span>今日协助</span>
+              </div>
+              <div>
+                <span>39</span>
+                <span>今日关闭</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="subTit">
+              当月汇总
+            </div>
+            <div>
+              <div>
+                <span>39</span>
+                <span>当月受理</span>
+              </div>
+              <div>
+                <span>39</span>
+                <span>当月发布</span>
+              </div>
+              <div>
+                <span>39</span>
+                <span>当月定损</span>
+              </div>
+              <div>
+                <span>39</span>
+                <span>当月协助</span>
+              </div>
+              <div>
+                <span>39</span>
+                <span>当月关闭</span>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="right2">
           <div class="title">当月业绩排名</div>
+          <div>
+            <div>
+              <span>第一名</span>
+              <img src="" alt="">
+              <span>李华</span>
+            </div>
+            <span></span>
+          </div>
+          <div>
+            <div>
+              <span>第二名</span>
+              <img src="" alt="">
+              <span>李华</span>
+            </div>
+            <span></span>
+          </div>
+          <div>
+            <div>
+              <span>第三名</span>
+              <img src="" alt="">
+              <span>李华</span>
+            </div>
+            <span></span>
+          </div>
+          <div>
+            <div>
+              <span>第四名</span>
+              <img src="" alt="">
+              <span>李华</span>
+            </div>
+            <span></span>
+          </div>
+          <div>
+            <div>
+              <span>第五名</span>
+              <img src="" alt="">
+              <span>李华</span>
+            </div>
+            <span></span>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- 下线提示 -->
+    <el-dialog title="上下线提示" :visible.sync="online" width="22.656vw">
+      <span>当前最少上班人数为1人，系统不允许下线操作</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="confim">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -158,6 +263,7 @@
         value6:null,
         value7:null,
         value8:null,
+        online:false,
         tableCol: [
           { prop: "id", label: "定损单号" },
           { prop: "jigou", label: "保险机构" },
@@ -216,6 +322,14 @@
       changeitem(idx){
         this.itemidx=idx
       },
+      changeSwitch(e){
+        this.switch1=e
+        this.online=true
+      },
+      confim(){
+        this.online=false
+        this.switch1=true
+      },
       sizeChange(){
 
       },
@@ -231,42 +345,61 @@
     .top {
       display: flex;
       align-items: center;
-      margin-bottom: 0.677vw;
+      margin-bottom: 13px;
+      justify-content: space-between;
       h2 {
         font-size: 1.042vw;
         color: #333333;
         font-weight: bolder;
         
       }
-      display: flex;
-      justify-content: space-between;
       > div {
-        span {
-          font-size: 0.833vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        >span {
+          font-size: 16px;
           font-weight: bold;
           color: #333333;
         }
-        .el-switch {
-          width: 5.208vw;
-          height: 1.667vw;
-          background: #cbcbcb;
-          border-radius: 0.781vw;
-          .el-switch__core {
-            display: flex;
-            width: 4.01vw !important;
-            height: 1.458vw;
-            background: #ffffff;
-            border-radius: 0.729vw;
-            &::after {
-              width: 2.031vw;
-              height: 1.458vw;
+        ._switch{
+          position: relative;
+          .el-switch {
+            width: 100px;
+            height: 32px;
+            background: #cbcbcb;
+            border-radius: 15px;
+            .el-switch__core {
+              display: flex;
+              width: 77px !important;
+              height: 28px;
               background: #ffffff;
-              border-radius: 0.729vw;
-              top: -0.052vw;
+              border-radius: 14px;
+              &::after {
+                width: 39px;
+                height: 28px;
+                background: #ffffff;
+                border-radius: 14px;
+                top: -1px;
+              }
+            }
+            &.is-checked {
+              background: #3498db;
             }
           }
-          &.is-checked {
-            background: #3498db;
+          >span{
+            position: absolute;
+            left: 12px;
+            color: white;
+            line-height: 32px;
+            font-size: 14px;  
+            z-index: 0;
+            user-select: none;
+            pointer-events: none;
+            &.active{
+              left: 50px;
+              color: #333333;
+            }
           }
         }
       }
@@ -300,10 +433,12 @@
         }
         .fresh {
           display: block;
-          width: 1.667vw;
-          height: 1.667vw;
-          border: 0.052vw solid #000;
+          width: 32px;
+          height: 32px;
           align-self: flex-end;
+          background: url('../../../assets/img/shuaxin.png') center no-repeat;
+          background-size: 95%;
+          cursor: pointer;
         }
       }
       .left {
@@ -442,19 +577,134 @@
       }
       .right {
         .right1 {
-          width: 19.115vw;
-          height: 21.354vw;
+          width: 367px;
+          height: 420px;
           background: #ffffff;
-          box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
-          border-radius: 0.208vw;
-          margin-bottom: 0.781vw;
+          box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
+          border-radius: 4px;
+          margin-bottom: 15px;
+          >div{
+            .subTit{
+              font-size: 16px;
+              color: #666666;
+              line-height: 32px;
+              padding-left: 24px;
+              border-bottom: 1px solid #e7e7e7;
+            }
+            >div:nth-of-type(2){
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: flex-start;
+              padding-top: 10px;
+              >div{
+                width: 87px;
+                height: 56px;
+                margin: 6px 16px;
+                border-radius: 4px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                color: white;
+                span:nth-of-type(1){
+                  line-height: 18px;
+                  font-size: 18px;
+                  font-weight: bolder;
+                }
+                span:nth-of-type(2){
+                  line-height: 20px;
+                  font-size: 12px;
+                }
+              }
+              >div:nth-of-type(1){
+                background: url('../../../assets/img/pic_1.png') center no-repeat;
+                background-size: 100%;
+              }
+              >div:nth-of-type(2){
+                background: url('../../../assets/img/pic_2.png') center no-repeat;
+                background-size: 100%;
+              }
+              >div:nth-of-type(3){
+                background: url('../../../assets/img/pic_3.png') center no-repeat;
+                background-size: 100%;
+              }
+              >div:nth-of-type(4){
+                background: url('../../../assets/img/pic_4.png') center no-repeat;
+                background-size: 100%;
+              }
+              >div:nth-of-type(5){
+                background: url('../../../assets/img/pic_5.png') center no-repeat;
+                background-size: 100%;
+              }
+            }
+          }
         }
         .right2 {
-          width: 19.115vw;
-          height: 17.969vw;
+          width: 367px;
+          height: 335px;
           background: #ffffff;
-          box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
-          border-radius: 0.208vw;
+          box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
+          border-radius: 4px;
+          >div:nth-of-type(2),div:nth-of-type(3),div:nth-of-type(4),div:nth-of-type(5),div:nth-of-type(6){
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px 0 30px;
+            margin-top: 12px;
+            >div{
+              display: flex;
+              align-items: center;
+              img{
+              width: 40px;
+              height: 40px;
+              margin-right: 15px;
+              border-radius: 50%;
+              overflow: hidden;
+              border: 1px solid #000;
+              }
+              span{
+                font-size: 16px;
+                color: #666666;
+                margin-right: 15px;
+              }
+            }
+            >span{
+              display: block;
+              width: 40px;
+              height: 40px;
+              
+            }
+          }
+          >div:nth-of-type(2){
+            >span{
+              background: url('../../../assets/img/p1.png') center no-repeat;
+              background-size: 95%;
+            }
+          }
+          >div:nth-of-type(3){
+            >span{
+              background: url('../../../assets/img/p2.png') center no-repeat;
+              background-size: 95%;
+            }
+          }
+          >div:nth-of-type(4){
+            >span{
+              background: url('../../../assets/img/p3.png') center no-repeat;
+              background-size: 95%;
+            }
+          }
+          >div:nth-of-type(5){
+            >span{
+              background: url('../../../assets/img/p4.png') center no-repeat;
+              background-size: 95%;
+            }
+          }
+          >div:nth-of-type(6){
+            >span{
+              background: url('../../../assets/img/p4.png') center no-repeat;
+              background-size: 95%;
+            }
+          }
         }
       }
     }

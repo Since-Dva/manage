@@ -705,6 +705,9 @@
             position: relative;
             margin-bottom: 1.302vw;
             padding-left: 1.823vw;
+            >span:nth-of-type(1){
+              font-weight: bolder;
+            }
             ::after {
               content: "";
               display: block;
