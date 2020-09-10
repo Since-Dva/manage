@@ -218,6 +218,507 @@
                 <div>90</div>
               </div>
             </div>
+            <div class="_tr">
+              <div>1</div>
+              <div>
+                <span>左大灯：X3</span>
+                <span>OE码：3729525249</span>
+                <span>4S价：¥ 710</span>
+              </div>
+              <div>3年</div>
+              <div>否</div>
+              <div>
+                <div>
+                  <el-radio v-model="radio1" label="原厂件" />
+                </div>
+                <div>
+                  <el-radio v-model="radio1" label="配套件" />
+                </div>
+                <div>
+                  <el-radio v-model="radio1" label="认证件" />
+                </div>
+                <div>
+                  <el-radio class="tuijian" v-model="radio1" label="品牌件" />
+                </div>
+              </div>
+              <div>
+                <div>中南汽配商</div>
+                <div>中南汽配商</div>
+                <div class="blue">中南汽配商</div>
+                <div>中南汽配商</div>
+              </div>
+              <div>
+                <div>580</div>
+                <div>580</div>
+                <div class="blue">580</div>
+                <div>
+                  580
+                  <span class="gth">
+                    <span class="tip">当前报价已高于参考价格恒定区间值</span>
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div>670</div>
+                <div>670</div>
+                <div class="blue">670</div>
+                <div>670</div>
+              </div>
+              <div>
+                <div>90</div>
+                <div>90</div>
+                <div class="blue">90</div>
+                <div>90</div>
+              </div>
+            </div>
+            <div class="_tr">
+              <div>1</div>
+              <div>
+                <span>左大灯：X3</span>
+                <span>OE码：3729525249</span>
+                <span>4S价：¥ 710</span>
+              </div>
+              <div>3年</div>
+              <div>否</div>
+              <div>
+                <div>
+                  <el-radio v-model="radio1" label="原厂件" />
+                </div>
+                <div>
+                  <el-radio v-model="radio1" label="配套件" />
+                </div>
+                <div>
+                  <el-radio v-model="radio1" label="认证件" />
+                </div>
+                <div>
+                  <el-radio class="tuijian" v-model="radio1" label="品牌件" />
+                </div>
+              </div>
+              <div>
+                <div>中南汽配商</div>
+                <div>中南汽配商</div>
+                <div class="blue">中南汽配商</div>
+                <div>中南汽配商</div>
+              </div>
+              <div>
+                <div>580</div>
+                <div>580</div>
+                <div class="blue">580</div>
+                <div>
+                  580
+                  <span class="gth">
+                    <span class="tip">当前报价已高于参考价格恒定区间值</span>
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div>670</div>
+                <div>670</div>
+                <div class="blue">670</div>
+                <div>670</div>
+              </div>
+              <div>
+                <div>90</div>
+                <div>90</div>
+                <div class="blue">90</div>
+                <div>90</div>
+              </div>
+            </div>
+          </div>
+          <div class="left3">
+            <div class="left3_1">
+              <p>保险机构方案</p>
+              <p>（推荐）</p>
+            </div>
+            <div class="left3_2">
+              <div>零部件总数</div>
+              <div>
+                <p>10个</p>
+              </div>
+            </div>
+            <div class="left3_3">
+              <div>当前选用品质</div>
+              <div>
+                <p>原厂件</p>
+                <p>配套件</p>
+                <p>品牌件</p>
+              </div>
+            </div>
+            <div class="left3_4">
+              <div>当前选用汽配商</div>
+              <div>
+                <p>1、中南汽配商 【¥1289】</p>
+                <p>（左前大灯、右前大灯、刹车片）</p>
+                <p>2、羽田汽配商【¥218】</p>
+                <p>（车盖、前雨刮器、后雨刮器）</p>
+                <p>2、羽田汽配商【¥218】</p>
+                <p>（车盖、前雨刮器、后雨刮器）</p>
+                <p>3、大众官方汽配【¥879】</p>
+                <p>（前保险杠、后保险杠、左后视镜、右后视镜）</p>
+                <p>4、蓝天汽配【¥29】</p>
+                <p>（空气格滤芯）</p>
+              </div>
+            </div>
+            <div class="left3_5">
+              <div>总计</div>
+              <div>
+                <p>定损总价：¥ 5280</p>
+                <p>采购总价：¥ 4280</p>
+                <p>利润：¥ 600</p>
+              </div>
+            </div>
+          </div>
+          <div class="left3">
+            <div class="left3_1">
+              <p>保险机构方案</p>
+              <p>（推荐）</p>
+            </div>
+            <div class="left3_2">
+              <div>零部件总数</div>
+              <div>
+                <p>10个</p>
+              </div>
+            </div>
+            <div class="left3_3">
+              <div>当前选用品质</div>
+              <div>
+                <p>原厂件</p>
+                <p>配套件</p>
+                <p>品牌件</p>
+              </div>
+            </div>
+            <div class="left3_4">
+              <div>当前选用汽配商</div>
+              <div>
+                <p class="center">/</p>
+              </div>
+            </div>
+            <div class="left3_5">
+              <div>总计</div>
+              <div>
+                <p>定损总价：¥ 5280</p>
+                <p>采购总价：¥ 4280</p>
+                <p>利润：¥ 600</p>
+              </div>
+            </div>
+          </div>
+          <div class="left3">
+            <div class="left3_1">
+              <p>保险机构方案</p>
+              <p>（推荐）</p>
+            </div>
+            <div class="left3_2">
+              <div>零部件总数</div>
+              <div>
+                <p>10个</p>
+              </div>
+            </div>
+            <div class="left3_3">
+              <div>当前选用品质</div>
+              <div>
+                <p>原厂件</p>
+                <p>配套件</p>
+                <p>品牌件</p>
+              </div>
+            </div>
+            <div class="left3_4">
+              <div>当前选用汽配商</div>
+              <div>
+                <p>1、中南汽配商 【¥1289】</p>
+                <p>（左前大灯、右前大灯、刹车片）</p>
+                <p>2、羽田汽配商【¥218】</p>
+                <p>（车盖、前雨刮器、后雨刮器）</p>
+                <p>2、羽田汽配商【¥218】</p>
+                <p>（车盖、前雨刮器、后雨刮器）</p>
+                <p>3、大众官方汽配【¥879】</p>
+                <p>（前保险杠、后保险杠、左后视镜、右后视镜）</p>
+                <p>4、蓝天汽配【¥29】</p>
+                <p>（空气格滤芯）</p>
+              </div>
+            </div>
+            <div class="left3_5">
+              <div>总计</div>
+              <div>
+                <p>定损总价：¥ 5280</p>
+                <p>采购总价：¥ 4280</p>
+                <p>利润：¥ 600</p>
+              </div>
+            </div>
+          </div>
+          <div class="btns">
+            <el-button>联系汽配商</el-button>
+            <el-button class="gray">生成报价</el-button>
+          </div>
+        </div>
+        <div class="left4">
+          <span>
+            查看详情
+            <i></i>
+          </span>
+        </div>
+        <div class="left5">
+          <div class="title">
+            <span>订单状态</span>
+            <el-button>收起</el-button>
+          </div>
+          <div :class="['item', showItem.length?'active':'']">
+            <div class="line">
+              <img src alt />
+              <i></i>
+              <div></div>
+            </div>
+            <div class="_title">
+              <span>已完成报价</span>
+              <span>2020/8/4 12:08:35</span>
+            </div>
+            <div class="imgbox">
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>
+                    <span>已参与报价：42</span>
+                    <span>联系电话：17688888286</span>
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+              <span>2020/8/4 12:08:35</span>
+            </div>
+            <h3>TA的报价方案：</h3>
+            <div class="tablebox">
+              <div class="_thead">
+                <div>报价单</div>
+                <div>
+                  <div>询价需求</div>
+                  <div>报价</div>
+                </div>
+              </div>
+              <el-table :data="tableData" :span-method="arraySpanMethod" border style="width: 100%">
+                <el-table-column prop="value1" align="center" label="排序"></el-table-column>
+                <el-table-column prop="value2" align="center" label="零部件名称"></el-table-column>
+                <el-table-column prop="value3" align="center" label="OE码"></el-table-column>
+                <el-table-column prop="value4" align="center" label="车型" width="180%"></el-table-column>
+                <el-table-column prop="value5" align="center" label="数量"></el-table-column>
+                <el-table-column prop="value6" align="center" label="原厂件"></el-table-column>
+                <el-table-column prop="value7" align="center" label="配套件"></el-table-column>
+                <el-table-column prop="value8" align="center" label="认证件"></el-table-column>
+                <el-table-column prop="value9" align="center" label="品牌件"></el-table-column>
+              </el-table>
+            </div>
+          </div>
+          <div :class="['item', showItem.length?'active':'']">
+            <div class="imgbox">
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>
+                    <span>已参与报价：42</span>
+                    <span>联系电话：17688888286</span>
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+              <span>2020/8/4 12:08:35</span>
+            </div>
+            <h3>TA的报价方案：</h3>
+            <div class="tablebox">
+              <div class="_thead">
+                <div>报价单</div>
+                <div>
+                  <div>询价需求</div>
+                  <div>报价</div>
+                </div>
+              </div>
+              <el-table :data="tableData" :span-method="arraySpanMethod" border style="width: 100%">
+                <el-table-column prop="value1" align="center" label="排序"></el-table-column>
+                <el-table-column prop="value2" align="center" label="零部件名称"></el-table-column>
+                <el-table-column prop="value3" align="center" label="OE码"></el-table-column>
+                <el-table-column prop="value4" align="center" label="车型" width="180%"></el-table-column>
+                <el-table-column prop="value5" align="center" label="数量"></el-table-column>
+                <el-table-column prop="value6" align="center" label="原厂件"></el-table-column>
+                <el-table-column prop="value7" align="center" label="配套件"></el-table-column>
+                <el-table-column prop="value8" align="center" label="认证件"></el-table-column>
+                <el-table-column prop="value9" align="center" label="品牌件"></el-table-column>
+              </el-table>
+            </div>
+          </div>
+          <div :class="['item', showItem.length>1?'active':'']">
+            <div class="line">
+              <div class="noShow"></div>
+              <i></i>
+              <div></div>
+            </div>
+            <div class="_title">
+              <span>报价已超时</span>
+              <span>2020/8/4 12:08:35</span>
+            </div>
+            <div class="imgbox">
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>
+                    <span>已参与报价：42</span>
+                    <span>联系电话：17688888286</span>
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+              <span>2020/8/4 12:08:35</span>
+            </div>
+            <h3>TA的报价方案：</h3>
+            <div class="tablebox">
+              <div class="_thead">
+                <div>报价单</div>
+                <div>
+                  <div>询价需求</div>
+                  <div>报价</div>
+                </div>
+              </div>
+              <el-table :data="tableData" :span-method="arraySpanMethod" border style="width: 100%">
+                <el-table-column prop="value1" align="center" label="排序"></el-table-column>
+                <el-table-column prop="value2" align="center" label="零部件名称"></el-table-column>
+                <el-table-column prop="value3" align="center" label="OE码"></el-table-column>
+                <el-table-column prop="value4" align="center" label="车型" width="180%"></el-table-column>
+                <el-table-column prop="value5" align="center" label="数量"></el-table-column>
+                <el-table-column prop="value6" align="center" label="原厂件"></el-table-column>
+                <el-table-column prop="value7" align="center" label="配套件"></el-table-column>
+                <el-table-column prop="value8" align="center" label="认证件"></el-table-column>
+                <el-table-column prop="value9" align="center" label="品牌件"></el-table-column>
+              </el-table>
+            </div>
+          </div>
+          <div :class="['item', showItem.length>1?'active':'']">
+            <div class="imgbox">
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>
+                    <span>已参与报价：42</span>
+                    <span>联系电话：17688888286</span>
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+              <span>2020/8/4 12:08:35</span>
+            </div>
+            <h3>TA的报价方案：</h3>
+            <div class="tablebox">
+              <div class="_thead">
+                <div>报价单</div>
+                <div>
+                  <div>询价需求</div>
+                  <div>报价</div>
+                </div>
+              </div>
+              <el-table :data="tableData" :span-method="arraySpanMethod" border style="width: 100%">
+                <el-table-column prop="value1" align="center" label="排序"></el-table-column>
+                <el-table-column prop="value2" align="center" label="零部件名称"></el-table-column>
+                <el-table-column prop="value3" align="center" label="OE码"></el-table-column>
+                <el-table-column prop="value4" align="center" label="车型" width="180%"></el-table-column>
+                <el-table-column prop="value5" align="center" label="数量"></el-table-column>
+                <el-table-column prop="value6" align="center" label="原厂件"></el-table-column>
+                <el-table-column prop="value7" align="center" label="配套件"></el-table-column>
+                <el-table-column prop="value8" align="center" label="认证件"></el-table-column>
+                <el-table-column prop="value9" align="center" label="品牌件"></el-table-column>
+              </el-table>
+            </div>
+          </div>
+          <div :class="['item', showItem.length>2?'active':'']">
+            <div class="line">
+              <div class="noShow"></div>
+              <i></i>
+              <div></div>
+            </div>
+            <div class="_title">
+              <span>已到达预警点</span>
+              <span>2020/8/4 12:08:35</span>
+            </div>
+            <div class="imgbox">
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>
+                    <span>已参与报价：42</span>
+                    <span>联系电话：17688888286</span>
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+              <span>2020/8/4 12:08:35</span>
+            </div>
+            <h3>TA的报价方案：</h3>
+            <div class="tablebox">
+              <div class="_thead">
+                <div>报价单</div>
+                <div>
+                  <div>询价需求</div>
+                  <div>报价</div>
+                </div>
+              </div>
+              <el-table :data="tableData" :span-method="arraySpanMethod" border style="width: 100%">
+                <el-table-column prop="value1" align="center" label="排序"></el-table-column>
+                <el-table-column prop="value2" align="center" label="零部件名称"></el-table-column>
+                <el-table-column prop="value3" align="center" label="OE码"></el-table-column>
+                <el-table-column prop="value4" align="center" label="车型" width="180%"></el-table-column>
+                <el-table-column prop="value5" align="center" label="数量"></el-table-column>
+                <el-table-column prop="value6" align="center" label="原厂件"></el-table-column>
+                <el-table-column prop="value7" align="center" label="配套件"></el-table-column>
+                <el-table-column prop="value8" align="center" label="认证件"></el-table-column>
+                <el-table-column prop="value9" align="center" label="品牌件"></el-table-column>
+              </el-table>
+            </div>
+          </div>
+          <div :class="['item', showItem.length>2?'active':'']">
+            <div class="imgbox">
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>
+                    <span>已参与报价：42</span>
+                    <span>联系电话：17688888286</span>
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+              <span>2020/8/4 12:08:35</span>
+            </div>
+            <h3>TA的报价方案：</h3>
+            <div class="tablebox">
+              <div class="_thead">
+                <div>报价单</div>
+                <div>
+                  <div>询价需求</div>
+                  <div>报价</div>
+                </div>
+              </div>
+              <el-table :data="tableData" :span-method="arraySpanMethod" border style="width: 100%">
+                <el-table-column prop="value1" align="center" label="排序"></el-table-column>
+                <el-table-column prop="value2" align="center" label="零部件名称"></el-table-column>
+                <el-table-column prop="value3" align="center" label="OE码"></el-table-column>
+                <el-table-column prop="value4" align="center" label="车型" width="180%"></el-table-column>
+                <el-table-column prop="value5" align="center" label="数量"></el-table-column>
+                <el-table-column prop="value6" align="center" label="原厂件"></el-table-column>
+                <el-table-column prop="value7" align="center" label="配套件"></el-table-column>
+                <el-table-column prop="value8" align="center" label="认证件"></el-table-column>
+                <el-table-column prop="value9" align="center" label="品牌件"></el-table-column>
+              </el-table>
+            </div>
+          </div>
+          <div class="more">
+            <div v-if="showItem.length>2">
+              <h3>成功提交需求</h3>
+              <span>2020/8/4 12:08:35</span>
+            </div>
+            <span @click="showmore">
+              {{showItem.length>2?'收起':'查看详情'}}
+              <i :class="showItem.length>2?'roate':''"></i>
+            </span>
           </div>
         </div>
       </div>
@@ -239,6 +740,7 @@
           <div>
             <el-button @click="changegenjin">{{!genjin?'添加跟进':'保存跟进'}}</el-button>
             <el-button class="gray">开启订单</el-button>
+            <el-button @click="baojia=true">报价汇总</el-button>
             <el-button @click="xiezhu=true">完成协助</el-button>
             <el-input v-if="genjin" type="textarea" v-model="textarea2" :rows="4"></el-input>
           </div>
@@ -303,6 +805,17 @@
         <el-button @click="nopowerOK">确 定</el-button>
       </span>
     </el-dialog>
+    <!-- 报价提示 -->
+    <el-dialog title="此次报价汇总数据" :visible.sync="baojia" width="22.656vw">
+      <span>您暂无权限操作该定损询价单</span>
+    </el-dialog>
+    <!-- 修改关重件提示 -->
+    <el-dialog title="修改关重件提示" :visible.sync="guanzhongjian" width="22.656vw">
+      <span>当前零部件类型属于关重件要求范围，请谨慎修改</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="guanzhongjianOK">确 定</el-button>
+      </span>
+    </el-dialog>
     <!-- 订单关闭提示 -->
     <el-dialog title="操作提示" :visible.sync="dingdan" width="22.656vw">
       <span>当前订单已关闭，您的操作无效</span>
@@ -343,10 +856,13 @@
         saveModal: false,
         nopower: false,
         dingdan: false,
+        baojia: false,
         closedingdan: false,
+        guanzhongjian: false,
         xiezhu: false,
         shousun: null,
         textarea: null,
+        showItem: [1],
         textarea1: null,
         textarea2: null,
         input1: null,
@@ -354,6 +870,59 @@
         select1: null,
         isView: false,
         radio1: null,
+        tableData: [
+          {
+            value1: "1",
+            value2: "车盖",
+            value3: "21312412",
+            value4: "大众汽车SVW718108U",
+            value5: "1",
+            value6: "",
+            value7: "150",
+            value8: "",
+            value9: "",
+          },
+          {
+            value1: "2",
+            value2: "车盖",
+            value3: "21312412",
+            value4: "2",
+            value5: "",
+            value6: "150",
+            value7: "",
+            value8: "",
+          },
+          {
+            value1: "2",
+            value2: "车盖",
+            value3: "21312412",
+            value4: "2",
+            value5: "1040",
+            value6: "150",
+            value7: "",
+            value8: "",
+          },
+          {
+            value1: "2",
+            value2: "车盖",
+            value3: "21312412",
+            value4: "2",
+            value5: "",
+            value6: "150",
+            value7: "190",
+            value8: "",
+          },
+          {
+            value1: "2",
+            value2: "车盖",
+            value3: "21312412",
+            value4: "2",
+            value5: "",
+            value6: "150",
+            value7: "",
+            value8: "540",
+          },
+        ],
         fileList: [
           {
             name: "太平洋保险（重庆分公司）战略合作合同.pdf",
@@ -408,6 +977,13 @@
         this.isEdit = false;
         this.saveModal = false;
       },
+      showmore() {
+        if (this.showItem.length < 3) {
+          this.showItem.push(1);
+        } else {
+          this.showItem = [1];
+        }
+      },
       nopowerOK() {
         this.nopower = false;
       },
@@ -420,12 +996,23 @@
       xiezhuOK() {
         this.xiezhu = false;
       },
+      guanzhongjianOK() {
+        this.guanzhongjian = false;
+      },
       changegenjin() {
         this.genjin = !this.genjin;
         this.textarea2 = null;
       },
       changeView() {
         this.isView = !this.isView;
+      },
+      arraySpanMethod({ rowIndex, columnIndex }) {
+        if (columnIndex === 3 && rowIndex === 0) {
+          return {
+            rowspan: 6,
+            colspan: 1,
+          };
+        }
       },
     },
   };
@@ -521,6 +1108,7 @@
             border-radius: 0 0 4px 4px;
             bottom: -20px;
             cursor: pointer;
+            transform: translateX(-50%);
             box-shadow: 0vw 0.5vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
             i {
               width: 0;
@@ -679,6 +1267,7 @@
           }
           ._tableBox {
             padding: 30px 30px 0 30px;
+            margin-bottom: 30px;
             ._thead,
             ._tr {
               > div {
@@ -696,7 +1285,7 @@
                   text-align: left;
                   margin: 5px 0;
                 }
-                .blue{
+                .blue {
                   background: #d6eaf8;
                 }
                 > div {
@@ -819,6 +1408,338 @@
             ._tr:nth-last-child(1) {
               > div {
                 border-bottom: 1px solid #dcdcdc;
+              }
+            }
+          }
+          .left3 {
+            display: flex;
+            margin-bottom: 20px;
+            margin-left: 30px;
+            .left3_1 {
+              width: 143px;
+              height: 240px;
+              background: #3498db;
+              border-radius: 6px 0px 0px 6px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              color: white;
+              p {
+                line-height: 22px;
+              }
+            }
+            .left3_2 {
+              width: 117px;
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              border: 1px solid #cbcbcb;
+              > div {
+                width: 100%;
+              }
+              > div:nth-of-type(1) {
+                height: 42px;
+                line-height: 42px;
+                border-bottom: 1px solid #cbcbcb;
+              }
+              > div:nth-of-type(2) {
+                flex-grow: 1;
+                line-height: 195px;
+              }
+            }
+            .left3_3 {
+              width: 259px;
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              border: 1px solid #cbcbcb;
+              border-left: transparent;
+              > div {
+                width: 100%;
+              }
+              > div:nth-of-type(1) {
+                height: 42px;
+                line-height: 42px;
+                border-bottom: 1px solid #cbcbcb;
+              }
+              > div:nth-of-type(2) {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              }
+            }
+            .left3_4 {
+              width: 499px;
+              border: 1px solid #cbcbcb;
+              border-left: transparent;
+              > div {
+                width: 100%;
+              }
+              > div:nth-of-type(1) {
+                height: 42px;
+                line-height: 42px;
+                text-align: center;
+                border-bottom: 1px solid #cbcbcb;
+              }
+              > div:nth-of-type(2) {
+                box-sizing: content-box;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 5px 15px 0 15px;
+                p {
+                  line-height: 18px;
+                  &.center {
+                    text-align: center;
+                    margin-top: 80px;
+                  }
+                }
+              }
+            }
+            .left3_5 {
+              width: 164px;
+              border: 1px solid #cbcbcb;
+              border-left: transparent;
+              > div {
+                width: 100%;
+                text-align: center;
+              }
+              > div:nth-of-type(1) {
+                height: 42px;
+                line-height: 42px;
+                border-bottom: 1px solid #cbcbcb;
+              }
+              > div:nth-of-type(2) {
+                flex-grow: 1;
+                padding-top: 60px;
+                line-height: 20px;
+              }
+            }
+          }
+          .btns {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            .el-button {
+              width: 100px;
+              height: 36px;
+              padding: 0 !important;
+              &.gray {
+                background: #cccccc !important;
+                color: white;
+              }
+            }
+          }
+        }
+        .left4 {
+          width: 1253px;
+          height: 44px;
+          background: #ffffff;
+          box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
+          border-radius: 4px;
+          margin-top: 20px;
+          line-height: 44px;
+          text-align: center;
+          span {
+            position: relative;
+            flex-grow: 0;
+            cursor: pointer;
+          }
+          i {
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 9px solid #cccccc;
+            position: absolute;
+            bottom: 4px;
+            right: -20px;
+          }
+          &.roate {
+            i {
+              transform: rotate(180deg);
+            }
+          }
+        }
+        .left5 {
+          padding-top: 20px;
+          border-radius: 4px;
+          padding-bottom: 50px;
+          position: relative;
+          .title {
+            padding-right: 30px;
+            margin-bottom: 30px;
+          }
+          .more {
+            width: 100%;
+            position: absolute;
+            left: 50%;
+            color: #3498db;
+            transform: translateX(-50%);
+            bottom: 25px;
+            text-align: center;
+            > div {
+              color: #929292;
+              display: flex;
+              margin-left: 95px;
+              transform: translateY(10px);
+              align-items: center;
+              h3 {
+                color: #333333;
+                margin-right: 30px;
+              }
+              span {
+                font-size: 14px;
+              }
+            }
+            > span {
+              position: relative;
+              cursor: pointer;
+            }
+            i {
+              display: block;
+              width: 0;
+              height: 0;
+              border-left: 8px solid transparent;
+              border-right: 8px solid transparent;
+              border-top: 9px solid #cccccc;
+              position: absolute;
+              bottom: 4px;
+              right: -20px;
+              &.roate {
+                transform: rotate(180deg) !important;
+              }
+            }
+          }
+          .item {
+            position: relative;
+            padding: 0;
+            height: 0;
+            overflow: hidden;
+            &.active {
+              height: auto;
+              overflow: visible;
+              padding: 0px 98px 0 98px;
+            }
+            .line {
+              position: absolute;
+              left: 35px;
+              top: -10px;
+              img {
+                width: 27px;
+                height: 27px;
+                border-radius: 50%;
+                border: 1px solid #000;
+                overflow: hidden;
+                margin: 5px 0;
+              }
+              i {
+                display: block;
+                width: 2px;
+                height: 665px;
+                background: #3498db;
+                margin-left: 13px;
+              }
+              > div {
+                width: 21px;
+                height: 21px;
+                border-radius: 50%;
+                border: 3px solid #3498db;
+                margin: 5px 0;
+                &.noShow {
+                  opacity: 0;
+                  // height: 11px;
+                  height: 24px;
+                }
+              }
+            }
+            ._title {
+              margin-bottom: 20px;
+              margin-top: 11px;
+              span:nth-of-type(2) {
+                color: #999999;
+                margin-left: 30px;
+              }
+            }
+            .imgbox {
+              display: flex;
+              justify-content: space-between;
+              > div {
+                display: flex;
+                img {
+                  width: 62px;
+                  height: 62px;
+                  border-radius: 4px;
+                  margin-right: 14px;
+                }
+                > div {
+                  > p:nth-of-type(1) {
+                    padding-top: 8px;
+                    span:nth-of-type(1) {
+                      font-size: 14px;
+                      font-weight: bold;
+                      color: #333333;
+                    }
+                    span:nth-of-type(2) {
+                      margin-right: 15px;
+                    }
+                    span:nth-of-type(2),
+                    span:nth-of-type(3) {
+                      color: #666666;
+                    }
+                  }
+                  > p:nth-of-type(2) {
+                    margin-top: 9px;
+                  }
+                }
+              }
+              > span {
+                margin-top: 35px;
+                font-size: 12px;
+                color: #999999;
+              }
+            }
+            > h3 {
+              margin: 11px 0;
+            }
+            .tablebox {
+              width: 1069px;
+              margin-bottom: 20px;
+              ._thead {
+                > div:nth-of-type(1) {
+                  width: 1069px;
+                  line-height: 28px;
+                  text-align: center;
+                  background: #eeeeee;
+                }
+                > div:nth-of-type(2) {
+                  display: flex;
+                  justify-content: space-between;
+                  > div {
+                    text-align: center;
+                    line-height: 27px;
+                    color: #929292;
+                  }
+                  > div:nth-of-type(1) {
+                    width: 623px !important;
+                    border-right: 1px solid #ebeef5;
+                    border-left: 1px solid #ebeef5;
+                  }
+                  > div:nth-of-type(2) {
+                    flex-grow: 1;
+                    border-right: 1px solid #ebeef5;
+                  }
+                }
+              }
+              .el-table td,
+              .el-table th {
+                padding: 1px 0 !important;
+                color: #929292;
               }
             }
           }
