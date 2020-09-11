@@ -12,7 +12,7 @@
       <div v-for="(item1,idx1) in menues" :key="idx1">
         <el-menu-item v-if="!item1.children" :index="item1.path">
           <i class="titleicon">
-            <img :src="require(`../assets/img/${atc==='/'?item1.iconatc:item1.icon}.png`)" alt />
+            <img :src="require(`../assets/img/${atcpath==='/'?item1.iconatc:item1.icon}.png`)" alt />
           </i>
           <span slot="title">{{item1.title}}</span>
         </el-menu-item>
@@ -49,6 +49,9 @@
         atc:'/',
       };
     },
+    mounted() {
+      this.atc=this.$route.path
+    },
     methods: {
       handleOpen() {
         // console.log(e);
@@ -75,6 +78,9 @@
         path = this.$route.path;
         return path;
       },
+      atcpath(){
+        return this.$route.path
+      }
     },
   };
 </script>

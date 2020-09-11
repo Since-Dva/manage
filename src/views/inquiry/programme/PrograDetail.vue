@@ -27,7 +27,7 @@
               <div :class="!isEdit?'blue':''">
                 <span>VIN码：</span>
                 <el-input :disabled="isEdit" v-model="base.value2">CQTPY20200721000001</el-input>
-                <a>复制</a>
+                <a @click="copyShaneUrl('CQTPY20200721000001')">复制</a>
               </div>
               <div :class="!isEdit?'blue':''">
                 <span>车牌号：</span>
@@ -41,8 +41,8 @@
               </div>
               <div :class="!isEdit?'blue':''">
                 <span>车型：</span>
-                <el-input :disabled="isEdit" v-model="base.value5">CQTPY20200721000001</el-input>
-                <a>复制</a>
+                <el-input :disabled="isEdit" v-model="base.value5"></el-input>
+                <a @click="copyShaneUrl(base.value5)">复制</a>
               </div>
               <div>
                 <span>承修单位：</span>
@@ -65,15 +65,21 @@
             </div>
             <div class="left1_2_1">
               <div>
-                <span>询价单号：</span>
+                <span>联系电话：</span>
                 <el-input v-model="base.value10"></el-input>
-                <a>复制</a>
+              </div>
+            </div>
+            <div class="left1_2_1">
+              <div>
+                <span>询价单号：</span>
+                <el-input v-model="base.value11"></el-input>
+                <a @click="copyShaneUrl(base.value11)">复制</a>
               </div>
             </div>
             <div class="left1_2_1">
               <div>
                 <span>提交时间：</span>
-                <el-input v-model="base.value11"></el-input>
+                <el-input v-model="base.value12"></el-input>
               </div>
             </div>
           </div>
@@ -707,8 +713,9 @@
           value7: "郭靖",
           value8: "三年",
           value9: "17623888288",
-          value10: "CQTPY20200721000001",
-          value11: "2020年8月3日16:06:14",
+          value10: "15223595900",
+          value11: "CQTPY20200721000001",
+          value12: "2020年8月3日16:06:14",
         },
         addconcat: {
           name: null,
@@ -791,6 +798,16 @@
       changegenjin() {
         this.genjin = !this.genjin;
         this.textarea2 = null;
+      },
+      //复制
+      copyShaneUrl(shareLink) {
+        var input = document.createElement("input"); // 直接构建input
+        input.value = shareLink; // 设置内容
+        document.body.appendChild(input); // 添加临时实例
+        input.select(); // 选择实例内容
+        document.execCommand("Copy"); // 执行复制
+        document.body.removeChild(input); // 删除临时实例
+        this.$message.success('复制成功')
       },
     },
   };
@@ -1160,6 +1177,7 @@
                 height: 485px;
                 width: 200px;
                 overflow: scroll;
+                scrollbar-width: none;
                 box-sizing: border-box;
                 text-align: center;
                 border-right: 1px solid #cbcbcb;

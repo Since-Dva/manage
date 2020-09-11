@@ -1,7 +1,8 @@
 <template>
   <div class="accountInfo">
     <div>
-      <button class="save" @click="saveAccountModal">确认修改</button>
+      <button class="save" @click="saveAccountModal">保存</button>
+      <img class="touxiang" src="" alt="">
       <ul>
         <li>
           <span>员工工号</span>
@@ -80,10 +81,18 @@ export default {
     position: relative;
     left: 29.688vw;
   }
+  .touxiang{
+    display: block;
+    border: 1px solid #000;
+    width: 121px;
+height: 121px;
+border-radius: 4px;
+
+  }
   > div {
     box-sizing: border-box;
     width: 42.292vw;
-    height: 21.354vw;
+    height: 25.354vw;
     padding: 2.083vw 3.177vw 3.438vw 3.177vw;
     background: #ffffff;
     box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);

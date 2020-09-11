@@ -1039,6 +1039,7 @@
       .el-dialog__body {
         height: 30vw;
         overflow: scroll;
+        scrollbar-width: none;
         img {
           width: 100%;
         }

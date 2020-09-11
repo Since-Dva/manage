@@ -1,5 +1,5 @@
 <template>
-  <div class="prograDetail">
+  <div class="prograDetailAuto">
     <tabs></tabs>
     <div class="content">
       <div class="left">
@@ -27,7 +27,7 @@
               <div :class="!isEdit?'blue':''">
                 <span>VIN码：</span>
                 <el-input :disabled="isEdit" v-model="base.value2">CQTPY20200721000001</el-input>
-                <a>复制</a>
+                <a @click="copyShaneUrl('CQTPY20200721000001')">复制</a>
               </div>
               <div :class="!isEdit?'blue':''">
                 <span>车牌号：</span>
@@ -41,8 +41,8 @@
               </div>
               <div :class="!isEdit?'blue':''">
                 <span>车型：</span>
-                <el-input :disabled="isEdit" v-model="base.value5">CQTPY20200721000001</el-input>
-                <a>复制</a>
+                <el-input :disabled="isEdit" v-model="base.value5"></el-input>
+                <a @click="copyShaneUrl(base.value5)">复制</a>
               </div>
               <div>
                 <span>承修单位：</span>
@@ -65,15 +65,21 @@
             </div>
             <div class="left1_2_1">
               <div>
-                <span>询价单号：</span>
+                <span>联系电话：</span>
                 <el-input v-model="base.value10"></el-input>
-                <a>复制</a>
+              </div>
+            </div>
+            <div class="left1_2_1">
+              <div>
+                <span>询价单号：</span>
+                <el-input v-model="base.value11"></el-input>
+                <a @click="copyShaneUrl(base.value11)">复制</a>
               </div>
             </div>
             <div class="left1_2_1">
               <div>
                 <span>提交时间：</span>
-                <el-input v-model="base.value11"></el-input>
+                <el-input v-model="base.value12"></el-input>
               </div>
             </div>
 
@@ -450,16 +456,16 @@
             <el-button class="gray">生成报价</el-button>
           </div>
         </div>
-        <div class="left4">
-          <span>
+        <div v-show="!isshowdingdan" class="left4">
+          <span @click="isshowdingdan=true">
             查看详情
             <i></i>
           </span>
         </div>
-        <div class="left5">
+        <div v-show="isshowdingdan" class="left5">
           <div class="title">
             <span>订单状态</span>
-            <el-button>收起</el-button>
+            <el-button @click="isshowdingdan=false">收起</el-button>
           </div>
           <div :class="['item', showItem.length?'active':'']">
             <div class="line">
@@ -839,6 +845,24 @@
         <el-button class="cancel" @click="xiezhu=false">取 消</el-button>
       </span>
     </el-dialog>
+    <!-- 此次报价汇总数据 -->
+    <el-dialog custom-class="total" title="此次报价汇总数据" :visible.sync="dingdanTotal" width="1184px">
+      <div class="tablebox">
+        <el-table
+          :header-cell-style="{color:'rgba(51,51,51,1)',background:'#eeeeee'}"
+          :data="tableData2"
+          :span-method="_arraySpanMethod"
+          border
+          style="width: 100%"
+        >
+          <el-table-column prop="value1" align="center" label="序号"></el-table-column>
+          <el-table-column prop="value2" align="center" label="零部件名称"></el-table-column>
+          <el-table-column prop="value3" align="center" label="品质"></el-table-column>
+          <el-table-column prop="value4" align="center" label="汽配商名称" width="300%"></el-table-column>
+          <el-table-column prop="value5" align="center" label="报价"></el-table-column>
+        </el-table>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -859,6 +883,9 @@
         baojia: false,
         closedingdan: false,
         guanzhongjian: false,
+        rexunjiadan: false,
+        dingdanTotal: false,
+        isshowdingdan: false,
         xiezhu: false,
         shousun: null,
         textarea: null,
@@ -869,6 +896,7 @@
         input2: null,
         select1: null,
         isView: false,
+        huizong: false,
         radio1: null,
         tableData: [
           {
@@ -923,6 +951,141 @@
             value8: "540",
           },
         ],
+        tableData2: [
+          {
+            value1: "1",
+            value2: "车盖",
+            value3: "原厂件",
+            value4: "中南汽配商1",
+            value5: "100",
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "配套件",
+            value2: '中南汽配商1',
+            value3: "1234",
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+
+          {
+            value1: "2",
+            value2: "刹车片",
+            value3: "原厂件",
+            value4: "中南汽配商1",
+            value5: "100",
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "配套件",
+            value2: '中南汽配商1',
+            value3: "1234",
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "3",
+            value2: "喇叭",
+            value3: "原厂件",
+            value4: "中南汽配商1",
+            value5: "100",
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "配套件",
+            value2: '中南汽配商1',
+            value3: "1234",
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+          {
+            value1: "中南汽配商1",
+            value2: '2131',
+          },
+        ],
         fileList: [
           {
             name: "太平洋保险（重庆分公司）战略合作合同.pdf",
@@ -940,8 +1103,9 @@
           value7: "郭靖",
           value8: "三年",
           value9: "17623888288",
-          value10: "CQTPY20200721000001",
-          value11: "2020年8月3日16:06:14",
+          value10: "17623888288",
+          value11: "CQTPY20200721000001",
+          value12: "2020年8月3日16:06:14",
         },
         addconcat: {
           name: null,
@@ -1006,6 +1170,9 @@
       changeView() {
         this.isView = !this.isView;
       },
+      rexunjiadanOK() {
+        this.rexunjiadan = false;
+      },
       arraySpanMethod({ rowIndex, columnIndex }) {
         if (columnIndex === 3 && rowIndex === 0) {
           return {
@@ -1014,12 +1181,42 @@
           };
         }
       },
+      _arraySpanMethod({ rowIndex, columnIndex }) {
+        if ([0,1].includes(columnIndex) &&[0,10,20].includes(rowIndex) ) {
+          return {
+            rowspan: 10,
+            colspan: 1,
+          };
+        }
+        if([2].includes(columnIndex) &&[0,10,20].includes(rowIndex) ){
+          return{
+            rowspan: 7,
+            colspan: 1,
+          }
+        }
+        if([0].includes(columnIndex) &&[7,17,27].includes(rowIndex) ){
+          return{
+            rowspan: 3,
+            colspan: 1,
+          }
+        }
+      },
+      //复制
+      copyShaneUrl(shareLink) {
+        var input = document.createElement("input"); // 直接构建input
+        input.value = shareLink; // 设置内容
+        document.body.appendChild(input); // 添加临时实例
+        input.select(); // 选择实例内容
+        document.execCommand("Copy"); // 执行复制
+        document.body.removeChild(input); // 删除临时实例
+        this.$message.success("复制成功");
+      },
     },
   };
 </script>
 
 <style lang='scss'>
-  .prograDetail {
+  .prograDetailAuto {
     .content {
       display: flex;
       justify-content: space-between;
@@ -1192,7 +1389,7 @@
               padding: 20px 30px;
             }
             .title {
-              padding-top: 20px;
+              padding-top: 20px !important;
               ::after {
                 content: "";
                 opacity: 0;
@@ -1253,6 +1450,7 @@
         }
         .left2 {
           padding-bottom: 30px;
+          padding-top: 20px;
           .title {
             > div {
               width: 1070px;
@@ -2046,6 +2244,46 @@
               color: #006cff;
             }
           }
+        }
+      }
+    }
+    .total .el-dialog__body {
+      padding: 24px;
+      height: 601px;
+      overflow: scroll;
+      scrollbar-width: none;
+      .tablebox {
+        margin-bottom: 20px;
+        ._thead {
+          > div:nth-of-type(1) {
+            width: 1069px;
+            line-height: 28px;
+            text-align: center;
+            background: #eeeeee;
+          }
+          > div:nth-of-type(2) {
+            display: flex;
+            justify-content: space-between;
+            > div {
+              text-align: center;
+              line-height: 27px;
+              color: #929292;
+            }
+            > div:nth-of-type(1) {
+              width: 623px !important;
+              border-right: 1px solid #ebeef5;
+              border-left: 1px solid #ebeef5;
+            }
+            > div:nth-of-type(2) {
+              flex-grow: 1;
+              border-right: 1px solid #ebeef5;
+            }
+          }
+        }
+        .el-table td,
+        .el-table th {
+          padding: 2px 0 !important;
+          color: #929292;
         }
       }
     }
