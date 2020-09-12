@@ -83,10 +83,10 @@ export default {
   }
   .touxiang{
     display: block;
-    border: 1px solid #000;
-    width: 121px;
-height: 121px;
-border-radius: 4px;
+    border: 0.052vw solid #000;
+    width: 6.302vw;
+height: 6.302vw;
+border-radius: 0.208vw;
 
   }
   > div {

@@ -345,7 +345,7 @@
     .top {
       display: flex;
       align-items: center;
-      margin-bottom: 13px;
+      margin-bottom: 0.677vw;
       justify-content: space-between;
       h2 {
         font-size: 1.042vw;
@@ -358,29 +358,29 @@
         justify-content: space-between;
         align-items: center;
         >span {
-          font-size: 16px;
+          font-size: 0.833vw;
           font-weight: bold;
           color: #333333;
         }
         ._switch{
           position: relative;
           .el-switch {
-            width: 100px;
-            height: 32px;
+            width: 5.208vw;
+            height: 1.667vw;
             background: #cbcbcb;
-            border-radius: 15px;
+            border-radius: 0.781vw;
             .el-switch__core {
               display: flex;
-              width: 77px !important;
-              height: 28px;
+              width: 4.01vw !important;
+              height: 1.458vw;
               background: #ffffff;
-              border-radius: 14px;
+              border-radius: 0.729vw;
               &::after {
-                width: 39px;
-                height: 28px;
+                width: 2.031vw;
+                height: 1.458vw;
                 background: #ffffff;
-                border-radius: 14px;
-                top: -1px;
+                border-radius: 0.729vw;
+                top: -0.052vw;
               }
             }
             &.is-checked {
@@ -389,15 +389,15 @@
           }
           >span{
             position: absolute;
-            left: 12px;
+            left: 0.625vw;
             color: white;
-            line-height: 32px;
-            font-size: 14px;  
+            line-height: 1.667vw;
+            font-size: 0.729vw;  
             z-index: 0;
             user-select: none;
             pointer-events: none;
             &.active{
-              left: 50px;
+              left: 2.604vw;
               color: #333333;
             }
           }
@@ -433,8 +433,8 @@
         }
         .fresh {
           display: block;
-          width: 32px;
-          height: 32px;
+          width: 1.667vw;
+          height: 1.667vw;
           align-self: flex-end;
           background: url('../../../assets/img/shuaxin.png') center no-repeat;
           background-size: 95%;
@@ -577,43 +577,43 @@
       }
       .right {
         .right1 {
-          width: 367px;
-          height: 420px;
+          width: 19.115vw;
+          height: 21.875vw;
           background: #ffffff;
-          box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
-          border-radius: 4px;
-          margin-bottom: 15px;
+          box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+          border-radius: 0.208vw;
+          margin-bottom: 0.781vw;
           >div{
             .subTit{
-              font-size: 16px;
+              font-size: 0.833vw;
               color: #666666;
-              line-height: 32px;
-              padding-left: 24px;
-              border-bottom: 1px solid #e7e7e7;
+              line-height: 1.667vw;
+              padding-left: 1.25vw;
+              border-bottom: 0.052vw solid #e7e7e7;
             }
             >div:nth-of-type(2){
               display: flex;
               flex-wrap: wrap;
               justify-content: flex-start;
-              padding-top: 10px;
+              padding-top: 0.521vw;
               >div{
-                width: 87px;
-                height: 56px;
-                margin: 6px 16px;
-                border-radius: 4px;
+                width: 4.531vw;
+                height: 2.917vw;
+                margin: 0.313vw 0.833vw;
+                border-radius: 0.208vw;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 text-align: center;
                 color: white;
                 span:nth-of-type(1){
-                  line-height: 18px;
-                  font-size: 18px;
+                  line-height: 0.938vw;
+                  font-size: 0.938vw;
                   font-weight: bolder;
                 }
                 span:nth-of-type(2){
-                  line-height: 20px;
-                  font-size: 12px;
+                  line-height: 1.042vw;
+                  font-size: 0.625vw;
                 }
               }
               >div:nth-of-type(1){
@@ -640,38 +640,38 @@
           }
         }
         .right2 {
-          width: 367px;
-          height: 335px;
+          width: 19.115vw;
+          height: 17.448vw;
           background: #ffffff;
-          box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
-          border-radius: 4px;
+          box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+          border-radius: 0.208vw;
           >div:nth-of-type(2),div:nth-of-type(3),div:nth-of-type(4),div:nth-of-type(5),div:nth-of-type(6){
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px 0 30px;
-            margin-top: 12px;
+            padding: 0 1.042vw 0 1.563vw;
+            margin-top: 0.625vw;
             >div{
               display: flex;
               align-items: center;
               img{
-              width: 40px;
-              height: 40px;
-              margin-right: 15px;
+              width: 2.083vw;
+              height: 2.083vw;
+              margin-right: 0.781vw;
               border-radius: 50%;
               overflow: hidden;
-              border: 1px solid #000;
+              border: 0.052vw solid #000;
               }
               span{
-                font-size: 16px;
+                font-size: 0.833vw;
                 color: #666666;
-                margin-right: 15px;
+                margin-right: 0.781vw;
               }
             }
             >span{
               display: block;
-              width: 40px;
-              height: 40px;
+              width: 2.083vw;
+              height: 2.083vw;
               
             }
           }

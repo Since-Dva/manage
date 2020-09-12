@@ -160,6 +160,27 @@
             </div>
           </div>
           <div class="_tableBox">
+            <div :class="['fixd', isfixd?'active':'']" :style="{top:topnum+'px'}">
+              <div>
+                <div>汽配商名称</div>
+                <div>
+                  报价
+                  <i @click="isfixd=false">×</i>
+                </div>
+              </div>
+              <div @click="changeMoney(1)">
+                <div>众宇汽配</div>
+                <div>500</div>
+              </div>
+              <div @click="changeMoney(2)">
+                <div>捷达汽配</div>
+                <div>710</div>
+              </div>
+              <div @click="changeMoney(2)">
+                <div>小众汽配</div>
+                <div>430</div>
+              </div>
+            </div>
             <div class="_thead">
               <div>排序</div>
               <div>零部件信息</div>
@@ -195,17 +216,29 @@
                 </div>
               </div>
               <div>
-                <div>中南汽配商</div>
-                <div>中南汽配商</div>
-                <div class="blue">中南汽配商</div>
-                <div>中南汽配商</div>
+                <div>
+                  {{qipeishang[0].value1}}
+                  <a class="a_active" @click="onchange(1)">更换</a>
+                </div>
+                <div>
+                  {{qipeishang[1].value1}}
+                  <a @click="onchange(2)">更换</a>
+                </div>
+                <div class="blue">
+                  {{qipeishang[2].value1}}
+                  <a @click="onchange(3)">更换</a>
+                </div>
+                <div>
+                  {{qipeishang[3].value1}}
+                  <a @click="onchange(4)">更换</a>
+                </div>
               </div>
               <div>
-                <div>580</div>
-                <div>580</div>
-                <div class="blue">580</div>
+                <div>{{qipeishang[0].num}}</div>
+                <div>{{qipeishang[1].num}}</div>
+                <div class="blue">{{qipeishang[2].num}}</div>
                 <div>
-                  580
+                  {{qipeishang[3].num}}
                   <span class="gth">
                     <span class="tip">当前报价已高于参考价格恒定区间值</span>
                   </span>
@@ -248,17 +281,29 @@
                 </div>
               </div>
               <div>
-                <div>中南汽配商</div>
-                <div>中南汽配商</div>
-                <div class="blue">中南汽配商</div>
-                <div>中南汽配商</div>
+                <div>
+                  {{qipeishang[4].value1}}
+                  <a @click="onchange(5)">更换</a>
+                </div>
+                <div>
+                  {{qipeishang[5].value1}}
+                  <a @click="onchange(6)">更换</a>
+                </div>
+                <div class="blue">
+                  {{qipeishang[6].value1}}
+                  <a class="a_active" @click="onchange(7)">更换</a>
+                </div>
+                <div>
+                  {{qipeishang[7].value1}}
+                  <a @click="onchange(8)">更换</a>
+                </div>
               </div>
               <div>
-                <div>580</div>
-                <div>580</div>
-                <div class="blue">580</div>
+                <div>{{qipeishang[4].num}}</div>
+                <div>{{qipeishang[5].num}}</div>
+                <div class="blue">{{qipeishang[6].num}}</div>
                 <div>
-                  580
+                  {{qipeishang[7].num}}
                   <span class="gth">
                     <span class="tip">当前报价已高于参考价格恒定区间值</span>
                   </span>
@@ -301,17 +346,29 @@
                 </div>
               </div>
               <div>
-                <div>中南汽配商</div>
-                <div>中南汽配商</div>
-                <div class="blue">中南汽配商</div>
-                <div>中南汽配商</div>
+                <div>
+                  {{qipeishang[8].value1}}
+                  <a @click="onchange(9)">更换</a>
+                </div>
+                <div>
+                  {{qipeishang[9].value1}}
+                  <a @click="onchange(10)">更换</a>
+                </div>
+                <div class="blue">
+                  {{qipeishang[10].value1}}
+                  <a @click="onchange(11)">更换</a>
+                </div>
+                <div>
+                  {{qipeishang[11].value1}}
+                  <a @click="onchange(12)">更换</a>
+                </div>
               </div>
               <div>
-                <div>580</div>
-                <div>580</div>
-                <div class="blue">580</div>
+                <div>{{qipeishang[8].num}}</div>
+                <div>{{qipeishang[9].num}}</div>
+                <div class="blue">{{qipeishang[10].num}}</div>
                 <div>
-                  580
+                  {{qipeishang[11].num}}
                   <span class="gth">
                     <span class="tip">当前报价已高于参考价格恒定区间值</span>
                   </span>
@@ -846,7 +903,7 @@
       </span>
     </el-dialog>
     <!-- 此次报价汇总数据 -->
-    <el-dialog custom-class="total" title="此次报价汇总数据" :visible.sync="dingdanTotal" width="1184px">
+    <el-dialog custom-class="total" title="此次报价汇总数据" :visible.sync="dingdanTotal" width="61.667vw">
       <div class="tablebox">
         <el-table
           :header-cell-style="{color:'rgba(51,51,51,1)',background:'#eeeeee'}"
@@ -862,6 +919,122 @@
           <el-table-column prop="value5" align="center" label="报价"></el-table-column>
         </el-table>
       </div>
+    </el-dialog>
+    <!-- 汽配商信息 -->
+    <el-dialog custom-class="qipei" title="汽配商信息" :visible.sync="qipei" width="57.292vw">
+      <div class="title">
+        <span>当前车型：大众汽车SVW71810BU</span>
+        <span>当前报价异常零部件包含：刹车片、车盖</span>
+      </div>
+      <div class="_content">
+        <div class="item">
+          <div class="subTit">
+            零部件类型：底盘件/左后/
+            <span>刹车片</span>
+          </div>
+          <div>
+            <h4>未参与此次报价</h4>
+            <div>
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>已参与报价：42 联系电话：17688888286
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>已参与报价：42 联系电话：17688888286
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4>已参与此次报价</h4>
+            <div>
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>已参与报价：42 联系电话：17688888286
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>已参与报价：42 联系电话：17688888286
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="subTit">
+            零部件类型：外观件/正钱/
+            <span>车盖</span>
+          </div>
+          <div>
+            <h4>未参与此次报价</h4>
+            <div>
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>已参与报价：42 联系电话：17688888286
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>已参与报价：42 联系电话：17688888286
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4>已参与此次报价</h4>
+            <div>
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>已参与报价：42 联系电话：17688888286
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+              <div>
+                <img src alt />
+                <div>
+                  <p>
+                    <span>中南汽配（重庆分公司）</span>已参与报价：42 联系电话：17688888286
+                  </p>
+                  <p>入驻品牌：奥迪、奔驰、长安、大众</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="qipei=false">确认联系</el-button>
+      </span>
     </el-dialog>
   </div>
 </template>
@@ -886,6 +1059,10 @@
         rexunjiadan: false,
         dingdanTotal: false,
         isshowdingdan: false,
+        isfixd: false,
+        qipei: false,
+        topnum: 0,//弹窗定位
+        num: 0,//更换价格当前行
         xiezhu: false,
         shousun: null,
         textarea: null,
@@ -898,6 +1075,20 @@
         isView: false,
         huizong: false,
         radio1: null,
+        qipeishang:[
+          {value1:'中南汽配商',num:520},
+          {value1:'中南汽配商',num:520},
+          {value1:'中南汽配商',num:520},
+          {value1:'中南汽配商',num:520},
+          {value1:'中南汽配商',num:520},
+          {value1:'中南汽配商',num:520},
+          {value1:'中南汽配商',num:520},
+          {value1:'中南汽配商',num:520},
+          {value1:'中南汽配商',num:520},
+          {value1:'中南汽配商',num:520},
+          {value1:'中南汽配商',num:520},
+          {value1:'中南汽配商',num:520},
+        ],
         tableData: [
           {
             value1: "1",
@@ -961,40 +1152,40 @@
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "配套件",
-            value2: '中南汽配商1',
+            value2: "中南汽配商1",
             value3: "1234",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
 
           {
@@ -1006,40 +1197,40 @@
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "配套件",
-            value2: '中南汽配商1',
+            value2: "中南汽配商1",
             value3: "1234",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "3",
@@ -1050,40 +1241,40 @@
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "配套件",
-            value2: '中南汽配商1',
+            value2: "中南汽配商1",
             value3: "1234",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
           {
             value1: "中南汽配商1",
-            value2: '2131',
+            value2: "2131",
           },
         ],
         fileList: [
@@ -1173,6 +1364,28 @@
       rexunjiadanOK() {
         this.rexunjiadan = false;
       },
+      changeMoney(type){
+        let name
+        let money
+        if(type===1){
+          name='众宇汽配'
+          money=500
+        }else if(type===2){
+          name='捷达汽配'
+          money=710
+        }else{
+          name='小众汽配'
+          money=430
+        }
+        let idx=this.num-1
+        this.qipeishang[idx]={value1:name,num:money}
+        this.isfixd = false;
+      },
+      onchange(num) {
+        this.num=num
+        this.isfixd = true;
+        this.topnum = 75 + 52 * num;
+      },
       arraySpanMethod({ rowIndex, columnIndex }) {
         if (columnIndex === 3 && rowIndex === 0) {
           return {
@@ -1182,23 +1395,23 @@
         }
       },
       _arraySpanMethod({ rowIndex, columnIndex }) {
-        if ([0,1].includes(columnIndex) &&[0,10,20].includes(rowIndex) ) {
+        if ([0, 1].includes(columnIndex) && [0, 10, 20].includes(rowIndex)) {
           return {
             rowspan: 10,
             colspan: 1,
           };
         }
-        if([2].includes(columnIndex) &&[0,10,20].includes(rowIndex) ){
-          return{
+        if ([2].includes(columnIndex) && [0, 10, 20].includes(rowIndex)) {
+          return {
             rowspan: 7,
             colspan: 1,
-          }
+          };
         }
-        if([0].includes(columnIndex) &&[7,17,27].includes(rowIndex) ){
-          return{
+        if ([0].includes(columnIndex) && [7, 17, 27].includes(rowIndex)) {
+          return {
             rowspan: 3,
             colspan: 1,
-          }
+          };
         }
       },
       //复制
@@ -1221,17 +1434,17 @@
       display: flex;
       justify-content: space-between;
       .arr {
-        width: 1253px;
-        height: 90px;
+        width: 65.26vw;
+        height: 4.688vw;
         background: #ffffff;
-        box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
-        border-radius: 0px 4px 4px 4px;
+        box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+        border-radius: 0vw 0.208vw 0.208vw 0.208vw;
         display: flex;
         align-items: center;
         > div {
-          width: 336px;
-          height: 50px;
-          line-height: 50px;
+          width: 17.5vw;
+          height: 2.604vw;
+          line-height: 2.604vw;
           text-align: center;
           color: #656565;
         }
@@ -1262,7 +1475,7 @@
         position: relative;
         padding-bottom: 1.1vw;
         padding-left: 1.823vw;
-        border-bottom: 1px solid #cbcbcb;
+        border-bottom: 0.052vw solid #cbcbcb;
         > span:nth-of-type(1) {
           font-weight: bolder;
         }
@@ -1280,7 +1493,7 @@
       .left {
         width: 65.26vw;
         height: 40vw;
-        border-radius: 4px;
+        border-radius: 0.208vw;
         overflow: scroll;
         scrollbar-width: none;
         > div {
@@ -1291,31 +1504,31 @@
         }
         .left1 {
           box-sizing: border-box;
-          border-radius: 4px;
-          padding: 20px 0 10px 0;
+          border-radius: 0.208vw;
+          padding: 1.042vw 0 0.521vw 0;
           position: relative;
           .viewbtn {
             position: absolute;
-            height: 11px;
-            font-size: 10px;
+            height: 0.573vw;
+            font-size: 0.521vw;
             color: #656565;
             background: white;
-            padding: 5px 25px 5px 15px;
+            padding: 0.26vw 1.302vw 0.26vw 0.781vw;
             left: 50%;
-            border-radius: 0 0 4px 4px;
-            bottom: -20px;
+            border-radius: 0 0 0.208vw 0.208vw;
+            bottom: -1.042vw;
             cursor: pointer;
             transform: translateX(-50%);
             box-shadow: 0vw 0.5vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
             i {
               width: 0;
               height: 0;
-              border-left: 8px solid transparent;
-              border-right: 8px solid transparent;
-              border-top: 10px solid #cdcdcd;
+              border-left: 0.417vw solid transparent;
+              border-right: 0.417vw solid transparent;
+              border-top: 0.521vw solid #cdcdcd;
               position: absolute;
-              bottom: 4px;
-              right: 7px;
+              bottom: 0.208vw;
+              right: 0.365vw;
             }
             &.roate {
               i {
@@ -1326,15 +1539,15 @@
           .left1_2 {
             .title {
               > div {
-                margin-right: 36px;
+                margin-right: 1.875vw;
                 span:nth-of-type(1) {
-                  font-size: 16px;
+                  font-size: 0.833vw;
                   color: #999999;
                 }
                 span:nth-of-type(2) {
-                  font-size: 16px;
+                  font-size: 0.833vw;
                   color: #333333;
-                  margin: 0 20px;
+                  margin: 0 1.042vw;
                 }
                 a {
                   cursor: pointer;
@@ -1345,15 +1558,15 @@
               display: flex;
               align-items: center;
               justify-content: space-between;
-              padding: 0 30px;
+              padding: 0 1.563vw;
               > div {
                 width: 100%;
                 display: flex;
                 align-items: center;
-                margin: 10px 0;
+                margin: 0.521vw 0;
                 .el-input,
                 .el-input__inner {
-                  width: 190px !important;
+                  width: 9.896vw !important;
                   border: none;
                 }
                 .el-input.is-disabled .el-input__inner {
@@ -1363,7 +1576,7 @@
                 }
                 > span {
                   display: block;
-                  width: 80px;
+                  width: 4.167vw;
                   text-align: right;
                 }
                 a {
@@ -1386,10 +1599,10 @@
           }
           .left_2 {
             .left2main {
-              padding: 20px 30px;
+              padding: 1.042vw 1.563vw;
             }
             .title {
-              padding-top: 20px !important;
+              padding-top: 1.042vw !important;
               ::after {
                 content: "";
                 opacity: 0;
@@ -1399,24 +1612,24 @@
               display: flex;
               align-items: center;
               > div:nth-of-type(2) {
-                margin-left: 180px;
+                margin-left: 9.375vw;
                 span:nth-of-type(2) {
-                  margin-left: 10px;
+                  margin-left: 0.521vw;
                 }
               }
             }
 
             .left2_2 {
-              margin-top: 20px;
+              margin-top: 1.042vw;
               div:nth-of-type(2) {
                 display: flex;
                 .imgbox {
-                  width: 200px;
-                  height: 178px;
-                  border: 1px solid #cbcbcb;
-                  border-radius: 4px;
-                  margin-right: 20px;
-                  margin-top: 15px;
+                  width: 10.417vw;
+                  height: 9.271vw;
+                  border: 0.052vw solid #cbcbcb;
+                  border-radius: 0.208vw;
+                  margin-right: 1.042vw;
+                  margin-top: 0.781vw;
                   position: relative;
                   img {
                     width: 100%;
@@ -1427,11 +1640,11 @@
                     position: absolute;
                     bottom: 0;
                     left: 0;
-                    line-height: 40px;
+                    line-height: 2.083vw;
                     background: #cbcbcb;
                     opacity: 0.4;
                     color: white;
-                    border-radius: 0px 0px 4px 4px;
+                    border-radius: 0vw 0vw 0.208vw 0.208vw;
                   }
                 }
               }
@@ -1441,20 +1654,21 @@
             }
             .left2_2xs {
               div:nth-of-type(2) .imgbox {
-                width: 362px;
-                height: 178px;
-                border-radius: 4px;
+                width: 18.854vw;
+                height: 9.271vw;
+                border-radius: 0.208vw;
               }
             }
           }
         }
         .left2 {
-          padding-bottom: 30px;
-          padding-top: 20px;
+          padding-bottom: 1.563vw;
+          padding-top: 1.042vw;
+
           .title {
             > div {
-              width: 1070px;
-              padding-right: 32px;
+              width: 55.729vw;
+              padding-right: 1.667vw;
               display: flex;
               align-items: center;
               justify-content: space-between;
@@ -1464,12 +1678,65 @@
             }
           }
           ._tableBox {
-            padding: 30px 30px 0 30px;
-            margin-bottom: 30px;
+            padding: 1.563vw 1.563vw 0 1.563vw;
+            margin-bottom: 1.563vw;
+            position: relative;
+            .fixd {
+              width: 17.031vw;
+              background: #eeeeee;
+              border: 0.052vw solid #d1d1d1;
+              position: absolute;
+              display: none;
+              left: 35.99vw;
+              z-index: 410;
+              &.active {
+                display: block;
+              }
+              > div:nth-last-child(1) {
+                border-bottom: transparent;
+              }
+              > div:nth-of-type(1) {
+                background: #cccccc;
+              }
+              > div {
+                display: flex;
+                border-bottom: 0.052vw solid #d1d1d1;
+                &:hover{
+                  background: #e6e6e6;
+                }
+                > div {
+                  text-align: center;
+                  line-height: 2.344vw;
+                  i {
+                    position: absolute;
+                    width: 0.833vw;
+                    text-align: center;
+                    line-height: 0.833vw !important;
+                    background: #3397db;
+                    border-radius: 50%;
+                    color: white;
+                    right: 0.26vw;
+                    top: 0.26vw;
+                    cursor: pointer;
+                  }
+                }
+                > div:nth-of-type(1) {
+                  width: 11.354vw;
+                  height: 2.344vw;
+                  border-right: 0.052vw solid #d1d1d1;
+                  cursor: pointer;
+                }
+                > div:nth-of-type(2) {
+                  width: 5.781vw;
+                  height: 2.344vw;
+                  position: relative;
+                }
+              }
+            }
             ._thead,
             ._tr {
               > div {
-                border: 1px solid #dcdcdc;
+                border: 0.052vw solid #dcdcdc;
                 border-right: transparent;
                 border-bottom: transparent;
                 display: flex;
@@ -1481,7 +1748,7 @@
                   display: block;
                   width: 90%;
                   text-align: left;
-                  margin: 5px 0;
+                  margin: 0.26vw 0;
                 }
                 .blue {
                   background: #d6eaf8;
@@ -1489,56 +1756,68 @@
                 > div {
                   width: 100%;
                   height: 25%;
-                  line-height: 51px;
+                  line-height: 2.656vw;
                   align-items: center;
                   text-align: center;
                   justify-content: center;
-                  border-top: 1px solid #dcdcdc;
+                  border-top: 0.052vw solid #dcdcdc;
                   position: relative;
                   .el-radio {
                     position: relative;
-                    margin-left: -10px;
+                    margin-left: -0.521vw;
                     &.tuijian {
                       &::after {
                         content: "(推荐)";
-                        font-size: 12px;
+                        font-size: 0.625vw;
                         color: #999999;
                         position: absolute;
-                        right: -35px;
+                        right: -1.823vw;
                       }
+                    }
+                  }
+                  a {
+                    position: absolute;
+                    display: none;
+                    right: 1.458vw;
+                    cursor: pointer;
+                    z-index: 10;
+                    top: 0;
+                    &.a_active {
+                      cursor: pointer;
+                      display: block;
                     }
                   }
                   .gth {
                     display: block;
-                    width: 15px;
-                    height: 15px;
+                    width: 0.781vw;
+                    height: 0.781vw;
                     border-radius: 50%;
                     background: url("../../../assets/img/gth.png") center
                       no-repeat;
                     background-size: 100%;
                     position: absolute;
-                    left: 70px;
-                    bottom: 17px;
-                    z-index: 999;
+                    left: 3.646vw;
+                    bottom: 0.885vw;
+                    z-index: 400;
                     .tip {
-                      padding: 1px 3px;
-                      line-height: 12px;
+                      padding: 0.052vw 0.156vw;
+                      line-height: 0.625vw;
                       position: absolute;
                       bottom: 0;
-                      width: 200px;
-                      font-size: 10px;
+                      width: 10.417vw;
+                      font-size: 0.521vw;
                       color: #999999;
-                      bottom: -25px;
-                      left: 0px;
+                      bottom: -1.302vw;
+                      left: 0vw;
                       background: #ededed;
-                      border-radius: 2px;
+                      border-radius: 0.104vw;
                       &::before {
                         content: "";
                         position: absolute;
-                        top: -10px;
+                        top: -0.521vw;
                         width: 0;
                         height: 0;
-                        border-width: 0 5px 10px;
+                        border-width: 0 0.26vw 0.521vw;
                         border-style: solid;
                         border-color: transparent transparent #ededed;
                       }
@@ -1546,8 +1825,8 @@
                   }
                   // >span{
                   //   position: absolute;
-                  //   font-size: 12px;
-                  //   right: 15px;
+                  //   font-size: 0.625vw;
+                  //   right: 0.781vw;
                   //   top: 48%;
                   //   transform: translateY(-50%);
                   //   color: #999999;
@@ -1558,38 +1837,38 @@
                 }
               }
               > div:nth-last-child(1) {
-                border-right: 1px solid #dcdcdc;
+                border-right: 0.052vw solid #dcdcdc;
               }
               > div:nth-of-type(1) {
-                width: 99px;
+                width: 5.156vw;
               }
               > div:nth-of-type(2) {
-                width: 179px;
+                width: 9.323vw;
               }
               > div:nth-of-type(3) {
-                width: 100px;
+                width: 5.208vw;
               }
               > div:nth-of-type(4) {
-                width: 129px;
+                width: 6.719vw;
               }
               > div:nth-of-type(5) {
-                width: 149px;
+                width: 7.76vw;
               }
               > div:nth-of-type(6) {
-                width: 217px;
+                width: 11.302vw;
               }
               > div:nth-of-type(7),
               > div:nth-of-type(8),
               > div:nth-of-type(9) {
-                width: 100px;
+                width: 5.208vw;
               }
             }
             ._thead {
               display: flex;
-              height: 45px;
+              height: 2.344vw;
               > div {
                 color: #333333;
-                line-height: 45px;
+                line-height: 2.344vw;
                 text-align: center;
                 background: #eeeeee;
               }
@@ -1600,68 +1879,68 @@
               > div:nth-of-type(2),
               > div:nth-of-type(3),
               > div:nth-of-type(4) {
-                height: 206px;
+                height: 10.729vw;
               }
             }
             ._tr:nth-last-child(1) {
               > div {
-                border-bottom: 1px solid #dcdcdc;
+                border-bottom: 0.052vw solid #dcdcdc;
               }
             }
           }
           .left3 {
             display: flex;
-            margin-bottom: 20px;
-            margin-left: 30px;
+            margin-bottom: 1.042vw;
+            margin-left: 1.563vw;
             .left3_1 {
-              width: 143px;
-              height: 240px;
+              width: 7.448vw;
+              height: 12.5vw;
               background: #3498db;
-              border-radius: 6px 0px 0px 6px;
+              border-radius: 0.313vw 0vw 0vw 0.313vw;
               display: flex;
               flex-direction: column;
               justify-content: center;
               align-items: center;
               color: white;
               p {
-                line-height: 22px;
+                line-height: 1.146vw;
               }
             }
             .left3_2 {
-              width: 117px;
+              width: 6.094vw;
               text-align: center;
               display: flex;
               flex-direction: column;
               align-items: center;
-              border: 1px solid #cbcbcb;
+              border: 0.052vw solid #cbcbcb;
               > div {
                 width: 100%;
               }
               > div:nth-of-type(1) {
-                height: 42px;
-                line-height: 42px;
-                border-bottom: 1px solid #cbcbcb;
+                height: 2.188vw;
+                line-height: 2.188vw;
+                border-bottom: 0.052vw solid #cbcbcb;
               }
               > div:nth-of-type(2) {
                 flex-grow: 1;
-                line-height: 195px;
+                line-height: 10.156vw;
               }
             }
             .left3_3 {
-              width: 259px;
+              width: 13.49vw;
               text-align: center;
               display: flex;
               flex-direction: column;
               align-items: center;
-              border: 1px solid #cbcbcb;
+              border: 0.052vw solid #cbcbcb;
               border-left: transparent;
               > div {
                 width: 100%;
               }
               > div:nth-of-type(1) {
-                height: 42px;
-                line-height: 42px;
-                border-bottom: 1px solid #cbcbcb;
+                height: 2.188vw;
+                line-height: 2.188vw;
+                border-bottom: 0.052vw solid #cbcbcb;
               }
               > div:nth-of-type(2) {
                 flex-grow: 1;
@@ -1671,17 +1950,17 @@
               }
             }
             .left3_4 {
-              width: 499px;
-              border: 1px solid #cbcbcb;
+              width: 25.99vw;
+              border: 0.052vw solid #cbcbcb;
               border-left: transparent;
               > div {
                 width: 100%;
               }
               > div:nth-of-type(1) {
-                height: 42px;
-                line-height: 42px;
+                height: 2.188vw;
+                line-height: 2.188vw;
                 text-align: center;
-                border-bottom: 1px solid #cbcbcb;
+                border-bottom: 0.052vw solid #cbcbcb;
               }
               > div:nth-of-type(2) {
                 box-sizing: content-box;
@@ -1689,43 +1968,43 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                padding: 5px 15px 0 15px;
+                padding: 0.26vw 0.781vw 0 0.781vw;
                 p {
-                  line-height: 18px;
+                  line-height: 0.938vw;
                   &.center {
                     text-align: center;
-                    margin-top: 80px;
+                    margin-top: 4.167vw;
                   }
                 }
               }
             }
             .left3_5 {
-              width: 164px;
-              border: 1px solid #cbcbcb;
+              width: 8.542vw;
+              border: 0.052vw solid #cbcbcb;
               border-left: transparent;
               > div {
                 width: 100%;
                 text-align: center;
               }
               > div:nth-of-type(1) {
-                height: 42px;
-                line-height: 42px;
-                border-bottom: 1px solid #cbcbcb;
+                height: 2.188vw;
+                line-height: 2.188vw;
+                border-bottom: 0.052vw solid #cbcbcb;
               }
               > div:nth-of-type(2) {
                 flex-grow: 1;
-                padding-top: 60px;
-                line-height: 20px;
+                padding-top: 3.125vw;
+                line-height: 1.042vw;
               }
             }
           }
           .btns {
             display: flex;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 1.042vw;
             .el-button {
-              width: 100px;
-              height: 36px;
+              width: 5.208vw;
+              height: 1.875vw;
               padding: 0 !important;
               &.gray {
                 background: #cccccc !important;
@@ -1735,13 +2014,13 @@
           }
         }
         .left4 {
-          width: 1253px;
-          height: 44px;
+          width: 65.26vw;
+          height: 2.292vw;
           background: #ffffff;
-          box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
-          border-radius: 4px;
-          margin-top: 20px;
-          line-height: 44px;
+          box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
+          border-radius: 0.208vw;
+          margin-top: 1.042vw;
+          line-height: 2.292vw;
           text-align: center;
           span {
             position: relative;
@@ -1751,12 +2030,12 @@
           i {
             width: 0;
             height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 9px solid #cccccc;
+            border-left: 0.417vw solid transparent;
+            border-right: 0.417vw solid transparent;
+            border-top: 0.469vw solid #cccccc;
             position: absolute;
-            bottom: 4px;
-            right: -20px;
+            bottom: 0.208vw;
+            right: -1.042vw;
           }
           &.roate {
             i {
@@ -1765,13 +2044,13 @@
           }
         }
         .left5 {
-          padding-top: 20px;
-          border-radius: 4px;
-          padding-bottom: 50px;
+          padding-top: 1.042vw;
+          border-radius: 0.208vw;
+          padding-bottom: 2.604vw;
           position: relative;
           .title {
-            padding-right: 30px;
-            margin-bottom: 30px;
+            padding-right: 1.563vw;
+            margin-bottom: 1.563vw;
           }
           .more {
             width: 100%;
@@ -1779,20 +2058,20 @@
             left: 50%;
             color: #3498db;
             transform: translateX(-50%);
-            bottom: 25px;
+            bottom: 1.302vw;
             text-align: center;
             > div {
               color: #929292;
               display: flex;
-              margin-left: 95px;
-              transform: translateY(10px);
+              margin-left: 4.948vw;
+              transform: translateY(0.521vw);
               align-items: center;
               h3 {
                 color: #333333;
-                margin-right: 30px;
+                margin-right: 1.563vw;
               }
               span {
-                font-size: 14px;
+                font-size: 0.729vw;
               }
             }
             > span {
@@ -1803,12 +2082,12 @@
               display: block;
               width: 0;
               height: 0;
-              border-left: 8px solid transparent;
-              border-right: 8px solid transparent;
-              border-top: 9px solid #cccccc;
+              border-left: 0.417vw solid transparent;
+              border-right: 0.417vw solid transparent;
+              border-top: 0.469vw solid #cccccc;
               position: absolute;
-              bottom: 4px;
-              right: -20px;
+              bottom: 0.208vw;
+              right: -1.042vw;
               &.roate {
                 transform: rotate(180deg) !important;
               }
@@ -1822,46 +2101,46 @@
             &.active {
               height: auto;
               overflow: visible;
-              padding: 0px 98px 0 98px;
+              padding: 0vw 5.104vw 0 5.104vw;
             }
             .line {
               position: absolute;
-              left: 35px;
-              top: -10px;
+              left: 1.823vw;
+              top: -0.521vw;
               img {
-                width: 27px;
-                height: 27px;
+                width: 1.406vw;
+                height: 1.406vw;
                 border-radius: 50%;
-                border: 1px solid #000;
+                border: 0.052vw solid #000;
                 overflow: hidden;
-                margin: 5px 0;
+                margin: 0.26vw 0;
               }
               i {
                 display: block;
-                width: 2px;
-                height: 665px;
+                width: 0.104vw;
+                height: 34.635vw;
                 background: #3498db;
-                margin-left: 13px;
+                margin-left: 0.677vw;
               }
               > div {
-                width: 21px;
-                height: 21px;
+                width: 1.094vw;
+                height: 1.094vw;
                 border-radius: 50%;
-                border: 3px solid #3498db;
-                margin: 5px 0;
+                border: 0.156vw solid #3498db;
+                margin: 0.26vw 0;
                 &.noShow {
                   opacity: 0;
-                  // height: 11px;
-                  height: 24px;
+                  // height: 0.573vw;
+                  height: 1.25vw;
                 }
               }
             }
             ._title {
-              margin-bottom: 20px;
-              margin-top: 11px;
+              margin-bottom: 1.042vw;
+              margin-top: 0.573vw;
               span:nth-of-type(2) {
                 color: #999999;
-                margin-left: 30px;
+                margin-left: 1.563vw;
               }
             }
             .imgbox {
@@ -1870,21 +2149,21 @@
               > div {
                 display: flex;
                 img {
-                  width: 62px;
-                  height: 62px;
-                  border-radius: 4px;
-                  margin-right: 14px;
+                  width: 3.229vw;
+                  height: 3.229vw;
+                  border-radius: 0.208vw;
+                  margin-right: 0.729vw;
                 }
                 > div {
                   > p:nth-of-type(1) {
-                    padding-top: 8px;
+                    padding-top: 0.417vw;
                     span:nth-of-type(1) {
-                      font-size: 14px;
+                      font-size: 0.729vw;
                       font-weight: bold;
                       color: #333333;
                     }
                     span:nth-of-type(2) {
-                      margin-right: 15px;
+                      margin-right: 0.781vw;
                     }
                     span:nth-of-type(2),
                     span:nth-of-type(3) {
@@ -1892,26 +2171,26 @@
                     }
                   }
                   > p:nth-of-type(2) {
-                    margin-top: 9px;
+                    margin-top: 0.469vw;
                   }
                 }
               }
               > span {
-                margin-top: 35px;
-                font-size: 12px;
+                margin-top: 1.823vw;
+                font-size: 0.625vw;
                 color: #999999;
               }
             }
             > h3 {
-              margin: 11px 0;
+              margin: 0.573vw 0;
             }
             .tablebox {
-              width: 1069px;
-              margin-bottom: 20px;
+              width: 55.677vw;
+              margin-bottom: 1.042vw;
               ._thead {
                 > div:nth-of-type(1) {
-                  width: 1069px;
-                  line-height: 28px;
+                  width: 55.677vw;
+                  line-height: 1.458vw;
                   text-align: center;
                   background: #eeeeee;
                 }
@@ -1920,23 +2199,23 @@
                   justify-content: space-between;
                   > div {
                     text-align: center;
-                    line-height: 27px;
+                    line-height: 1.406vw;
                     color: #929292;
                   }
                   > div:nth-of-type(1) {
-                    width: 623px !important;
-                    border-right: 1px solid #ebeef5;
-                    border-left: 1px solid #ebeef5;
+                    width: 32.448vw !important;
+                    border-right: 0.052vw solid #ebeef5;
+                    border-left: 0.052vw solid #ebeef5;
                   }
                   > div:nth-of-type(2) {
                     flex-grow: 1;
-                    border-right: 1px solid #ebeef5;
+                    border-right: 0.052vw solid #ebeef5;
                   }
                 }
               }
               .el-table td,
               .el-table th {
-                padding: 1px 0 !important;
+                padding: 0.052vw 0 !important;
                 color: #929292;
               }
             }
@@ -1946,8 +2225,8 @@
       .right {
         width: 19.115vw;
         height: 40vw;
+        border-radius: 0.208vw;
         overflow: scroll;
-        border-radius: 4px;
         scrollbar-width: none;
         > div + div {
           margin-top: 0.9vw;
@@ -2107,13 +2386,13 @@
           }
         }
         .right4 {
-          border-radius: 4px;
+          border-radius: 0.208vw;
           > div:nth-of-type(2) {
-            padding: 20px 30px;
+            padding: 1.042vw 1.563vw;
           }
           .el-button {
-            padding: 0 17px !important;
-            margin-right: 7px !important;
+            padding: 0 0.885vw !important;
+            margin-right: 0.365vw !important;
             &.gray {
               background: #cccccc !important;
               color: white !important;
@@ -2125,11 +2404,11 @@
           }
           .el-button:nth-of-type(3) {
             margin-left: 0 !important;
-            margin-top: 10px !important;
-            margin-bottom: 15px !important;
+            margin-top: 0.521vw !important;
+            margin-bottom: 0.781vw !important;
           }
           .title {
-            padding: 20px 30px;
+            padding: 1.042vw 1.563vw;
             ::after {
               content: "";
               display: block;
@@ -2138,7 +2417,7 @@
               background: #3498db;
               position: absolute;
               left: -0vw;
-              top: 13px;
+              top: 0.677vw;
             }
           }
         }
@@ -2248,16 +2527,16 @@
       }
     }
     .total .el-dialog__body {
-      padding: 24px;
-      height: 601px;
+      padding: 1.25vw;
+      height: 31.302vw;
       overflow: scroll;
       scrollbar-width: none;
       .tablebox {
-        margin-bottom: 20px;
+        margin-bottom: 1.042vw;
         ._thead {
           > div:nth-of-type(1) {
-            width: 1069px;
-            line-height: 28px;
+            width: 55.677vw;
+            line-height: 1.458vw;
             text-align: center;
             background: #eeeeee;
           }
@@ -2266,24 +2545,99 @@
             justify-content: space-between;
             > div {
               text-align: center;
-              line-height: 27px;
+              line-height: 1.406vw;
               color: #929292;
             }
             > div:nth-of-type(1) {
-              width: 623px !important;
-              border-right: 1px solid #ebeef5;
-              border-left: 1px solid #ebeef5;
+              width: 32.448vw !important;
+              border-right: 0.052vw solid #ebeef5;
+              border-left: 0.052vw solid #ebeef5;
             }
             > div:nth-of-type(2) {
               flex-grow: 1;
-              border-right: 1px solid #ebeef5;
+              border-right: 0.052vw solid #ebeef5;
             }
           }
         }
         .el-table td,
         .el-table th {
-          padding: 2px 0 !important;
+          padding: 0.104vw 0 !important;
           color: #929292;
+        }
+      }
+    }
+    .qipei {
+      .el-dialog__body {
+        padding: 0 1.823vw 1.719vw 1.823vw;
+        height: 26.042vw;
+        overflow: scroll;
+        scrollbar-width: none;
+        position: relative;
+        .title {
+          width: 36.458vw;
+          display: flex;
+          justify-content: space-between;
+          position: absolute;
+          top: -1.823vw;
+          left: 8.333vw;
+          color: white;
+        }
+        ._content {
+          .item {
+            .subTit {
+              font-size: 0.833vw;
+              font-weight: bold;
+              color: #333333;
+              margin-bottom: 1.927vw;
+              margin-top: 1.823vw;
+              span {
+                font-weight: bold;
+                color: #df3210;
+              }
+            }
+            > div {
+              margin-bottom: 0.938vw;
+              h4 {
+                margin-bottom: 0.729vw;
+              }
+              > div {
+                width: 100%;
+                display: flex;
+                // justify-content: space-between;
+                > div:nth-of-type(1) {
+                  margin-right: 1.25vw;
+                }
+                > div {
+                  display: flex;
+                  background: #eeeeee;
+                  padding: 0.313vw 0.625vw;
+                  border-radius: 0.208vw;
+
+                  img {
+                    display: block;
+                    border: 0.052vw solid #000;
+                    width: 3.229vw;
+                    height: 3.229vw;
+                    border-radius: 0.208vw;
+                    margin-right: 0.625vw;
+                  }
+                  p {
+                    line-height: 1.563vw;
+                    > span {
+                      font-weight: bold;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .el-dialog__footer {
+        display: flex;
+        justify-content: center;
+        .el-button {
+          padding: 0 1.042vw !important;
         }
       }
     }
