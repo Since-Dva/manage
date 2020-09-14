@@ -15,14 +15,14 @@
               <span>基本信息</span>
               <div>
                 <span>订单状态</span>
-                <span>未发布</span>
+                <span>已预警</span>
                 <a @click="changeIsEdit">{{isEdit?'编辑':'保存'}}</a>
               </div>
             </div>
             <div class="left1_2_1">
               <div>
                 <span>保险机构：</span>
-                <el-input v-model="base.value1">大地保险（重庆分公司）</el-input>
+                <el-input disabled v-model="base.value1">大地保险（重庆分公司）</el-input>
               </div>
               <div :class="!isEdit?'blue':''">
                 <span>VIN码：</span>
@@ -37,7 +37,7 @@
             <div class="left1_2_1">
               <div>
                 <span>报案号：</span>
-                <el-input v-model="base.value4">大地保险（重庆分公司）</el-input>
+                <el-input disabled v-model="base.value4">大地保险（重庆分公司）</el-input>
               </div>
               <div :class="!isEdit?'blue':''">
                 <span>车型：</span>
@@ -46,40 +46,40 @@
               </div>
               <div>
                 <span>承修单位：</span>
-                <el-input v-model="base.value6">渝DN7688</el-input>
+                <el-input disabled v-model="base.value6">渝DN7688</el-input>
               </div>
             </div>
             <div class="left1_2_1">
               <div>
                 <span>定损员：</span>
-                <el-input v-model="base.value7">大地保险（重庆分公司）</el-input>
+                <el-input disabled v-model="base.value7">大地保险（重庆分公司）</el-input>
               </div>
               <div :class="!isEdit?'blue':''">
                 <span>年龄：</span>
-                <el-input v-model="base.value8"></el-input>
+                <el-input disabled v-model="base.value8"></el-input>
               </div>
               <div>
                 <span>承修电话：</span>
-                <el-input v-model="base.value9">渝DN7688</el-input>
+                <el-input disabled v-model="base.value9">渝DN7688</el-input>
               </div>
             </div>
             <div class="left1_2_1">
               <div>
                 <span>联系电话：</span>
-                <el-input v-model="base.value10"></el-input>
+                <el-input disabled v-model="base.value10"></el-input>
               </div>
             </div>
             <div class="left1_2_1">
               <div>
                 <span>询价单号：</span>
-                <el-input v-model="base.value11"></el-input>
+                <el-input disabled v-model="base.value11"></el-input>
                 <a @click="copyShaneUrl(base.value11)">复制</a>
               </div>
             </div>
             <div class="left1_2_1">
               <div>
                 <span>提交时间：</span>
-                <el-input v-model="base.value12"></el-input>
+                <el-input disabled v-model="base.value12"></el-input>
               </div>
             </div>
 
@@ -156,7 +156,7 @@
                 <span>当前保险机构报价方案模型：</span>
                 <span>自定义</span>
               </div>
-              <el-button>保存</el-button>
+              <el-button @click="changeSave">{{save?'保存':'编辑'}}</el-button>
             </div>
           </div>
           <div class="_tableBox">
@@ -218,7 +218,7 @@
               <div>
                 <div>
                   {{qipeishang[0].value1}}
-                  <a class="a_active" @click="onchange(1)">更换</a>
+                  <a v-if="save" class="a_active" @click="onchange(1)">更换</a>
                 </div>
                 <div>
                   {{qipeishang[1].value1}}
@@ -258,7 +258,7 @@
               </div>
             </div>
             <div class="_tr">
-              <div>1</div>
+              <div>2</div>
               <div>
                 <span>左大灯：X3</span>
                 <span>OE码：3729525249</span>
@@ -268,16 +268,16 @@
               <div>否</div>
               <div>
                 <div>
-                  <el-radio v-model="radio1" label="原厂件" />
+                  <el-radio v-model="radio2" label="原厂件" />
                 </div>
                 <div>
-                  <el-radio v-model="radio1" label="配套件" />
+                  <el-radio v-model="radio2" label="配套件" />
                 </div>
                 <div>
-                  <el-radio v-model="radio1" label="认证件" />
+                  <el-radio v-model="radio2" label="认证件" />
                 </div>
                 <div>
-                  <el-radio class="tuijian" v-model="radio1" label="品牌件" />
+                  <el-radio class="tuijian" v-model="radio2" label="品牌件" />
                 </div>
               </div>
               <div>
@@ -291,7 +291,7 @@
                 </div>
                 <div class="blue">
                   {{qipeishang[6].value1}}
-                  <a class="a_active" @click="onchange(7)">更换</a>
+                  <a v-if="save" class="a_active" @click="onchange(7)">更换</a>
                 </div>
                 <div>
                   {{qipeishang[7].value1}}
@@ -323,7 +323,7 @@
               </div>
             </div>
             <div class="_tr">
-              <div>1</div>
+              <div>3</div>
               <div>
                 <span>左大灯：X3</span>
                 <span>OE码：3729525249</span>
@@ -333,16 +333,16 @@
               <div>否</div>
               <div>
                 <div>
-                  <el-radio v-model="radio1" label="原厂件" />
+                  <el-radio v-model="radio3" label="原厂件" />
                 </div>
                 <div>
-                  <el-radio v-model="radio1" label="配套件" />
+                  <el-radio v-model="radio3" label="配套件" />
                 </div>
                 <div>
-                  <el-radio v-model="radio1" label="认证件" />
+                  <el-radio v-model="radio3" label="认证件" />
                 </div>
                 <div>
-                  <el-radio class="tuijian" v-model="radio1" label="品牌件" />
+                  <el-radio class="tuijian" v-model="radio3" label="品牌件" />
                 </div>
               </div>
               <div>
@@ -433,8 +433,8 @@
           </div>
           <div class="left3">
             <div class="left3_1">
-              <p>保险机构方案</p>
-              <p>（推荐）</p>
+              <p>参考方案一</p>
+              <p>（4S报价）</p>
             </div>
             <div class="left3_2">
               <div>零部件总数</div>
@@ -467,8 +467,8 @@
           </div>
           <div class="left3">
             <div class="left3_1">
-              <p>保险机构方案</p>
-              <p>（推荐）</p>
+              <p>参考方案二 </p>
+              <p>（当前最低）</p>
             </div>
             <div class="left3_2">
               <div>零部件总数</div>
@@ -801,8 +801,9 @@
             <span>订单跟进</span>
           </div>
           <div>
+            <!-- class="gray" -->
             <el-button @click="changegenjin">{{!genjin?'添加跟进':'保存跟进'}}</el-button>
-            <el-button class="gray">开启订单</el-button>
+            <el-button >关闭订单</el-button>
             <el-button @click="baojia=true">报价汇总</el-button>
             <el-button @click="xiezhu=true">完成协助</el-button>
             <el-input v-if="genjin" type="textarea" v-model="textarea2" :rows="4"></el-input>
@@ -1075,6 +1076,8 @@
         isView: false,
         huizong: false,
         radio1: null,
+        radio2: null,
+        radio3: null,
         qipeishang:[
           {value1:'中南汽配商',num:520},
           {value1:'中南汽配商',num:520},
@@ -1284,6 +1287,7 @@
           },
         ],
         isEdit: true,
+        save:false,
         base: {
           value1: "大地保险（重庆分公司）",
           value2: "CQTPY20200721000001",
@@ -1364,6 +1368,9 @@
       rexunjiadanOK() {
         this.rexunjiadan = false;
       },
+      changeSave(){
+        this.save=!this.save
+      },
       changeMoney(type){
         let name
         let money
@@ -1442,11 +1449,12 @@
         display: flex;
         align-items: center;
         > div {
-          width: 17.5vw;
+          width: 17.8vw;
           height: 2.604vw;
           line-height: 2.604vw;
           text-align: center;
           color: #656565;
+          flex-shrink: 0;
         }
         > div:nth-of-type(1) {
           background: url("../../../assets/img/arratc.png") center no-repeat;
@@ -1454,17 +1462,20 @@
           color: white;
         }
         > div:nth-of-type(2) {
-          background: url("../../../assets/img/arratc.png") center no-repeat;
+          background: url("../../../assets/img/arratc2.png") center no-repeat;
           background-size: 100%;
           color: white;
+          margin-left: -35px;
         }
         > div:nth-of-type(3) {
           background: url("../../../assets/img/arr.png") center no-repeat;
           background-size: 100%;
+          margin-left: -35px;
         }
         > div:nth-of-type(4) {
           background: url("../../../assets/img/arrlast.png") center no-repeat;
           background-size: 100%;
+          margin-left: -35px;
         }
       }
       .title {
@@ -1787,7 +1798,13 @@
                       display: block;
                     }
                   }
+                  &:hover{
+                    .gth{
+                      opacity: 1;
+                    }
+                  }
                   .gth {
+                    opacity: 0;
                     display: block;
                     width: 0.781vw;
                     height: 0.781vw;
@@ -1808,7 +1825,7 @@
                       font-size: 0.521vw;
                       color: #999999;
                       bottom: -1.302vw;
-                      left: 0vw;
+                      left: -0.2vw;
                       background: #ededed;
                       border-radius: 0.104vw;
                       &::before {
@@ -2118,15 +2135,15 @@
               i {
                 display: block;
                 width: 0.104vw;
-                height: 34.635vw;
+                height: 33.2vw;
                 background: #3498db;
                 margin-left: 0.677vw;
               }
               > div {
-                width: 1.094vw;
-                height: 1.094vw;
+                width: 1vw;
+                height: 1vw;
                 border-radius: 50%;
-                border: 0.156vw solid #3498db;
+                border: 0.2vw solid #3498db;
                 margin: 0.26vw 0;
                 &.noShow {
                   opacity: 0;

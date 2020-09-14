@@ -57,14 +57,14 @@
         <el-table-column align="center" label="操作" width="220%">
           <template slot-scope="scope">
             <a @click="showReModal(scope.row)">查看</a>
-            <a @click="showDeleteModal(scope.row)">停用</a>
+            <a @click="showDeleteModal(scope.row)">{{scope.row.state=='启用中'?'停用':'启用'}}</a>
           </template>
         </el-table-column>
       </xybTable>
     </div>
     <!-- 停用 -->
-    <el-dialog title="停用确认" :visible.sync="deleteModal" width="22.656vw">
-      <span>是否确认停用当前账号？</span>
+    <el-dialog :title="row.state==='启用中'?'停用确认':'启用确认'" :visible.sync="deleteModal" width="22.656vw">
+      <span>是否确认{{row.state==='启用中'?'停用确认':'启用确认'}}当前账号？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="deleteModalOK">确 定</el-button>
         <el-button class="cancel" @click="deleteModal=false">取 消</el-button>
@@ -139,7 +139,7 @@
             </div>
           </div>
           <div class="item1_1">
-            <p class="title">自定义一</p>
+            <p class="title" :style="{background:show?'#0f6baa':'',color:show?'white':'#656565'}">自定义一</p>
             <div class="addicon">
               <i @click="show=true"></i>
               新增
@@ -185,12 +185,12 @@
                 <span>（支持多选）</span>
               </div>
               <div class="checkbox">
-                <el-checkbox-group v-model="checkList">
-                  <el-checkbox label="3年以内" disabled></el-checkbox>
+                <el-checkbox-group @change="changeYear" v-model="checkList">
+                  <el-checkbox label="3年以内"></el-checkbox>
                   <el-checkbox label="3年~6年"></el-checkbox>
                   <el-checkbox label="6年~10年"></el-checkbox>
                   <el-checkbox label="10年以上"></el-checkbox>
-                </el-checkbox-group>
+                  </el-checkbox-group>
               </div>
             </div>
             <div>
@@ -232,10 +232,10 @@
               </div>
               <div class="checkbox">
                 <el-checkbox-group v-model="checkList1">
-                  <el-checkbox label="3年以内" disabled></el-checkbox>
-                  <el-checkbox label="3年~6年"></el-checkbox>
-                  <el-checkbox label="6年~10年"></el-checkbox>
-                  <el-checkbox label="10年以上"></el-checkbox>
+                  <el-checkbox label="3年以内" :disabled="checkList.includes('3年以内')"></el-checkbox>
+                  <el-checkbox label="3年~6年" :disabled="checkList.includes('3年~6年')"></el-checkbox>
+                  <el-checkbox label="6年~10年" :disabled="checkList.includes('6年~10年')"></el-checkbox>
+                  <el-checkbox label="10年以上" :disabled="checkList.includes('10年以上')"></el-checkbox>
                 </el-checkbox-group>
               </div>
             </div>
@@ -280,22 +280,22 @@
         </div>
         <div class="item2">
           <span>原厂件利润比：</span>
-          <el-input></el-input>%
+          <el-input v-model="val1"></el-input>%
           <span>（注：原厂件的利润比为x）</span>
         </div>
         <div class="item2">
           <span>配套件利润增幅：</span>
-          <el-input></el-input>%
+          <el-input v-model="val2"></el-input>%
           <span>（注：配套件的利润增幅为y1）</span>
         </div>
         <div class="item2">
           <span>认证件利润增幅：</span>
-          <el-input></el-input>%
+          <el-input v-model="val3"></el-input>%
           <span>（注：配套件的利润增幅为y2）</span>
         </div>
         <div class="item2">
           <span>品牌件利润增幅：</span>
-          <el-input></el-input>%
+          <el-input v-model="val4"></el-input>%
           <span>（注：配套件的利润增幅为y3）</span>
         </div>
         <i class="line"></i>
@@ -307,19 +307,19 @@
         </div>
         <div class="item2 item3">
           <span>原厂件价格参考区间：</span>
-          <el-input></el-input>%
+          <el-input v-model="val5"></el-input>%
         </div>
         <div class="item2 item3">
           <span>配套件价格参考区间：</span>
-          <el-input></el-input>%
+          <el-input v-model="val6"></el-input>%
         </div>
         <div class="item2 item3">
           <span>认证件价格参考区间：</span>
-          <el-input></el-input>%
+          <el-input v-model="val7"></el-input>%
         </div>
         <div class="item2 item3">
           <span>品牌件价格参考区间：</span>
-          <el-input></el-input>%
+          <el-input v-model="val8"></el-input>%
         </div>
       </div>
       <span slot="footer" class="dialog-footer">
@@ -349,7 +349,7 @@
         show:false,
         size: 10,
         count: 1,
-        total: 0,
+        total: 2,
         checkList: [],
         checkList1: [],
         add: {
@@ -365,6 +365,15 @@
           value10: null,
           value11: null,
         },
+        row:{},
+        val1:5,
+        val2:70,
+        val3:60,
+        val4:50,
+        val5:90,
+        val6:80,
+        val7:70,
+        val8:60,
         sexs: [
           { label: "男", value: 1 },
           { label: "女", value: 2 },
@@ -409,6 +418,15 @@
             creater: "黄蓉",
             time: "2020/7/30 15:59",
           },
+          {
+            index: 1,
+            id: 10001,
+            name: "太平洋保险公司（重庆分公司）",
+            state: "已停用",
+            type: "模型一",
+            creater: "黄蓉",
+            time: "2020/7/30 15:59",
+          }
         ],
       };
     },
@@ -423,8 +441,8 @@
       },
       showReModal(info) {
         this.dataIdx = info.index;
-        this.$store.commit("addTabMut", { title:'定损询价单详情', path:'/inquiry/prograDetail',type:'inquiry' });
-        this.$router.push('/inquiry/prograDetail')
+        this.$store.commit("addTabMut", { title:'定损询价单详情', path:'/inquiry/program',type:'inquiry' });
+        this.$router.push('/inquiry/program')
       },
       reModalOK() {
         this.reModal = false;
@@ -435,7 +453,7 @@
       },
       //停用
       showDeleteModal(info) {
-        console.log(info);
+        this.row=info
         this.deleteModal = true;
       },
       deleteModalOK() {
@@ -468,6 +486,9 @@
       pageChange(e) {
         this.count = e;
       },
+      changeYear(e){
+        this.checkList=e
+      }
     },
   };
 </script>

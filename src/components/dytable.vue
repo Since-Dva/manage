@@ -102,6 +102,7 @@
     background: white;
     .el-table {
       // margin-bottom: 2.604vw;
+      overflow-y: scroll;
       a {
         cursor: pointer;
       }

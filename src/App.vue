@@ -36,6 +36,9 @@
     font-family: Microsoft YaHei;
     font-size: 0.833vw;
     color: rgba(102, 102, 102, 1);
+    .el-dialog {
+      border-radius: 4px !important;
+    }
     .content {
       display: flex;
       .el-main {
@@ -56,17 +59,16 @@
         .el-input--suffix {
           width: 4.792vw;
           height: 1.458vw;
-          .el-icon-arrow-up{
-              &::before{
-                content: '';
-              }
+          .el-icon-arrow-up {
+            &::before {
+              content: "";
             }
+          }
           position: relative;
           .el-input,
           .el-input__inner {
             width: 4.792vw;
             height: 1.458vw;
-            
           }
         }
       }
@@ -148,8 +150,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            pointer-events: none; 
-            .el-checkbox__input{
+            pointer-events: none;
+            .el-checkbox__input {
               pointer-events: auto;
             }
             .el-checkbox__label span {
@@ -265,23 +267,23 @@
       }
     }
     .time {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          .el-input {
-            width: 7.17vw !important;
-            .el-input__inner {
-              width: 7.17vw !important;
-            }
-          }
-          > span:nth-of-type(2) {
-            color: #d2d2d2;
-            margin: 0 0.521vw;
-          }
-          .el-input__prefix {
-            display: none;
-          }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .el-input {
+        width: 7.17vw !important;
+        .el-input__inner {
+          width: 7.17vw !important;
         }
+      }
+      > span:nth-of-type(2) {
+        color: #d2d2d2;
+        margin: 0 0.521vw;
+      }
+      .el-input__prefix {
+        display: none;
+      }
+    }
   }
   .el-dialog {
     min-height: 15.625vw;
@@ -290,6 +292,7 @@
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+    border-radius: 4px;
     .el-dialog__header {
       height: 3.073vw;
       line-height: 3.073vw;
@@ -329,13 +332,13 @@
       width: 7.813vw !important;
     }
   }
-  .input-200{
+  .input-200 {
     .el-input,
     .el-input__inner {
       width: 10.417vw !important;
     }
   }
-  .input-300{
+  .input-300 {
     .el-input,
     .el-input__inner {
       width: 15.625vw !important;

@@ -88,7 +88,7 @@
 <style scoped lang="scss">
   .el-aside {
     width: 11.719vw !important;
-    height: 44.531vw;
+    height: 881px;
     background: #ffffff;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -96,6 +96,7 @@
     box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
     margin-top: -1.042vw;
     padding-top: 1.042vw;
+    padding-bottom: 2vw;
     .el-menu {
       width: 11.719vw;
       .titleicon {

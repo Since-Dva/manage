@@ -5,7 +5,7 @@
       <div class="row">
         <div>
           <span>定损单号：</span>
-          <el-input v-model="accountId" @blur="check" placeholder="ID为字母和数字"></el-input>
+          <el-input v-model="accountId" @blur="check" placeholder="请输入单号"></el-input>
         </div>
         <div>
           <span>保险机构：</span>

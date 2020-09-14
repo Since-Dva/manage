@@ -111,19 +111,19 @@
               <div>
                 <div class="imgbox">
                   <img src alt />
-                  <span>本地上传</span>
+                  <!-- <span>本地上传</span> -->
                 </div>
                 <div class="imgbox">
                   <img src alt />
-                  <span>本地上传</span>
+                  <!-- <span>本地上传</span> -->
                 </div>
                 <div class="imgbox">
                   <img src alt />
-                  <span>本地上传</span>
+                  <!-- <span>本地上传</span> -->
                 </div>
                 <div class="imgbox">
                   <img src alt />
-                  <span>本地上传</span>
+                  <!-- <span>本地上传</span> -->
                 </div>
               </div>
             </div>
@@ -133,7 +133,7 @@
                 <div>
                   <div class="imgbox">
                     <img src alt />
-                    <span>本地上传</span>
+                    <!-- <span>本地上传</span> -->
                   </div>
                 </div>
               </div>
@@ -142,7 +142,7 @@
                 <div>
                   <div class="imgbox">
                     <img src alt />
-                    <span>本地上传</span>
+                    <!-- <span>本地上传</span> -->
                   </div>
                 </div>
               </div>
@@ -209,7 +209,7 @@
               </el-table-column>
             </el-table>
             <div class="bth">
-              <el-button>发布询价</el-button>
+              <el-button :style="{background:'#cccccc'}" disabled>发布询价</el-button>
             </div>
           </div>
         </div>
@@ -226,7 +226,7 @@
               <span>维修清单</span>
               <div>
                 <img src alt />
-                <img src alt class="carme" />
+                <img @click="showrotate" src='../../../assets/img/xiangji.png' alt :class="[rotate?'xuanzhuan':'' ,'carme']" />
               </div>
             </div>
             <div class="_right">
@@ -237,13 +237,13 @@
               <div class="middle">
                 <div class="_left">
                   <p>已添加配件（3）</p>
-                  <div class="_left1">
+                  <div v-if="aaa" class="_left1">
                     <span>左大灯</span>
-                    <i>×</i>
+                    <i @click="aaa=false">×</i>
                   </div>
-                  <div class="_left1">
+                  <div v-if="bbb" class="_left1">
                     <span>左前大灯*2</span>
-                    <i>×</i>
+                    <i @click="bbb=false">×</i>
                   </div>
                 </div>
                 <div class="_right">
@@ -278,7 +278,7 @@
               <p>维修清单</p>
               <div>
                 <img src alt />
-                <img src alt class="carme" />
+                <img @click="showrotate" src='../../../assets/img/xiangji.png' alt :class="[rotate?'xuanzhuan':'' ,'carme']" />
               </div>
             </div>
             <div class="_right">
@@ -413,7 +413,7 @@
               <span>维修清单</span>
               <div>
                 <img src alt />
-                <img src alt class="carme" />
+                <img @click="showrotate" src='../../../assets/img/xiangji.png' alt :class="[rotate?'xuanzhuan':'' ,'carme']" />
               </div>
             </div>
             <div class="_right">
@@ -441,7 +441,7 @@
               <span>维修清单</span>
               <div>
                 <img src alt />
-                <img src alt class="carme" />
+                <img @click="showrotate" src='../../../assets/img/xiangji.png' alt :class="[rotate?'xuanzhuan':'' ,'carme']" />
               </div>
             </div>
             <div class="_right">
@@ -497,7 +497,7 @@
               <p>维修清单</p>
               <div>
                 <img src alt />
-                <img src alt class="carme" />
+                <img @click="showrotate" src='../../../assets/img/xiangji.png' alt :class="[rotate?'xuanzhuan':'' ,'carme']" />
               </div>
             </div>
             <div class="_right">
@@ -696,6 +696,7 @@
         input1: null,
         input2: null,
         select1: null,
+        rotate:false,
         fileList: [
           {
             name: "太平洋保险（重庆分公司）战略合作合同.pdf",
@@ -741,6 +742,8 @@
         ],
         addgj: false,
         genjin: false,
+        aaa:true,
+        bbb:true,
         tableData: [
           {
             value1: "1",
@@ -782,6 +785,12 @@
       },
       nopowerOK() {
         this.nopower = false;
+      },
+      showrotate(){
+        this.rotate=true
+        setTimeout(() => {
+          this.rotate=false
+        }, 500);
       },
       dingdanOK() {
         this.dingdan = false;
@@ -827,25 +836,32 @@
         display: flex;
         align-items: center;
         > div {
-          width: 17.5vw;
+          width: 17.8vw;
           height: 2.604vw;
           line-height: 2.604vw;
           text-align: center;
           color: #656565;
+          flex-shrink: 0;
         }
         > div:nth-of-type(1) {
           background: url("../../../assets/img/arratc.png") center no-repeat;
           background-size: 100%;
           color: white;
         }
-        > div:nth-of-type(2),
-        div:nth-of-type(3) {
+        > div:nth-of-type(2) {
           background: url("../../../assets/img/arr.png") center no-repeat;
           background-size: 100%;
+          margin-left: -35px;
+        }
+        > div:nth-of-type(3) {
+          background: url("../../../assets/img/arr.png") center no-repeat;
+          background-size: 100%;
+          margin-left: -35px;
         }
         > div:nth-of-type(4) {
           background: url("../../../assets/img/arrlast.png") center no-repeat;
           background-size: 100%;
+          margin-left: -35px;
         }
       }
       .title {
@@ -974,12 +990,12 @@
               margin-left: 9.375vw;
               span:nth-of-type(2) {
                 margin-left: 0.521vw;
-                color: #006bff;
+                // color: #006bff;
               }
             }
           }
           .left2_2 {
-            margin-top: 1.042vw;
+            margin-top: 1.5vw;
             div:nth-of-type(2) {
               display: flex;
               .imgbox {
@@ -1142,14 +1158,18 @@
                   margin: 0 auto;
                 }
                 .carme {
+                  display: block;
                   width: 2.292vw;
                   height: 2.292vw;
                   border-radius: 50%;
-                  border: 0.052vw solid #000;
                   overflow: hidden;
                   position: absolute;
                   right: 2.604vw;
                   bottom: 1.042vw;
+                  transition: all 0.5s;
+                  &.xuanzhuan{
+                    transform: rotate(360deg);
+                  }
                 }
               }
             }

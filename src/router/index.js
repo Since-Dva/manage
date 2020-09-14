@@ -13,6 +13,7 @@ import Advert from '../views/contentM/Advert'
 import SystemNotice from '../views/contentM/SystemNotice'
 import List from '../views/inquiry/List'
 import Programme from '../views/inquiry/programme/Programme'
+import Program from '../views/inquiry/programme/Program'
 import PrograDetail from '../views/inquiry/programme/PrograDetail'
 import PrograDetailAuto from '../views/inquiry/programme/PrograDetailAuto'
 import Workbench from '../views/inquiry/workbench/Workbench'
@@ -101,8 +102,17 @@ const routes = [{
     }
   },
   {
-    path: '/inquiry/prograDetail',
+    path: '/inquiry/program',
     name: '报价方案详情',
+    components: {
+      Head,
+      Aside,
+      default: Program
+    }
+  },
+  {
+    path: '/inquiry/prograDetail',
+    name: '方案详情',
     components: {
       Head,
       Aside,
@@ -111,7 +121,7 @@ const routes = [{
   },
   {
     path: '/inquiry/prograDetailAuto',
-    name: '报价方案详情',
+    name: '方案详情',
     components: {
       Head,
       Aside,
