@@ -14,6 +14,7 @@
     },
     mounted() {
       var editor = new E("#editorElem");
+      editor.customConfig.uploadImgShowBase64 = true
       editor.customConfig.menus = [
         "fontSize",
         "fontName",

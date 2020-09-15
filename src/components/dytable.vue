@@ -6,7 +6,6 @@
       :max-height="maxHeight"
       :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'0.833vw',background:'#eeeeee'}"
       :row-style="{height:rowheight+'vw'}"
-      style="width: 100%"
     >
       <el-table-column
         align="center"
@@ -44,15 +43,11 @@
       },
       sizeChange: {
         type: Function,
-        sizeChange:()=>{
-
-        },
+        sizeChange: () => {},
       },
       pageChange: {
         type: Function,
-        pageChange:()=>{
-
-        },
+        pageChange: () => {},
       },
       count: {
         type: Number,
@@ -74,10 +69,10 @@
         type: Number,
         default: 2.86,
       },
-      pagination:{
+      pagination: {
         type: Boolean,
         default: true,
-      }
+      },
     },
     data() {
       return {};
@@ -102,6 +97,24 @@
     background: white;
     .el-table {
       // margin-bottom: 2.604vw;
+      ::-webkit-scrollbar {
+        width: 15px !important;
+        height: 12px !important;
+      }
+      ::-webkit-scrollbar-track-piece {
+        background-color: rgba(0, 0, 0, 0.2);
+        // -webkit-border-radius: 0.313vw;
+      }
+      ::-webkit-scrollbar-thumb:vertical {
+        height: 0.26vw;
+        background-color: rgba(125, 125, 125, 0.5);
+        // -webkit-border-radius: 0.313vw;
+      }
+      ::-webkit-scrollbar-thumb:horizontal {
+        width: 0.26vw;
+        background-color: rgba(125, 125, 125, 0.5);
+        // -webkit-border-radius: 0.313vw;
+      }
       overflow-y: scroll;
       a {
         cursor: pointer;
@@ -115,9 +128,9 @@
           margin-right: 0.521vw;
         }
       }
-      .el-table__row{
-        &:hover{
-          td{
+      .el-table__row {
+        &:hover {
+          td {
             background: #d6eaf8;
           }
         }

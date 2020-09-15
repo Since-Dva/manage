@@ -205,18 +205,18 @@
           { key: 3, label: "备选项3" },
         ], //权限分配
         tableCol: [
-          { prop: "index", label: "序列号",width:'80%' },
-          { prop: "id", label: "ID" ,width:'80%'},
+          { prop: "index", label: "序列号",width:'180%' },
+          { prop: "id", label: "ID" ,width:'180%'},
           { prop: "name", label: "保险机构",width:'220%'},
-          { prop: "person", label: "定损员"},
-          { prop: "baoan", label: "报案号" },
+          { prop: "person", label: "定损员",width:'180%'},
+          { prop: "baoan", label: "报案号" ,width:'180%'},
           { prop: "cartype", label: "车型" ,width:'190%'},
-          { prop: "carID", label: "车牌号" },
-          { prop: "vinID", label: "VIN号" },
-          { prop: "repair", label: "承修单位"},
+          { prop: "carID", label: "车牌号" ,width:'180%'},
+          { prop: "vinID", label: "VIN号" ,width:'180%'},
+          { prop: "repair", label: "承修单位",width:'180%'},
           { prop: "time", label: "创建时间",width:'150%'},
-          { prop: "state", label: "订单状态"},
-          { prop: "genjin", label: "跟进人"},
+          { prop: "state", label: "订单状态",width:'180%'},
+          { prop: "genjin", label: "跟进人",width:'180%'},
         ],
         tableData: [
           {
