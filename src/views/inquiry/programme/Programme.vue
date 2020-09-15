@@ -52,7 +52,7 @@
         :size="size"
         :count="count"
         :total="total"
-        :rowheight="2.6"
+        :rowheight="2.15"
       >
         <el-table-column align="center" label="操作" width="220%">
           <template slot-scope="scope">
@@ -426,7 +426,79 @@
             type: "模型一",
             creater: "黄蓉",
             time: "2020/7/30 15:59",
-          }
+          },
+          {
+            index: 1,
+            id: 10001,
+            name: "太平洋保险公司（重庆分公司）",
+            state: "已停用",
+            type: "模型一",
+            creater: "黄蓉",
+            time: "2020/7/30 15:59",
+          },
+          {
+            index: 1,
+            id: 10001,
+            name: "太平洋保险公司（重庆分公司）",
+            state: "已停用",
+            type: "模型一",
+            creater: "黄蓉",
+            time: "2020/7/30 15:59",
+          },
+          {
+            index: 1,
+            id: 10001,
+            name: "太平洋保险公司（重庆分公司）",
+            state: "已停用",
+            type: "模型一",
+            creater: "黄蓉",
+            time: "2020/7/30 15:59",
+          },
+          {
+            index: 1,
+            id: 10001,
+            name: "太平洋保险公司（重庆分公司）",
+            state: "已停用",
+            type: "模型一",
+            creater: "黄蓉",
+            time: "2020/7/30 15:59",
+          },
+          {
+            index: 1,
+            id: 10001,
+            name: "太平洋保险公司（重庆分公司）",
+            state: "已停用",
+            type: "模型一",
+            creater: "黄蓉",
+            time: "2020/7/30 15:59",
+          },
+          {
+            index: 1,
+            id: 10001,
+            name: "太平洋保险公司（重庆分公司）",
+            state: "已停用",
+            type: "模型一",
+            creater: "黄蓉",
+            time: "2020/7/30 15:59",
+          },
+          {
+            index: 1,
+            id: 10001,
+            name: "太平洋保险公司（重庆分公司）",
+            state: "已停用",
+            type: "模型一",
+            creater: "黄蓉",
+            time: "2020/7/30 15:59",
+          },
+          {
+            index: 1,
+            id: 10001,
+            name: "太平洋保险公司（重庆分公司）",
+            state: "已停用",
+            type: "模型一",
+            creater: "黄蓉",
+            time: "2020/7/30 15:59",
+          },
         ],
       };
     },

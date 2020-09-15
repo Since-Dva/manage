@@ -116,6 +116,9 @@
         // -webkit-border-radius: 0.313vw;
       }
       overflow-y: scroll;
+      .el-table__body-wrapper td,.el-table__body-wrapper th{
+        padding: 0 !important;
+      }
       a {
         cursor: pointer;
       }
