@@ -103,6 +103,9 @@
     .el-table {
       // margin-bottom: 2.604vw;
       overflow-y: scroll;
+      .el-table__body-wrapper td,.el-table__body-wrapper th{
+        padding: 0 !important;
+      }
       a {
         cursor: pointer;
       }

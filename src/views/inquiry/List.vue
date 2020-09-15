@@ -67,7 +67,7 @@
         :size="size"
         :count="count"
         :total="total"
-        :rowheight="2.6"
+        :rowheight="2.15"
       >
       </xybTable>
     </div>

@@ -25,6 +25,7 @@
         :size="size"
         :count="count"
         :total="total"
+        :rowheight="2.15"
       >
         <el-table-column align="center" label="操作" width="300%">
           <template slot-scope="scope">

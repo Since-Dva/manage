@@ -28,6 +28,7 @@
         :pageChange="pageChange"
         :size="size"
         :count="count"
+        :rowheight="2.15"
         :total="total"
       >
         <el-table-column align="center" label="操作">
