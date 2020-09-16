@@ -509,7 +509,7 @@
             </div>
           </div>
           <div class="btns">
-            <el-button>联系汽配商</el-button>
+            <el-button @click="qipei=true">联系汽配商</el-button>
             <el-button class="gray">生成报价</el-button>
           </div>
         </div>
@@ -526,7 +526,7 @@
           </div>
           <div :class="['item', showItem.length?'active':'']">
             <div class="line">
-              <img src alt />
+              <img src='../../../assets/img/dui.png' alt />
               <i></i>
               <div></div>
             </div>
@@ -804,7 +804,7 @@
             <!-- class="gray" -->
             <el-button @click="changegenjin">{{!genjin?'添加跟进':'保存跟进'}}</el-button>
             <el-button >关闭订单</el-button>
-            <el-button @click="baojia=true">报价汇总</el-button>
+            <el-button @click="dingdanTotal=true">报价汇总</el-button>
             <el-button @click="xiezhu=true">完成协助</el-button>
             <el-input v-if="genjin" type="textarea" v-model="textarea2" :rows="4"></el-input>
           </div>
@@ -1341,6 +1341,7 @@
           this.showItem.push(1);
         } else {
           this.showItem = [1];
+          this.isshowdingdan=false
         }
       },
       nopowerOK() {
@@ -1443,6 +1444,10 @@
       .arr {
         width: 65.26vw;
         height: 4.688vw;
+        position: fixed;
+        z-index: 400;
+        overflow: hidden;
+        top: 7.604vw;
         background: #ffffff;
         box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
         border-radius: 0vw 0.208vw 0.208vw 0.208vw;
@@ -1503,9 +1508,10 @@
       }
       .left {
         width: 65.26vw;
-        height: 40vw;
+        height: 35vw;
         border-radius: 0.208vw;
         overflow: scroll;
+        padding-top: 5.5vw;
         scrollbar-width: none;
         > div {
           background: #ffffff;
@@ -1675,7 +1681,7 @@
         .left2 {
           padding-bottom: 1.563vw;
           padding-top: 1.042vw;
-
+          border-radius: 4px;
           .title {
             > div {
               width: 55.729vw;
@@ -2128,7 +2134,6 @@
                 width: 1.406vw;
                 height: 1.406vw;
                 border-radius: 50%;
-                border: 0.052vw solid #000;
                 overflow: hidden;
                 margin: 0.26vw 0;
               }

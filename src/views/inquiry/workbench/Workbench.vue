@@ -127,7 +127,7 @@
             :data="tableData"
             style="width: 100%"
           >
-            <el-table-column width="170%" align="center" prop="id" label="定损单号">
+            <el-table-column width="190%" align="center" prop="id" label="定损单号">
               <template slot-scope="scope">
                 <div class="mytd">
                   <span>
@@ -137,13 +137,13 @@
                 </div>
               </template>
             </el-table-column>
-            <el-table-column align="center" width="220%" prop="jigou" label="保险机构"></el-table-column>
-            <el-table-column align="center" prop="name" label="定损员"></el-table-column>
-            <el-table-column align="center" width="180%" prop="cartype" label="车型"></el-table-column>
-            <el-table-column align="center" width="160%" prop="VIN" label="VIN码"></el-table-column>
+            <el-table-column align="center" width="200%" prop="jigou" label="保险机构"></el-table-column>
+            <el-table-column align="center" width="70%" prop="name" label="定损员"></el-table-column>
+            <el-table-column align="center" width="160%" prop="cartype" label="车型"></el-table-column>
+            <el-table-column align="center" width="150%" prop="VIN" label="VIN码"></el-table-column>
             <el-table-column align="center" prop="time" label="创建时间" width="150%"></el-table-column>
-            <el-table-column align="center" prop="creater" label="跟进人"></el-table-column>
-            <el-table-column align="center" prop="state" label="订单状态" width="200%">
+            <el-table-column align="center" width="70%" prop="creater" label="跟进人"></el-table-column>
+            <el-table-column align="center" width="240%" prop="state" label="订单状态">
               <template slot-scope="scope">
                 <div class="mytd">
                   <span>
@@ -441,6 +441,19 @@
             emergency: false,
             timeout: false,
           },
+          {
+            id: 118658128,
+            jigou: "大地保险机构（重庆分公司）",
+            name: "郭靖",
+            cartype: "【宝马BMW7201DM】",
+            VIN: "118658121231238",
+            time: "2020/8/1  11:12:05",
+            creater: "黄蓉",
+            state: "未受理",
+            time1: "08：30",
+            emergency: false,
+            timeout: false,
+          },
         ],
       };
     },
@@ -560,7 +573,7 @@
         &::after {
           content: "";
           display: block;
-          width: 0.18vw;
+          width: 0.2vw;
           height: 1.667vw;
           background: #3397db;
           position: absolute;
@@ -690,6 +703,15 @@
         }
         .tablebox {
           margin-top: 1.042vw;
+            position: relative;
+            padding: 0 15px;
+            .el-table__row .cell{
+              font-size: 12px;
+            }
+          .el-table__body-wrapper{
+          height: 480px;
+          overflow: scroll;
+          }
           .mytd > span {
             display: flex;
             justify-content: center;
@@ -697,12 +719,12 @@
             > span {
               position: absolute;
               margin-left: 0.26vw;
-              left: -10px;
+              left: 0px;
               &.active {
                 color: red;
               }
               &.right {
-                left: 110px;
+                left: 130px;
               }
             }
           }
@@ -719,6 +741,10 @@
               border-radius: 0.104vw;
               margin-right: 0.26vw;
             }
+          }
+          .pagin {
+            position: relative;
+            bottom: 15px;
           }
           .pagin .el-pagination {
             display: flex;

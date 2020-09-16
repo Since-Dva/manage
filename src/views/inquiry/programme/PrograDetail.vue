@@ -830,10 +830,14 @@
       .arr {
         width: 65.26vw;
         height: 4.688vw;
+        position: fixed;
+        top: 7.604vw;
         background: #ffffff;
         box-shadow: 0vw 0vw 0.677vw 0vw rgba(0, 0, 0, 0.1);
         border-radius: 0vw 0.208vw 0.208vw 0.208vw;
         display: flex;
+        z-index: 400;
+        overflow: hidden;
         align-items: center;
         > div {
           width: 17.8vw;
@@ -889,7 +893,8 @@
       }
       .left {
         width: 65.26vw;
-        height: 40vw;
+        padding-top: 5.5vw;
+        height: 35vw;
         border-radius: 0.208vw;
         overflow: scroll;
         scrollbar-width: none;

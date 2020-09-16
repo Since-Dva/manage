@@ -3,7 +3,6 @@
     <el-table
       :data="filterData"
       :border="true"
-      :max-height="maxHeight"
       :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'0.833vw',background:'#eeeeee'}"
       :row-style="{height:rowheight+'vw'}"
     >
@@ -61,10 +60,10 @@
         type: Number,
         default: 0,
       },
-      maxHeight: {
-        type: Number,
-        default: 600,
-      },
+      // maxHeight: {
+      //   type: Number,
+      //   default: 600,
+      // },
       rowheight: {
         type: Number,
         default: 2.86,
@@ -97,6 +96,10 @@
     background: white;
     .el-table {
       // margin-bottom: 2.604vw;
+      .el-table__body-wrapper{
+          height: 440px;
+          overflow-y: scroll;
+          }
       ::-webkit-scrollbar {
         width: 15px !important;
         height: 12px !important;

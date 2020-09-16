@@ -62,7 +62,7 @@
         :size="size"
         :count="count"
         :total="total"
-        :rowheight="2.15"
+        :rowheight="2.3"
       >
         <el-table-column align="center" label="操作" width="220%">
           <template slot-scope="scope">
