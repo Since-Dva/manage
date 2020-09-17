@@ -63,7 +63,11 @@
       </xybTable>
     </div>
     <!-- 停用 -->
-    <el-dialog :title="row.state==='启用中'?'停用确认':'启用确认'" :visible.sync="deleteModal" width="22.656vw">
+    <el-dialog
+      :title="row.state==='启用中'?'停用确认':'启用确认'"
+      :visible.sync="deleteModal"
+      width="22.656vw"
+    >
       <span>是否确认{{row.state==='启用中'?'停用确认':'启用确认'}}当前账号？</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="deleteModalOK">确 定</el-button>
@@ -97,8 +101,8 @@
         </div>
         <div class="item1">
           <div class="item1_1">
-            <p class="title">模型一</p>
-            <div>
+            <p class="title" :style="{background:blueType==1?'#0f6baa':'',color:blueType==1?'white':'#656565'}">模型一</p>
+            <div @click="showBlue(1)">
               <div>
                 <span>年限：</span>
                 <span>不限</span>
@@ -118,8 +122,8 @@
             </div>
           </div>
           <div class="item1_1">
-            <p class="title">模型一</p>
-            <div>
+            <p class="title" :style="{background:blueType==2?'#0f6baa':'',color:blueType==2?'white':'#656565'}">模型二</p>
+            <div @click="showBlue(2)">
               <div>
                 <span>年限：</span>
                 <span>不限</span>
@@ -139,9 +143,12 @@
             </div>
           </div>
           <div class="item1_1">
-            <p class="title" :style="{background:show?'#0f6baa':'',color:show?'white':'#656565'}">自定义一</p>
-            <div class="addicon">
-              <i @click="show=true"></i>
+            <p
+              class="title"
+              :style="{background:blueType==3?'#0f6baa':'',color:blueType==3?'white':'#656565'}"
+            >自定义一</p>
+            <div class="addicon" @click="showBlue(3)">
+              <i></i>
               新增
             </div>
           </div>
@@ -176,7 +183,7 @@
             <span class="titTip">注：多个分组组合后需满足自定义模型需求</span>
           </div>
         </div>
-        <div class="item4">
+        <div class="item4" v-if="show">
           <div>分组一</div>
           <div>
             <div>
@@ -190,7 +197,7 @@
                   <el-checkbox label="3年~6年"></el-checkbox>
                   <el-checkbox label="6年~10年"></el-checkbox>
                   <el-checkbox label="10年以上"></el-checkbox>
-                  </el-checkbox-group>
+                </el-checkbox-group>
               </div>
             </div>
             <div>
@@ -346,12 +353,13 @@
         imageUrl: null,
         startTime: null,
         endTime: null,
-        show:false,
+        show: false,
         size: 10,
         count: 1,
         total: 2,
         checkList: [],
         checkList1: [],
+        blueType: null,
         add: {
           value1: null,
           value2: null,
@@ -365,15 +373,15 @@
           value10: null,
           value11: null,
         },
-        row:{},
-        val1:5,
-        val2:70,
-        val3:60,
-        val4:50,
-        val5:90,
-        val6:80,
-        val7:70,
-        val8:60,
+        row: {},
+        val1: 5,
+        val2: 70,
+        val3: 60,
+        val4: 50,
+        val5: 90,
+        val6: 80,
+        val7: 70,
+        val8: 60,
         sexs: [
           { label: "男", value: 1 },
           { label: "女", value: 2 },
@@ -513,8 +521,12 @@
       },
       showReModal(info) {
         this.dataIdx = info.index;
-        this.$store.commit("addTabMut", { title:'定损询价单详情', path:'/inquiry/program',type:'inquiry' });
-        this.$router.push('/inquiry/program')
+        this.$store.commit("addTabMut", {
+          title: "定损询价单详情",
+          path: "/inquiry/program",
+          type: "inquiry",
+        });
+        this.$router.push("/inquiry/program");
       },
       reModalOK() {
         this.reModal = false;
@@ -525,7 +537,7 @@
       },
       //停用
       showDeleteModal(info) {
-        this.row=info
+        this.row = info;
         this.deleteModal = true;
       },
       deleteModalOK() {
@@ -542,7 +554,7 @@
         this.addModal = true;
         this.postName = null;
         this.descript = null;
-        this.show=false
+        this.show = false;
       },
       addModalOK() {
         this.addModal = false;
@@ -558,9 +570,26 @@
       pageChange(e) {
         this.count = e;
       },
-      changeYear(e){
-        this.checkList=e
-      }
+      changeYear(e) {
+        this.checkList = e;
+      },
+      showBlue(type) {
+        //点击弹窗分组交互色
+        if(type!==this.blueType){
+          this.blueType = type;
+        }else{
+          if (this.blueType) {
+            this.blueType = null;
+          } else {
+            this.blueType = type;
+          }
+        }
+        if(type===3){
+          this.show=true
+        }else{
+          this.show=false
+        }
+      },
     },
   };
 </script>
@@ -606,7 +635,7 @@
       width: 5vw !important;
     }
     .addmodal {
-      .el-dialog__body{
+      .el-dialog__body {
         height: 26.042vw;
         overflow: scroll;
         scrollbar-width: none;
@@ -644,6 +673,13 @@
           background: #ededed;
           border-radius: 0.208vw;
           margin-bottom: 1.042vw;
+          cursor: pointer;
+          &:hover{
+            > .title{
+              color: white !important;
+              background: #0f6baa;
+            }
+          }
           > .title {
             box-sizing: border-box;
             padding: 0.625vw 1.042vw;

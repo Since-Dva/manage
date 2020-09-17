@@ -108,19 +108,19 @@
                   <div>
                     <div class="imgbox">
                       <img src alt />
-                      <span>本地上传</span>
+                      <!-- <span>本地上传</span> -->
                     </div>
                     <div class="imgbox">
                       <img src alt />
-                      <span>本地上传</span>
+                      <!-- <span>本地上传</span> -->
                     </div>
                     <div class="imgbox">
                       <img src alt />
-                      <span>本地上传</span>
+                      <!-- <span>本地上传</span> -->
                     </div>
                     <div class="imgbox">
                       <img src alt />
-                      <span>本地上传</span>
+                      <!-- <span>本地上传</span> -->
                     </div>
                   </div>
                 </div>
@@ -130,7 +130,7 @@
                     <div>
                       <div class="imgbox">
                         <img src alt />
-                        <span>本地上传</span>
+                        <!-- <span>本地上传</span> -->
                       </div>
                     </div>
                   </div>
@@ -139,7 +139,7 @@
                     <div>
                       <div class="imgbox">
                         <img src alt />
-                        <span>本地上传</span>
+                        <!-- <span>本地上传</span> -->
                       </div>
                     </div>
                   </div>
@@ -203,41 +203,41 @@
               <div>否</div>
               <div>
                 <div>
-                  <el-radio v-model="radio1" label="原厂件" />
+                  <el-radio :disabled='!save' @change="changeradio1" v-model="radio1" label="原厂件" />
                 </div>
                 <div>
-                  <el-radio v-model="radio1" label="配套件" />
+                  <el-radio :disabled='!save' @change="changeradio1" v-model="radio1" label="配套件" />
                 </div>
                 <div>
-                  <el-radio v-model="radio1" label="认证件" />
+                  <el-radio :disabled='!save' @change="changeradio1" v-model="radio1" label="认证件" />
                 </div>
                 <div>
-                  <el-radio class="tuijian" v-model="radio1" label="品牌件" />
+                  <el-radio :disabled='!save' @change="changeradio1" class="tuijian" v-model="radio1" label="品牌件" />
                 </div>
               </div>
               <div>
-                <div>
+                <div :class="radio1=='原厂件'?'blue':''">
                   {{qipeishang[0].value1}}
                   <a v-if="save" class="a_active" @click="onchange(1)">更换</a>
                 </div>
-                <div>
+                <div :class="radio1=='配套件'?'blue':''">
                   {{qipeishang[1].value1}}
                   <a @click="onchange(2)">更换</a>
                 </div>
-                <div class="blue">
+                <div :class="radio1=='认证件'?'blue':''">
                   {{qipeishang[2].value1}}
                   <a @click="onchange(3)">更换</a>
                 </div>
-                <div>
+                <div :class="radio1=='品牌件'?'blue':''">
                   {{qipeishang[3].value1}}
                   <a @click="onchange(4)">更换</a>
                 </div>
               </div>
               <div>
-                <div>{{qipeishang[0].num}}</div>
-                <div>{{qipeishang[1].num}}</div>
-                <div class="blue">{{qipeishang[2].num}}</div>
-                <div>
+                <div :class="radio1=='原厂件'?'blue':''">{{qipeishang[0].num}}</div>
+                <div :class="radio1=='配套件'?'blue':''">{{qipeishang[1].num}}</div>
+                <div :class="radio1=='认证件'?'blue':''">{{qipeishang[2].num}}</div>
+                <div :class="radio1=='品牌件'?'blue':''">
                   {{qipeishang[3].num}}
                   <span class="gth">
                     <span class="tip">当前报价已高于参考价格恒定区间值</span>
@@ -245,16 +245,24 @@
                 </div>
               </div>
               <div>
-                <div>670</div>
-                <div>670</div>
-                <div class="blue">670</div>
-                <div>670</div>
+                <div :class="radio1=='原厂件'?'blue':''">
+                  <el-input :disabled='!save' v-model="value11"></el-input>
+                </div>
+                <div :class="radio1=='配套件'?'blue':''">
+                  <el-input :disabled='!save' v-model="value12"></el-input>
+                </div>
+                <div :class="radio1=='认证件'?'blue':''">
+                  <el-input :disabled='!save' v-model="value13"></el-input>
+                </div>
+                <div :class="radio1=='品牌件'?'blue':''">
+                  <el-input :disabled='!save' v-model="value14"></el-input>
+                </div>
               </div>
               <div>
-                <div>90</div>
-                <div>90</div>
-                <div class="blue">90</div>
-                <div>90</div>
+                <div :class="radio1=='原厂件'?'blue':''">90</div>
+                <div :class="radio1=='配套件'?'blue':''">90</div>
+                <div :class="radio1=='认证件'?'blue':''">90</div>
+                <div :class="radio1=='品牌件'?'blue':''">90</div>
               </div>
             </div>
             <div class="_tr">
@@ -268,58 +276,66 @@
               <div>否</div>
               <div>
                 <div>
-                  <el-radio v-model="radio2" label="原厂件" />
+                  <el-radio :disabled='!save' @change="changeradio2" v-model="radio2" label="原厂件" />
                 </div>
                 <div>
-                  <el-radio v-model="radio2" label="配套件" />
+                  <el-radio :disabled='!save' @change="changeradio2" v-model="radio2" label="配套件" />
                 </div>
                 <div>
-                  <el-radio v-model="radio2" label="认证件" />
+                  <el-radio :disabled='!save' @change="changeradio2" v-model="radio2" label="认证件" />
                 </div>
                 <div>
-                  <el-radio class="tuijian" v-model="radio2" label="品牌件" />
+                  <el-radio :disabled='!save' @change="changeradio2" class="tuijian" v-model="radio2" label="品牌件" />
                 </div>
               </div>
               <div>
-                <div>
-                  {{qipeishang[4].value1}}
-                  <a @click="onchange(5)">更换</a>
+                <div :class="radio2=='原厂件'?'blue':''">
+                  {{qipeishang[0].value1}}
+                  <a v-if="save" class="a_active" @click="onchange(1)">更换</a>
                 </div>
-                <div>
-                  {{qipeishang[5].value1}}
-                  <a @click="onchange(6)">更换</a>
+                <div :class="radio2=='配套件'?'blue':''">
+                  {{qipeishang[1].value1}}
+                  <a @click="onchange(2)">更换</a>
                 </div>
-                <div class="blue">
-                  {{qipeishang[6].value1}}
-                  <a v-if="save" class="a_active" @click="onchange(7)">更换</a>
+                <div :class="radio2=='认证件'?'blue':''">
+                  {{qipeishang[2].value1}}
+                  <a @click="onchange(3)">更换</a>
                 </div>
-                <div>
-                  {{qipeishang[7].value1}}
-                  <a @click="onchange(8)">更换</a>
+                <div :class="radio2=='品牌件'?'blue':''">
+                  {{qipeishang[3].value1}}
+                  <a @click="onchange(4)">更换</a>
                 </div>
               </div>
               <div>
-                <div>{{qipeishang[4].num}}</div>
-                <div>{{qipeishang[5].num}}</div>
-                <div class="blue">{{qipeishang[6].num}}</div>
-                <div>
-                  {{qipeishang[7].num}}
+                <div :class="radio2=='原厂件'?'blue':''">{{qipeishang[0].num}}</div>
+                <div :class="radio2=='配套件'?'blue':''">{{qipeishang[1].num}}</div>
+                <div :class="radio2=='认证件'?'blue':''">{{qipeishang[2].num}}</div>
+                <div :class="radio2=='品牌件'?'blue':''">
+                  {{qipeishang[3].num}}
                   <span class="gth">
                     <span class="tip">当前报价已高于参考价格恒定区间值</span>
                   </span>
                 </div>
               </div>
               <div>
-                <div>670</div>
-                <div>670</div>
-                <div class="blue">670</div>
-                <div>670</div>
+                <div :class="radio2=='原厂件'?'blue':''">
+                  <el-input :disabled='!save' v-model="value15"></el-input>
+                </div>
+                <div :class="radio2=='配套件'?'blue':''">
+                  <el-input :disabled='!save' v-model="value16"></el-input>
+                </div>
+                <div :class="radio2=='认证件'?'blue':''">
+                  <el-input :disabled='!save' v-model="value17"></el-input>
+                </div>
+                <div :class="radio2=='品牌件'?'blue':''">
+                  <el-input :disabled='!save' v-model="value18"></el-input>
+                </div>
               </div>
               <div>
-                <div>90</div>
-                <div>90</div>
-                <div class="blue">90</div>
-                <div>90</div>
+                <div :class="radio2=='原厂件'?'blue':''">90</div>
+                <div :class="radio2=='配套件'?'blue':''">90</div>
+                <div :class="radio2=='认证件'?'blue':''">90</div>
+                <div :class="radio2=='品牌件'?'blue':''">90</div>
               </div>
             </div>
             <div class="_tr">
@@ -333,58 +349,66 @@
               <div>否</div>
               <div>
                 <div>
-                  <el-radio v-model="radio3" label="原厂件" />
+                  <el-radio :disabled='!save' @change="changeradio3" v-model="radio3" label="原厂件" />
                 </div>
                 <div>
-                  <el-radio v-model="radio3" label="配套件" />
+                  <el-radio :disabled='!save' @change="changeradio3" v-model="radio3" label="配套件" />
                 </div>
                 <div>
-                  <el-radio v-model="radio3" label="认证件" />
+                  <el-radio :disabled='!save' @change="changeradio3" v-model="radio3" label="认证件" />
                 </div>
                 <div>
-                  <el-radio class="tuijian" v-model="radio3" label="品牌件" />
+                  <el-radio :disabled='!save' @change="changeradio3" class="tuijian" v-model="radio3" label="品牌件" />
                 </div>
               </div>
               <div>
-                <div>
-                  {{qipeishang[8].value1}}
-                  <a @click="onchange(9)">更换</a>
+                <div :class="radio3=='原厂件'?'blue':''">
+                  {{qipeishang[0].value1}}
+                  <a v-if="save" class="a_active" @click="onchange(1)">更换</a>
                 </div>
-                <div>
-                  {{qipeishang[9].value1}}
-                  <a @click="onchange(10)">更换</a>
+                <div :class="radio3=='配套件'?'blue':''">
+                  {{qipeishang[1].value1}}
+                  <a @click="onchange(2)">更换</a>
                 </div>
-                <div class="blue">
-                  {{qipeishang[10].value1}}
-                  <a @click="onchange(11)">更换</a>
+                <div :class="radio3=='认证件'?'blue':''">
+                  {{qipeishang[2].value1}}
+                  <a @click="onchange(3)">更换</a>
                 </div>
-                <div>
-                  {{qipeishang[11].value1}}
-                  <a @click="onchange(12)">更换</a>
+                <div :class="radio3=='品牌件'?'blue':''">
+                  {{qipeishang[3].value1}}
+                  <a @click="onchange(4)">更换</a>
                 </div>
               </div>
               <div>
-                <div>{{qipeishang[8].num}}</div>
-                <div>{{qipeishang[9].num}}</div>
-                <div class="blue">{{qipeishang[10].num}}</div>
-                <div>
-                  {{qipeishang[11].num}}
+                <div :class="radio3=='原厂件'?'blue':''">{{qipeishang[0].num}}</div>
+                <div :class="radio3=='配套件'?'blue':''">{{qipeishang[1].num}}</div>
+                <div :class="radio3=='认证件'?'blue':''">{{qipeishang[2].num}}</div>
+                <div :class="radio3=='品牌件'?'blue':''">
+                  {{qipeishang[3].num}}
                   <span class="gth">
                     <span class="tip">当前报价已高于参考价格恒定区间值</span>
                   </span>
                 </div>
               </div>
               <div>
-                <div>670</div>
-                <div>670</div>
-                <div class="blue">670</div>
-                <div>670</div>
+                <div :class="radio3=='原厂件'?'blue':''">
+                  <el-input :disabled='!save' v-model="value19"></el-input>
+                </div>
+                <div :class="radio3=='配套件'?'blue':''">
+                  <el-input :disabled='!save' v-model="value20"></el-input>
+                </div>
+                <div :class="radio3=='认证件'?'blue':''">
+                  <el-input :disabled='!save' v-model="value21"></el-input>
+                </div>
+                <div :class="radio3=='品牌件'?'blue':''">
+                  <el-input :disabled='!save' v-model="value22"></el-input>
+                </div>
               </div>
               <div>
-                <div>90</div>
-                <div>90</div>
-                <div class="blue">90</div>
-                <div>90</div>
+                <div :class="radio3=='原厂件'?'blue':''">90</div>
+                <div :class="radio3=='配套件'?'blue':''">90</div>
+                <div :class="radio3=='认证件'?'blue':''">90</div>
+                <div :class="radio3=='品牌件'?'blue':''">90</div>
               </div>
             </div>
           </div>
@@ -1075,9 +1099,9 @@
         select1: null,
         isView: false,
         huizong: false,
-        radio1: null,
-        radio2: null,
-        radio3: null,
+        radio1: '原厂件',
+        radio2: '配套件',
+        radio3: '配套件',
         qipeishang:[
           {value1:'中南汽配商',num:520},
           {value1:'中南汽配商',num:520},
@@ -1320,6 +1344,18 @@
           email: null,
           radio: 2,
         },
+        value11:670,
+        value12:670,
+        value13:670,
+        value14:670,
+        value15:670,
+        value16:670,
+        value17:670,
+        value18:670,
+        value19:670,
+        value20:670,
+        value21:670,
+        value22:670,
         options: [
           { label: "大众", value: 1 },
           { label: "奥迪", value: 2 },
@@ -1432,6 +1468,15 @@
         document.body.removeChild(input); // 删除临时实例
         this.$message.success("复制成功");
       },
+      changeradio1(e){
+        this.radio1=e
+      },
+      changeradio2(e){
+        this.radio2=e
+      },
+      changeradio3(e){
+        this.radio3=e
+      }
     },
   };
 </script>
@@ -1760,6 +1805,19 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                .el-input,
+                .el-input__inner {
+                  text-align: center;
+                  width: 4vw !important;
+                  border: none;
+                  color: #006cff;
+                  background: transparent !important;
+                }
+                .el-input.is-disabled .el-input__inner {
+                  background: white;
+                  color: #6a6a6a;
+                  cursor: default;
+                }
                 > span {
                   box-sizing: content-box;
                   display: block;

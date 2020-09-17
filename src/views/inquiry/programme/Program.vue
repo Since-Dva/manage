@@ -17,63 +17,65 @@
         <div class="left2">
           <div class="title">
             <span>方案信息</span>
-            <el-button @click="addconcatModal=true">保存</el-button>
+            <el-button @click="this.changeEdit">{{isEdit?'保存':'编辑'}}</el-button>
           </div>
           <div class="left3">
             <div>
               <div class="modaltitle">1.模型</div>
               <div class="item1">
-                <div class="item1_1">
-                  <p class="title">模型一</p>
-                  <div>
-                    <div>
-                      <span>年限：</span>
-                      <span>不限</span>
-                    </div>
-                    <div>
-                      <span>包含：</span>
-                      <span>（3年以内、3-6 年、6-10年及10年以上）</span>
-                    </div>
-                    <div>
-                      <span>对关重件有要求：</span>
-                      <span>品牌件</span>
-                    </div>
-                    <div>
-                      <span>对关重件无要求：</span>
-                      <span>品牌件 注：（关注件包含动力车 身及底盘主体件）</span>
-                    </div>
-                  </div>
-                  <div class="use">使用中</div>
-                </div>
-                <div class="item1_1">
-                  <p class="title">模型一</p>
-                  <div>
-                    <div>
-                      <span>年限：</span>
-                      <span>不限</span>
-                    </div>
-                    <div>
-                      <span>包含：</span>
-                      <span>（3年以内、3-6 年、6-10年及10年以上）</span>
-                    </div>
-                    <div>
-                      <span>对关重件有要求：</span>
-                      <span>品牌件</span>
-                    </div>
-                    <div>
-                      <span>对关重件无要求：</span>
-                      <span>品牌件 注：（关注件包含动力车 身及底盘主体件）</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="item1_1">
-                  <p class="title">自定义一</p>
-                  <div class="addicon">
-                    <i @click="show=true"></i>
-                    新增
-                  </div>
-                </div>
+          <div class="item1_1">
+            <p class="title" :style="{background:blueType==1?'#0f6baa':'',color:blueType==1?'white':'#656565'}">模型一</p>
+            <div @click="showBlue(1)">
+              <div>
+                <span>年限：</span>
+                <span>不限</span>
               </div>
+              <div>
+                <span>包含：</span>
+                <span>（3年以内、3-6 年、6-10年及10年以上）</span>
+              </div>
+              <div>
+                <span>对关重件有要求：</span>
+                <span>品牌件</span>
+              </div>
+              <div>
+                <span>对关重件无要求：</span>
+                <span>品牌件 注：（关注件包含动力车 身及底盘主体件）</span>
+              </div>
+            </div>
+          </div>
+          <div class="item1_1">
+            <p class="title" :style="{background:blueType==2?'#0f6baa':'',color:blueType==2?'white':'#656565'}">模型二</p>
+            <div @click="showBlue(2)">
+              <div>
+                <span>年限：</span>
+                <span>不限</span>
+              </div>
+              <div>
+                <span>包含：</span>
+                <span>（3年以内、3-6 年、6-10年及10年以上）</span>
+              </div>
+              <div>
+                <span>对关重件有要求：</span>
+                <span>品牌件</span>
+              </div>
+              <div>
+                <span>对关重件无要求：</span>
+                <span>品牌件 注：（关注件包含动力车 身及底盘主体件）</span>
+              </div>
+            </div>
+          </div>
+          <div class="item1_1">
+            <p
+              class="title"
+              :style="{background:blueType==3?'#0f6baa':'',color:blueType==3?'white':'#656565'}"
+            >自定义一</p>
+            <div class="addicon" @click="showBlue(3)">
+              <i></i>
+              新增
+            </div>
+          </div>
+        </div>
               <div class="dyrow">
                 <div>
                   <span class="title">方案说明：</span>
@@ -104,7 +106,7 @@
                   <span class="titTip">注：多个分组组合后需满足自定义模型需求</span>
                 </div>
               </div>
-              <div class="item4">
+              <div class="item4" v-if="show">
                 <div>分组一</div>
                 <div>
                   <div>
@@ -321,9 +323,11 @@
           detail: "重庆市渝北区仙桃数据谷C16-A2-2层",
           radio: "1",
         },
-        show: true,
+        show: false,
         checkList: [],
         checkList1: [],
+        isEdit:false,
+        blueType: null,
         add: {
           value1: null,
           value2: null,
@@ -429,6 +433,30 @@
       },
       addfollowup() {
         this.addgj = !this.addgj;
+      },
+      changeEdit(){//编辑/保存
+        this.isEdit=!this.isEdit
+        if(!this.isEdit){
+          this.blueType = null;
+          this.show=false
+        }
+      },
+      showBlue(type) {
+        //点击弹窗分组交互色
+        if(type!==this.blueType){
+          this.blueType = type;
+        }else{
+          if (this.blueType) {
+            this.blueType = null;
+          } else {
+            this.blueType = type;
+          }
+        }
+        if(type===3){
+          this.show=true
+        }else{
+          this.show=false
+        }
       },
     },
   };
@@ -811,11 +839,18 @@
           margin-left: 10px;
         }
         .item1_1 {
+        cursor: pointer;
           width: 171px;
           height: 233px;
           background: #ededed;
           border-radius: 4px;
           margin-bottom: 30px;
+          &:hover{
+            > .title{
+              color: white !important;
+              background: #0f6baa;
+            }
+          }
           > .title {
             box-sizing: border-box;
             padding: 12px 20px;
@@ -935,6 +970,7 @@
           .el-input__inner {
             width: 53px !important;
             height: 28px !important;
+            background: transparent !important;
           }
           .el-input {
             margin: 0 8px 0 12px;

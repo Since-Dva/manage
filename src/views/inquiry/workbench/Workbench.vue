@@ -709,7 +709,7 @@
               font-size: 12px;
             }
           .el-table__body-wrapper{
-          height: 480px;
+          height: 440px;
           overflow: scroll;
           }
           .mytd > span {

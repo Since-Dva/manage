@@ -103,7 +103,9 @@
               </div>
               <div>
                 <span>备注：</span>
-                <span>具体零部件详情需要电话沟通</span>
+                <span :class="!isEdit?'blue aaaaa':'aaaaa'">
+                  <el-input :disabled="isEdit" v-model="base.value13"></el-input>
+                </span>
               </div>
             </div>
             <div class="left2_2">
@@ -111,19 +113,75 @@
               <div>
                 <div class="imgbox">
                   <img src alt />
-                  <!-- <span>本地上传</span> -->
+                  <input v-if="!isEdit" disabled value="本地上传" />
+                  <el-upload
+                    v-if="!isEdit"
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview"
+                    :on-remove="handleRemove"
+                    :before-remove="beforeRemove"
+                    multiple
+                    :limit="3"
+                    :on-exceed="handleExceed"
+                    :file-list="fileList1"
+                  >
+                    <el-button size="small" type="primary">点击上传</el-button>
+                  </el-upload>
                 </div>
                 <div class="imgbox">
                   <img src alt />
-                  <!-- <span>本地上传</span> -->
+                  <input v-if="!isEdit" disabled value="本地上传" />
+                  <el-upload
+                    v-if="!isEdit"
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview"
+                    :on-remove="handleRemove"
+                    :before-remove="beforeRemove"
+                    multiple
+                    :limit="3"
+                    :on-exceed="handleExceed"
+                    :file-list="fileList2"
+                  >
+                    <el-button size="small" type="primary">点击上传</el-button>
+                  </el-upload>
                 </div>
                 <div class="imgbox">
                   <img src alt />
-                  <!-- <span>本地上传</span> -->
+                  <input v-if="!isEdit" disabled value="本地上传" />
+                  <el-upload
+                    v-if="!isEdit"
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview"
+                    :on-remove="handleRemove"
+                    :before-remove="beforeRemove"
+                    multiple
+                    :limit="3"
+                    :on-exceed="handleExceed"
+                    :file-list="fileList3"
+                  >
+                    <el-button size="small" type="primary">点击上传</el-button>
+                  </el-upload>
                 </div>
                 <div class="imgbox">
                   <img src alt />
-                  <!-- <span>本地上传</span> -->
+                  <input v-if="!isEdit" disabled value="本地上传" />
+                  <el-upload
+                    v-if="!isEdit"
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview"
+                    :on-remove="handleRemove"
+                    :before-remove="beforeRemove"
+                    multiple
+                    :limit="3"
+                    :on-exceed="handleExceed"
+                    :file-list="fileList4"
+                  >
+                    <el-button size="small" type="primary">点击上传</el-button>
+                  </el-upload>
                 </div>
               </div>
             </div>
@@ -133,7 +191,21 @@
                 <div>
                   <div class="imgbox">
                     <img src alt />
-                    <!-- <span>本地上传</span> -->
+                    <input v-if="!isEdit" disabled value="本地上传" />
+                    <el-upload
+                    v-if="!isEdit"
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview"
+                    :on-remove="handleRemove"
+                    :before-remove="beforeRemove"
+                    multiple
+                    :limit="3"
+                    :on-exceed="handleExceed"
+                    :file-list="fileList5"
+                  >
+                    <el-button size="small" type="primary">点击上传</el-button>
+                  </el-upload>
                   </div>
                 </div>
               </div>
@@ -142,7 +214,21 @@
                 <div>
                   <div class="imgbox">
                     <img src alt />
-                    <!-- <span>本地上传</span> -->
+                    <input v-if="!isEdit" disabled value="本地上传" />
+                    <el-upload
+                    v-if="!isEdit"
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview"
+                    :on-remove="handleRemove"
+                    :before-remove="beforeRemove"
+                    multiple
+                    :limit="3"
+                    :on-exceed="handleExceed"
+                    :file-list="fileList6"
+                  >
+                    <el-button size="small" type="primary">点击上传</el-button>
+                  </el-upload>
                   </div>
                 </div>
               </div>
@@ -188,7 +274,8 @@
                 <template slot-scope="scope">
                   <div :class="scope.row.red?'red':''">
                     <span v-if="scope.row.value5">{{scope.row.value5}}</span>
-                    <a v-else>请填写OE码</a>
+                    <a v-else-if="!input3" @click="showInput('input3')">请填写OE码</a>
+                    <el-input @blur="input3=false" v-model="input11" v-else />
                   </div>
                 </template>
               </el-table-column>
@@ -196,7 +283,8 @@
                 <template slot-scope="scope">
                   <div :class="scope.row.red?'red':''">
                     <span v-if="scope.row.value6">{{scope.row.value6}}</span>
-                    <a v-else>请填写4S价</a>
+                    <a v-else-if="!input4" @click="showInput('input4')">请填写4S价</a>
+                    <el-input @blur="input4=false" v-model="input12" v-else />
                   </div>
                 </template>
               </el-table-column>
@@ -226,7 +314,12 @@
               <span>维修清单</span>
               <div>
                 <img src alt />
-                <img @click="showrotate" src='../../../assets/img/xiangji.png' alt :class="[rotate?'xuanzhuan':'' ,'carme']" />
+                <img
+                  @click="showrotate"
+                  src="../../../assets/img/xiangji.png"
+                  alt
+                  :class="[rotate?'xuanzhuan':'' ,'carme']"
+                />
               </div>
             </div>
             <div class="_right">
@@ -278,7 +371,12 @@
               <p>维修清单</p>
               <div>
                 <img src alt />
-                <img @click="showrotate" src='../../../assets/img/xiangji.png' alt :class="[rotate?'xuanzhuan':'' ,'carme']" />
+                <img
+                  @click="showrotate"
+                  src="../../../assets/img/xiangji.png"
+                  alt
+                  :class="[rotate?'xuanzhuan':'' ,'carme']"
+                />
               </div>
             </div>
             <div class="_right">
@@ -413,7 +511,12 @@
               <span>维修清单</span>
               <div>
                 <img src alt />
-                <img @click="showrotate" src='../../../assets/img/xiangji.png' alt :class="[rotate?'xuanzhuan':'' ,'carme']" />
+                <img
+                  @click="showrotate"
+                  src="../../../assets/img/xiangji.png"
+                  alt
+                  :class="[rotate?'xuanzhuan':'' ,'carme']"
+                />
               </div>
             </div>
             <div class="_right">
@@ -441,7 +544,12 @@
               <span>维修清单</span>
               <div>
                 <img src alt />
-                <img @click="showrotate" src='../../../assets/img/xiangji.png' alt :class="[rotate?'xuanzhuan':'' ,'carme']" />
+                <img
+                  @click="showrotate"
+                  src="../../../assets/img/xiangji.png"
+                  alt
+                  :class="[rotate?'xuanzhuan':'' ,'carme']"
+                />
               </div>
             </div>
             <div class="_right">
@@ -497,7 +605,12 @@
               <p>维修清单</p>
               <div>
                 <img src alt />
-                <img @click="showrotate" src='../../../assets/img/xiangji.png' alt :class="[rotate?'xuanzhuan':'' ,'carme']" />
+                <img
+                  @click="showrotate"
+                  src="../../../assets/img/xiangji.png"
+                  alt
+                  :class="[rotate?'xuanzhuan':'' ,'carme']"
+                />
               </div>
             </div>
             <div class="_right">
@@ -695,8 +808,18 @@
         textarea2: null,
         input1: null,
         input2: null,
+        input11:null,
+        input12:null,
         select1: null,
-        rotate:false,
+        rotate: false,
+        fileList1:[],
+        fileList2:[],
+        fileList3:[],
+        fileList4:[],
+        fileList5:[],
+        fileList6:[],
+        input3:false,
+        input4:false,
         fileList: [
           {
             name: "太平洋保险（重庆分公司）战略合作合同.pdf",
@@ -717,6 +840,7 @@
           value10: "15223595900",
           value11: "CQTPY20200721000001",
           value12: "2020年8月3日16:06:14",
+          value13: "具体零部件详情需要电话沟通",
         },
         addconcat: {
           name: null,
@@ -742,8 +866,8 @@
         ],
         addgj: false,
         genjin: false,
-        aaa:true,
-        bbb:true,
+        aaa: true,
+        bbb: true,
         tableData: [
           {
             value1: "1",
@@ -786,10 +910,10 @@
       nopowerOK() {
         this.nopower = false;
       },
-      showrotate(){
-        this.rotate=true
+      showrotate() {
+        this.rotate = true;
         setTimeout(() => {
-          this.rotate=false
+          this.rotate = false;
         }, 500);
       },
       dingdanOK() {
@@ -816,8 +940,25 @@
         input.select(); // 选择实例内容
         document.execCommand("Copy"); // 执行复制
         document.body.removeChild(input); // 删除临时实例
-        this.$message.success('复制成功')
+        this.$message.success("复制成功");
       },
+      //上传相关
+      handlePreview(){
+
+      },
+      handleRemove(){
+
+      },
+      beforeRemove(){
+
+      },
+      handleExceed(){
+
+      },
+      //
+      showInput(type){
+        this[type]=true
+      }
     },
   };
 </script>
@@ -998,6 +1139,24 @@
                 // color: #006bff;
               }
             }
+            .aaaaa {
+              .el-input,
+              .el-input__inner {
+                width: 12vw !important;
+                border: none;
+              }
+              .el-input.is-disabled .el-input__inner {
+                background: white;
+                color: #6a6a6a;
+                cursor: default;
+              }
+            }
+            .blue {
+              .el-input,
+              .el-input__inner {
+                color: #006cff !important;
+              }
+            }
           }
           .left2_2 {
             margin-top: 1.5vw;
@@ -1014,8 +1173,21 @@
                 img {
                   width: 100%;
                 }
-                span {
-                  width: 100%;
+                .upload-demo {
+                  width: 200px;
+                  height: 2.083vw;
+                  overflow: hidden;
+                  position: absolute;
+                  bottom: 0;
+                  .el-button{
+                    width: 270px !important;
+                    opacity: 0;
+                  }
+                }
+                input {
+                  border: none;
+                  outline: none;
+                  width: 99%;
                   text-align: center;
                   position: absolute;
                   bottom: 0;
@@ -1025,6 +1197,7 @@
                   opacity: 0.4;
                   color: white;
                   border-radius: 0vw 0vw 0.208vw 0.208vw;
+                  cursor: pointer;
                 }
               }
             }
@@ -1058,6 +1231,10 @@
           .tablebox {
             padding: 1.771vw 1.563vw;
             position: relative;
+            .el-input,
+        .el-input__inner {
+          width: 7vw !important;
+        }
             .gth {
               display: block;
               width: 0.781vw;
@@ -1069,29 +1246,29 @@
               left: 37.188vw;
               bottom: 5.573vw;
               z-index: 999;
-            .tip {
-              padding: 0.052vw 0.156vw;
-              line-height: 0.625vw;
-              position: absolute;
-              bottom: 0;
-              width: 16.146vw;
-              font-size: 0.521vw;
-              color: #999999;
-              bottom: -1.302vw;
-              left: 0vw;
-              background: #ededed;
-              border-radius: 0.104vw;
-              &::before {
-                content: "";
+              .tip {
+                padding: 0.052vw 0.156vw;
+                line-height: 0.625vw;
                 position: absolute;
-                top: -0.521vw;
-                width: 0;
-                height: 0;
-                border-width: 0 0.26vw 0.521vw;
-                border-style: solid;
-                border-color: transparent transparent #ededed;
+                bottom: 0;
+                width: 16.146vw;
+                font-size: 0.521vw;
+                color: #999999;
+                bottom: -1.302vw;
+                left: 0vw;
+                background: #ededed;
+                border-radius: 0.104vw;
+                &::before {
+                  content: "";
+                  position: absolute;
+                  top: -0.521vw;
+                  width: 0;
+                  height: 0;
+                  border-width: 0 0.26vw 0.521vw;
+                  border-style: solid;
+                  border-color: transparent transparent #ededed;
+                }
               }
-            }
             }
             .el-table .cell,
             .el-table__body-wrapper {
@@ -1172,7 +1349,7 @@
                   right: 2.604vw;
                   bottom: 1.042vw;
                   transition: all 0.5s;
-                  &.xuanzhuan{
+                  &.xuanzhuan {
                     transform: rotate(360deg);
                   }
                 }
@@ -1481,11 +1658,11 @@
             }
           }
           .left4_5 {
-             height: 0;
-              overflow: hidden;
-              &.active {
-                height: 35.156vw;
-              }
+            height: 0;
+            overflow: hidden;
+            &.active {
+              height: 35.156vw;
+            }
             > ._left {
               p {
                 margin-bottom: 1.094vw;
@@ -1505,7 +1682,7 @@
                 margin-top: 1.042vw;
               }
               > div:nth-of-type(3) {
-                p{
+                p {
                   margin: 2.083vw 0 1.042vw 0;
                 }
                 .el-button {
@@ -1518,18 +1695,18 @@
                 > div {
                   display: flex;
                   margin-bottom: 1.042vw;
-                  div{
+                  div {
                     display: flex;
-                  flex-direction: column;
-                  align-items: center;
-                  img {
-                    display: block;
-                    width: 9.896vw;
-                    height: 7.292vw;
-                    border-radius: 0.208vw;
-                    border: 0.052vw solid #000;
-                    margin-bottom: 0.521vw;
-                  }
+                    flex-direction: column;
+                    align-items: center;
+                    img {
+                      display: block;
+                      width: 9.896vw;
+                      height: 7.292vw;
+                      border-radius: 0.208vw;
+                      border: 0.052vw solid #000;
+                      margin-bottom: 0.521vw;
+                    }
                   }
                 }
               }
