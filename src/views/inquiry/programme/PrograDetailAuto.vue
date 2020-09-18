@@ -108,19 +108,75 @@
                   <div>
                     <div class="imgbox">
                       <img src alt />
-                      <!-- <span>本地上传</span> -->
+                      <input v-if="!isEdit" disabled value="本地上传" />
+                      <el-upload
+                        v-if="!isEdit"
+                        class="upload-demo"
+                        action="https://jsonplaceholder.typicode.com/posts/"
+                        :on-preview="handlePreview"
+                        :on-remove="handleRemove"
+                        :before-remove="beforeRemove"
+                        multiple
+                        :limit="3"
+                        :on-exceed="handleExceed"
+                        :file-list="fileList1"
+                      >
+                        <el-button size="small" type="primary">点击上传</el-button>
+                      </el-upload>
                     </div>
                     <div class="imgbox">
                       <img src alt />
-                      <!-- <span>本地上传</span> -->
+                      <input v-if="!isEdit" disabled value="本地上传" />
+                      <el-upload
+                        v-if="!isEdit"
+                        class="upload-demo"
+                        action="https://jsonplaceholder.typicode.com/posts/"
+                        :on-preview="handlePreview"
+                        :on-remove="handleRemove"
+                        :before-remove="beforeRemove"
+                        multiple
+                        :limit="3"
+                        :on-exceed="handleExceed"
+                        :file-list="fileList2"
+                      >
+                        <el-button size="small" type="primary">点击上传</el-button>
+                      </el-upload>
                     </div>
                     <div class="imgbox">
                       <img src alt />
-                      <!-- <span>本地上传</span> -->
+                      <input v-if="!isEdit" disabled value="本地上传" />
+                      <el-upload
+                        v-if="!isEdit"
+                        class="upload-demo"
+                        action="https://jsonplaceholder.typicode.com/posts/"
+                        :on-preview="handlePreview"
+                        :on-remove="handleRemove"
+                        :before-remove="beforeRemove"
+                        multiple
+                        :limit="3"
+                        :on-exceed="handleExceed"
+                        :file-list="fileList3"
+                      >
+                        <el-button size="small" type="primary">点击上传</el-button>
+                      </el-upload>
                     </div>
                     <div class="imgbox">
                       <img src alt />
-                      <!-- <span>本地上传</span> -->
+                      <input v-if="!isEdit" disabled value="本地上传" />
+                      <el-upload
+                        v-if="!isEdit"
+                        class="upload-demo"
+                        action="https://jsonplaceholder.typicode.com/posts/"
+                        :on-preview="handlePreview"
+                        :on-remove="handleRemove"
+                        :before-remove="beforeRemove"
+                        multiple
+                        :limit="3"
+                        :on-exceed="handleExceed"
+                        :file-list="fileList4"
+                      >
+                        <el-button size="small" type="primary">点击上传</el-button>
+                      </el-upload>
                     </div>
                   </div>
                 </div>
@@ -130,7 +186,21 @@
                     <div>
                       <div class="imgbox">
                         <img src alt />
-                        <!-- <span>本地上传</span> -->
+                        <input v-if="!isEdit" disabled value="本地上传" />
+                        <el-upload
+                          v-if="!isEdit"
+                          class="upload-demo"
+                          action="https://jsonplaceholder.typicode.com/posts/"
+                          :on-preview="handlePreview"
+                          :on-remove="handleRemove"
+                          :before-remove="beforeRemove"
+                          multiple
+                          :limit="3"
+                          :on-exceed="handleExceed"
+                          :file-list="fileList5"
+                        >
+                          <el-button size="small" type="primary">点击上传</el-button>
+                        </el-upload>
                       </div>
                     </div>
                   </div>
@@ -139,7 +209,21 @@
                     <div>
                       <div class="imgbox">
                         <img src alt />
-                        <!-- <span>本地上传</span> -->
+                        <input v-if="!isEdit" disabled value="本地上传" />
+                        <el-upload
+                          v-if="!isEdit"
+                          class="upload-demo"
+                          action="https://jsonplaceholder.typicode.com/posts/"
+                          :on-preview="handlePreview"
+                          :on-remove="handleRemove"
+                          :before-remove="beforeRemove"
+                          multiple
+                          :limit="3"
+                          :on-exceed="handleExceed"
+                          :file-list="fileList6"
+                        >
+                          <el-button size="small" type="primary">点击上传</el-button>
+                        </el-upload>
                       </div>
                     </div>
                   </div>
@@ -176,7 +260,7 @@
                 <div>捷达汽配</div>
                 <div>710</div>
               </div>
-              <div @click="changeMoney(2)">
+              <div @click="changeMoney(3)">
                 <div>小众汽配</div>
                 <div>430</div>
               </div>
@@ -200,19 +284,25 @@
                 <span>4S价：¥ 710</span>
               </div>
               <div>3年</div>
-              <div>否</div>
+              <div class="gzj">是</div>
               <div>
                 <div>
-                  <el-radio :disabled='!save' @change="changeradio1" v-model="radio1" label="原厂件" />
+                  <el-radio :disabled="!save" @change="changeradio1" v-model="radio1" label="原厂件" />
                 </div>
                 <div>
-                  <el-radio :disabled='!save' @change="changeradio1" v-model="radio1" label="配套件" />
+                  <el-radio :disabled="!save" @change="changeradio1" v-model="radio1" label="配套件" />
                 </div>
                 <div>
-                  <el-radio :disabled='!save' @change="changeradio1" v-model="radio1" label="认证件" />
+                  <el-radio :disabled="!save" @change="changeradio1" v-model="radio1" label="认证件" />
                 </div>
                 <div>
-                  <el-radio :disabled='!save' @change="changeradio1" class="tuijian" v-model="radio1" label="品牌件" />
+                  <el-radio
+                    :disabled="!save"
+                    @change="changeradio1"
+                    class="tuijian"
+                    v-model="radio1"
+                    label="品牌件"
+                  />
                 </div>
               </div>
               <div>
@@ -246,16 +336,16 @@
               </div>
               <div>
                 <div :class="radio1=='原厂件'?'blue':''">
-                  <el-input :disabled='!save' v-model="value11"></el-input>
+                  <el-input :disabled="!save" v-model="value11"></el-input>
                 </div>
                 <div :class="radio1=='配套件'?'blue':''">
-                  <el-input :disabled='!save' v-model="value12"></el-input>
+                  <el-input :disabled="!save" v-model="value12"></el-input>
                 </div>
                 <div :class="radio1=='认证件'?'blue':''">
-                  <el-input :disabled='!save' v-model="value13"></el-input>
+                  <el-input :disabled="!save" v-model="value13"></el-input>
                 </div>
                 <div :class="radio1=='品牌件'?'blue':''">
-                  <el-input :disabled='!save' v-model="value14"></el-input>
+                  <el-input :disabled="!save" v-model="value14"></el-input>
                 </div>
               </div>
               <div>
@@ -276,42 +366,48 @@
               <div>否</div>
               <div>
                 <div>
-                  <el-radio :disabled='!save' @change="changeradio2" v-model="radio2" label="原厂件" />
+                  <el-radio :disabled="!save" @change="changeradio2" v-model="radio2" label="原厂件" />
                 </div>
                 <div>
-                  <el-radio :disabled='!save' @change="changeradio2" v-model="radio2" label="配套件" />
+                  <el-radio :disabled="!save" @change="changeradio2" v-model="radio2" label="配套件" />
                 </div>
                 <div>
-                  <el-radio :disabled='!save' @change="changeradio2" v-model="radio2" label="认证件" />
+                  <el-radio :disabled="!save" @change="changeradio2" v-model="radio2" label="认证件" />
                 </div>
                 <div>
-                  <el-radio :disabled='!save' @change="changeradio2" class="tuijian" v-model="radio2" label="品牌件" />
+                  <el-radio
+                    :disabled="!save"
+                    @change="changeradio2"
+                    class="tuijian"
+                    v-model="radio2"
+                    label="品牌件"
+                  />
                 </div>
               </div>
               <div>
                 <div :class="radio2=='原厂件'?'blue':''">
-                  {{qipeishang[0].value1}}
-                  <a v-if="save" class="a_active" @click="onchange(1)">更换</a>
+                  {{qipeishang[4].value1}}
+                  <a v-if="save" class="a_active" @click="onchange(5)">更换</a>
                 </div>
                 <div :class="radio2=='配套件'?'blue':''">
-                  {{qipeishang[1].value1}}
-                  <a @click="onchange(2)">更换</a>
+                  {{qipeishang[5].value1}}
+                  <a @click="onchange(6)">更换</a>
                 </div>
                 <div :class="radio2=='认证件'?'blue':''">
-                  {{qipeishang[2].value1}}
-                  <a @click="onchange(3)">更换</a>
+                  {{qipeishang[6].value1}}
+                  <a @click="onchange(7)">更换</a>
                 </div>
                 <div :class="radio2=='品牌件'?'blue':''">
-                  {{qipeishang[3].value1}}
-                  <a @click="onchange(4)">更换</a>
+                  {{qipeishang[7].value1}}
+                  <a @click="onchange(8)">更换</a>
                 </div>
               </div>
               <div>
-                <div :class="radio2=='原厂件'?'blue':''">{{qipeishang[0].num}}</div>
-                <div :class="radio2=='配套件'?'blue':''">{{qipeishang[1].num}}</div>
-                <div :class="radio2=='认证件'?'blue':''">{{qipeishang[2].num}}</div>
+                <div :class="radio2=='原厂件'?'blue':''">{{qipeishang[4].num}}</div>
+                <div :class="radio2=='配套件'?'blue':''">{{qipeishang[5].num}}</div>
+                <div :class="radio2=='认证件'?'blue':''">{{qipeishang[6].num}}</div>
                 <div :class="radio2=='品牌件'?'blue':''">
-                  {{qipeishang[3].num}}
+                  {{qipeishang[7].num}}
                   <span class="gth">
                     <span class="tip">当前报价已高于参考价格恒定区间值</span>
                   </span>
@@ -319,16 +415,16 @@
               </div>
               <div>
                 <div :class="radio2=='原厂件'?'blue':''">
-                  <el-input :disabled='!save' v-model="value15"></el-input>
+                  <el-input :disabled="!save" v-model="value15"></el-input>
                 </div>
                 <div :class="radio2=='配套件'?'blue':''">
-                  <el-input :disabled='!save' v-model="value16"></el-input>
+                  <el-input :disabled="!save" v-model="value16"></el-input>
                 </div>
                 <div :class="radio2=='认证件'?'blue':''">
-                  <el-input :disabled='!save' v-model="value17"></el-input>
+                  <el-input :disabled="!save" v-model="value17"></el-input>
                 </div>
                 <div :class="radio2=='品牌件'?'blue':''">
-                  <el-input :disabled='!save' v-model="value18"></el-input>
+                  <el-input :disabled="!save" v-model="value18"></el-input>
                 </div>
               </div>
               <div>
@@ -349,42 +445,48 @@
               <div>否</div>
               <div>
                 <div>
-                  <el-radio :disabled='!save' @change="changeradio3" v-model="radio3" label="原厂件" />
+                  <el-radio :disabled="!save" @change="changeradio3" v-model="radio3" label="原厂件" />
                 </div>
                 <div>
-                  <el-radio :disabled='!save' @change="changeradio3" v-model="radio3" label="配套件" />
+                  <el-radio :disabled="!save" @change="changeradio3" v-model="radio3" label="配套件" />
                 </div>
                 <div>
-                  <el-radio :disabled='!save' @change="changeradio3" v-model="radio3" label="认证件" />
+                  <el-radio :disabled="!save" @change="changeradio3" v-model="radio3" label="认证件" />
                 </div>
                 <div>
-                  <el-radio :disabled='!save' @change="changeradio3" class="tuijian" v-model="radio3" label="品牌件" />
+                  <el-radio
+                    :disabled="!save"
+                    @change="changeradio3"
+                    class="tuijian"
+                    v-model="radio3"
+                    label="品牌件"
+                  />
                 </div>
               </div>
               <div>
                 <div :class="radio3=='原厂件'?'blue':''">
-                  {{qipeishang[0].value1}}
-                  <a v-if="save" class="a_active" @click="onchange(1)">更换</a>
+                  {{qipeishang[8].value1}}
+                  <a v-if="save" class="a_active" @click="onchange(9)">更换</a>
                 </div>
                 <div :class="radio3=='配套件'?'blue':''">
-                  {{qipeishang[1].value1}}
-                  <a @click="onchange(2)">更换</a>
+                  {{qipeishang[9].value1}}
+                  <a @click="onchange(10)">更换</a>
                 </div>
                 <div :class="radio3=='认证件'?'blue':''">
-                  {{qipeishang[2].value1}}
-                  <a @click="onchange(3)">更换</a>
+                  {{qipeishang[10].value1}}
+                  <a @click="onchange(11)">更换</a>
                 </div>
                 <div :class="radio3=='品牌件'?'blue':''">
-                  {{qipeishang[3].value1}}
-                  <a @click="onchange(4)">更换</a>
+                  {{qipeishang[11].value1}}
+                  <a @click="onchange(12)">更换</a>
                 </div>
               </div>
               <div>
-                <div :class="radio3=='原厂件'?'blue':''">{{qipeishang[0].num}}</div>
-                <div :class="radio3=='配套件'?'blue':''">{{qipeishang[1].num}}</div>
-                <div :class="radio3=='认证件'?'blue':''">{{qipeishang[2].num}}</div>
+                <div :class="radio3=='原厂件'?'blue':''">{{qipeishang[8].num}}</div>
+                <div :class="radio3=='配套件'?'blue':''">{{qipeishang[9].num}}</div>
+                <div :class="radio3=='认证件'?'blue':''">{{qipeishang[10].num}}</div>
                 <div :class="radio3=='品牌件'?'blue':''">
-                  {{qipeishang[3].num}}
+                  {{qipeishang[11].num}}
                   <span class="gth">
                     <span class="tip">当前报价已高于参考价格恒定区间值</span>
                   </span>
@@ -392,16 +494,16 @@
               </div>
               <div>
                 <div :class="radio3=='原厂件'?'blue':''">
-                  <el-input :disabled='!save' v-model="value19"></el-input>
+                  <el-input :disabled="!save" v-model="value19"></el-input>
                 </div>
                 <div :class="radio3=='配套件'?'blue':''">
-                  <el-input :disabled='!save' v-model="value20"></el-input>
+                  <el-input :disabled="!save" v-model="value20"></el-input>
                 </div>
                 <div :class="radio3=='认证件'?'blue':''">
-                  <el-input :disabled='!save' v-model="value21"></el-input>
+                  <el-input :disabled="!save" v-model="value21"></el-input>
                 </div>
                 <div :class="radio3=='品牌件'?'blue':''">
-                  <el-input :disabled='!save' v-model="value22"></el-input>
+                  <el-input :disabled="!save" v-model="value22"></el-input>
                 </div>
               </div>
               <div>
@@ -491,7 +593,7 @@
           </div>
           <div class="left3">
             <div class="left3_1">
-              <p>参考方案二 </p>
+              <p>参考方案二</p>
               <p>（当前最低）</p>
             </div>
             <div class="left3_2">
@@ -550,7 +652,7 @@
           </div>
           <div :class="['item', showItem.length?'active':'']">
             <div class="line">
-              <img src='../../../assets/img/dui.png' alt />
+              <img src="../../../assets/img/dui.png" alt />
               <i></i>
               <div></div>
             </div>
@@ -798,9 +900,9 @@
             </div>
           </div>
           <div class="more">
-            <div v-if="showItem.length>2">
-              <h3>成功提交需求</h3>
-              <span>2020/8/4 12:08:35</span>
+            <div>
+              <h3>{{showItem.length==1?'报价已超时':showItem.length==2?'已到达预警点':'成功提交需求'}}</h3>
+              <span>{{showItem.length==1?'2020/8/4 12:08:35':showItem.length==2?'2020/8/4 12:08:35':'2020/8/4 12:08:35'}}</span>
             </div>
             <span @click="showmore">
               {{showItem.length>2?'收起':'查看详情'}}
@@ -827,7 +929,7 @@
           <div>
             <!-- class="gray" -->
             <el-button @click="changegenjin">{{!genjin?'添加跟进':'保存跟进'}}</el-button>
-            <el-button >关闭订单</el-button>
+            <el-button>关闭订单</el-button>
             <el-button @click="dingdanTotal=true">报价汇总</el-button>
             <el-button @click="xiezhu=true">完成协助</el-button>
             <el-input v-if="genjin" type="textarea" v-model="textarea2" :rows="4"></el-input>
@@ -946,7 +1048,7 @@
       </div>
     </el-dialog>
     <!-- 汽配商信息 -->
-    <el-dialog custom-class="qipei" title="汽配商信息" :visible.sync="qipei" width="57.292vw">
+    <el-dialog top='75px' custom-class="qipei" title="汽配商信息" :visible.sync="qipei" width="59vw">
       <div class="title">
         <span>当前车型：大众汽车SVW71810BU</span>
         <span>当前报价异常零部件包含：刹车片、车盖</span>
@@ -1086,8 +1188,8 @@
         isshowdingdan: false,
         isfixd: false,
         qipei: false,
-        topnum: 0,//弹窗定位
-        num: 0,//更换价格当前行
+        topnum: 0, //弹窗定位
+        num: 0, //更换价格当前行
         xiezhu: false,
         shousun: null,
         textarea: null,
@@ -1099,22 +1201,22 @@
         select1: null,
         isView: false,
         huizong: false,
-        radio1: '原厂件',
-        radio2: '配套件',
-        radio3: '配套件',
-        qipeishang:[
-          {value1:'中南汽配商',num:520},
-          {value1:'中南汽配商',num:520},
-          {value1:'中南汽配商',num:520},
-          {value1:'中南汽配商',num:520},
-          {value1:'中南汽配商',num:520},
-          {value1:'中南汽配商',num:520},
-          {value1:'中南汽配商',num:520},
-          {value1:'中南汽配商',num:520},
-          {value1:'中南汽配商',num:520},
-          {value1:'中南汽配商',num:520},
-          {value1:'中南汽配商',num:520},
-          {value1:'中南汽配商',num:520},
+        radio1: "原厂件",
+        radio2: "配套件",
+        radio3: "配套件",
+        qipeishang: [
+          { value1: "中南汽配商", num: 520 },
+          { value1: "中南汽配商", num: 520 },
+          { value1: "中南汽配商", num: 520 },
+          { value1: "中南汽配商", num: 520 },
+          { value1: "中南汽配商", num: 520 },
+          { value1: "中南汽配商", num: 520 },
+          { value1: "中南汽配商", num: 520 },
+          { value1: "中南汽配商", num: 520 },
+          { value1: "中南汽配商", num: 520 },
+          { value1: "中南汽配商", num: 520 },
+          { value1: "中南汽配商", num: 520 },
+          { value1: "中南汽配商", num: 520 },
         ],
         tableData: [
           {
@@ -1311,7 +1413,7 @@
           },
         ],
         isEdit: true,
-        save:false,
+        save: false,
         base: {
           value1: "大地保险（重庆分公司）",
           value2: "CQTPY20200721000001",
@@ -1344,18 +1446,24 @@
           email: null,
           radio: 2,
         },
-        value11:670,
-        value12:670,
-        value13:670,
-        value14:670,
-        value15:670,
-        value16:670,
-        value17:670,
-        value18:670,
-        value19:670,
-        value20:670,
-        value21:670,
-        value22:670,
+        fileList1: [],
+        fileList2: [],
+        fileList3: [],
+        fileList4: [],
+        fileList5: [],
+        fileList6: [],
+        value11: 670,
+        value12: 670,
+        value13: 670,
+        value14: 670,
+        value15: 670,
+        value16: 670,
+        value17: 670,
+        value18: 670,
+        value19: 670,
+        value20: 670,
+        value21: 670,
+        value22: 670,
         options: [
           { label: "大众", value: 1 },
           { label: "奥迪", value: 2 },
@@ -1377,7 +1485,7 @@
           this.showItem.push(1);
         } else {
           this.showItem = [1];
-          this.isshowdingdan=false
+          this.isshowdingdan = false;
         }
       },
       nopowerOK() {
@@ -1405,28 +1513,28 @@
       rexunjiadanOK() {
         this.rexunjiadan = false;
       },
-      changeSave(){
-        this.save=!this.save
+      changeSave() {
+        this.save = !this.save;
       },
-      changeMoney(type){
-        let name
-        let money
-        if(type===1){
-          name='众宇汽配'
-          money=500
-        }else if(type===2){
-          name='捷达汽配'
-          money=710
-        }else{
-          name='小众汽配'
-          money=430
+      changeMoney(type) {
+        let name;
+        let money;
+        if (type === 1) {
+          name = "众宇汽配";
+          money = 500;
+        } else if (type === 2) {
+          name = "捷达汽配";
+          money = 710;
+        } else {
+          name = "小众汽配";
+          money = 430;
         }
-        let idx=this.num-1
-        this.qipeishang[idx]={value1:name,num:money}
+        let idx = this.num - 1;
+        this.qipeishang[idx] = { value1: name, num: money };
         this.isfixd = false;
       },
       onchange(num) {
-        this.num=num
+        this.num = num;
         this.isfixd = true;
         this.topnum = 75 + 52 * num;
       },
@@ -1468,15 +1576,20 @@
         document.body.removeChild(input); // 删除临时实例
         this.$message.success("复制成功");
       },
-      changeradio1(e){
-        this.radio1=e
+      changeradio1(e) {
+        this.radio1 = e;
       },
-      changeradio2(e){
-        this.radio2=e
+      changeradio2(e) {
+        this.radio2 = e;
       },
-      changeradio3(e){
-        this.radio3=e
-      }
+      changeradio3(e) {
+        this.radio3 = e;
+      },
+      //上传相关
+      handlePreview() {},
+      handleRemove() {},
+      beforeRemove() {},
+      handleExceed() {},
     },
   };
 </script>
@@ -1696,8 +1809,21 @@
                   img {
                     width: 100%;
                   }
-                  span {
-                    width: 100%;
+                  .upload-demo {
+                    width: 200px;
+                    height: 2.083vw;
+                    overflow: hidden;
+                    position: absolute;
+                    bottom: 0;
+                    .el-button {
+                      width: 270px !important;
+                      opacity: 0;
+                    }
+                  }
+                  input {
+                    border: none;
+                    outline: none;
+                    width: 99%;
                     text-align: center;
                     position: absolute;
                     bottom: 0;
@@ -1707,6 +1833,7 @@
                     opacity: 0.4;
                     color: white;
                     border-radius: 0vw 0vw 0.208vw 0.208vw;
+                    cursor: pointer;
                   }
                 }
               }
@@ -1763,7 +1890,7 @@
               > div {
                 display: flex;
                 border-bottom: 0.052vw solid #d1d1d1;
-                &:hover{
+                &:hover {
                   background: #e6e6e6;
                 }
                 > div {
@@ -1797,6 +1924,18 @@
             }
             ._thead,
             ._tr {
+              .gzj {
+                position: relative;
+                &::after {
+                  content: "不建议替换";
+                  background: #eeeeee;
+                  color: #999999;
+                  font-size: 10px;
+                  padding: 2px;
+                  border-radius: 4px;
+                  transform: scale(0.9) translateY(4px);
+                }
+              }
               > div {
                 border: 0.052vw solid #dcdcdc;
                 border-right: transparent;
@@ -1862,8 +2001,8 @@
                       display: block;
                     }
                   }
-                  &:hover{
-                    .gth{
+                  &:hover {
+                    .gth {
                       opacity: 1;
                     }
                   }
@@ -2177,7 +2316,7 @@
           .item {
             position: relative;
             padding: 0;
-            height: 0;
+            height: 0px;
             overflow: hidden;
             &.active {
               height: auto;
@@ -2606,50 +2745,55 @@
         }
       }
     }
-    .total .el-dialog__body {
-      padding: 1.25vw;
-      height: 31.302vw;
-      overflow: scroll;
-      scrollbar-width: none;
-      .tablebox {
-        margin-bottom: 1.042vw;
-        ._thead {
-          > div:nth-of-type(1) {
-            width: 55.677vw;
-            line-height: 1.458vw;
-            text-align: center;
-            background: #eeeeee;
-          }
-          > div:nth-of-type(2) {
-            display: flex;
-            justify-content: space-between;
-            > div {
-              text-align: center;
-              line-height: 1.406vw;
-              color: #929292;
-            }
+    .total {
+      .el-table__row:hover > td {
+        background: #fff !important;
+      }
+      .el-dialog__body {
+        padding: 1.25vw;
+        height: 31.302vw;
+        overflow: scroll;
+        scrollbar-width: none;
+        .tablebox {
+          margin-bottom: 1.042vw;
+          ._thead {
             > div:nth-of-type(1) {
-              width: 32.448vw !important;
-              border-right: 0.052vw solid #ebeef5;
-              border-left: 0.052vw solid #ebeef5;
+              width: 55.677vw;
+              line-height: 1.458vw;
+              text-align: center;
+              background: #eeeeee;
             }
             > div:nth-of-type(2) {
-              flex-grow: 1;
-              border-right: 0.052vw solid #ebeef5;
+              display: flex;
+              justify-content: space-between;
+              > div {
+                text-align: center;
+                line-height: 1.406vw;
+                color: #929292;
+              }
+              > div:nth-of-type(1) {
+                width: 32.448vw !important;
+                border-right: 0.052vw solid #ebeef5;
+                border-left: 0.052vw solid #ebeef5;
+              }
+              > div:nth-of-type(2) {
+                flex-grow: 1;
+                border-right: 0.052vw solid #ebeef5;
+              }
             }
           }
-        }
-        .el-table td,
-        .el-table th {
-          padding: 0.104vw 0 !important;
-          color: #929292;
+          .el-table td,
+          .el-table th {
+            padding: 0.104vw 0 !important;
+            color: #929292;
+          }
         }
       }
     }
     .qipei {
       .el-dialog__body {
         padding: 0 1.823vw 1.719vw 1.823vw;
-        height: 26.042vw;
+        height: 32vw;
         overflow: scroll;
         scrollbar-width: none;
         position: relative;
@@ -2668,8 +2812,8 @@
               font-size: 0.833vw;
               font-weight: bold;
               color: #333333;
-              margin-bottom: 1.927vw;
-              margin-top: 1.823vw;
+              margin-bottom: 1.2vw;
+              margin-top: 1.5vw;
               span {
                 font-weight: bold;
                 color: #df3210;
@@ -2720,6 +2864,9 @@
           padding: 0 1.042vw !important;
         }
       }
+    }
+    .el-radio__input.is-disabled + span.el-radio__label {
+      color: #666666 !important;
     }
   }
 </style>

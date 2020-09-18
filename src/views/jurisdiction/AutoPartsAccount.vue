@@ -118,19 +118,19 @@
         <div>
           <span class="require">定损员名称：</span>
         </div>
-        <el-input type="text" v-model="position" />
+        <el-input type="text" v-model="position1" />
       </div>
       <div class="dyrow">
         <div>
           <span class="require">联系电话：</span>
         </div>
-        <el-input type="text" v-model="position" />
+        <el-input type="text" v-model="position2" />
       </div>
       <div class="dyrow">
         <div>
           <span class="require">账号：</span>
         </div>
-        <el-input type="text" v-model="position" />
+        <el-input type="text" v-model="position3" />
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="addModalOK">确 定</el-button>
@@ -179,7 +179,9 @@
         offModal: false,
         deleteModal: false,
         postName: null, //姓名
-        position: null, //职位
+        position1: null,
+        position2: null,
+        position3: null,
         value: [], //权限分配
         dataList: [
           { key: 1, label: "备选项1" },

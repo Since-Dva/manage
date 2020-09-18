@@ -125,6 +125,7 @@
             :border="true"
             :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'0.833vw',background:'#eeeeee'}"
             :data="tableData"
+            @row-click='handleClickRow'
             style="width: 100%"
           >
             <el-table-column width="190%" align="center" prop="id" label="定损单号">
@@ -161,7 +162,7 @@
             <el-pagination
               @size-change="sizeChange"
               @current-change="pageChange"
-              :page-sizes="[10, 50, 100, 200]"
+              :page-sizes="[10, 20, 50,100]"
               :page-size="size"
               :page-count="count"
               layout=" sizes, prev, pager, next"
@@ -491,6 +492,15 @@
           this.ainimate = false;
         }, 500);
       },
+      handleClickRow(e){
+        this.rowinfo = e
+        this.$store.commit("addTabMut", {
+          title: "定损询价单详情",
+          path: "/inquiry/prograDetail",
+          type: "inquiry",
+        });
+        this.$router.push("/inquiry/prograDetail");
+      }
     },
   };
 </script>
@@ -703,14 +713,20 @@
         }
         .tablebox {
           margin-top: 1.042vw;
-            position: relative;
-            padding: 0 15px;
-            .el-table__row .cell{
+          position: relative;
+          padding: 0 15px;
+          .el-table__row {
+            .cell {
               font-size: 12px;
             }
-          .el-table__body-wrapper{
-          height: 440px;
-          overflow: scroll;
+            .th,
+            .td {
+              padding: 0px !important;
+            }
+          }
+          .el-table__body-wrapper {
+            height: 440px;
+            overflow: scroll;
           }
           .mytd > span {
             display: flex;
@@ -889,6 +905,14 @@
           }
         }
       }
+    }
+    .el-table--border td,
+    .el-table--border th,
+    .el-table__body-wrapper
+      .el-table--border.is-scrolling-left
+      ~ .el-table__fixed {
+      border-right: none !important;
+      padding: 10px 0;
     }
   }
 </style>

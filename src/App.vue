@@ -111,6 +111,9 @@
           background: #0f6baa;
           color: white;
         }
+        &.is-disabled{
+          background: #cccccc;
+        }
       }
 
       .el-input,

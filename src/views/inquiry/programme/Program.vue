@@ -23,59 +23,66 @@
             <div>
               <div class="modaltitle">1.模型</div>
               <div class="item1">
-          <div class="item1_1">
-            <p class="title" :style="{background:blueType==1?'#0f6baa':'',color:blueType==1?'white':'#656565'}">模型一</p>
-            <div @click="showBlue(1)">
-              <div>
-                <span>年限：</span>
-                <span>不限</span>
+                <div class="item1_1">
+                  <p
+                    class="title"
+                    :style="{background:blueType==1?'#0f6baa':'',color:blueType==1?'white':'#656565'}"
+                  >模型一</p>
+                  <div @click="showBlue(1)">
+                    <div>
+                      <span>年限：</span>
+                      <span>不限</span>
+                    </div>
+                    <div>
+                      <span>包含：</span>
+                      <span>（3年以内、3-6 年、6-10年及10年以上）</span>
+                    </div>
+                    <div>
+                      <span>对关重件有要求：</span>
+                      <span>品牌件</span>
+                    </div>
+                    <div>
+                      <span>对关重件无要求：</span>
+                      <span>品牌件 注：（关注件包含动力车 身及底盘主体件）</span>
+                    </div>
+                  </div>
+                  <span>使用中</span>
+                </div>
+                <div class="item1_1">
+                  <p
+                    class="title"
+                    :style="{background:blueType==2?'#0f6baa':'',color:blueType==2?'white':'#656565'}"
+                  >模型二</p>
+                  <div @click="showBlue(2)">
+                    <div>
+                      <span>年限：</span>
+                      <span>不限</span>
+                    </div>
+                    <div>
+                      <span>包含：</span>
+                      <span>（3年以内、3-6 年、6-10年及10年以上）</span>
+                    </div>
+                    <div>
+                      <span>对关重件有要求：</span>
+                      <span>品牌件</span>
+                    </div>
+                    <div>
+                      <span>对关重件无要求：</span>
+                      <span>品牌件 注：（关注件包含动力车 身及底盘主体件）</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="item1_1">
+                  <p
+                    class="title"
+                    :style="{background:blueType==3?'#0f6baa':'',color:blueType==3?'white':'#656565'}"
+                  >自定义一</p>
+                  <div class="addicon" @click="showBlue(3)">
+                    <i></i>
+                    新增
+                  </div>
+                </div>
               </div>
-              <div>
-                <span>包含：</span>
-                <span>（3年以内、3-6 年、6-10年及10年以上）</span>
-              </div>
-              <div>
-                <span>对关重件有要求：</span>
-                <span>品牌件</span>
-              </div>
-              <div>
-                <span>对关重件无要求：</span>
-                <span>品牌件 注：（关注件包含动力车 身及底盘主体件）</span>
-              </div>
-            </div>
-          </div>
-          <div class="item1_1">
-            <p class="title" :style="{background:blueType==2?'#0f6baa':'',color:blueType==2?'white':'#656565'}">模型二</p>
-            <div @click="showBlue(2)">
-              <div>
-                <span>年限：</span>
-                <span>不限</span>
-              </div>
-              <div>
-                <span>包含：</span>
-                <span>（3年以内、3-6 年、6-10年及10年以上）</span>
-              </div>
-              <div>
-                <span>对关重件有要求：</span>
-                <span>品牌件</span>
-              </div>
-              <div>
-                <span>对关重件无要求：</span>
-                <span>品牌件 注：（关注件包含动力车 身及底盘主体件）</span>
-              </div>
-            </div>
-          </div>
-          <div class="item1_1">
-            <p
-              class="title"
-              :style="{background:blueType==3?'#0f6baa':'',color:blueType==3?'white':'#656565'}"
-            >自定义一</p>
-            <div class="addicon" @click="showBlue(3)">
-              <i></i>
-              新增
-            </div>
-          </div>
-        </div>
               <div class="dyrow">
                 <div>
                   <span class="title">方案说明：</span>
@@ -116,7 +123,7 @@
                     </div>
                     <div class="checkbox">
                       <el-checkbox-group v-model="checkList">
-                        <el-checkbox label="3年以内" disabled></el-checkbox>
+                        <el-checkbox label="3年以内"></el-checkbox>
                         <el-checkbox label="3年~6年"></el-checkbox>
                         <el-checkbox label="6年~10年"></el-checkbox>
                         <el-checkbox label="10年以上"></el-checkbox>
@@ -152,7 +159,7 @@
                 </div>
               </div>
 
-              <div class="item4" v-if="show">
+              <div class="item4" v-if="show&&show1">
                 <div>分组二</div>
                 <div>
                   <div>
@@ -161,13 +168,13 @@
                       <span>（支持多选）</span>
                     </div>
                     <div class="checkbox">
-                      <el-checkbox-group v-model="checkList1">
-                        <el-checkbox label="3年以内" disabled></el-checkbox>
-                        <el-checkbox label="3年~6年"></el-checkbox>
-                        <el-checkbox label="6年~10年"></el-checkbox>
-                        <el-checkbox label="10年以上"></el-checkbox>
-                      </el-checkbox-group>
-                    </div>
+                <el-checkbox-group v-model="checkList1">
+                  <el-checkbox label="3年以内" :disabled="checkList.includes('3年以内')"></el-checkbox>
+                  <el-checkbox label="3年~6年" :disabled="checkList.includes('3年~6年')"></el-checkbox>
+                  <el-checkbox label="6年~10年" :disabled="checkList.includes('6年~10年')"></el-checkbox>
+                  <el-checkbox label="10年以上" :disabled="checkList.includes('10年以上')"></el-checkbox>
+                </el-checkbox-group>
+              </div>
                   </div>
                   <div>
                     <div>
@@ -197,8 +204,8 @@
                   </div>
                 </div>
               </div>
-              <div class="item4 kong" v-if="show">
-                <i></i>
+              <div class="item4 kong" v-if="show&&!show1">
+                <i @click="show1=true"></i>
               </div>
               <!-- 动态展示部分 -->
 
@@ -207,22 +214,22 @@
                 <div class="title">利润增幅管控设置</div>
                 <div class="item2">
                   <span>原厂件利润比：</span>
-                  <el-input></el-input>%
+                  <el-input :disabled="!isEdit" v-model="value1"></el-input>%
                   <span>（注：原厂件的利润比为x）</span>
                 </div>
                 <div class="item2">
                   <span>配套件利润增幅：</span>
-                  <el-input></el-input>%
+                  <el-input :disabled="!isEdit" v-model="value2"></el-input>%
                   <span>（注：配套件的利润增幅为y1）</span>
                 </div>
                 <div class="item2">
                   <span>认证件利润增幅：</span>
-                  <el-input></el-input>%
+                  <el-input :disabled="!isEdit" v-model="value3"></el-input>%
                   <span>（注：配套件的利润增幅为y2）</span>
                 </div>
                 <div class="item2">
                   <span>品牌件利润增幅：</span>
-                  <el-input></el-input>%
+                  <el-input :disabled="!isEdit" v-model="value4"></el-input>%
                   <span>（注：配套件的利润增幅为y3）</span>
                 </div>
               </div>
@@ -239,19 +246,19 @@
                 </div>
                 <div class="item2 item3">
                   <span>原厂件价格参考区间：</span>
-                  <el-input></el-input>%
+                  <el-input :disabled="!isEdit" v-model="value5"></el-input>%
                 </div>
                 <div class="item2 item3">
                   <span>配套件价格参考区间：</span>
-                  <el-input></el-input>%
+                  <el-input :disabled="!isEdit" v-model="value6"></el-input>%
                 </div>
                 <div class="item2 item3">
                   <span>认证件价格参考区间：</span>
-                  <el-input></el-input>%
+                  <el-input :disabled="!isEdit" v-model="value7"></el-input>%
                 </div>
                 <div class="item2 item3">
                   <span>品牌件价格参考区间：</span>
-                  <el-input></el-input>%
+                  <el-input :disabled="!isEdit" v-model="value8"></el-input>%
                 </div>
               </div>
             </div>
@@ -324,9 +331,10 @@
           radio: "1",
         },
         show: false,
+        show1: false,
         checkList: [],
         checkList1: [],
-        isEdit:false,
+        isEdit: false,
         blueType: null,
         add: {
           value1: null,
@@ -407,6 +415,14 @@
             show: false,
           },
         ],
+        value1: 5,
+        value2: 70,
+        value3: 60,
+        value4: 50,
+        value5: 90,
+        value6: 80,
+        value7: 70,
+        value8: 60,
       };
     },
     methods: {
@@ -434,28 +450,29 @@
       addfollowup() {
         this.addgj = !this.addgj;
       },
-      changeEdit(){//编辑/保存
-        this.isEdit=!this.isEdit
-        if(!this.isEdit){
+      changeEdit() {
+        //编辑/保存
+        this.isEdit = !this.isEdit;
+        if (!this.isEdit) {
           this.blueType = null;
-          this.show=false
+          this.show = false;
         }
       },
       showBlue(type) {
         //点击弹窗分组交互色
-        if(type!==this.blueType){
+        if (type !== this.blueType) {
           this.blueType = type;
-        }else{
+        } else {
           if (this.blueType) {
             this.blueType = null;
           } else {
             this.blueType = type;
           }
         }
-        if(type===3){
-          this.show=true
-        }else{
-          this.show=false
+        if (type === 3) {
+          this.show = true;
+        } else {
+          this.show = false;
         }
       },
     },
@@ -469,7 +486,8 @@
       justify-content: space-between;
       .left {
         width: 65.26vw;
-        height: 44.479vw;
+        height: 700px;
+        padding-top: 175px;
         overflow: scroll;
         scrollbar-width: none;
         > div {
@@ -479,8 +497,13 @@
           margin-bottom: 1.042vw;
         }
         .left1 {
+          width: 1253px;
           box-sizing: border-box;
           padding: 1.042vw 1.667vw;
+          position: fixed;
+          z-index: 400;
+          top: 145px;
+          border-radius: 4px;
           .left1_1 {
             box-sizing: border-box;
             padding: 0.677vw 2.656vw 0.677vw 0.677vw;
@@ -534,6 +557,7 @@
         .left2 {
           box-sizing: border-box;
           padding: 0.99vw 1.823vw 3vw 0;
+          border-radius: 4px;
           > .title {
             height: 1.042vw;
             display: flex;
@@ -835,18 +859,29 @@
       }
       .item1 {
         display: flex;
+        margin-bottom: 20px;
         .item1_1 + .item1_1 {
           margin-left: 10px;
         }
         .item1_1 {
-        cursor: pointer;
+          position: relative;
+          > span {
+            position: absolute;
+            bottom: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            font-weight: bold;
+            color: #0f6baa;
+          }
+          cursor: pointer;
           width: 171px;
           height: 233px;
           background: #ededed;
           border-radius: 4px;
           margin-bottom: 30px;
-          &:hover{
-            > .title{
+          &:hover {
+            > .title {
               color: white !important;
               background: #0f6baa;
             }
@@ -971,6 +1006,7 @@
             width: 53px !important;
             height: 28px !important;
             background: transparent !important;
+            border: none;
           }
           .el-input {
             margin: 0 8px 0 12px;

@@ -5,6 +5,7 @@
       :border="true"
       :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'0.833vw',background:'#eeeeee'}"
       :row-style="{height:rowheight+'vw'}"
+      @row-click='handleClickRow'
     >
       <el-table-column
         align="center"
@@ -21,7 +22,7 @@
       <el-pagination
         @size-change="sizeChange"
         @current-change="pageChange"
-        :page-sizes="[10, 50, 100, 200]"
+        :page-sizes="[10, 20, 50,100]"
         :page-size="size"
         :page-count="count"
         layout=" sizes, prev, pager, next"
@@ -42,11 +43,15 @@
       },
       sizeChange: {
         type: Function,
-        sizeChange: () => {},
+        default: () => {},
       },
       pageChange: {
         type: Function,
-        pageChange: () => {},
+        default:() => {},
+      },
+      handleClickRow: {
+        type: Function,
+        default: () => {},
       },
       count: {
         type: Number,

@@ -75,7 +75,7 @@
       </span>
     </el-dialog>
     <!-- 新增 -->
-    <el-dialog custom-class="addmodal" title="新增友商" :visible.sync="addModal" width="30.26vw">
+    <el-dialog custom-class="addmodal" title="新增报价方案" :visible.sync="addModal" width="30.26vw">
       <div>
         <div class="modaltitle">1.选择模型</div>
         <div class="dyrow">
@@ -229,7 +229,7 @@
           </div>
         </div>
 
-        <div class="item4" v-if="show">
+        <div class="item4" v-if="show&&show1">
           <div>分组二</div>
           <div>
             <div>
@@ -256,7 +256,7 @@
                 <el-radio v-model="add.radio3" label="2">原厂件</el-radio>
                 <el-radio v-model="add.radio3" label="3">配套件</el-radio>
                 <el-radio v-model="add.radio3" label="4">认证件</el-radio>
-                <el-radio v-model="add.radio3" label="4">品牌件</el-radio>
+                <el-radio v-model="add.radio3" label="5">品牌件</el-radio>
               </div>
             </div>
             <div>
@@ -269,13 +269,13 @@
                 <el-radio v-model="add.radio4" label="2">原厂件</el-radio>
                 <el-radio v-model="add.radio4" label="3">配套件</el-radio>
                 <el-radio v-model="add.radio4" label="4">认证件</el-radio>
-                <el-radio v-model="add.radio4" label="4">品牌件</el-radio>
+                <el-radio v-model="add.radio4" label="5">品牌件</el-radio>
               </div>
             </div>
           </div>
         </div>
-        <div class="item4 kong" v-if="show">
-          <i></i>
+        <div class="item4 kong" v-if="show&&!show1">
+          <i @click="show1=true"></i>
         </div>
         <!-- 动态展示部分 -->
 
@@ -354,6 +354,7 @@
         startTime: null,
         endTime: null,
         show: false,
+        show1: false,
         size: 10,
         count: 1,
         total: 2,
@@ -522,7 +523,7 @@
       showReModal(info) {
         this.dataIdx = info.index;
         this.$store.commit("addTabMut", {
-          title: "定损询价单详情",
+          title: "报价方案详情",
           path: "/inquiry/program",
           type: "inquiry",
         });

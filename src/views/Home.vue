@@ -41,7 +41,7 @@
           <el-pagination
             @size-change="sizeChange"
             @current-change="pageChange"
-            :page-sizes="[10, 50, 100, 200]"
+            :page-sizes="[10, 20, 50,100]"
             :page-size="size"
             :page-count="count"
             layout=" sizes, prev, pager, next"

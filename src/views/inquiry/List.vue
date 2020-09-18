@@ -68,6 +68,7 @@
         :count="count"
         :total="total"
         :rowheight="2.3"
+        :handleClickRow='handleClickRow'
       >
       </xybTable>
     </div>
@@ -268,6 +269,15 @@
       pageChange(e) {
         this.count = e;
       },
+      handleClickRow(e){
+        this.rowinfo = e
+        this.$store.commit("addTabMut", {
+          title: "定损询价单详情",
+          path: "/inquiry/prograDetail",
+          type: "inquiry",
+        });
+        this.$router.push("/inquiry/prograDetail");
+      }
     },
   };
 </script>

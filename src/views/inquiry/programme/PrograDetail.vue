@@ -238,10 +238,10 @@
         <div class="left3">
           <div class="title">
             <span>配件清单</span>
-            <el-button>新增</el-button>
+            <el-button :disabled="!super1" @click="activeidx=1">新增</el-button>
           </div>
           <div class="tablebox">
-            <span class="gth">
+            <span v-if="showTip" class="gth">
               <span class="tip">OE码与自有库零部件【右大灯】重合请重新选择该零部件</span>
             </span>
             <el-table
@@ -249,6 +249,8 @@
               :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'0.833vw',background:'#eeeeee'}"
               :data="tableData"
               style="width: 100%"
+              @cell-mouse-enter='hoverin'
+              @cell-mouse-leave='hoverout'
             >
               <el-table-column align="center" prop="value1" label="排序">
                 <template slot-scope="scope">
@@ -291,7 +293,7 @@
               <el-table-column align="center" label="操作">
                 <template>
                   <div>
-                    <a @click="deleteModal=true">删除</a>
+                    <a @click="deleteModal1">删除</a>
                   </div>
                 </template>
               </el-table-column>
@@ -301,15 +303,15 @@
             </div>
           </div>
         </div>
-        <div class="left4">
+        <div v-if="activeidx" class="left4">
           <div class="title">
             <span>新增零部件</span>
             <div>
-              <img src="../../../assets/img/left.png" alt />
-              <img src="../../../assets/img/cha.png" alt />
+              <img @click="changeidx" src="../../../assets/img/left.png" alt />
+              <img @click="activeidx=null" src="../../../assets/img/cha.png" alt />
             </div>
           </div>
-          <div class="left4_1 active">
+          <div :class="['left4_1', activeidx===1?'active':'']">
             <div class="_left">
               <span>维修清单</span>
               <div>
@@ -366,7 +368,7 @@
               </div>
             </div>
           </div>
-          <div class="left4_2">
+          <div :class="['left4_2',activeidx===2?'active':'']">
             <div class="_left">
               <p>维修清单</p>
               <div>
@@ -506,7 +508,7 @@
               </div>
             </div>
           </div>
-          <div class="left4_1 left4_3">
+          <div :class="['left4_1' ,'left4_3',activeidx===3?'active':'']">
             <div class="_left">
               <span>维修清单</span>
               <div>
@@ -539,7 +541,7 @@
               </div>
             </div>
           </div>
-          <div class="left4_1 left4_4">
+          <div :class="['left4_1', 'left4_4',activeidx===4?'active':'']">
             <div class="_left">
               <span>维修清单</span>
               <div>
@@ -600,7 +602,7 @@
               </div>
             </div>
           </div>
-          <div class="left4_2 left4_5">
+          <div :class="['left4_2', 'left4_5',activeidx===5?'active':'']">
             <div class="_left">
               <p>维修清单</p>
               <div>
@@ -685,10 +687,10 @@
             <span>订单跟进</span>
           </div>
           <div>
-            <el-button @click="changegenjin">{{!genjin?'添加跟进':'保存跟进'}}</el-button>
-            <el-button class="gray">开启订单</el-button>
-            <el-button @click="xiezhu=true">完成协助</el-button>
-            <el-input v-if="genjin" type="textarea" v-model="textarea2" :rows="4"></el-input>
+            <el-button :disabled='!super1' @click="changegenjin">{{!genjin?'添加跟进':'保存跟进'}}</el-button>
+            <el-button @click="changedingdan">{{super1?"关闭订单":'开启订单'}}</el-button>
+            <el-button :disabled='!super1' @click="xiezhu=true">完成协助</el-button>
+            <el-input v-if="genjin&&super1" type="textarea" v-model="textarea2" :rows="4"></el-input>
           </div>
         </div>
         <div class="right2">
@@ -860,6 +862,7 @@
           email: null,
           radio: 2,
         },
+        activeidx:null,
         options: [
           { label: "大众", value: 1 },
           { label: "奥迪", value: 2 },
@@ -892,40 +895,78 @@
             value2: "左大灯",
             value3: "X1",
             value4: "大众汽车SVW71810BU",
-            value5: "2151252141234",
+            value5: "2151252141231",
             value6: 4689,
             red: true,
           },
         ],
+        super1:false,
+        showTip:false
       };
     },
     methods: {
+      changeidx(){
+        this.activeidx++
+        if(this.activeidx>=6){
+          this.activeidx=1
+        }
+      },
       changeIsEdit() {
+        if(!this.super1){
+          return
+        }
         this.isEdit = !this.isEdit;
       },
       saveModalOK() {
+        if(!this.super1){
+          return
+        }
         this.isEdit = false;
         this.saveModal = false;
       },
       nopowerOK() {
+        if(!this.super1){
+          return
+        }
         this.nopower = false;
       },
       showrotate() {
+        if(!this.super1){
+          return
+        }
         this.rotate = true;
         setTimeout(() => {
           this.rotate = false;
         }, 500);
       },
       dingdanOK() {
+        if(!this.super1){
+          return
+        }
         this.dingdan = false;
       },
       closedingdanOK() {
+        if(!this.super1){
+          return
+        }
         this.closedingdan = false;
       },
+      deleteModal1(){
+        if(!this.super1){
+          return
+        }
+        this.deleteModal=true
+      },
       deleteModalOK() {
+        if(!this.super1){
+          return
+        }
         this.deleteModal = false;
       },
       xiezhuOK() {
+        if(!this.super1){
+          return
+        }
         this.xiezhu = false;
       },
       changegenjin() {
@@ -957,7 +998,24 @@
       },
       //
       showInput(type){
+        if(!this.super1){
+          return
+        }
         this[type]=true
+      },
+      changedingdan(){
+        this.super1=!this.super1
+        if(!this.super1){
+          this.activeidx=null
+        }
+      },
+      hoverin(e){
+        if(e.red&&e.value5==='2151252141231'){
+          this.showTip=true
+        }
+      },
+      hoverout(){
+        this.showTip=false
       }
     },
   };
@@ -1497,6 +1555,7 @@
               padding: 1.771vw 4.844vw 4.479vw 1.823vw;
               p {
                 text-align: center;
+                margin-bottom: 18px;
               }
               > div {
                 position: relative;
@@ -1511,10 +1570,9 @@
                   width: 2.292vw;
                   height: 2.292vw;
                   border-radius: 50%;
-                  border: 0.052vw solid #000;
                   overflow: hidden;
                   position: absolute;
-                  right: 2.604vw;
+                  right: 1vw;
                   bottom: 1.042vw;
                 }
               }
