@@ -183,8 +183,8 @@
             <span class="titTip">注：多个分组组合后需满足自定义模型需求</span>
           </div>
         </div>
-        <div class="item4" v-if="show">
-          <div>分组一</div>
+        <div class="item4" v-show="show" v-for="(item,idx) in arr" :key='idx'>
+          <div>分组{{idx==0?'一':idx==1?'二':idx==2?'三':idx==3?'四':idx==4?'五':'六'}}</div>
           <div>
             <div>
               <div>
@@ -192,7 +192,7 @@
                 <span>（支持多选）</span>
               </div>
               <div class="checkbox">
-                <el-checkbox-group @change="changeYear" v-model="checkList">
+                <el-checkbox-group @change="changeYear" v-model="item.checkList">
                   <el-checkbox label="3年以内"></el-checkbox>
                   <el-checkbox label="3年~6年"></el-checkbox>
                   <el-checkbox label="6年~10年"></el-checkbox>
@@ -206,11 +206,11 @@
                 <span>（单选）</span>
               </div>
               <div class="checkbox">
-                <el-radio v-model="add.radio" label="1">原厂件</el-radio>
-                <el-radio v-model="add.radio" label="2">原厂件</el-radio>
-                <el-radio v-model="add.radio" label="3">配套件</el-radio>
-                <el-radio v-model="add.radio" label="4">认证件</el-radio>
-                <el-radio v-model="add.radio" label="5">品牌件</el-radio>
+                <el-radio v-model="item.radio" label="1">原厂件</el-radio>
+                <el-radio v-model="item.radio" label="2">原厂件</el-radio>
+                <el-radio v-model="item.radio" label="3">配套件</el-radio>
+                <el-radio v-model="item.radio" label="4">认证件</el-radio>
+                <el-radio v-model="item.radio" label="5">品牌件</el-radio>
               </div>
             </div>
             <div>
@@ -219,63 +219,17 @@
                 <span>（单选）</span>
               </div>
               <div class="checkbox">
-                <el-radio v-model="add.radio1" label="1">原厂件</el-radio>
-                <el-radio v-model="add.radio1" label="2">原厂件</el-radio>
-                <el-radio v-model="add.radio1" label="3">配套件</el-radio>
-                <el-radio v-model="add.radio1" label="4">认证件</el-radio>
-                <el-radio v-model="add.radio1" label="5">品牌件</el-radio>
+                <el-radio v-model="item.radio1" label="1">原厂件</el-radio>
+                <el-radio v-model="item.radio1" label="2">原厂件</el-radio>
+                <el-radio v-model="item.radio1" label="3">配套件</el-radio>
+                <el-radio v-model="item.radio1" label="4">认证件</el-radio>
+                <el-radio v-model="item.radio1" label="5">品牌件</el-radio>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="item4" v-if="show&&show1">
-          <div>分组二</div>
-          <div>
-            <div>
-              <div>
-                <span>年限：</span>
-                <span>（支持多选）</span>
-              </div>
-              <div class="checkbox">
-                <el-checkbox-group v-model="checkList1">
-                  <el-checkbox label="3年以内" :disabled="checkList.includes('3年以内')"></el-checkbox>
-                  <el-checkbox label="3年~6年" :disabled="checkList.includes('3年~6年')"></el-checkbox>
-                  <el-checkbox label="6年~10年" :disabled="checkList.includes('6年~10年')"></el-checkbox>
-                  <el-checkbox label="10年以上" :disabled="checkList.includes('10年以上')"></el-checkbox>
-                </el-checkbox-group>
-              </div>
-            </div>
-            <div>
-              <div>
-                <span>对关重件有要求：</span>
-                <span>（单选）</span>
-              </div>
-              <div class="checkbox">
-                <el-radio v-model="add.radio3" label="1">原厂件</el-radio>
-                <el-radio v-model="add.radio3" label="2">原厂件</el-radio>
-                <el-radio v-model="add.radio3" label="3">配套件</el-radio>
-                <el-radio v-model="add.radio3" label="4">认证件</el-radio>
-                <el-radio v-model="add.radio3" label="5">品牌件</el-radio>
-              </div>
-            </div>
-            <div>
-              <div>
-                <span>对关重件有要求：</span>
-                <span>（单选）</span>
-              </div>
-              <div class="checkbox">
-                <el-radio v-model="add.radio4" label="1">原厂件</el-radio>
-                <el-radio v-model="add.radio4" label="2">原厂件</el-radio>
-                <el-radio v-model="add.radio4" label="3">配套件</el-radio>
-                <el-radio v-model="add.radio4" label="4">认证件</el-radio>
-                <el-radio v-model="add.radio4" label="5">品牌件</el-radio>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item4 kong" v-if="show&&!show1">
-          <i @click="show1=true"></i>
+        <div class="item4 kong" v-if="show&&arr.length<=3">
+          <i @click="addone"></i>
         </div>
         <!-- 动态展示部分 -->
 
@@ -417,6 +371,9 @@
           { prop: "creater", label: "创建人" },
           { prop: "time", label: "创建时间" },
         ],
+        arr:[
+          {radio:'',radio1:'',checkList:[]},
+        ],
         tableData: [
           {
             index: 1,
@@ -519,6 +476,11 @@
         this.value1 = null;
         this.value2 = null;
         this.value3 = null;
+      },
+      addone(){
+        if(this.arr.length<=3){
+          this.arr.push({radio:'',radio1:'',checkList:[]})
+        }
       },
       showReModal(info) {
         this.dataIdx = info.index;

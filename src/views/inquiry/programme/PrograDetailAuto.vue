@@ -100,7 +100,7 @@
                   </div>
                   <div>
                     <span>备注：</span>
-                    <span>具体零部件详情需要电话沟通</span>
+                    <span><el-input :disabled="isEdit" v-model="base.value13"></el-input></span>
                   </div>
                 </div>
                 <div class="left2_2">
@@ -240,7 +240,7 @@
                 <span>当前保险机构报价方案模型：</span>
                 <span>自定义</span>
               </div>
-              <el-button @click="changeSave">{{save?'保存':'编辑'}}</el-button>
+              <el-button :class="isClose?'gray':''" @click="changeSave">{{save?'保存':'编辑'}}</el-button>
             </div>
           </div>
           <div class="_tableBox">
@@ -476,7 +476,7 @@
                   {{qipeishang[10].value1}}
                   <a @click="onchange(11)">更换</a>
                 </div>
-                <div :class="radio3=='品牌件'?'blue':''">
+                <div :class="radio3=='品牌件'?'blue':'pink'">
                   {{qipeishang[11].value1}}
                   <a @click="onchange(12)">更换</a>
                 </div>
@@ -485,7 +485,7 @@
                 <div :class="radio3=='原厂件'?'blue':''">{{qipeishang[8].num}}</div>
                 <div :class="radio3=='配套件'?'blue':''">{{qipeishang[9].num}}</div>
                 <div :class="radio3=='认证件'?'blue':''">{{qipeishang[10].num}}</div>
-                <div :class="radio3=='品牌件'?'blue':''">
+                <div :class="radio3=='品牌件'?'blue':'pink'">
                   {{qipeishang[11].num}}
                   <span class="gth">
                     <span class="tip">当前报价已高于参考价格恒定区间值</span>
@@ -502,7 +502,7 @@
                 <div :class="radio3=='认证件'?'blue':''">
                   <el-input :disabled="!save" v-model="value21"></el-input>
                 </div>
-                <div :class="radio3=='品牌件'?'blue':''">
+                <div :class="radio3=='品牌件'?'blue':'pink'">
                   <el-input :disabled="!save" v-model="value22"></el-input>
                 </div>
               </div>
@@ -510,7 +510,7 @@
                 <div :class="radio3=='原厂件'?'blue':''">90</div>
                 <div :class="radio3=='配套件'?'blue':''">90</div>
                 <div :class="radio3=='认证件'?'blue':''">90</div>
-                <div :class="radio3=='品牌件'?'blue':''">90</div>
+                <div :class="radio3=='品牌件'?'blue':'pink'">90</div>
               </div>
             </div>
           </div>
@@ -635,7 +635,7 @@
             </div>
           </div>
           <div class="btns">
-            <el-button @click="qipei=true">联系汽配商</el-button>
+            <el-button :class="isClose?'gray':''" @click="concat">联系汽配商</el-button>
             <el-button class="gray">生成报价</el-button>
           </div>
         </div>
@@ -928,10 +928,10 @@
           </div>
           <div>
             <!-- class="gray" -->
-            <el-button @click="changegenjin">{{!genjin?'添加跟进':'保存跟进'}}</el-button>
-            <el-button>关闭订单</el-button>
-            <el-button @click="dingdanTotal=true">报价汇总</el-button>
-            <el-button @click="xiezhu=true">完成协助</el-button>
+            <el-button :class="isClose?'gray':''" @click="changegenjin">{{!genjin?'添加跟进':'保存跟进'}}</el-button>
+            <el-button @click="offdingdan">{{isClose?'开启订单':'关闭订单'}}</el-button>
+            <el-button :class="isClose?'gray':''" @click="dingdanTotal=true">报价汇总</el-button>
+            <el-button :class="isClose?'gray':''"  @click="xiezhu=true">完成协助</el-button>
             <el-input v-if="genjin" type="textarea" v-model="textarea2" :rows="4"></el-input>
           </div>
         </div>
@@ -1201,9 +1201,9 @@
         select1: null,
         isView: false,
         huizong: false,
-        radio1: "原厂件",
-        radio2: "配套件",
-        radio3: "配套件",
+        radio1: "品牌件",
+        radio2: "品牌件",
+        radio3: "",
         qipeishang: [
           { value1: "中南汽配商", num: 520 },
           { value1: "中南汽配商", num: 520 },
@@ -1427,6 +1427,7 @@
           value10: "17623888288",
           value11: "CQTPY20200721000001",
           value12: "2020年8月3日16:06:14",
+          value13: "具体零部件详情需要电话沟通",
         },
         addconcat: {
           name: null,
@@ -1446,6 +1447,7 @@
           email: null,
           radio: 2,
         },
+        isClose:true,
         fileList1: [],
         fileList2: [],
         fileList3: [],
@@ -1474,6 +1476,7 @@
     },
     methods: {
       changeIsEdit() {
+        if(this.isClose)return
         this.isEdit = !this.isEdit;
       },
       saveModalOK() {
@@ -1481,6 +1484,7 @@
         this.saveModal = false;
       },
       showmore() {
+        if(this.isClose)return
         if (this.showItem.length < 3) {
           this.showItem.push(1);
         } else {
@@ -1489,34 +1493,48 @@
         }
       },
       nopowerOK() {
+        if(this.isClose)return
         this.nopower = false;
       },
       dingdanOK() {
+        if(this.isClose)return
         this.dingdan = false;
       },
+      concat(){
+        if(this.isClose)return
+        this.qipei=true
+      },
       closedingdanOK() {
+        if(this.isClose)return
         this.closedingdan = false;
       },
       xiezhuOK() {
+        if(this.isClose)return
         this.xiezhu = false;
       },
       guanzhongjianOK() {
+        if(this.isClose)return
         this.guanzhongjian = false;
       },
       changegenjin() {
+        if(this.isClose)return
         this.genjin = !this.genjin;
         this.textarea2 = null;
       },
       changeView() {
+        if(this.isClose)return
         this.isView = !this.isView;
       },
       rexunjiadanOK() {
+        if(this.isClose)return
         this.rexunjiadan = false;
       },
       changeSave() {
+        if(this.isClose)return
         this.save = !this.save;
       },
       changeMoney(type) {
+        if(this.isClose)return
         let name;
         let money;
         if (type === 1) {
@@ -1533,7 +1551,14 @@
         this.qipeishang[idx] = { value1: name, num: money };
         this.isfixd = false;
       },
+      offdingdan(){
+        this.isClose=!this.isClose
+        if(this.isClose){
+          this.isEdit=true
+        }
+      },
       onchange(num) {
+        if(this.isClose)return
         this.num = num;
         this.isfixd = true;
         this.topnum = 75 + 52 * num;
@@ -1783,6 +1808,23 @@
                 opacity: 0;
               }
             }
+            .el-input,
+              .el-input__inner {
+                width: 12vw !important;
+                border: none;
+                color: #006cff !important;
+              }
+              .el-input.is-disabled .el-input__inner {
+                background: white;
+                color: #6a6a6a !important;
+                cursor: default;
+              }
+              .blue {
+              .el-input,
+              .el-input__inner {
+                color: #006cff !important;
+              }
+            }
             .left2_1 {
               display: flex;
               align-items: center;
@@ -1964,6 +2006,9 @@
                   text-align: left;
                   margin: 0.26vw 0;
                 }
+                .pink{
+                  background: #ffe3e9;
+                }
                 .blue {
                   background: #d6eaf8;
                 }
@@ -2001,13 +2046,7 @@
                       display: block;
                     }
                   }
-                  &:hover {
-                    .gth {
-                      opacity: 1;
-                    }
-                  }
                   .gth {
-                    opacity: 0;
                     display: block;
                     width: 0.781vw;
                     height: 0.781vw;
@@ -2017,12 +2056,18 @@
                     background-size: 100%;
                     position: absolute;
                     left: 3.646vw;
-                    bottom: 0.885vw;
+                    bottom: 0.9vw;
                     z-index: 400;
+                    &:hover{
+                      .tip{
+                        opacity: 1;
+                      }
+                    }
                     .tip {
                       padding: 0.052vw 0.156vw;
                       line-height: 0.625vw;
                       position: absolute;
+                      opacity: 0;
                       bottom: 0;
                       width: 10.417vw;
                       font-size: 0.521vw;

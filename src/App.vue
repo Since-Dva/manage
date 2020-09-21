@@ -107,6 +107,10 @@
           background: white;
           color: #666666;
         }
+        &.gray {
+          background: #cccccc;
+          pointer-events: none;
+        }
         &:hover {
           background: #0f6baa;
           color: white;

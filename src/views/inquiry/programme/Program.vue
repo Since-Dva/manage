@@ -46,7 +46,7 @@
                       <span>品牌件 注：（关注件包含动力车 身及底盘主体件）</span>
                     </div>
                   </div>
-                  <span>使用中</span>
+                  <span v-if="blueType==1">使用中</span>
                 </div>
                 <div class="item1_1">
                   <p
@@ -71,6 +71,7 @@
                       <span>品牌件 注：（关注件包含动力车 身及底盘主体件）</span>
                     </div>
                   </div>
+                  <span v-if="blueType==2">使用中</span>
                 </div>
                 <div class="item1_1">
                   <p
@@ -113,8 +114,8 @@
                   <span class="titTip">注：多个分组组合后需满足自定义模型需求</span>
                 </div>
               </div>
-              <div class="item4" v-if="show">
-                <div>分组一</div>
+              <div class="item4" v-show="show" v-for="(item,idx) in arr" :key="idx">
+                <div>分组{{idx==0?'一':idx==1?'二':idx==2?'三':idx==3?'四':idx==4?'五':'六'}}</div>
                 <div>
                   <div>
                     <div>
@@ -122,7 +123,7 @@
                       <span>（支持多选）</span>
                     </div>
                     <div class="checkbox">
-                      <el-checkbox-group v-model="checkList">
+                      <el-checkbox-group @change="changeYear" v-model="item.checkList">
                         <el-checkbox label="3年以内"></el-checkbox>
                         <el-checkbox label="3年~6年"></el-checkbox>
                         <el-checkbox label="6年~10年"></el-checkbox>
@@ -136,11 +137,11 @@
                       <span>（单选）</span>
                     </div>
                     <div class="checkbox">
-                      <el-radio v-model="add.radio" label="1">原厂件</el-radio>
-                      <el-radio v-model="add.radio" label="2">原厂件</el-radio>
-                      <el-radio v-model="add.radio" label="3">配套件</el-radio>
-                      <el-radio v-model="add.radio" label="4">认证件</el-radio>
-                      <el-radio v-model="add.radio" label="4">品牌件</el-radio>
+                      <el-radio v-model="item.radio" label="1">原厂件</el-radio>
+                      <el-radio v-model="item.radio" label="2">原厂件</el-radio>
+                      <el-radio v-model="item.radio" label="3">配套件</el-radio>
+                      <el-radio v-model="item.radio" label="4">认证件</el-radio>
+                      <el-radio v-model="item.radio" label="5">品牌件</el-radio>
                     </div>
                   </div>
                   <div>
@@ -149,63 +150,17 @@
                       <span>（单选）</span>
                     </div>
                     <div class="checkbox">
-                      <el-radio v-model="add.radio1" label="1">原厂件</el-radio>
-                      <el-radio v-model="add.radio1" label="2">原厂件</el-radio>
-                      <el-radio v-model="add.radio1" label="3">配套件</el-radio>
-                      <el-radio v-model="add.radio1" label="4">认证件</el-radio>
-                      <el-radio v-model="add.radio1" label="4">品牌件</el-radio>
+                      <el-radio v-model="item.radio1" label="1">原厂件</el-radio>
+                      <el-radio v-model="item.radio1" label="2">原厂件</el-radio>
+                      <el-radio v-model="item.radio1" label="3">配套件</el-radio>
+                      <el-radio v-model="item.radio1" label="4">认证件</el-radio>
+                      <el-radio v-model="item.radio1" label="5">品牌件</el-radio>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div class="item4" v-if="show&&show1">
-                <div>分组二</div>
-                <div>
-                  <div>
-                    <div>
-                      <span>年限：</span>
-                      <span>（支持多选）</span>
-                    </div>
-                    <div class="checkbox">
-                <el-checkbox-group v-model="checkList1">
-                  <el-checkbox label="3年以内" :disabled="checkList.includes('3年以内')"></el-checkbox>
-                  <el-checkbox label="3年~6年" :disabled="checkList.includes('3年~6年')"></el-checkbox>
-                  <el-checkbox label="6年~10年" :disabled="checkList.includes('6年~10年')"></el-checkbox>
-                  <el-checkbox label="10年以上" :disabled="checkList.includes('10年以上')"></el-checkbox>
-                </el-checkbox-group>
-              </div>
-                  </div>
-                  <div>
-                    <div>
-                      <span>对关重件有要求：</span>
-                      <span>（单选）</span>
-                    </div>
-                    <div class="checkbox">
-                      <el-radio v-model="add.radio3" label="1">原厂件</el-radio>
-                      <el-radio v-model="add.radio3" label="2">原厂件</el-radio>
-                      <el-radio v-model="add.radio3" label="3">配套件</el-radio>
-                      <el-radio v-model="add.radio3" label="4">认证件</el-radio>
-                      <el-radio v-model="add.radio3" label="4">品牌件</el-radio>
-                    </div>
-                  </div>
-                  <div>
-                    <div>
-                      <span>对关重件有要求：</span>
-                      <span>（单选）</span>
-                    </div>
-                    <div class="checkbox">
-                      <el-radio v-model="add.radio4" label="1">原厂件</el-radio>
-                      <el-radio v-model="add.radio4" label="2">原厂件</el-radio>
-                      <el-radio v-model="add.radio4" label="3">配套件</el-radio>
-                      <el-radio v-model="add.radio4" label="4">认证件</el-radio>
-                      <el-radio v-model="add.radio4" label="4">品牌件</el-radio>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item4 kong" v-if="show&&!show1">
-                <i @click="show1=true"></i>
+              <div class="item4 kong" v-if="show&&arr.length<=3">
+                <i @click="addone"></i>
               </div>
               <!-- 动态展示部分 -->
 
@@ -214,22 +169,22 @@
                 <div class="title">利润增幅管控设置</div>
                 <div class="item2">
                   <span>原厂件利润比：</span>
-                  <el-input :disabled="!isEdit" v-model="value1"></el-input>%
+                  <el-input :class="isEdit?'border':''" :disabled="!isEdit" v-model="value1"></el-input>%
                   <span>（注：原厂件的利润比为x）</span>
                 </div>
                 <div class="item2">
                   <span>配套件利润增幅：</span>
-                  <el-input :disabled="!isEdit" v-model="value2"></el-input>%
+                  <el-input :class="isEdit?'border':''" :disabled="!isEdit" v-model="value2"></el-input>%
                   <span>（注：配套件的利润增幅为y1）</span>
                 </div>
                 <div class="item2">
                   <span>认证件利润增幅：</span>
-                  <el-input :disabled="!isEdit" v-model="value3"></el-input>%
+                  <el-input :class="isEdit?'border':''" :disabled="!isEdit" v-model="value3"></el-input>%
                   <span>（注：配套件的利润增幅为y2）</span>
                 </div>
                 <div class="item2">
                   <span>品牌件利润增幅：</span>
-                  <el-input :disabled="!isEdit" v-model="value4"></el-input>%
+                  <el-input :class="isEdit?'border':''" :disabled="!isEdit" v-model="value4"></el-input>%
                   <span>（注：配套件的利润增幅为y3）</span>
                 </div>
               </div>
@@ -246,19 +201,19 @@
                 </div>
                 <div class="item2 item3">
                   <span>原厂件价格参考区间：</span>
-                  <el-input :disabled="!isEdit" v-model="value5"></el-input>%
+                  <el-input :class="isEdit?'border':''" :disabled="!isEdit" v-model="value5"></el-input>%
                 </div>
                 <div class="item2 item3">
                   <span>配套件价格参考区间：</span>
-                  <el-input :disabled="!isEdit" v-model="value6"></el-input>%
+                  <el-input :class="isEdit?'border':''" :disabled="!isEdit" v-model="value6"></el-input>%
                 </div>
                 <div class="item2 item3">
                   <span>认证件价格参考区间：</span>
-                  <el-input :disabled="!isEdit" v-model="value7"></el-input>%
+                  <el-input :class="isEdit?'border':''" :disabled="!isEdit" v-model="value7"></el-input>%
                 </div>
                 <div class="item2 item3">
                   <span>品牌件价格参考区间：</span>
-                  <el-input :disabled="!isEdit" v-model="value8"></el-input>%
+                  <el-input :class="isEdit?'border':''" :disabled="!isEdit" v-model="value8"></el-input>%
                 </div>
               </div>
             </div>
@@ -335,7 +290,7 @@
         checkList: [],
         checkList1: [],
         isEdit: false,
-        blueType: null,
+        blueType: 1,
         add: {
           value1: null,
           value2: null,
@@ -358,6 +313,9 @@
           email: null,
           radio: 2,
         },
+        arr:[
+          {radio:'',radio1:'',checkList:[]},
+        ],
         mainPer: {
           name: null,
           sex: null,
@@ -440,7 +398,11 @@
       showAgreement() {
         this.agreement = true;
       },
-
+       addone(){
+        if(this.arr.length<=3){
+          this.arr.push({radio:'',radio1:'',checkList:[]})
+        }
+      },
       downloadOK() {
         this.download = false;
       },
@@ -1007,6 +969,10 @@
             height: 28px !important;
             background: transparent !important;
             border: none;
+            border-radius: 4px;
+            &.border{
+              border: 1px solid #dcdfe6;
+            }
           }
           .el-input {
             margin: 0 8px 0 12px;

@@ -92,7 +92,7 @@
             <div class="left2_1">
               <div class="select">
                 受损面：
-                <el-select v-model="shousun">
+                <el-select :disabled='!super1' v-model="shousun">
                   <el-option
                     v-for="item in options"
                     :key="item.value"
@@ -241,7 +241,7 @@
             <el-button :disabled="!super1" @click="activeidx=1">新增</el-button>
           </div>
           <div class="tablebox">
-            <span v-if="showTip" class="gth">
+            <span class="gth">
               <span class="tip">OE码与自有库零部件【右大灯】重合请重新选择该零部件</span>
             </span>
             <el-table
@@ -249,8 +249,6 @@
               :header-cell-style="{color:'rgba(51,51,51,1)',fontSize:'0.833vw',background:'#eeeeee'}"
               :data="tableData"
               style="width: 100%"
-              @cell-mouse-enter='hoverin'
-              @cell-mouse-leave='hoverout'
             >
               <el-table-column align="center" prop="value1" label="排序">
                 <template slot-scope="scope">
@@ -307,11 +305,11 @@
           <div class="title">
             <span>新增零部件</span>
             <div>
-              <img @click="changeidx" src="../../../assets/img/left.png" alt />
+              <img v-if="activeidx>1" @click="changeidx" src="../../../assets/img/left.png" alt />
               <img @click="activeidx=null" src="../../../assets/img/cha.png" alt />
             </div>
           </div>
-          <div :class="['left4_1', activeidx===1?'active':'']">
+          <div :class="['left4_1', activeidx===5?'active':'']">
             <div class="_left">
               <span>维修清单</span>
               <div>
@@ -331,40 +329,23 @@
               </div>
               <div class="middle">
                 <div class="_left">
-                  <p>已添加配件（3）</p>
-                  <div v-if="aaa" class="_left1">
-                    <span>左大灯</span>
-                    <i @click="aaa=false">×</i>
-                  </div>
-                  <div v-if="bbb" class="_left1">
-                    <span>左前大灯*2</span>
-                    <i @click="bbb=false">×</i>
+                  <p>已添加配件（{{yitianjia.length}}）</p>
+                  <div v-for="(item,index) in yitianjia" :key='index' class="_left1" >
+                    <span>{{item.name}}</span>
+                    <i @click="deleteone(index,'')">×</i>
                   </div>
                 </div>
                 <div class="_right">
                   <p>配件搜索结果</p>
-                  <div class="_right1">
-                    <span>左大灯</span>
-                    <b></b>
-                  </div>
-                  <div class="_right1">
-                    <span>右大灯</span>
-                  </div>
-                  <div class="_right1">
-                    <span>左前大灯</span>
-                    <b></b>
-                  </div>
-                  <div class="_right1">
-                    <span>右前大灯</span>
-                  </div>
-                  <div class="_right1">
-                    <span>大灯</span>
+                  <div @click="addone(index,'')" class="_right1" v-for="(item,index) in total" :key='index'>
+                    <span>{{item.name}}</span>
+                    <b v-show="item.isAdd"></b>
                   </div>
                 </div>
               </div>
               <div class="bottom">
                 <el-button>刷新</el-button>
-                <el-button>确认添加</el-button>
+                <el-button @click="activeidx=1">确认添加</el-button>
               </div>
             </div>
           </div>
@@ -391,23 +372,23 @@
                   </div>
                   <div>
                     <img src alt />
-                    <span>外观件</span>
+                    <span>地盘件</span>
                   </div>
                   <div>
                     <img src alt />
-                    <span>外观件</span>
+                    <span>发动机件</span>
                   </div>
                   <div>
                     <img src alt />
-                    <span>外观件</span>
+                    <span>内饰件</span>
                   </div>
                   <div>
                     <img src alt />
-                    <span>外观件</span>
+                    <span>常用件</span>
                   </div>
                   <div>
                     <img src alt />
-                    <span>外观件</span>
+                    <span>保养件</span>
                   </div>
                 </div>
               </div>
@@ -426,85 +407,23 @@
               <div class="_right3">
                 <p>三级类目</p>
                 <div>
-                  <div>
-                    <span>前保险杠</span>
-                    <b></b>
-                  </div>
-                  <div>
-                    <span>前保险杠</span>
-                    <b></b>
-                  </div>
-                  <div>
-                    <span>前保险杠</span>
-                  </div>
-                  <div>
-                    <span>前保险杠</span>
-                  </div>
-                  <div>
-                    <span>前保险杠</span>
-                  </div>
-                  <div>
-                    <span>前保险杠</span>
-                  </div>
-                  <div>
-                    <span>前保险杠</span>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <span>雨刮连动杆</span>
-                  </div>
-                  <div>
-                    <span>雨刮连动杆</span>
-                  </div>
-                  <div>
-                    <span>雨刮连动杆</span>
-                  </div>
-                  <div>
-                    <span>雨刮连动杆</span>
-                  </div>
-                  <div>
-                    <span>雨刮连动杆</span>
-                  </div>
-                  <div>
-                    <span>雨刮连动杆</span>
-                  </div>
-                  <div>
-                    <span>雨刮连动杆</span>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <span>雨刮连动杆</span>
-                  </div>
-                  <div>
-                    <span>雨刮连动杆</span>
-                  </div>
-                  <div>
-                    <span>雨刮连动杆</span>
+                  <div @click="addone(index,1)" v-for="(item,index) in total1" :key='index'>
+                    <span>{{item.name}}</span>
+                    <b v-show="item.isAdd"></b>
                   </div>
                 </div>
               </div>
               <div class="_right3">
                 <p>已添加零部件</p>
                 <div>
-                  <div>
-                    <span>前保险杠</span>
-                  </div>
-                  <div>
-                    <span>前保险杠</span>
-                  </div>
-                  <div>
-                    <span>前保险杠</span>
-                  </div>
-                  <div>
-                    <span>前保险杠</span>
+                  <div @click="deleteone(index,1)" v-for="(item,index) in yitianjia1" :key='index'>
+                    <span>{{item.name}}</span>
                   </div>
                 </div>
               </div>
               <div class="_right4">
                 <el-button>刷新</el-button>
-                <el-button>确认添加</el-button>
+                <el-button @click="activeidx=1">确认添加</el-button>
               </div>
             </div>
           </div>
@@ -537,7 +456,7 @@
                 </div>
               </div>
               <div class="bottom">
-                <el-button class="gray">确认添加</el-button>
+                <el-button class="gray" @click="activeidx=1">确认添加</el-button>
               </div>
             </div>
           </div>
@@ -561,48 +480,26 @@
               </div>
               <div class="middle">
                 <div class="_left">
-                  <p>已添加配件（0）</p>
+                  <p>已添加配件（{{yitianjia2.length}}）</p>
+                  <div v-for="(item,index) in yitianjia2" :key='index' class="_left1" >
+                    <span>{{item.name}}</span>
+                    <i @click="deleteone(index,2)">×</i>
+                  </div>
                 </div>
                 <div class="_right">
                   <p>配件搜索结果</p>
-                  <div class="_right1">
-                    <span>左大灯</span>
-                  </div>
-                  <div class="_right1">
-                    <span>右大灯</span>
-                  </div>
-                  <div class="_right1">
-                    <span>左前大灯</span>
-                  </div>
-                  <div class="_right1">
-                    <span>右前大灯</span>
-                  </div>
-                  <div class="_right1">
-                    <span>大灯</span>
-                  </div>
-                  <div class="_right1">
-                    <span>左大灯</span>
-                  </div>
-                  <div class="_right1">
-                    <span>右大灯</span>
-                  </div>
-                  <div class="_right1">
-                    <span>左前大灯</span>
-                  </div>
-                  <div class="_right1">
-                    <span>右前大灯</span>
-                  </div>
-                  <div class="_right1">
-                    <span>大灯</span>
+                  <div @click="addone(index,2)" v-for="(item,index) in total2" :key='index' class="_right1">
+                    <span>{{item.name}}</span>
+                    <b v-show="item.isAdd"></b>
                   </div>
                 </div>
               </div>
               <div class="bottom">
-                <el-button class="gray">确认添加</el-button>
+                <el-button @click="activeidx=1">确认添加</el-button>
               </div>
             </div>
           </div>
-          <div :class="['left4_2', 'left4_5',activeidx===5?'active':'']">
+          <div :class="['left4_2', 'left4_5',activeidx===1?'active':'']">
             <div class="_left">
               <p>维修清单</p>
               <div>
@@ -620,7 +517,7 @@
                 <span>品牌：</span>
                 <el-select v-model="select1">
                   <el-option
-                    v-for="item in options"
+                    v-for="item in options1"
                     :key="item.value"
                     :label="item.label"
                     :value="item.value"
@@ -634,34 +531,12 @@
               <div>
                 <p>根据搜索添加零部件</p>
                 <el-input v-model="input2" placeholder="输入配件名称"></el-input>
-                <el-button>搜索</el-button>
+                <el-button @click="search">搜索</el-button>
               </div>
               <div>
                 <p>根据类型选择添加零配件</p>
                 <div>
-                  <div>
-                    <img src alt />
-                    <span>外观件</span>
-                  </div>
-                  <div>
-                    <img src alt />
-                    <span>外观件</span>
-                  </div>
-                  <div>
-                    <img src alt />
-                    <span>外观件</span>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <img src alt />
-                    <span>外观件</span>
-                  </div>
-                  <div>
-                    <img src alt />
-                    <span>外观件</span>
-                  </div>
-                  <div>
+                  <div v-for="(item,idx) in [1,2,3]" :key='idx' @click="activeidx=2">
                     <img src alt />
                     <span>外观件</span>
                   </div>
@@ -864,9 +739,36 @@
         },
         activeidx:null,
         options: [
-          { label: "大众", value: 1 },
-          { label: "奥迪", value: 2 },
+          { label: "1", value: 1 },
+          { label: "2", value: 2 },
+          { label: "3", value: 2 },
+          { label: "4", value: 2 },
         ],
+        options1:[
+          { label: "大众", value: 1 },
+          { label: "宝马", value: 2 },
+        ],
+        yitianjia:[],
+        yitianjia1:[],
+        yitianjia2:[],
+        total:[
+          {name:'左大灯',isAdd:false},
+          {name:'右大灯',isAdd:false},
+          {name:'左前大灯',isAdd:false},
+          {name:'右前大灯',isAdd:false},
+          {name:'大灯',isAdd:false}],
+        total1:[
+          {name:'前保险杠1',isAdd:false},
+          {name:'前保险杠2',isAdd:false},
+          {name:'前保险杠3',isAdd:false},
+          {name:'前保险杠4',isAdd:false},
+          {name:'前保险杠5',isAdd:false}],
+        total2:[
+          {name:'前保险杠1',isAdd:false},
+          {name:'前保险杠2',isAdd:false},
+          {name:'前保险杠3',isAdd:false},
+          {name:'前保险杠4',isAdd:false},
+          {name:'前保险杠5',isAdd:false}],
         addgj: false,
         genjin: false,
         aaa: true,
@@ -906,10 +808,26 @@
     },
     methods: {
       changeidx(){
-        this.activeidx++
-        if(this.activeidx>=6){
-          this.activeidx=1
+        this.activeidx=1
+      },
+      deleteone(idx,type){
+        this['total'+type].map(item=>{
+          if(item.name===this['yitianjia'+type][idx].name){
+            item.isAdd=false
+          }
+        })
+        this['yitianjia'+type].splice(idx,1)
+      },
+      addone(idx,type){
+        if(!this['yitianjia'+type].includes(this['total'+type][idx])){
+          this['yitianjia'+type].push(this['total'+type][idx])
+          this['total'+type][idx].isAdd=true
         }
+      },
+      search(){
+        if(!this.input2) return
+        this.activeidx=4
+        this.input1=this.input2
       },
       changeIsEdit() {
         if(!this.super1){
@@ -1007,15 +925,8 @@
         this.super1=!this.super1
         if(!this.super1){
           this.activeidx=null
+          this.isEdit=true
         }
-      },
-      hoverin(e){
-        if(e.red&&e.value5==='2151252141231'){
-          this.showTip=true
-        }
-      },
-      hoverout(){
-        this.showTip=false
       }
     },
   };
@@ -1304,6 +1215,11 @@
               left: 37.188vw;
               bottom: 5.573vw;
               z-index: 999;
+              &:hover{
+                .tip{
+                  opacity: 1;
+                }
+              }
               .tip {
                 padding: 0.052vw 0.156vw;
                 line-height: 0.625vw;
@@ -1316,6 +1232,7 @@
                 left: 0vw;
                 background: #ededed;
                 border-radius: 0.104vw;
+                opacity: 0;
                 &::before {
                   content: "";
                   position: absolute;
@@ -1503,6 +1420,7 @@
                   margin-bottom: 0.521vw;
                   margin-right: 1.042vw;
                   overflow: hidden;
+                  cursor: pointer;
                   i {
                     position: absolute;
                     width: 0.781vw;
@@ -1653,6 +1571,7 @@
                     position: relative;
                     margin-bottom: 0.521vw;
                     overflow: hidden;
+                    cursor: pointer;
                     b {
                       width: 0;
                       height: 0;
