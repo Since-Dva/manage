@@ -416,11 +416,11 @@
         //编辑/保存
         this.isEdit = !this.isEdit;
         if (!this.isEdit) {
-          this.blueType = null;
           this.show = false;
         }
       },
       showBlue(type) {
+        if(!this.isEdit) return
         //点击弹窗分组交互色
         if (type !== this.blueType) {
           this.blueType = type;
@@ -436,6 +436,7 @@
         } else {
           this.show = false;
         }
+        this.arr=[{radio:'',radio1:'',checkList:[]}]
       },
     },
   };

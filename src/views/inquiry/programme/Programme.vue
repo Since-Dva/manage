@@ -552,6 +552,7 @@
         }else{
           this.show=false
         }
+        this.arr=[{radio:'',radio1:'',checkList:[]}]
       },
     },
   };
